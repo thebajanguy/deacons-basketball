@@ -1,0 +1,41 @@
+{
+  "trailingSlash": "auto",
+  "routes": [
+    { "route": "/student-athletes" },
+    { "route": "/sports-academics-prep" },
+    { "route": "/approach" },
+    { "route": "/academic-tutoring" },
+    { "route": "/ncaa-compliance" },
+    { "route": "/sports-development" },
+    { "route": "/recruitment-exposure" },
+    { "route": "/after-school" },
+    { "route": "/basketball-gold-camps" },
+    { "route": "/soccer-gold-camps" },
+    { "route": "/register" },
+    { "route": "/consultation" },
+    { "route": "/contact" },
+    { "route": "/api/*", "allowedRoles": ["anonymous"] }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/images/*",
+      "/api/*",
+      "/sitemap.xml",
+      "/robots.txt",
+      "/*.{css,js,png,jpg,jpeg,gif,svg,webp,ico,woff,woff2,ttf,map}"
+    ]
+  },
+  "globalHeaders": {
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "mimeTypes": {
+    ".json": "text/json"
+  },
+  "platform": {
+    "apiRuntime": "dotnet-isolated:8.0"
+  }
+}

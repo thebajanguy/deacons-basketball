@@ -1,0 +1,301 @@
+<div class="wrapper">
+
+    <!-- app-base-hero.component -->
+    <app-base-hero
+      [title]="'Improve'"
+      [subtitle]="'Skill. <strong>Strength.</strong> Speed.'"
+      [description]="description"
+      [backgroundUrl]="'assets/img/pages/what-we-do/vsaprep-what-we-do-hero.png'"
+      [headerSize]="'none'"
+      [breadcrumb]="[
+        { label: 'Home', link: ['/'+urlPath+'/student-athletes'] },
+        { label: 'Our Approach' }
+      ]"
+      [ctas]="[
+        { label: 'Start Your Journey', routerLink: ['/'+urlPath+'/consultation'] , variant:'primary' },
+        { label: 'Explore Academic Programs', routerLink: ['/'+urlPath+'/academic-tutoring'], variant:'outline' }
+      ]">
+    </app-base-hero>
+  
+    <section class="features-1 section section-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto text-center">
+            <h2 class="text-center">
+                Full-Cycle Academics &amp; Sports Management
+            </h2>
+  
+            <h3 >We <i class="fa fa-heart heart" aria-hidden="true"></i>&nbsp; what we do — and we know you do too.</h3>
+  <br>
+            <h5>
+            Varsity Sports Academy Prep's mission is to inspire and equip student-athletes to reach their highest potential in life and sport — balancing proven training techniques with real-life sports demands to “go big” and cross any finish line.
+              We offer camps and clinics, team and one-on-one sessions, strength and performance training, sport-specific development, wellness and nutrition guidance, and tailored programs to fit student-athletes' needs.
+              Not sure where to start?
+              <a [routerLink]="['/'+urlPath+'/contact']" aria-label="Contact Varsity Sports Academy Prep.">Contact us</a>
+              and one of our expert <strong>coaches</strong> will recommend the best path for your goals.
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports Development Banner Option A -->
+    <section class="section cta-banner cta-exposure parallax-hero" aria-labelledby="sports-development-title-a">
+    <!-- decorative background image with accessible label -->
+    <div class="cta-bg sports-option-a" role="img"
+        aria-label="Coach and athlete shaking hands on a track beside a laptop playing a highlight reel.">
+    </div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="ml-auto mr-auto align-left">
+                <div class="container cta-content">
+
+                    <h2 id="sports-development-title-a" class="text-white">
+                        The Secret to Becoming Elite
+                    </h2>
+                    <h4 class="title text-color-main t-2">Our motto: <strong>“Labor Durus!”</strong> — Latin for <strong>“Hard Work!”</strong></h4>
+
+                    <h5 class="cta-subhead align-left">
+                        Build strength, speed, agility, and game IQ with our multi-sport training program multi-sport that translates to real results.
+                    </h5>
+
+                    <ul class="icon-list" role="list" aria-label="Varsity Sports Academy Training Highlights">
+
+                        <li class="d-flex">
+                        <span class="icon" aria-hidden="true"></span>
+                        <strong>Strength, Speed &amp; Agility Training&nbsp;&nbsp;&nbsp;</strong>  — science-based conditioning programs that build explosive power and athletic endurance.
+                        </li>
+                    
+                        <li class="d-flex">
+                        <span class="icon" aria-hidden="true"></span>
+                        <strong>Multi-Sport Skill Development &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  
+                        — cross-training designed to improve coordination, balance, and overall athletic resilience.
+                        </li>
+                    
+                        <li class="d-flex">
+                        <span class="icon" aria-hidden="true"></span>
+                        <strong>Injury-Smart Youth Training &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  
+                        — safe, age-appropriate workouts focused on long-term development and proper movement mechanics.
+                        </li>
+                    
+                        <li class="d-flex">
+                        <span class="icon" aria-hidden="true"></span>
+                        <strong>AI &amp; Machine Learning Analytics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  
+                        — data-driven performance insights that help young athletes measure progress and optimize results.
+                        </li>
+                    
+                    </ul>
+
+                    <a class="btn btn-primary btn-md btn-magnify"
+                    [routerLink]="['/'+urlPath+'/contact']"
+                    aria-label="Start my training plan with Varsity Sports Academy Prep">
+                    Start My Training Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+  
+    <section id="true-potential" class="section section-image-overlay" style="padding:0%;">
+      <div class="container-fluid">
+        <div class="row" >
+
+          <div class="col-md-6 ml-auto mr-auto div-color-neutral p-5 p-lg-6">
+ 
+            <div class="row g-4 mt-2 align-center" style="margin-top: 0px;">
+
+                <div class="col-md-12 ml-auto mr-auto div-color-neutral " style="padding: 10px;">
+                    <header class="mb-4" style="padding-top:0%;margin-top: -20px;">
+                      <h2 class="align-left mt-0" style="padding-top:0%; margin-top: -20px;">The only…</h2>
+                      <h3 class="title align-left" style="padding-top:0%;margin-top: 10px;">Academics and Sports development partner you need</h3>
+                    </header>
+                  </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="info text-center">
+                      <div class="icon">
+                        <img src="assets/img/icons/icon-profile.png" width="100" height="100"
+                             alt="student-athlete profilev to self-manage progress, track milestones, and share achievements" loading="lazy" />
+                      </div>
+                      <h3 class="info-title text-color-primary">Free Profile</h3>
+                      <p class="description">
+                        Every Varsity Sports Academy athlete receives a free student-athlete profile
+                        to self-manage progress, track milestones, and share achievements.
+                      </p>
+                    </div>
+                </div>
+  
+                <div class="col-md-6 col-sm-6">
+                    <div class="info">
+                    <div class="icon">
+                        <img src="assets/img/icons/icon-skills.png" width="100" height="100" alt="Get stronger. Get faster. Get smarter." loading="lazy" />
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title text-color-primary">True Potential</h3>
+                        <p class="description">
+                        Life is <strong>too</strong> short to skip <strong>Labor Durus</strong>. Get stronger. Get faster. Get smarter.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+  
+                <div class="col-md-6 col-sm-6">
+                    <div class="info">
+                    <div class="icon">
+                        <img src="assets/img/icons/icon-analytics.png" width="100" height="100" alt="Varsity Sports Academy coach guiding a student-athlete through performance analytics" loading="lazy" />
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title text-color-primary">Analytics</h3>
+                        <p class="description">
+                        Actionable insights give our athletes a competitive edge and a clear roadmap to their goals.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+  
+                <div class="col-md-6 col-sm-6">
+                    <div class="info">
+                    <div class="icon">
+                        <img src="assets/img/icons/icon-ml.png" width="100" height="100" alt="Student athlete training with AI-powered sports tracking system" loading="lazy" />
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title text-color-primary">Machine Learning</h3>
+                        <p class="description">
+                        Streamlines effort and frees up more time to translate data into powerful performance gains.
+                        </p>
+                    </div>
+                    </div>
+               </div>
+  
+            </div><!-- /row -->
+            
+          </div>
+  
+          <div class="col-md-6 ml-auto mr-auto div-color-neutral p-5 p-lg-6" 
+          style="background-image:url('assets/img/pages/approach/student-athlete-academics-sports-potential-training.png')">
+            <!-- Decorative half-image background handled by parent section -->
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section cta-banner cta-exposure parallax-hero" aria-labelledby="sports-development-title-a">
+        <!-- decorative background image with accessible label -->
+        <div class="cta-bg sports-option-a" role="img"
+            aria-label="Coach and athlete shaking hands on a track beside a laptop playing a highlight reel.">
+        </div>
+        <div class="cta-overlay"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="ml-auto mr-auto text-center">
+                    <div class="container cta-content align-center">
+    
+                        <h3 id="sports-development-title-a" class="text-white align-center">
+                            How to reach an Elite level: with every session you’ll improve your game, learn new skills, and build confidence.
+                        </h3>             
+                
+                        <a class="btn btn-primary btn-md btn-magnify"
+                        [routerLink]="['/'+urlPath+'/contact']"
+                        aria-label="Start my training plan with Varsity Sports Academy Prep">
+                        Start My Training Plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section class="section section-white">
+      <div class="container">
+        <div class="row">
+          <div class="ml-auto mr-auto description-section text-center">
+            <h2 class="text-center pb-3">The VSA Difference</h2>
+            <h5 class="align-center">
+                Varsity Sports Academy is a results-driven youth program built on five pillars of success:
+                <em>Game IQ</em>, <em>Strength &amp; Conditioning</em>, <em>Attention to Detail</em>, <em>Footwork</em>, and <em>Progressive Skill Advancement</em>.
+                These pillars ensure every athlete develops the confidence, skill, and conditioning to excel on any field or court.
+            </h5>
+          </div>
+        </div>
+  
+        <div class="row mt-4">
+          <div class="col-md-6 ml-auto pb-3">
+            <div class="card no-transition" data-background="color" data-color="slategray">
+              <div class="card-body text-left">
+                <img src="assets/img/pages/sections/strength-training_580x360.png"
+                     alt="Strength training for adolescents" width="535" height="331" loading="lazy" />
+                <h4 class="text-color-primary pt-3 pb-2">Year-round Development</h4>
+                <p class="text-left description">
+                  We’re an independent, year-round program dedicated to athlete development for boys 
+                  and girls ages 11-18 across multiple sports.
+                </p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-6 ml-auto pb-3">
+            <div class="card no-shadow no-transition" data-background="color" data-color="light-gray">
+              <div class="card-body text-left">
+                <img src="assets/img/pages/sections/holistic-approach_580x360.png"
+                     alt="Holistic training approach" width="535" height="331" loading="lazy" />
+                <h4 class="text-color-primary pt-3 pb-2">Holistic Approach</h4>
+                <p class="text-left description">
+                  We develop the mental, physical, and technical sides of performance. 
+                  Every VSA Prep student-athlete leaves with greater competitive fire and confident aggression.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+    <section class="social-cta text-center py-4">
+        <h3>Follow the Journey</h3>
+        <p>See how our student-athletes are turning hard work into highlights. Join the VSA Prep community.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/varsitysportsacademy" target="_blank" aria-label="Varsity Sports Academy on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/varsitysportsacademy" target="_blank" aria-label="Varsity Sports Academy on Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@varsitysportsacademy" target="_blank" aria-label="Varsity Sports Academy on YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+    -->
+    <!-- Newsletter / Contact -->
+    <app-newsletter-form></app-newsletter-form>
+  </div>
+  
+  <!-- JSON-LD breadcrumbs (label + URL corrected) -->
+  <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.varsitysportsacademy.com/en"},
+          {"@type":"ListItem","position":2,"name":"Student-Athletes","item":"https://www.varsitysportsacademy.com/en/academics-and-sports/student-athletes"},
+          {"@type":"ListItem","position":3,"name":"Our Approach","item":"https://www.varsitysportsacademy.com/en/academics-and-sports/approach"}
+        ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsOrganization",
+      "name": "Varsity Sports Academy Prep",
+      "alternateName": "VSA Prep",
+      "url": "https://www.varsitysportsacademy.com",
+      "logo": "https://www.varsitysportsacademy.com/assets/img/logos/internal/logo-light.png",
+      "sameAs": [
+        "https://www.instagram.com/varsitysportsacademy",
+        "https://www.facebook.com/varsitysportsacademy",
+        "https://www.youtube.com/@varsitysportsacademy"
+      ],
+      "description": "Varsity Sports Academy Prep empowers student-athletes through academic tutoring, athletic development, and data-driven performance analytics.",
+      "founder": "Varsity Sports Academy Barbados",
+      "sport": ["Basketball", "Soccer", "Track & Field", "Volleyball"]
+    }
+    </script>
+    
+  

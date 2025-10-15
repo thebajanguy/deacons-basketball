@@ -1,0 +1,411 @@
+<!-- hero-page.component.html -->
+<app-base-hero id="ncaa-compliance"
+  [title]="'NCAA Compliance &amp;'"
+  [subtitle]="'Eligibility Support'"
+  [description]="'Navigating the NCAA eligibility process can feel overwhelming for student-athletes and families. 
+  Varsity Sports Academy Prep provides step-by-step guidance to ensure every academic, athletic, and 
+  documentation requirement is met—so athletes can focus on excelling both on the field and in the classroom.
+  We map your courses, track GPA vs. test score sliding scale,
+  safeguard amateur status, and manage documents and timelines—so you can focus on performance.'"
+  
+  [backgroundUrl]="'assets/img/pages/what-we-do/vsaprep-what-we-do-hero.png'"
+  [breadcrumbSEO]="'NCAA Compliance & Eligibility Support - Varsity Sports Academy Prep'"
+  [breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/student-athletes'] },
+    { label: 'Services' }
+  ]"
+  [ctas]="[
+    { label: 'Request Consultation', routerLink: ['/'+urlPath+'/consultation'] , variant:'primary' },
+    { label: 'Contact Us', routerLink: ['/'+urlPath+'/contact'], variant:'outline' }
+  ]">
+</app-base-hero>
+
+<section class="section section-white" aria-labelledby="compliance-title" style="margin-top: -50px;">
+  <div class="container">
+    <!-- On-page nav -->
+    <aside class="toc" aria-label="On this page">
+      <a routerLink="." fragment="core-course-mapping" >Core Course Mapping </a>
+      <a routerLink="." fragment="gpa-sliding-scale" >GPA &amp; Sliding Scale</a>
+      <a routerLink="." fragment="amateurism-transfers" >Amateurism &amp; Transfers</a>
+      <a routerLink="." fragment="official-docs-timelines" >Official Docs &amp; Timelines</a>
+      <a routerLink="." fragment="common-mistakes" >Common Mistakes to Avoid</a>
+    </aside>
+  </div>
+</section> 
+
+<!-- 16-Core Course Mapping -->
+<section id="core-course-mapping" class="section section-white toc-lift-top-section" aria-labelledby="core-course-mapping-heading" > <!-- style="padding-top: 10px;margin-top: -50px;"-->
+  <div class="container">
+      <div class="row align-items-left">
+
+          <!-- Copy -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <header>
+                <h2 id="core-course-mapping-heading" class="align-left">16-Core Course Mapping</h2>
+                <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                  The NCAA requires completion of <strong>16 core courses</strong> for Division I and II eligibility. We align
+                  CSEC/CAPE pathways to NCAA standards and build a term-by-term/semester-by-semester plan to stay compliant.
+                </h3>
+            </header>
+
+            <ul class="icon-list mt-4 description align-left" role="list" itemprop="description">
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>English (4)</strong> — literature, composition, language.</span>
+              </li>
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>Math (3)</strong> — Algebra I or higher (e.g., Algebra II, Geometry).</span>
+              </li>
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>Science (2)</strong> — natural/physical sciences; include <em>1 lab</em> if offered.</span>
+              </li>
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>Additional English/Math/Science (1)</strong> — reinforces core academics.</span>
+              </li>
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>Social Science (2)</strong> — history, government, geography, economics.</span>
+              </li>
+              <li class="d-flex mb-3">
+                <span class="icon" aria-hidden="true"></span>
+                <span><strong>Additional Core (4)</strong> — foreign language, philosophy, or extra from above.</span>
+              </li>
+            </ul>
+
+            <div class="callouts">
+              <div class="callout">
+                <h3 class="h5">Caribbean Mapping</h3>
+                <p>We translate <strong>CSEC</strong> and <strong>CAPE</strong> subjects to NCAA core categories and flag any gaps early.</p>
+              </div>
+              <div class="callout">
+                <h3 class="h5">Progression Plan</h3>
+                <p>Term-by-term course plans prevent last-minute eligibility surprises.</p>
+              </div>
+            </div>
+
+            <!-- Cross-links -->
+            <div class="callouts">
+              <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Recruitment &amp; Exposure</a>
+              <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+            </div>
+
+          </div>
+
+          <!-- Visual -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+              <img src="assets/img/pages/what-we-do/vsaprep-what-we-do-16-core-course-mappings.png"
+                    alt="Student-athletes receiving tutoring in core subjects with worksheets and laptops"
+                    loading="lazy" decoding="async" class="img-fluid rounded shadow" width="1200" height="675">
+                    <!-- Optional caption for SEO -->
+                    <!-- <figcaption class="visually-hidden">Academic support and NCAA compliance guidance at VSA Prep.</figcaption> -->
+            </figure>
+
+          </div>
+
+      </div>
+  </div>
+</section>
+
+<!-- GPA & Sliding Scale -->
+ <section id="gpa-sliding-scale" class="section section-white" aria-labelledby="gpa-sliding-scale-heading">
+    <div class="container">
+        <div class="row align-items-left">
+
+          <!-- Visual -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+              <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+                <img src="assets/img/pages/what-we-do/vsaprep-what-we-do-gpa-sliding.png"
+                     alt="Student-athletes receiving tutoring in core subjects with worksheets and laptops"
+                     loading="lazy" decoding="async" class="img-fluid rounded shadow" width="1200" height="675">
+                     <!-- Optional caption for SEO -->
+                     <!-- <figcaption class="visually-hidden">Academic support and NCAA compliance guidance at VSA Prep.</figcaption> -->
+              </figure>
+          </div>
+          
+          <!-- Copy -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+                <header>
+                    <h2 id="gpa-sliding-scale-heading" class="align-left">GPA &amp; Sliding Scale</h2>
+                    <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                      Academic performance matters.
+                      The NCAA sliding scale balances your <strong>core GPA</strong> with SAT/ACT scores. Higher GPA lowers the
+          required test score—and vice versa. We compute your <em>NCAA core GPA</em> (not always the same as your school GPA),
+          project scenarios, and build a test-prep plan.
+                    </h3>
+                </header>
+
+                <ul class="icon-list mt-4 description align-left" role="list"  itemprop="description">
+                  <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Core-GPA audit and projections</li>
+                  <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>SAT/ACT target setting by GPA band</li>
+                  <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Prep schedule aligned to competition calendar</li>
+                </ul>
+
+ 
+                <nav class="sr-only" aria-label="Breadcrumb">
+                  <ol>
+                    <li><a routerLink="/">Home</a></li>
+                    <li aria-current="page">NCAA Compliance &amp; Eligibility Support</li>
+                  </ol>
+                </nav>
+
+                <br>
+
+                <div class="callouts">
+                  <div class="callout">
+                    <h3 class="h5">Caribbean Mapping</h3>
+                    <p>We translate regular <strong>TERM</strong> grades, and <strong>CSEC</strong> and <strong>CAPE</strong> subjects to NCAA core GPA and flag any gaps early.</p>
+                  </div>
+                  <div class="callout">
+                    <h3 class="h5">Progression Plan</h3>
+                    <p>Term-by-term GPA tracking plans prevent last-minute eligibility surprises.</p>
+                  </div>
+                </div>
+    
+                <br>
+
+                <!-- Cross-links -->
+                <div class="callouts">
+
+                  <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Recruitment &amp; Exposure</a>
+                  <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+                </div>
+
+   
+
+          </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Amateurism & Transfers -->
+<section id="amateurism-transfers" class="section section-white" aria-labelledby="amateurism-transfers-heading" > <!-- style="padding-top: 10px;margin-top: -50px;"-->
+  <div class="container">
+      <div class="row align-items-left">
+
+          <!-- Copy -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <header>
+                <h2 id="amateurism-transfers-heading" class="align-left">Amateurism & Transfers</h2>
+                <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                  We provide guidance on NCAA amateurism rules and transfer policies to ensure compliance and smooth transitions.
+                  Keep eligibility intact by protecting amateur status: no payments beyond actual expenses, no agents/benefits,
+          and careful participation choices. We also guide school-to-school and international transfers to avoid lost seasons.
+                </h3>
+            </header>
+
+            <ul class="icon-list mt-4 description align-left" role="list" itemprop="description">
+              <li class="d-flex mb-2"><span class="icon" aria-hidden="true"></span><span>Amateur status reviews</span></li>
+              <li class="d-flex mb-2"><span class="icon" aria-hidden="true"></span><span>League/competition checks</span></li>
+              <li class="d-flex mb-2"><span class="icon" aria-hidden="true"></span><span>Transfer rule guidance</span></li>
+            </ul>
+
+
+            <div class="callouts">
+              <div class="callout">
+                <h3 class="h5">Ensure Compliance</h3>
+                <p>The NCAA has strict rules to preserve amateurism. We help you understand and comply with these regulations to avoid jeopardizing your eligibility.</p>
+              </div>
+              <div class="callout">
+                <h3 class="h5">Transfer Rules</h3>
+                <p>We advise on transfer rules—whether moving between schools locally, internationally, or within the U.S. This ensures athletes don’t lose a year of eligibility</p>
+              </div>
+            </div>
+
+            <!-- Cross-links -->
+            <div class="callouts">
+              <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Recruitment &amp; Exposure</a>
+              <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+            </div>
+
+          </div>
+
+          <!-- Visual -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+              <img src="assets/img/pages/what-we-do/vsaprep-what-we-do-amateurism-transfers.png"
+                    alt="Student-athletes receiving tutoring in core subjects with worksheets and laptops"
+                    loading="lazy" decoding="async" class="img-fluid rounded shadow" width="1200" height="675">
+                    <!-- Optional caption for SEO -->
+                    <!-- <figcaption class="visually-hidden">Academic support and NCAA compliance guidance at VSA Prep.</figcaption> -->
+            </figure>
+
+          </div>
+
+      </div>
+  </div>
+</section>
+
+<!-- Official Docs & Timelines -->
+<section id="official-docs-timelines" class="section section-white" aria-labelledby="official-docs-timelines-heading">
+   <div class="container">
+       <div class="row align-items-left">
+
+         <!-- Visual -->
+         <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+             <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+               <img src="assets/img/pages/what-we-do/vsaprep-what-we-do-official-docs-timelines.png"
+                    alt="Student-athletes receiving tutoring in core subjects with worksheets and laptops"
+                    loading="lazy" decoding="async" class="img-fluid rounded shadow" width="1200" height="675">
+                    <!-- Optional caption for SEO -->
+                    <!-- <figcaption class="visually-hidden">Academic support and NCAA compliance guidance at VSA Prep.</figcaption> -->
+             </figure>
+         </div>
+         
+         <!-- Copy -->
+         <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+               <header>
+                   <h2 id="official-docs-timelines-heading" class="align-left">Official Docs &amp; Timelines</h2>
+                   <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                    We handle NCAA Eligibility Center registration and coordinate official transcripts, verified test scores, graduation proof,
+                    and amateurism certification—on time, every time.
+                   </h3>
+               </header>
+
+               <ul class="icon-list mt-4 description align-left" role="list"  itemprop="description">
+                <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span><strong>Register:</strong> Eligibility Center registration</li>
+                <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span><strong>Send:</strong> Official transcript coordination</li>
+                <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span><strong>Verify:</strong> Verified test score submissions</li>
+                <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span><strong>Track:</strong> Graduation and amateurism proof</li>
+                <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span><strong>Track:</strong> Deadline tracking and reminders</li>
+              </ul>
+
+
+               <nav class="sr-only" aria-label="Breadcrumb">
+                 <ol>
+                   <li><a routerLink="/">Home</a></li>
+                   <li aria-current="page">NCAA Compliance &amp; Eligibility Support</li>
+                 </ol>
+               </nav>
+
+               <br>
+
+               <div class="callouts">
+                 <div class="callout">
+                   <h3 class="h5">Caribbean Mapping</h3>
+                   <p>We translate regular <strong>TERM</strong> grades, and <strong>CSEC</strong> and <strong>CAPE</strong> subjects to NCAA core GPA and flag any gaps early.</p>
+                 </div>
+                 <div class="callout">
+                   <h3 class="h5">Progression Plan</h3>
+                   <p>Term-by-term GPA tracking plans prevent last-minute eligibility surprises.</p>
+                 </div>
+               </div>
+   
+               <br>
+
+               <!-- Cross-links -->
+               <div class="callouts">
+                <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Recruitment &amp; Exposure</a>
+                <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+               </div>
+
+  
+
+         </div>
+
+
+       </div>
+   </div>
+</section>
+
+<!-- Common Mistakes to Avoid -->
+<section id="common-mistakes" class="section section-white" aria-labelledby="common-mistakes-heading" > <!-- style="padding-top: 10px;margin-top: -50px;"-->
+  <div class="container">
+      <div class="row align-items-left">
+
+          <!-- Copy -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <header>
+                <h2 id="common-mistakes-heading" class="align-left">Common Mistakes to Avoid</h2>
+                <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                  Many talented athletes lose out on opportunities due to simple, avoidable mistakes. 
+                  These errors can cost valuable scholarship chances, delay recruitment, or even block NCAA eligibility altogether.
+                </h3>
+            </header>
+
+            <ul class="icon-list mt-4 description align-left" role="list" itemprop="description">
+              <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Insufficient core courses or wrong subject mix</li>
+              <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Waiting until senior year to check requirements</li>
+              <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Missing official submissions (transcripts/test scores)</li>
+              <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Competitions that risk amateur status</li>
+              <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Assuming international credits always count</li>
+            </ul>
+
+            <br>
+
+             <div class="callouts">
+              <div class="callout">
+                <h3 class="h5">Proactive Guidance:</h3>
+                <p>We provide proactive guidance, early planning, and constant eligibility monitoring.</p>
+              </div>
+              <div class="callout">
+                <h3 class="h5">Fully Prepared:</h3>
+                <p>Athletes stay on track and are fully prepared when coaches and recruiters come calling.</p>
+              </div>
+            </div>
+
+            <br>
+            <!-- Cross-links -->
+            <div class="callouts">
+              <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Recruitment &amp; Exposure</a>
+              <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+            </div>
+
+          </div>
+
+          <!-- Visual -->
+          <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+
+            <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+              <img src="assets/img/pages/what-we-do/vsaprep-what-we-do-common-mistakes.png"
+                    alt="Student-athletes receiving tutoring in core subjects with worksheets and laptops"
+                    loading="lazy" decoding="async" class="img-fluid rounded shadow" width="1200" height="675">
+                    <!-- Optional caption for SEO -->
+                    <!-- <figcaption class="visually-hidden">Academic support and NCAA compliance guidance at VSA Prep.</figcaption> -->
+            </figure>
+
+          </div>
+
+      </div>
+  </div>
+</section>
+
+<!-- Start Fast-Track Banner -->
+<section class="section page-header-xs div-section-seperator"
+    style="padding: 0px;padding-top: 20px;padding-bottom: 40px;">
+    <div class="filter filter-black"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ml-auto mr-auto text-center">
+                <h2 class="text-color-white">
+                  Get NCAA Compliance Help
+                </h2>
+                <h3 class="title text-color-main">
+                  Ready to secure your NCAA eligibility?
+                </h3>
+                <p class="text-color-white mt-3">
+                  Get a personalized compliance roadmap from Varsity Sports Academy Prep.
+                </p>
+
+                <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-magnify" aria-label="Explore academic programs at Varsity Sports Academy Prep">Book a Consultation</a>
+  
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Fast-Track Banner -->
+
+<!-- Newsletter & Social Plugins -->
+<app-newsletter-form></app-newsletter-form>
+<app-fixed-social-plugin></app-fixed-social-plugin>
+

@@ -1,0 +1,19 @@
+.btn[aria-disabled="true"],
+button.btn:disabled,
+a.btn.disabled,
+a.btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+  text-decoration: none;
+
+}
+
+
+/* Works for links and buttons */
+.btn:not([aria-disabled="true"]):hover,
+button.btn:not(:disabled):hover,
+a.btn[href]:hover
+a.btn[href]:hover {
+  background: red;
+}

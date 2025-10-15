@@ -1,0 +1,71 @@
+<header class="page-header page-header-xs div-color-dark parallax-hero"
+  [ngClass]="headerClasses"
+  [class.overlay-dark]="overlay==='dark'" 
+  [class.overlay-gold]="overlay==='gold'"
+  [style.--hero-max]="maxWidth"
+  [style.background-image]="backgroundUrl ? 'url('+backgroundUrl+')' : null"
+  role="banner" fetchpriority="high"
+  aria-labelledby="page-hero-title">
+
+  <!--<div class="filter filter-black" aria-hidden="true"></div>-->
+
+  <div class="content-center">
+    <div class="container">
+
+      <!-- To Do: Re-add breadcrumb navigation? and fix styles
+        <nav *ngIf="breadcrumb?.length" class="hero__crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li *ngFor="let c of breadcrumb; let last = last" [attr.aria-current]="last ? 'page' : null">
+              <a *ngIf="c.link && !last" [routerLink]="c.link">{{ c.label }}</a>
+              <span *ngIf="!c.link || last">{{ c.label }}</span>
+            </li>
+          </ol>
+        </nav>      
+      -->
+
+      <h1 id="page-hero-title" class="text-uppercase hero-title" style="padding-top: 115px;">
+        <span class="text-color-white" [innerHTML]="safeTitle"></span><br />
+        <span class="text-color-main" *ngIf="subtitle" [innerHTML]="safeSubtitle"></span>
+      </h1>
+
+      <p *ngIf="description" class="hero__description text-white mt-3" [innerHTML]="safeDescription"></p>
+
+      <nav class="sr-only" aria-label="Breadcrumb">
+        <ol>
+          <li><a [routerLink]="['/'+urlPath+'/student-athletes']">Home</a></li>
+          <li aria-current="page">{{ breadcrumbSEO }}</li>
+        </ol>
+      </nav>
+
+      <div *ngIf="ctas?.length" class="hero__ctas" role="group" aria-label="Primary calls to action">
+        <ng-container *ngFor="let btn of ctas">
+          <a *ngIf="btn.href"
+            class="btn" 
+            [class.btn-outline]="btn.variant==='outline'" 
+            [class.btn-ghost]="btn.variant==='ghost'"
+            [attr.href]="btn.href" 
+            [attr.target]="btn.target || '_self'" 
+            [attr.rel]="btn.rel"
+            [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}
+          </a>
+             &nbsp; &nbsp;
+          <a *ngIf="btn.routerLink && !btn.href"
+            class="btn" 
+            [class.btn-outline]="btn.variant==='outline'" 
+            [class.btn-ghost]="btn.variant==='ghost'"
+            [routerLink]="btn.routerLink" 
+            [fragment]="btn.fragment"
+            [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}
+          </a>
+        </ng-container>
+      </div>
+
+      <div class="mt-3">
+        <app-social-plugin></app-social-plugin>
+      </div>
+    </div>
+  </div>
+</header>
+
+<app-fixed-social-plugin></app-fixed-social-plugin>
+

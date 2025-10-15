@@ -1,0 +1,82 @@
+$white-color:               #ffffff !default;
+$main-color:                #ffd212 !default;
+$nav-color:                 #0a2144 !default;
+$dark-color:                #0a2144 !default;
+$light-gray:                #ecf0f1 !default;
+$warning-color: #FFB236 !default;
+$medium-gray:              #f4f4f4 !default;
+$dark-gray:                #333333 !default;
+
+
+$link-disabled-color:       #666666 !default;
+$link-hover-color:          $main-color !default;
+$link-active-color:         $main-color !default;
+$link-focus-color:          $main-color !default;
+$link-default-color:        $white-color !default;
+
+$font-size-medium: 16px !default;
+
+
+/* Footer Transformation Styles */
+.footer-dark { background-color: $nav-color; }
+.footer-light { background-color: $light-gray; }
+  .footer .credits,
+  .footer-nav { line-height: 85px; }
+  .footer .btn { margin-bottom: 0;  }
+
+  /* Footer headings */
+  .footer .footer-link-title,
+  .footer .footer-heading { color: $main-color !important; /* yellow */ font-weight: 400;}
+  .footer-description {
+    color: #ccc;              /* or your $light-gray variable */
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+    padding: 0 5px;
+    margin: 0;                /* remove default <p> margins */
+    text-indent: 0;           /* prevent first-line indentation */
+    display: block;           /* ensure it’s not inheriting inline styles */
+    clear: both;              /* clears any floated elements before it */
+  }
+    
+
+  /* Footer links */
+  .footer .links a { color: #ffffff !important; /* white */ text-decoration: none; transition: color 0.3s ease;}
+  .footer .links a:hover,
+  .footer .links a:focus { color: #FFD700 !important; /* yellow on hover */ text-decoration: underline;  }
+  .footer .link-active { border-bottom: 1px solid $link-active-color !important; color: $link-active-color !important;}
+
+  .footer-brand{
+    background-color: transparent;
+    img {width: 180px;}
+
+    float: left;
+    font-size: 0.875rem;
+    line-height: 44px;
+  }
+
+  .copyright-pull-up{
+    display: inline-block;
+    float: none;
+    margin-top: -2em;
+  }
+
+  .black-lives-matter,
+  .btn-cta {
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: $medium-gray;
+    text-align: left;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 15px;
+    color: $dark-gray;
+    font-size: $font-size-medium;
+
+    a {
+        display: block;
+        color: $warning-color;
+        font-size: inherit;
+        font-weight: 500;
+      }
+}

@@ -1,0 +1,429 @@
+<div class="wrapper">
+  <!-- hero-page.component.html -->
+  <app-base-hero
+  [title]="'Youth Sports &'"
+  [subtitle]="'Academic Training'"
+  [description]="'At <strong>Varsity Sports Academy Prep</strong>, we prepare student-athletes to excel
+  both in the classroom and on the field. Through our unique blend of
+  <strong>academic tutoring, elite sports training, and NCAA compliance guidance</strong>,
+  we help youth unlock their full potential and pursue opportunities worldwide.
+  <br /><br />
+  Rooted in discipline, teamwork, and our motto
+  <strong>Labor Durus</strong> (<em>“hard work”</em>), we focus on developing
+  not just athletes, but well-rounded leaders.'"
+  [backgroundUrl]="'assets/img/pages/who-we-are/vsaprep-who-we-are-hero-bg.png'"
+  [headerSize]="'none'"
+  [breadcrumb]="[
+      { label: 'Home', link: ['/'+urlPath+'/student-athletes'] },
+      { label: 'Our Approach' }
+  ]"
+  [ctas]="[
+      { label: 'Start Your Journey', routerLink: ['/'+urlPath+'/consultation'] , variant:'primary', ariaLabel:'Start your journey with Varsity Sports Academy Prep' },
+      { label: 'Explore Academic Programs', routerLink: ['/'+urlPath+'/academic-tutoring'], variant:'primary', ariaLabel:'Explore academic programs with Varsity Sports Academy Prep' },
+      { label: 'Explore NCAA Compliance', routerLink: ['/'+urlPath+'/ncaa-compliance'], variant:'outline', ariaLabel:'Explore NCAA compliance with Varsity Sports Academy Prep' }
+      ]">
+  </app-base-hero>
+
+    <!-- Start: Inspired by Our Values -->
+    <section id="inspired-by-our-values" class="section section-white" aria-labelledby="values-heading">
+        <div class="filter filter-black"></div>
+        <div class="container">
+
+            <!-- Headings -->
+            <div class="row">
+                <div class="ml-auto mr-auto text-center">
+                    <h2 id="values-heading" class="h2 text-uppercase text-color-primary">Inspired by Our Values</h2>
+                    <h3 class="h3 mt-2">Developing Student-Athletes through Integrity, Innovation, and Coaching
+                        Excellence</h3>
+
+                    <!-- Section summary -->
+                    <p class="description mt-3">
+                        At <strong>Varsity Sports Academy Prep</strong>, we help <strong>student-athletes</strong> excel
+                        in the classroom and in sport.
+                        Our values—<em>Integrity</em>, <em>Innovation</em>, and <em>Coaching & Tutoring
+                            Excellence</em>—guide a holistic program that blends
+                        <strong>academic tutoring, elite sports training, and NCAA compliance guidance</strong>.
+                        Book a <a [routerLink]="['/'+urlPath+'/consultation']" class="text-color-primary"
+                            title="Schedule a free consultation with VSA Prep">free consultation</a>
+                        to build your personalized game plan and start your <em>Labor Durus</em> (“hard work”) journey.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Values Grid -->
+            <div class="row mt-4" role="list" aria-label="VSA Prep core values">
+
+                <!-- Integrity -->
+                <div class="col-md-3 ml-auto" role="listitem">
+                    <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                        itemtype="https://schema.org/Thing">
+                        <figure class="card-body text-left">
+                            <img src="assets/img/pages/who-we-are/vsaprep-values-integrity.png"
+                                alt="Youth soccer training session focusing on ball control, footwork, and team play"
+                                loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                                itemprop="image" />
+                            <figcaption class="sr-only">Integrity in training and academics</figcaption>
+                            <h3 class="card-category section-title-md text-primary" itemprop="name">Integrity</h3>
+                            <p class="card-description-dark" itemprop="description">
+                                We do the right thing—consistently. Transparent goals, honest feedback, and standards
+                                that build trust on and off the field.
+                            </p>
+                            <div class="card-footer">
+                                <a [routerLink]="['/'+urlPath+'/sports-development']" class="btn btn-main" title="Learn how Integrity shapes VSA Prep"
+                                    aria-label="Learn how Integrity shapes VSA Prep">
+                                    &nbsp; Learn More &nbsp;
+                                </a>
+                            </div>
+                        </figure>
+                    </article>
+                </div>
+
+                <!-- Innovation -->
+                <div class="col-md-3" role="listitem">
+                    <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                        itemtype="https://schema.org/Thing">
+                        <figure class="card-body text-left">
+                            <img src="assets/img/pages/who-we-are/vsaprep-values-innovation.png"
+                                alt="Youth basketball development: ball-handling, shooting, defense, and game IQ"
+                                loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                                itemprop="image" />
+                            <figcaption class="sr-only">Innovation with data-driven training</figcaption>
+                            <h3 class="card-category section-title-md text-primary" itemprop="name">Innovation</h3>
+                            <p class="card-description-dark" itemprop="description">
+                                Smarter every season. We use <strong>AI</strong> and <strong>performance
+                                    analytics</strong> to personalize plans, track progress,
+                                and improve outcomes in/out the classroom.
+                            </p>
+                            <div class="card-footer">
+                                <a [routerLink]="['/'+urlPath+'/academic-tutoring']" class="btn btn-main"
+                                    title="Explore innovative training programs at VSA Prep"
+                                    aria-label="Explore innovative training programs at VSA Prep">
+                                    &nbsp; Explore Programs &nbsp;
+                                </a>
+                            </div>
+                        </figure>
+                    </article>
+                </div>
+
+                <!-- Student-Athletes -->
+                <div class="col-md-3 mr-auto" role="listitem">
+                    <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                        itemtype="https://schema.org/Thing">
+                        <figure class="card-body text-left">
+                            <img src="assets/img/pages/who-we-are/vsaprep-values-athletes.png"
+                                alt="Youth football fundamentals: footwork, catching, defense, and teamwork"
+                                loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                                itemprop="image" />
+                            <figcaption class="sr-only">Student-athlete success plans</figcaption>
+                            <h3 class="card-category section-title-md text-primary" itemprop="name">Student-Athletes
+                            </h3>
+                            <p class="card-description-dark" itemprop="description">
+                                Your goals drive our plan. Individual development roadmaps link academics, skills
+                                training, and college exposure—updated with BI insights.
+                            </p>
+                            <div class="card-footer">
+                                <a [routerLink]="['/'+urlPath+'/recruiting-exposure']" class="btn btn-main"
+                                    title="See student-athlete success and recruiting support"
+                                    aria-label="See student-athlete success and recruiting support">
+                                    &nbsp; College Recruiting &nbsp;
+                                </a>
+                            </div>
+                        </figure>
+                    </article>
+                </div>
+
+                <!-- Coaches & Tutors -->
+                <div class="col-md-3 mr-auto" role="listitem">
+                    <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                        itemtype="https://schema.org/Person">
+                        <figure class="card-body text-left">
+                            <img src="assets/img/pages/who-we-are/vsaprep-values-staff.png"
+                                alt="Coaches and tutors with collegiate and international experience supporting youth athletes"
+                                loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                                itemprop="image" />
+                            <figcaption class="sr-only">Expert coaches and tutors</figcaption>
+                            <h3 class="card-category section-title-md text-primary" itemprop="name">Coaches & Tutors
+                            </h3>
+                            <p class="card-description-dark" itemprop="description">
+                                Carefully selected mentors with collegiate/international experience. We teach
+                                fundamentals, mindset, and study skills that translate to results.
+                            </p>
+                            <div class="card-footer">
+                                <a [routerLink]="['/'+urlPath+'/contact']" class="btn btn-main"
+                                    title="Meet the VSA Prep coaching and tutoring team"
+                                    aria-label="Meet the VSA Prep coaching and tutoring team">
+                                    &nbsp; Meet the Staff &nbsp;
+                                </a>
+                            </div>
+                        </figure>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Optional: Structured data for the values list -->
+        <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Varsity Sports Academy Prep Core Values",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Integrity" },
+          { "@type": "ListItem", "position": 2, "name": "Innovation" },
+          { "@type": "ListItem", "position": 3, "name": "Student-Athletes" },
+          { "@type": "ListItem", "position": 4, "name": "Coaches & Tutors" }
+        ]
+      }
+      </script>
+    </section>
+    <!-- End: Inspired by Our Values -->
+
+
+    <!-- Start Maximize Potential Banner -->
+    <section class="section cta-banner cta-exposure parallax-hero" aria-labelledby="sports-development-title-a">
+      <!-- decorative background image with accessible label -->
+      <div class="cta-bg sports-option-a" role="img"
+          aria-label="Coach and athlete shaking hands on a track beside a laptop playing a highlight reel.">
+      </div>
+      <div class="cta-overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="ml-auto mr-auto text-center">
+                  <div class="container cta-content">
+  
+                      <h2 id="sports-development-title-a" class="text-white">
+                        Helping Student-Athletes Maximize Their True Potential
+                      </h2>
+                      <h3 class="title text-color-main t-2">
+                        Our motto <strong>"Labor Durus"</strong> — the Latin translation of <strong>"Hard
+                          Work"</strong>.
+                      </h3>
+  
+                      <h5 class="cta-subhead align-center mt-3">
+                        At <strong>Varsity Sports Academy Prep</strong>, we provide the perfect balance of
+                        <strong>academic tutoring, elite sports training, and mentorship</strong> to prepare young
+                        athletes for scholarships, competition, and lifelong success. Our approach ensures that
+                        students not only improve athletic skills but also build strong minds and academic excellence.
+                      </h5>
+  
+                      <!-- CTA -->
+                      <a [routerLink]="['/'+urlPath+'/consultation']" class="btn btn-main btn-lg btn-magnify"
+                      title="Learn how Varsity Sports Academy Prep can help your student-athlete succeed">
+                      &nbsp; Book a free consultation with Varsity Sports Academy Prep &nbsp;
+                      </a>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
+    <!-- End Maximize Potential Banner -->
+
+    <!-- Start: Year-Round Sports Development Program -->
+    <section id="year-round-development" class="section section-white" aria-labelledby="year-round-development-heading">
+      <div class="filter filter-black"></div>
+      <div class="container">
+    
+        <!-- Headings -->
+        <div class="row">
+          <div class="ml-auto mr-auto text-center">
+            <h2 id="year-round-development-heading" class="h2 text-uppercase text-color-primary">
+              Year-Round Academic & Sports Development Program
+            </h2>
+            <h3 class="h3 mt-2">
+              Developing Student-Athletes through Integrity, Innovation, and Coaching Excellence
+            </h3>
+    
+            <!-- Section summary (keyword-rich, natural) -->
+            <p class="description mt-3">
+              At <strong>Varsity Sports Academy Prep</strong>, our mission is to help
+              <strong>student-athletes</strong> reach their true academic and athletic potential.
+              Our experienced coaches and tutors deliver a holistic plan that blends
+              <strong>sport-specific skill development</strong>, <strong>sports performance</strong>,
+              <strong>academic support</strong>, and <strong>NCAA recruiting guidance</strong>.
+              Book a <a [routerLink]="['/'+urlPath+'consultation']" class="text-color-primary" title="Schedule a free consultation with VSA Prep">free consultation</a>
+              to build your personalized game plan.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Development Grid -->
+        <div class="row mt-4" role="list" aria-label="VSA Prep core pillars">
+    
+          <!-- We Coach -->
+          <div class="col-md-3 ml-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/vsaprep-development-coach.png"
+                  alt="Coach guiding youth players through soccer fundamentals: ball control, footwork, and team play"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Integrity in training and academics</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Coach</h3>
+    
+                <!-- Accessible icon list -->
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Sport Skills</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Speed & Agility</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Strength</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Coordination</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Flexibility</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Stamina</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/sports-development']" class="btn btn-main"
+                     title="Learn how integrity shapes coaching at Varsity Sports Academy Prep"
+                     aria-label="Learn how integrity shapes coaching at Varsity Sports Academy Prep">
+                     &nbsp; Learn About Our Coaching Methodology &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Teach -->
+          <div class="col-md-3" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/vsaprep-development-teach.png"
+                  alt="Basketball player using data-driven drills while a coach reviews analytics for skill improvement"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Innovation with AI and performance analytics</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Teach</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                    <li><span class="icon" aria-hidden="true"></span><span>NCAA Core Classes</span></li>
+                    <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness</span></li>
+                    <li><span class="icon" aria-hidden="true"></span><span>Sports Intelligence (Game IQ)</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>College Recruiting</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Injury Prevention</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Nutrition</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/academic-tutoring']" class="btn btn-main"
+                     title="Explore innovative training programs using AI and performance analytics"
+                     aria-label="Explore innovative training programs using AI and performance analytics">
+                     &nbsp; Explore Training Programs &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Offer -->
+          <div class="col-md-3 mr-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/vsaprep-development-offer.png"
+                  alt="Youth football development: footwork, catching, defense, and teamwork in a structured clinic"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Student-athlete success plans</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Offer</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Sports Performance Clinics</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Age-Specific Athletic Clinics</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Private Sessions</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Sports Performance Camps</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Sports Fundamentals Camps</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Sports Fundamentals Clinics</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/recruiting-exposure']" class="btn btn-main"
+                     title="Student-athlete success and college recruiting support"
+                     aria-label="Student-athlete success and college recruiting support">
+                     &nbsp; College Recruiting Support &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Deliver -->
+          <div class="col-md-3 mr-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/vsaprep-development-deliver.png"
+                  alt="Experienced coaches and tutors providing one-on-one instruction and study support"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Expert coaches and tutors</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Deliver</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Customized Improvement Plan</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness Development</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Nutrition Education</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Benchmark Testing</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Academic/Athlectic Performances</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Performance Analysis Visits</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/contact']" class="btn btn-main"
+                     title="Meet the Varsity Sports Academy Prep coaching and tutoring team"
+                     aria-label="Meet the Varsity Sports Academy Prep coaching and tutoring team">
+                     &nbsp; Meet Our Coaching & Tutoring Team &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+        </div>
+      </div>
+    
+      <!-- Structured data to clarify the item list -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "VSA Prep Values and Offerings",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "We Coach" },
+          { "@type": "ListItem", "position": 2, "name": "We Teach" },
+          { "@type": "ListItem", "position": 3, "name": "We Offer" },
+          { "@type": "ListItem", "position": 4, "name": "We Deliver" }
+        ]
+      }
+      </script>
+    </section>
+    <!-- End: Year-Round Sports Development Program -->
+    
+    <!-- Tiny, fast inline SVG bullet (checkmark) -->
+    <style>
+      .icon-list { margin: .75rem 0 0; padding: 0; list-style: none; }
+      .icon-list li { display: grid; grid-template-columns: 1.25rem auto; gap: .5rem; align-items: start; margin:.35rem 0; }
+      .icon-list .icon {
+        width: 1rem; height: 1rem; display: inline-block; margin-top: .15rem;
+        background: no-repeat center/contain;
+        /* inline SVG (currentColor lets you theme via text color) */
+        -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill=\"%23000\" d=\"M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z\"/></svg>') center / contain;
+                mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill=\"%23000\" d=\"M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z\"/></svg>') center / contain;
+        background-color: currentColor;
+        color: var(--icon-color, #ffd212); /* VSA main yellow by default */
+      }
+      /* Optional: a slightly larger, bolder look on dark cards */
+      .card[data-color="lightgray"] .icon-list .icon { color: #0a2144; } /* nav dark if preferred */
+    </style>
+    
+    <!-- Newsletter & Social Plugins -->
+    <app-newsletter-form></app-newsletter-form>
+    <app-fixed-social-plugin></app-fixed-social-plugin>
+
+</div>

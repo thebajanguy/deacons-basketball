@@ -1,0 +1,67 @@
+{
+  "name": "varsity-sports-academy-app",
+  "version": "1.0.0",
+  "overrides": {
+    "critters": "npm:beasties@^0.2.0"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --coverage"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/localize": "^18.0.0",
+    "@angular/material": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
+    "@azure/identity": "^4.2.1",
+    "@azure/msal-angular": "^3.0.20",
+    "@azure/msal-browser": "^3.17.0",
+    "@azure/msal-common": "^14.12.0",
+    "@ng-bootstrap/ng-bootstrap": "^17.0.0",
+    "@popperjs/core": "^2.11.8",
+    "@stripe/stripe-js": "^8.0.0",
+    "@swimlane/ngx-datatable": "^20.1.0",
+    "angular-archwizard": "^7.0.0",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.2",
+    "font-awesome": "4.7.0",
+    "glob": "^10.4.2",
+    "jquery": "3.6.0",
+    "ngx-mask": "^20.0.3",
+    "ngx-toastr": "^19.0.0",
+    "perfect-scrollbar": "^1.5.5",
+    "rimraf": "^5.0.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "uuid": "^10.0.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/jest": "^29.5.14",
+    "@types/uuid": "^10.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.6.1",
+    "ts-jest": "^29.4.4",
+    "typescript": "~5.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

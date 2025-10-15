@@ -1,0 +1,131 @@
+<section id="newsletter" class="section section-white text-center py-5" aria-labelledby="newsletter-heading">
+
+  <div class="container">
+    <div class="row">
+        <div class="ml-auto mr-auto text-center">
+            <header>
+                <h2 id="newsletter-heading" class="align-center">
+                  Ready to start your VSA Student Athlete journey?
+                </h2>
+                <p class="sr-only">Varsity Sports Academy Prep – Academic & athletic development</p>
+            </header>
+            <div class="buttons text-center" style="margin-top:1rem">
+              <a [routerLink]="['/'+urlPath+'/contact']"
+                 class="btn btn-primary btn-md btn-magnify"
+                 aria-label="Contact Varsity Sports Academy Prep">
+                <i class="nc-icon nc-email-85 icon-warning" aria-hidden="true"></i>&nbsp; Contact Us&nbsp;
+              </a>
+            </div>
+            <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+              Go further with our <strong>#LaborDurus</strong> Newsletter—training tips, recruiting insights, and academic success strategies.
+           </h3>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:2rem"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="ml-auto mr-auto align-center" style="margin-top:1rem;">
+        
+        <form [formGroup]="form" (ngSubmit)="submit()" class="app-contact-form form-shell" novalidate>
+          <!-- Honeypot -->
+          <input type="text" formControlName="honeypot" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+          <div class="grid">
+            <!-- Fullname -->
+            <div class="fl"
+                 [class.filled]="!!f.Fullname.value"
+                 [class.has-error]="f.Fullname.invalid && f.Fullname.touched"
+                 autocomplete="on">
+              <input id="fullname" type="text" formControlName="Fullname" required placeholder=" ">
+              <label for="fullname">Name</label>
+              <small class="error" *ngIf="f.Fullname.hasError('required') && f.Fullname.touched">Required</small>
+              <small class="error" *ngIf="f.Fullname.hasError('name') && f.Fullname.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            
+            <!-- Email -->
+            <div class="fl"
+                 [class.filled]="!!f.Email.value"
+                 [class.has-error]="f.Email.invalid && f.Email.touched"
+                 autocomplete="on">
+              <input id="email" type="email" formControlName="Email" required placeholder=" " autocomplete="email" inputmode="email">
+              <label for="email">Email</label>
+              <small class="error" *ngIf="f.Email.hasError('required') && f.Email.touched">Required</small>
+              <small class="error" *ngIf="f.Email.hasError('email') && f.Email.touched">Enter a valid email</small>
+            </div>
+            
+            <!-- Interest (datalist) -->
+            <div class="fl"
+                 [class.filled]="!!form.controls.Interest.value || !!interestSearch.value"
+                 [class.has-error]="f.Interest.invalid && (f.Interest.touched || f.Interest.dirty)">
+              <input id="interestSearch"
+                     type="text"
+                     [formControl]="interestSearch"
+                     list="interestOptions"
+                     (input)="onInterestInputChange(getInputValue($event) || '')"
+                     (change)="onInterestInputChange(getInputValue($event) || '')"
+                     placeholder=" "
+                     autocomplete="off">
+              <label for="interestSearch">Interested In?</label>
+              <datalist id="interestOptions">
+                <option *ngFor="let t of (filteredInterest$ | async)" [value]="t"></option>
+              </datalist>
+              <div class="chip" *ngIf="form.controls.Interest.value">
+                {{ form.controls.Interest.value }}
+                <button type="button" class="chip-remove" (click)="clearInterest()" aria-label="Clear interest topic">×</button>
+              </div>
+              <small class="error" *ngIf="f.Interest.hasError('required') && (f.Interest.touched || f.Interest.dirty)">
+                Please choose a valid interest topic
+              </small>
+            </div>
+
+            <!-- Country (datalist) -->
+            <div class="fl"
+                 [class.filled]="!!form.controls.Country.value || !!countrySearch.value"
+                 [class.has-error]="f.Country.invalid && (f.Country.touched || f.Country.dirty)">
+              <input id="countrySearch"
+                     type="text"
+                     [formControl]="countrySearch"
+                     list="countryOptions"
+                     (input)="onCountryInputChange(getInputValue($event) || '')"
+                     (change)="onCountryInputChange(getInputValue($event) || '')"
+                     placeholder=" "
+                     autocomplete="off">
+              <label for="countrySearch">Country</label>
+              <datalist id="countryOptions">
+                <option *ngFor="let t of (filteredCountry$ | async)" [value]="t"></option>
+              </datalist>
+              <div class="chip" *ngIf="form.controls.Country.value">
+                {{ form.controls.Country.value }}
+                <button type="button" class="chip-remove" (click)="clearCountry()" aria-label="Clear country">×</button>
+              </div>
+              <small class="error" *ngIf="f.Country.hasError('required') && (f.Country.touched || f.Country.dirty)">
+                Please choose a valid country
+              </small>
+            </div>
+           
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit" [disabled]="submitting() || form.invalid">
+              <span class="spinner" *ngIf="submitting()" aria-hidden="true"></span>
+              <span>{{ submitting() ? 'Sending…' : 'Subscribe To Newsletter' }}</span>
+            </button>
+          </div>
+
+          <div *ngIf="serverMessage()" class="mt-2 text-center"
+               [class.text-success]="serverMessage()?.type==='success'"
+               [class.text-danger]="serverMessage()?.type==='error'"
+               role="status" aria-live="polite">
+            {{ serverMessage()?.text }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+

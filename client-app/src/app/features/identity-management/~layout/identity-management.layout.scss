@@ -1,0 +1,126 @@
+@import "../../../../public/scss/user-experience/user-experience-custom-styles.scss";
+
+.ngx-toastr {
+  width: 100% !important;  // Specify toastr-dialog width for all devices
+}
+
+.header-buttons{
+    padding: 20px 20px 20px 20px;
+  }
+
+div.box-outter {
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px $dark-gray solid !important;
+    margin: 20px;
+  }
+
+div.box-inner {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    //background-color: navy;
+    border: 0px $danger-color solid;
+    color: $white-color;
+
+    background: rgba($medium-gray, 0.52);
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+  }
+
+div.box-footer {
+    background-color: transparent;
+    padding: 25px;
+    box-sizing: border-box;
+    border: 0px $main-color solid;
+  }
+
+.header-section-image{
+    background-position: center center;
+    background-size: auto;
+
+    min-height: 100vh;
+    //max-height: 999px;
+    width: 100%;
+    padding-top: 100px;
+
+    &:before{
+        background-color: rgba(0, 0, 0, 0.5);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+    & .container{
+        position: relative;
+        z-index: 2;
+    }
+  }
+
+.transparent-bg {
+    background: rgba(4, 4, 4, 0.80);
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+}
+.transparent-bg-white {
+    background: rgba(255, 254, 254, 0.80);
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+}
+.transparent-bg-header {
+    background: rgba($light-gray, 0.50);
+    background: rgba($dark-gray, 0.52);
+
+    padding: 30px;
+    color: #fff;
+    text-align: left;
+}
+
+.transparent-header-bg {
+  background: rgba($light-gray, 0.50);
+  background: rgba($dark-gray, 0.52);
+
+  padding: 30px;
+  color: #fff;
+  text-align: left;
+}
+
+.separator-top-header-neutral {
+    border-top: 2px solid white;
+
+    &.no-border-footer {
+        border-bottom: 0 none;
+    }
+
+    padding-top: 8px;
+    margin-top: 15px;
+}
+
+.separator-bottom-header-neutral {
+  border-bottom: 2px solid white;
+
+  padding-top: 8px;
+  margin-top: 15px;
+}
+
+.description-header {
+    margin: 0;
+    padding: 10px;
+    padding-left: 30px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin: 0;
+    margin: 10px;
+    text-align: left;
+    color: white;
+}
+

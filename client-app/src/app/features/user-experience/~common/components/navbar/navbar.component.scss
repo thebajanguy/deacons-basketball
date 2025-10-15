@@ -1,0 +1,475 @@
+$white-color:               #ffffff !default;
+$main-color:                #ffd212 !default;
+$nav-color:                 #0a2144 !default;
+$dark-color:                #0a2144 !default;
+
+$link-disabled-color:       #666666 !default;
+$link-hover-color:          $main-color !default;
+$link-active-color:         $main-color !default;
+$link-focus-color:          $main-color !default;
+$link-default-color:        $white-color !default;
+
+$burger-color-closed:       $white-color !default;
+$burger-color-open:         $main-color !default;
+
+$font-size-navbar:          1em !default;
+$font-size-large-navbar:    22px !default;
+
+
+/* Fix fixed-top overlap with page content (optional) */
+body { padding-top: 3rem; } /* adjust to your navbar height */
+
+//--
+// Navbar & Footer backgrounds and colors
+
+/* Brand lockup - Compact navbar height and consistent link padding */
+.navbar { padding-top: .5rem; padding-bottom: .5rem; }
+.navbar-nav .nav-link { 
+  display: flex; 
+  align-items: center; 
+  padding: .5rem 1rem; 
+  font-size: $font-size-navbar; 
+
+  display: inline-block;
+  line-height: 1.8em;
+  font-size: 1em;
+  font-weight: 500;
+}
+.link-active { padding: 0px;border-bottom: 3px solid $link-active-color !important; color: $link-active-color !important;}
+.navbar .navbar-logo    { display: flex; align-items: center; gap: 8px; }
+.logo-icon              { height: 42px; width: auto; }
+.logo-text              { height: 34px; width: auto; margin-left: .5rem; }
+
+.icon-link {
+  margin:0px;
+  margin-top: -10px;
+  margin-right: 10px;
+  height: 35px;
+  padding: 0px;
+}
+/* Force solid navbar (blocks any transparent/scroll states) */
+.navbar,
+.navbar.navbar-transparent,
+.navbar.navbar-color-on-scroll {
+  background-color: $nav-color !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  padding: 0%;
+}
+
+
+/* Some kits add overlays/filters */
+.navbar .filter,
+.navbar .filter::before {
+  background: none !important;
+}
+
+/* Navbar hover */
+.navbar .nav-link {
+  transition: color .2s ease, opacity .2s ease;
+  text-decoration: none;
+}
+
+/* Dark navbar variant */
+.navbar.navbar-dark .nav-link { color: $white-color; }
+.navbar.navbar-dark .nav-link:hover,
+.navbar.navbar-dark .nav-link:focus-visible,
+.navbar.navbar-dark .nav-link.active {
+  color: $main-color !important; /* ← your brand accent */
+}
+
+/* Light navbar variant */
+.navbar.navbar-light .nav-link { color: $dark-color; }
+.navbar.navbar-light .nav-link:hover,
+.navbar.navbar-light .nav-link:focus-visible,
+.navbar.navbar-light .nav-link.active {
+  color: $link-hover-color !important; /* ← your brand accent */
+}
+
+/* Accessible focus ring */
+.navbar .nav-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+
+//--
+
+/* NAVBAR TOGGLER STYLES */
+
+/* Base button */
+.navbar-toggler {
+  padding: .35rem .5rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.navbar-toggler:focus-visible {
+  outline: 2px solid rgba(255,210,18,.8);
+  outline-offset: 2px;
+}
+
+.navbar-toggler .navbar-toggler-bar {
+  display: block;
+  width: 24px; height: 3px; margin: 4px 0; border-radius: 2px;
+  background-color: $burger-color-closed;
+  transition: transform .25s ease, opacity .2s ease, background-color .2s ease, box-shadow .2s ease;
+  transform-origin: center; /* important for clean rotations */
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+}
+
+/* Stacking tweaks so bars don’t “jump” while rotating */
+.navbar-toggler .bar1 { transform: translateY(0); }
+.navbar-toggler .bar2 { transform: translateY(0); }
+.navbar-toggler .bar3 { transform: translateY(0); }
+
+/* OPEN state color */
+.navbar-toggler.open .navbar-toggler-bar,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar {
+  background-color: $burger-color-open;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.12);
+}
+
+/* Turn into an X when open */
+.navbar-toggler.open .bar1,
+.navbar-toggler[aria-expanded="true"] .bar1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler.open .bar2,
+.navbar-toggler[aria-expanded="true"] .bar2 {
+  opacity: 0;           /* hide middle bar */
+}
+
+.navbar-toggler.open .bar3,
+.navbar-toggler[aria-expanded="true"] .bar3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Hover emphasis */
+.navbar-toggler:hover .navbar-toggler-bar { filter: brightness(1.05); }
+
+/* Optional: glow when fixed top and open */
+.navbar.fixed-top .navbar-toggler.open .navbar-toggler-bar {
+  box-shadow: 0 0 6px rgba(255,210,18,.45), 0 0 0 1px rgba(0,0,0,.12);
+}
+
+/* Ensure collapsed panel has a solid bg on mobile */
+.navbar .navbar-collapse { background-color: $nav-color !important; }
+
+/* Dropdown menu visual polish (optional) */
+.dropdown-menu.dropdown-info {
+  padding: 0;
+  background-color: $white-color;
+}
+
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .navbar .nav-link { transition: none; }
+}
+
+
+//--- DROPDOWN TRANSFORMATION
+/* ===============================
+   NAVBAR DROPDOWNS (Images + Text)
+   =============================== */
+
+$dropdown-bg:            #0f2448 !default; // darker than $nav-color for contrast
+$dropdown-bg-light:      #ffffff !default;
+$dropdown-border:        rgba(255,255,255,.08) !default;
+$dropdown-shadow:        0 14px 40px rgba(0,0,0,.28) !default;
+$dropdown-radius:        14px !default;
+$dropdown-link:          $white-color !default;
+$dropdown-link-muted:    rgba(255,255,255,.7) !default;
+$dropdown-link-hover:    $main-color !default;
+$dropdown-sep:           rgba(255,255,255,.06) !default;
+
+$thumb-size:             44px !default;
+$thumb-radius:           10px !default;
+
+/* Base caret */
+.navbar .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .4rem;
+  vertical-align: .15em;
+  border-top: .35em solid currentColor;
+  border-right: .35em solid transparent;
+  border-left: .35em solid transparent;
+  content: "";
+  opacity: .9;
+}
+
+/* Dropdown container — animated */
+.navbar .dropdown-menu {
+  min-width: 280px;
+  border: 1px solid $dropdown-border;
+  border-radius: $dropdown-radius;
+  background: $dropdown-bg;
+  padding: .5rem;
+  margin-top: .75rem; /* space from toggle */
+  box-shadow: $dropdown-shadow;
+
+  /* enter animation */
+  opacity: 0;
+  transform: translateY(8px) scale(.98);
+  transform-origin: top center;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  visibility: hidden;
+}
+
+/* Show state (Bootstrap adds .show) */
+.navbar .dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity .18s ease, transform .2s cubic-bezier(.2,.8,.2,1), visibility 0s;
+  visibility: visible;
+}
+
+/* Dark vs light navbar variants */
+.navbar.navbar-dark .dropdown-menu { background: $dropdown-bg; }
+.navbar.navbar-light .dropdown-menu {
+  background: $dropdown-bg-light;
+  border-color: rgba(12, 28, 64, .08);
+}
+
+/* Links */
+.navbar .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .6rem .75rem;
+  border-radius: 10px;
+  color: $dropdown-link;
+  white-space: normal; /* allow two-line labels */
+  line-height: 1.25;
+  transition: background-color .15s ease, color .15s ease, transform .06s ease;
+}
+
+.navbar.navbar-light .dropdown-item { color: $dark-color; }
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background: rgba(255,255,255,.06);
+  color: $dropdown-link-hover;
+}
+
+.navbar.navbar-light .dropdown-item:hover,
+.navbar.navbar-light .dropdown-item:focus {
+  background: rgba(10, 33, 68, .06);
+  color: $dark-color;
+}
+
+/* Media layout inside items */
+.dropdown-item .item-media {
+  flex: 0 0 auto;
+  width: $thumb-size;
+  height: $thumb-size;
+  border-radius: $thumb-radius;
+  overflow: hidden;
+  background: rgba(255,255,255,.12);
+}
+
+.navbar.navbar-light .dropdown-item .item-media { background: #f2f4fa; }
+
+.dropdown-item .item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dropdown-item .item-text {
+  display: grid;
+  gap: 2px;
+}
+
+.dropdown-item .item-title {
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.dropdown-item .item-desc {
+  font-size: .82rem;
+  color: $dropdown-link-muted;
+}
+
+.navbar.navbar-light .dropdown-item .item-desc { color: #5b6b85; }
+
+/* Section heading inside dropdown */
+.dropdown-menu .dropdown-title {
+  padding: .25rem .5rem .5rem;
+  margin: .25rem .25rem .5rem;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: $dropdown-link-muted;
+  border-bottom: 1px solid $dropdown-sep;
+}
+
+/* Divider */
+.dropdown-menu .dropdown-divider {
+  margin: .5rem .25rem;
+  border-top: 1px solid $dropdown-sep;
+}
+
+/* Right-aligned dropdown support */
+.navbar .dropdown-menu.dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+
+/* Hover/intent on desktop (keeps click behavior on mobile) */
+@media (min-width: 992px) {
+  .navbar .dropdown-hover:hover > .dropdown-menu,
+  .navbar .dropdown-hover:focus-within > .dropdown-menu {
+    display: block; /* Bootstrap sets display:block; we'll animate with visibility/opacity */
+  }
+}
+
+/* ======================
+   MEGA MENU (columns)
+   ====================== */
+
+.navbar .dropdown-mega {
+  position: static; /* let menu span the container width */
+}
+
+.navbar .dropdown-menu.mega {
+  width: 100%;
+  max-width: 1120px; /* fits inside container */
+  padding: 1rem;
+  margin-top: .75rem;
+}
+
+.mega .mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+@media (max-width: 991.98px) {
+  .mega .mega-grid { grid-template-columns: 1fr; }
+}
+
+/* Mega item (card style) */
+.mega .mega-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: .75rem;
+  padding: .75rem;
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar.navbar-dark .mega .mega-card:hover { background: rgba(255,255,255,.06); }
+.navbar.navbar-light .mega .mega-card:hover { background: rgba(10,33,68,.06); }
+
+.mega .mega-thumb {
+  width: 72px; height: 72px;
+  border-radius: 10px; overflow: hidden;
+  background: rgba(255,255,255,.12);
+}
+
+.navbar.navbar-light .mega .mega-thumb { background: #f2f4fa; }
+
+.mega .mega-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.mega .mega-title { font-weight: 700; font-size: 1rem; color: $link-default-color;}
+.mega .mega-desc  { font-size: .85rem; opacity: .85;; color: $link-default-color; }
+
+/* ======================
+   ACCESSIBILITY POLISH
+   ====================== */
+
+.navbar .dropdown-item:focus-visible,
+.navbar .mega .mega-card:focus-visible {
+  outline: 2px solid $main-color;
+  outline-offset: 2px;
+}
+
+//.navbar .dropdown-menu[aria-label] { /* you can add aria-label on menu if needed */ }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .navbar .dropdown-menu {
+    transition: none;
+    transform: none;
+  }
+}
+
+
+/* NAVBAR SEARCH AND PROFILE */
+
+/* Search bar styling */
+.navbar-search {
+  position: relative;
+}
+.navbar-search .search-input {
+  width: 320px;
+  max-width: 30vw;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff;
+  padding: .55rem 2.5rem .55rem 1rem;
+  border-radius: 999px;
+  &::placeholder { color: rgba(255,255,255,.65); }
+  &:focus {
+    background: rgba(255,255,255,.12);
+    border-color: $main-color;
+    box-shadow: 0 0 0 3px rgba(255,210,18,.22);
+    outline: none;
+  }
+}
+.navbar-search .btn-search {
+  position: absolute;
+  right: .5rem; top: 50%;
+  transform: translateY(-50%);
+  background: $main-color;
+  color: $nav-color;
+  border: 0;
+  border-radius: 50%;
+  padding: .45rem;
+  display: grid; place-items: center;
+  transition: filter .15s ease;
+  &:hover { filter: brightness(1.05); }
+}
+
+/* Profile avatar */
+.navbar .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255,255,255,.15);
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+
+/* Auth CTAs in dark navbar */
+.navbar .btn-outline-light {
+  border-color: rgba(255,255,255,.55);
+  color: #fff;
+}
+.navbar .btn-outline-light:hover,
+.navbar .btn-outline-light:focus {
+  border-color: #fff;
+  background: rgba(255,255,255,.08);
+}
+
+.navbar .btn-main {
+  background: $main-color;
+  color: $nav-color;
+  border: 0;
+}
+.navbar .btn-main:hover,
+.navbar .btn-main:focus {
+  filter: brightness(1.05);
+}
+
+

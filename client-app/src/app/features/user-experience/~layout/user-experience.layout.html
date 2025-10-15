@@ -1,0 +1,27 @@
+<!-- MAIN CONTENT LAYOUT -->
+<app-navbar 
+    [shouldDisplayLogin]="shouldDisplayLogin"
+    [urlPath]="urlPath"
+    [membershipPath]="membershipPath"
+
+    (signInToParent)="signInFromChild($event)"
+    (signUpToParent)="signUpFromChild($event)"
+    (signOutToParent)="signOutFromChild()"
+    (editProfileToParent)="editProfileFromChild()"    
+></app-navbar>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+<!-- FIXED PLUGINS -->
+<app-fixed-social-plugin></app-fixed-social-plugin>
+<app-fixed-join-now-plugin 
+    [urlPath]="urlPath"
+    [membershipPath]="membershipPath"
+    [workspacePath]="workspacePath"
+
+    [shouldDisplayMembershipPage]="shouldDisplayMembershipPage"
+    [shouldDisplayLogin]="shouldDisplayLogin"
+    [shouldDisplayJoinNow]="shouldDisplayJoinNow"
+></app-fixed-join-now-plugin>

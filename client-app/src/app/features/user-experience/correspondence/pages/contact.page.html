@@ -1,0 +1,207 @@
+<!-- Begin Hero Section -->
+<header id="hero-contact-vsaprep"
+  class="page-header page-header div-color-dark parallax-hero"
+  style="background-image:url('assets/img/pages/correspondence/vsaprep-correspondence-hero-bg.png')"
+  role="banner" aria-label="Contact Varsity Sports Academy Prep Hero">
+
+  <div class="content-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-left">
+          <h1 class="text-uppercase hero-title">
+            <span class="text-color-white">Get in touch with</span><br />
+            <span class="text-color-main">Varsity Sports Academy Prep</span>
+          </h1>
+
+          <p class="lead text-white mt-3 hero-subtitle">
+            👉 Contact <strong>Varsity Sports Academy Prep</strong> to plan your next step in academics and athletics.
+            Guided by our motto <em>Labor Durus</em> — “Hard Work Always Pays Off” — we help student-athletes
+            turn goals into results. Tell us how we can help.
+          </p>
+
+          <nav class="buttons mt-4" aria-label="Primary calls to action">
+            <a class="btn btn-main btn-lg btn-magnify" 
+              routerLink="." 
+              fragment="contact"
+              aria-label="Start your journey with Varsity Sports Academy Prep">
+              &nbsp;  Begin Your Journey Today &nbsp;
+            </a>
+
+            <a href="tel:+17186370566" class="btn btn-main btn-lg btn-magnify"
+              aria-label="Call Varsity Sports Academy Prep">Call (718) 637-0566
+            </a>
+
+          </nav>
+
+          <div class="mt-3">
+            <app-social-plugin></app-social-plugin>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Hero Section -->
+
+<section id="contact" class="section section-white py-5" aria-labelledby="contact-vsaprep-title" role="region">
+  <div class="container">
+
+    <!-- ✅ side-by-side columns: left info, right form -->
+    <div class="row g-4">
+
+      <div class="col-md-4 col-sm-6 ml-auto mr-auto contact-form-left" style="padding: 3%;">
+ 
+        <header class="mb-3">
+          <h2 id="contact-vsaprep-title" class="h2">Group Discounts And Savings</h2>
+          <p class="sr-only">Varsity Sports Academy Prep – Academic &amp; athletic development</p>
+        </header>
+
+        <p>
+          Ask about team or small-group training rates. Train together, lower the cost per athlete,
+          and get more from every session.
+        </p>
+
+        <br />
+        <h3 class="h5 mb-1">Call / WhatsApp:</h3>
+        <p class="ps-3 mb-3">
+          <a href="tel:+17186370566" class="text-white-50"><strong>(718) 637-0566</strong></a>
+        </p>
+        
+        <h3 class="h5 mb-1">Email</h3>
+        <p class="ps-3">
+          <a href="mailto:VsaPrep@gmail.com" class="text-white-50"><strong>VsaPrep&#64;gmail.com</strong></a>
+        </p>
+
+      </div>
+  
+      <div class="col-md-8 col-sm-6 ml-auto mr-auto contact-form-right" style="padding: 3%;">
+  
+        <header class="mb-2">
+          <h2 class="h2 text-dark">Request Information</h2>
+          <p class="sr-only">Use the form to request information about Varsity Sports Academy Prep.</p>
+        </header>
+
+        <p class="description text-start text-dark">
+          Use this form to request program details, pricing, schedules, or scholarship guidance.
+          A VSA Prep coordinator will follow up.
+        </p>
+
+        <form [formGroup]="form" (ngSubmit)="submit()"
+              class="app-contact-form form-shell mt-3" novalidate
+              aria-label="Contact request form">
+          <input type="text" formControlName="honeypot" tabindex="-1"
+                 autocomplete="off" class="hp" aria-hidden="true">
+
+          <div class="grid">
+            <!-- First Name -->
+            <div class="fl" [class.filled]="!!f.GivenName.value"
+                 [class.has-error]="f.GivenName.invalid && f.GivenName.touched">
+              <input id="givenName" type="text" formControlName="GivenName" required placeholder=" ">
+              <label for="givenName">First Name</label>
+              <small class="error" *ngIf="f.GivenName.hasError('required') && f.GivenName.touched">Required</small>
+              <small class="error" *ngIf="f.GivenName.hasError('name') && f.GivenName.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+
+            <!-- Last Name -->
+            <div class="fl" [class.filled]="!!f.Surname.value"
+                 [class.has-error]="f.Surname.invalid && f.Surname.touched">
+              <input id="surname" type="text" formControlName="Surname" required placeholder=" ">
+              <label for="surname">Last Name</label>
+              <small class="error" *ngIf="f.Surname.hasError('required') && f.Surname.touched">Required</small>
+              <small class="error" *ngIf="f.Surname.hasError('name') && f.Surname.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+
+            <!-- Email -->
+            <div class="fl" [class.filled]="!!f.Email.value"
+                 [class.has-error]="f.Email.invalid && f.Email.touched">
+              <input id="email" type="email" formControlName="Email" required placeholder=" "
+                     autocomplete="email" inputmode="email">
+              <label for="email">Email Address</label>
+              <small class="error" *ngIf="f.Email.hasError('required') && f.Email.touched">Required</small>
+              <small class="error" *ngIf="f.Email.hasError('email') && f.Email.touched">Enter a valid email</small>
+            </div>
+
+            <!-- Phone -->
+            <div class="fl" [class.filled]="!!f.Phone.value"
+                 [class.has-error]="f.Phone.invalid && f.Phone.touched">
+              <input id="phone" type="tel" formControlName="Phone" required placeholder=" "
+                     autocomplete="tel" inputmode="tel">
+              <label for="phone">Phone Number</label>
+              <small class="error" *ngIf="f.Phone.hasError('required') && f.Phone.touched">Required</small>
+              <small class="error" *ngIf="f.Phone.hasError('pattern') && f.Phone.touched">Enter a valid phone number</small>
+            </div>
+
+            <!-- Interest -->
+            <div class="fl full"
+                 [class.filled]="!!form.controls.Interest.value || !!interestSearch.value"
+                 [class.has-error]="f.Interest.invalid && (f.Interest.touched || f.Interest.dirty)">
+              <input id="interestSearch" type="text" [formControl]="interestSearch"
+                     list="interestOptions"
+                     (input)="onInterestInputChange(getInputValue($event) || '')"
+                     (change)="onInterestInputChange(getInputValue($event) || '')"
+                     placeholder=" " autocomplete="off">
+              <label for="interestSearch">Interested In?</label>
+              <datalist id="interestOptions">
+                <option *ngFor="let t of (filteredInterest$ | async)" [value]="t"></option>
+              </datalist>
+              <div class="chip" *ngIf="form.controls.Interest.value">
+                {{ form.controls.Interest.value }}
+                <button type="button" class="chip-remove" (click)="clearInterest()"
+                        aria-label="Clear interest topic">×</button>
+              </div>
+              <small class="error" *ngIf="f.Interest.hasError('required') && (f.Interest.touched || f.Interest.dirty)">
+                Please choose a valid interest topic
+              </small>
+            </div>
+
+            <!-- Message -->
+            <div class="fl full textarea"
+                 [class.filled]="!!f.Message.value"
+                 [class.has-error]="f.Message.invalid && f.Message.touched">
+              <textarea id="message" formControlName="Message" rows="6" maxlength="4000" required placeholder=" "></textarea>
+              <label for="message">Your Message</label>
+              <small class="hint">{{ (f.Message.value.length || 0) }} / 4000</small>
+              <small class="error" *ngIf="f.Message.hasError('required') && f.Message.touched">Required</small>
+              <small class="error" *ngIf="f.Message.hasError('minlength') && f.Message.touched">Min 10 characters</small>
+            </div>
+          </div>
+
+          <div class="actions justify-content-center">
+            <button class="btn btn-primary" type="submit" [disabled]="submitting() || form.invalid">
+              <span class="spinner" *ngIf="submitting()" aria-hidden="true"></span>
+              <span>{{ submitting() ? 'Sending…' : 'Request Information' }}</span>
+            </button>
+          </div>
+
+          <div *ngIf="serverMessage()" class="mt-2 text-center"
+               [class.text-success]="serverMessage()?.type==='success'"
+               [class.text-danger]="serverMessage()?.type==='error'"
+               role="status" aria-live="polite">
+            {{ serverMessage()?.text }}
+          </div>
+
+        </form>
+  
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JSON-LD for ContactPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Varsity Sports Academy Prep",
+  "url": "https://www.varsitysportsacademy.com/en/contact",
+  "about": {
+    "@type": "EducationalOrganization",
+    "name": "Varsity Sports Academy Prep",
+    "telephone": "+1-718-637-0566",
+    "email": "VsaPrep@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "BB" },
+    "sameAs": ["https://www.instagram.com/vsaprep"]
+  }
+}
+</script>

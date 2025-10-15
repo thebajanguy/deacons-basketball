@@ -1,0 +1,184 @@
+<!--FOOTER-->
+<footer class="footer footer-big footer-black">
+    <div class="container brand">
+        <div class="row">
+            <div class="col-md-12 ml-auto mr-auto col-12">
+                <!--NEW-->
+                  <div class="row">
+                      <!-- COMPANY DEASCRIPTION SECTION -->
+                      <div class="col-sm-2 col-sm-2" >
+                          <div class="footer-logo">
+                              <a [routerLink]="['index']" title='Showcase' style="text-decoration: none;">
+                                  <img src="img/logos/internal/logo-small-dark.png"  />
+                              </a>
+                          </div>
+                          <p class="footer-description text-gray">
+                            <br/>
+                              Varsity Sports Academy&trade; simplifies how athletes, coaches and recruiters connect, communicate and share recruiting profiles digitally.
+                          </p>
+                      </div>
+                      <!-- PRIVACY SECTION -->
+                      <div class="col-sm-2 col-sm-2" style="padding-left: 50px;">
+                          <span class="footer-link-title text-uppercase">Security</span><br />
+                          <div class="links text-left">
+                              <ul class="uppercase-links stacked-links  text-gray">
+                                  <li>
+                                      <a [routerLink]="['privacy']" title='Showcase' style="text-decoration: none;">Privacy</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['privacy']" title='Showcase' style="text-decoration: none;">Policy</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['privacy']" title='Showcase' style="text-decoration: none;">Terms</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['data-deletion']" title='Showcase' style="text-decoration: none;">Data Deletion</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                      <!-- SIGN IN SECTION -->
+                      <div class="col-sm-2 col-sm-2">
+                          <span class="footer-link-title text-uppercase">Sign In</span><br />
+                          <div class="links text-left">
+                              <ul class="uppercase-links stacked-links">
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'athlete'}">Athlete</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'guardian'}">Guardian</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'collegecoach'}">College Coach</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'teamcoach'}">Team Coach</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <p class="footer-link-title text-uppercase ">&nbsp;</p>
+                          <!-- REGISTER SECTION -->
+                          <span class="footer-link-title text-uppercase">Register</span><br />
+                          <div class="links ">
+                              <ul class="uppercase-links stacked-links">
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Athlete</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'guardian', plan: 'starter'}">Guardian</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'collegecoach', plan: 'starter'}">College Coach</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['/'+loginPath+'/membership']" [queryParams]="{ usertype: 'teamcoach', plan: 'starter'}">Team Coach</a>
+                                  </li>
+  
+                              </ul>
+                          </div>
+                      </div>
+                      <!-- SPORTS SECTION -->
+                      <div class="col-sm-2 col-sm-2">
+                          <div>
+                              <span class="footer-link-title text-uppercase">Sports</span><br />
+                          </div>
+                          <div class="links ">
+                              <ul class="uppercase-links stacked-links">
+                                  <li>
+                                      <a [routerLink]="['athletes']" [routerLinkActive]='["link-active"]' [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Football</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Baseball</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Basketball</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Cheer-leading</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Cricket</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Cross Country</a>
+                                  </li>
+  
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Cycling</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Filed Hockey</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Golf</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-sm-2 col-sm-2">
+                          <div>
+                              &nbsp;
+                          </div>
+                          <div class="links ">
+                              <ul class="uppercase-links stacked-links">
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Ice Hockey</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Lacrosse</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Rugby</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Soccer</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Softball</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Swimming</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Tennis</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Track & Field</a>
+                                  </li>
+                                  <li>
+                                      <a [routerLink]="['athletes']" [queryParams]="{ usertype: 'athlete', plan: 'starter'}">Volleyball</a>
+                                  </li>
+  
+                              </ul>
+                          </div>
+                      </div>
+                      <!-- SCHEDULE CONSULTATION -->
+                      <div class="col-sm-2 col-sm-2 text-center">
+                          <div class="text-center">
+                              <a [routerLink]="['consultation']" class="btn btn-primary text-uppercase"
+                              style="font-size: 1.3em;line-height: 2.2;">
+                                  <i class="nc-icon nc-time-alarm"></i>&nbsp; Schedule Consultation
+                              </a>
+                          </div>
+  
+                          <div class="black-lives-matter" style="width:100%;">
+                              <span class="fw-bold text-start">Black Lives Matter.</span>
+                              <div>
+                                  <a class="" target="_blank" rel="noopener noreferrer" href="https://support.eji.org/give/153413/#!/donation/checkout">
+                                    <span class="text-danger">Support the Equal Justice Initiative.</span>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row" >
+          <div class="col-md-12 col-sm-12 ml-auto mr-auto text-center footer-description-copyright separator-top-main  text-gray">
+              Varsity Sports Academy&trade; Created with by Varsity Sports Academy&trade; Sports.  Coded with <i class="fa fa-heart heart"></i> by <a href="https://www.VarsitySportsAcademy.com" target="_blank">ZeurTek - Digital Transformation Consultants</a> in Irvine, California. &#169; Copyright {{date | date: 'yyyy'}}.<br>
+          </div>
+        </div>
+    </div>
+  </footer>
+  

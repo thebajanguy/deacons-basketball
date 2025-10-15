@@ -1,0 +1,268 @@
+
+<div class="container my-4" style="max-width: 900px;">
+
+  <!-- Form Header -->
+  <header class="mb-2">
+    <h2 class="h2 text-dark">Camp Registration</h2>
+    <h3 class="mb-3">Varsity Sports Academy Registration</h3>
+    <p class="sr-only">Use this form to Reserve your spot now.</p>
+  </header>
+
+  <!--
+  <div *ngIf="success()" class="alert alert-success">Registration submitted successfully.</div>
+  <div *ngIf="errorMsg()" class="alert alert-danger">{{ errorMsg() }}</div>
+  -->
+
+  <!-- Registration Intake Form -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()"
+        class="app-consultation-form form-shell mt-3" novalidate
+        aria-label="Contact request form">
+    
+    <!-- Honeypot field for spam trap -->
+    <input type="text" formControlName="honeypot" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+    <div class="grid-flex">
+
+      <!-- Camp Details -->
+      <div class="card mb-3-top">
+        <div class="card-header fw-semibold" style="padding-top:10px;">Camp Details <span style="color:red">*</span></div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- Country: Required -->
+            <div class="fl-flex" [class.filled]="!!f.Country.value"
+            [class.has-error]="f.Country.invalid && f.Country.touched">
+              <select id="Country" class="form-select" formControlName="Country" required>
+                <option *ngFor="let c of countryOptions" [value]="c">{{ c }}</option>
+              </select>
+              <label for="Country">Country</label>
+              <small class="error" *ngIf="f.Country.hasError('required') && f.Country.touched">Required</small>
+            </div>
+            <!-- Interest/Sport: Required -->
+            <div class="fl-flex" [class.filled]="!!f.Interest.value"
+            [class.has-error]="f.Interest.invalid && f.Interest.touched">
+              <select id="Interest" class="form-select" formControlName="Interest" required>
+                <option *ngFor="let i of interestOptions" [value]="i">{{ i }}</option>
+              </select>
+              <label for="Interest">Interest / Sport</label>
+              <small class="error" *ngIf="f.Interest.hasError('required') && f.Interest.touched">Required</small>
+            </div>
+            <!-- Activity: Required -->
+            <div class="fl-flex" [class.filled]="!!f.ActivityId.value"
+            [class.has-error]="f.ActivityId.invalid && f.ActivityId.touched">
+              <select class="form-select" id="ActivityId" formControlName="ActivityId" required>
+                <option *ngFor="let c of activities$ | async; trackBy: trackById" [value]="c.id">
+                  {{ c.editionLabel }} — {{ c.venue }}{{ c.country ? ', ' + c.country : '' }}
+                  ({{ c.dates.start | date:'MMM d' }}–{{ c.dates.end | date:'MMM d, y' }})
+                </option>
+              </select>
+              <label for="ActivityId">Activity / Camp</label>
+              <small class="error" *ngIf="f.ActivityId.hasError('required') && f.ActivityId.touched">Required</small>
+            </div>    
+          </div>
+        </div>
+      </div>
+
+      <!-- Athlete Details -->
+      <div class="card mb-3"  style="margin-top: -12px;">
+        <div class="card-header fw-semibold">Athlete Details <span style="color:red">*</span></div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- Givenname -->
+            <div class="fl-flex" [class.filled]="!!f.Givenname.value"
+            [class.has-error]="f.Givenname.invalid && f.Givenname.touched">
+              <input id="Givenname" type="text" formControlName="Givenname" placeholder=" " required>
+              <label for="Givenname">First Name</label>
+              <small class="error" *ngIf="f.Givenname.hasError('required') && f.Givenname.touched">Required</small>
+              <small class="error" *ngIf="f.Givenname.hasError('name') && f.Givenname.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- Surname -->
+            <div class="fl-flex" [class.filled]="!!f.Surname.value"
+                [class.has-error]="f.Surname.invalid && f.Surname.touched">
+              <input id="surname" type="text" formControlName="Surname" placeholder=" " required>
+              <label for="surname">Last Name</label>
+              <small class="error" *ngIf="f.Surname.hasError('required') && f.Surname.touched">Required</small>
+              <small class="error" *ngIf="f.Surname.hasError('name') && f.Surname.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- DOB (masked YYYY-MM-DD) : [class.is-invalid]=" f.DOB.invalid && f.DOB.touched"  -->
+            <div class="fl-flex" [class.filled]="!!f.DOB.value"
+            [class.has-error]="f.DOB.invalid && f.DOB.touched">
+              <input id="DOB" type="text" formControlName="DOB"  placeholder=" " mask="0000-00-00" inputmode="numeric" required>
+              <label for="dob">Date of Birth (YYYY-MM-DD)</label>
+              <small class="error" *ngIf="f.DOB.hasError('required') && f.DOB.touched">Required</small>
+              <small class="invalid-feedback"> {{ f.DOB.errors?.['isoDate'] }}  </small>
+            </div>   
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="card mb-3">
+        <div class="card-header fw-semibold">Athlete Contact Details (Optional)</div>
+        <small>Add Parent/Guardian contact in the Guardian Details section below if Athlete does not have an email or phone number.</small>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- Email -->
+            <div class="fl-flex" 
+            [class.filled]="!!f.Email.value"
+            [class.has-error]="f.Email.invalid && f.Email.touched">
+              <input id="email" type="email" formControlName="Email" placeholder=" " autocomplete="email" inputmode="email">
+              <label for="email">Email Address</label>
+              <small class="error" *ngIf="f.Email.hasError('email') && f.Email.touched">Enter a valid email</small>
+            </div>
+            <!-- Phone -->
+            <div class="fl-flex" 
+            [class.filled]="!!f.Phone.value"
+            [class.has-error]="f.Phone.invalid && f.Phone.touched">
+              <input id="phone" type="tel" formControlName="Phone" placeholder=" " autocomplete="tel" inputmode="tel">
+              <label for="phone">Phone Number</label>
+              <small class="error" *ngIf="f.Phone.hasError('pattern')  && f.Email.touched">Enter a valid phone number</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- School Details -->
+      <div class="card mb-3">
+        <div class="card-header fw-semibold">School Details <span style="color:red">*</span></div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- School -->
+            <div class="fl-flex" [class.filled]="!!f.School.value"
+            [class.has-error]="f.School.invalid && f.School.touched">
+              <input id="school" type="text" formControlName="School" placeholder=" " required>
+              <label for="school">School</label>
+              <small class="error" *ngIf="f.School.hasError('required') && f.School.touched">Required</small>
+              <small class="error" *ngIf="f.School.hasError('name') && f.School.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- GradeOrForm -->
+            <div class="fl-flex" [class.filled]="!!f.GradeOrForm.value"
+                [class.has-error]="f.GradeOrForm.invalid && f.GradeOrForm.touched">
+              <input id="gradeOrForm" type="text" formControlName="GradeOrForm" placeholder=" " required>
+              <label for="gradeOrForm">Grade / Form</label>
+              <small class="error" *ngIf="f.GradeOrForm.hasError('required') && f.GradeOrForm.touched">Required</small>
+              <small class="error" *ngIf="f.GradeOrForm.hasError('name') && f.GradeOrForm.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sport Details -->
+      <div class="card mb-3">
+        <div class="card-header fw-semibold">Sport Details <span style="color:red">*</span></div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- Position: Required -->
+            <div class="fl-flex" [class.filled]="!!f.Position.value"
+            [class.has-error]="f.Position.invalid && f.Position.touched">
+              <select id="Position" class="form-select" formControlName="Position" required>
+                <option *ngFor="let c of basketballPositionOptions" [value]="c">{{ c }}</option>
+              </select>
+              <label for="Position">Position</label>
+              <small class="error" *ngIf="f.Position.hasError('required') && f.Position.touched">Required</small>
+            </div>
+            <!-- SkillLevel: Required -->
+            <div class="fl-flex" [class.filled]="!!f.SkillLevel.value"
+            [class.has-error]="f.SkillLevel.invalid && f.SkillLevel.touched">
+              <select id="SkillLevel" class="form-select" formControlName="SkillLevel" required>
+                <option *ngFor="let i of skillOptions" [value]="i">{{ i }}</option>
+              </select>
+              <label for="SkillLevel">Skill Level</label>
+              <small class="error" *ngIf="f.SkillLevel.hasError('required') && f.SkillLevel.touched">Required</small>
+            </div>
+            <!-- TshirtSize: Required -->
+            <div class="fl" [class.filled]="!!f.TshirtSize.value"
+            [class.has-error]="f.TshirtSize.invalid && f.TshirtSize.touched">
+              <select id="TshirtSize" class="form-select" formControlName="TshirtSize" required>
+                <option *ngFor="let i of sizeOptions" [value]="i">{{ i }}</option>
+              </select>
+              <label for="TshirtSize">T-Shirt Size</label>
+              <small class="error" *ngIf="f.TshirtSize.hasError('required') && f.TshirtSize.touched">Required</small>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Guardian Details -->
+      <div class="card mb-3">
+        <div class="card-header fw-semibold">Guardian Details <span style="color:red">*</span></div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- GuardianName -->
+            <div class="fl-flex" [class.filled]="!!f.GuardianName.value"
+            [class.has-error]="f.GuardianName.invalid && f.GuardianName.touched">
+              <input id="GuardianName" type="text" formControlName="GuardianName" placeholder=" " required>
+              <label for="GuardianName">Full Name</label>
+              <small class="error" *ngIf="f.GuardianName.hasError('required') && f.GuardianName.touched">Required</small>
+              <small class="error" *ngIf="f.GuardianName.hasError('GuardianName') && f.GuardianName.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- GuardianEmail -->
+            <div class="fl-flex" [class.filled]="!!f.GuardianEmail.value"
+                [class.has-error]="f.GuardianEmail.invalid && f.GuardianEmail.touched">
+              <input id="GuardianEmail" type="text" formControlName="GuardianEmail" placeholder=" " required>
+              <label for="GuardianEmail">Email</label>
+              <small class="error" *ngIf="f.GuardianEmail.hasError('required') && f.GuardianEmail.touched">Required</small>
+              <small class="error" *ngIf="f.GuardianEmail.hasError('GuardianEmail') && f.GuardianEmail.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- GuardianPhone -->
+            <div class="fl-flex" [class.filled]="!!f.GuardianPhone.value"
+                [class.has-error]="f.GuardianPhone.invalid && f.GuardianPhone.touched">
+              <input id="GuardianPhone" type="text" formControlName="GuardianPhone" placeholder=" " required>
+              <label for="GuardianPhone">Phone</label>
+              <small class="error" *ngIf="f.GuardianPhone.hasError('required') && f.GuardianPhone.touched">Required</small>
+              <small class="error" *ngIf="f.GuardianPhone.hasError('GuardianPhone') && f.GuardianPhone.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+            <!-- GuardianRelation -->
+            <div class="fl-flex" [class.filled]="!!f.GuardianRelation.value"
+            [class.has-error]="f.GuardianRelation.invalid && f.GuardianRelation.touched">
+              <input id="GuardianRelation" type="text" formControlName="GuardianRelation" placeholder=" " required>
+              <label for="GuardianRelation">Relation</label>
+              <small class="error" *ngIf="f.GuardianRelation.hasError('required') && f.GuardianRelation.touched">Required</small>
+              <small class="error" *ngIf="f.GuardianRelation.hasError('GuardianRelation') && f.GuardianRelation.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Details -->
+      <div class="card mb-3">
+        <div class="card-header fw-semibold">Additional Details (Optional)</div>
+        <div class="card-body" >
+          <div class="row g-3">            
+            <!-- Notes -->
+            <div class="fl full textarea"
+            [class.filled]="!!f.Notes.value"
+            [class.has-error]="f.Notes.invalid && f.Notes.touched">
+              <textarea id="message" formControlName="Message" rows="6" maxlength="4000" placeholder=" "></textarea>
+              <label for="message">Your Notes</label>
+              <small class="hint">{{ (f.Notes.value.length || 0) }} / 4000</small>
+              <small *ngIf="f.Notes.errors?.['sqlInjection']">
+                Input contains patterns that look like SQL injection. Please rephrase.
+              </small>  
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Button(s) -->
+    <div class="card mb-3" style="margin-top:-2px;">
+      <div class="actions justify-content-center">
+        <button class="btn btn-primary" type="submit" [disabled]="submitting() || form.invalid" style="padding:20px; margin-top:-2px;">
+          <span class="spinner" *ngIf="submitting()" aria-hidden="true"></span>
+          <span>{{ submitting() ? 'Sending…' : 'Register Now' }}</span> 
+        </button>
+      </div>
+      <div *ngIf="serverMessage()" class="mt-2 text-center"
+        [class.text-success]="serverMessage()?.type==='success'"
+        [class.text-danger]="serverMessage()?.type==='error'"
+        role="status" aria-live="polite">
+        {{ serverMessage()?.text }}
+      </div>
+    </div>
+
+
+
+  </form>
+
+</div>

@@ -1,0 +1,317 @@
+<!-- Begin Hero Section -->
+<header id="hero-consultation-vsaprep"
+  class="page-header page-header div-color-dark parallax-hero"
+  style="background-image:url('assets/img/pages/correspondence/vsaprep-correspondence-hero-bg.png')"
+  role="banner" aria-label="Varsity Sports Academy Prep Consultation Hero">
+
+  <div class="filter filter-black" aria-hidden="true"></div>
+
+  <div class="content-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-left">
+          <h1 class="text-uppercase hero-title">
+            <span class="text-color-white">Register For Camp</span>
+          </h1>
+
+          <p class="lead text-white mt-3 hero-subtitle">
+            Our Brains & Ballers Gold Camps deliver high-intensity basketball training focused on skill mastery, game IQ development, and leadership growth. Each camp combines advanced drills with competitive showcase games, helping student-athletes gain confidence, improve performance, and prepare for the next level of play.          </p>
+
+          <!-- CTA Buttons -->
+          <nav class="buttons mt-4" aria-label="Primary calls to action">
+            <a class="btn btn-main btn-lg btn-magnify" 
+              routerLink="." 
+              fragment="register"
+              aria-label="Jump to consultation request form">
+              &nbsp; Book Your Spot Now &nbsp;
+            </a>
+            <a href="tel:+17186370566" class="btn btn-main btn-lg btn-outline btn-magnify"
+              aria-label="Call Varsity Sports Academy Prep">Call (718) 637-0566</a>
+          </nav>
+
+          <div class="mt-3">
+            <app-social-plugin></app-social-plugin>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Hero Section -->
+
+<section id="register" class="section section-white text-center py-5" aria-labelledby="consultation-heading">
+  <div class="container">
+    
+    <!-- ✅ side-by-side columns: left info, right form -->
+    <div class="row g-4">
+
+      <!-- Left info card -->
+      <div class="col-12 col-lg-5 contact-form-left align-left p-3">
+ 
+        <header class="mb-3">
+          <h2 id="consultation-title" class="h2">What You’ll Get</h2>
+          <p class="sr-only">Consultation overview for Varsity Sports Academy Prep</p>
+        </header>
+
+        <ul class="mb-3">
+          <li>15–30 minute discovery call (phone or WhatsApp).</li>
+          <li>Academic review: tutoring needs, NCAA core courses, timelines.</li>
+          <li>Athletic goals: sport, position, training plan, showcases/camps.</li>
+          <li>Scholarship guidance: exposure, highlight strategy, next steps.</li>
+          <li>Follow-up summary with recommended actions.</li>
+        </ul>
+
+        <br />
+        <h3 class="h5 mb-1">Call / WhatsApp:</h3>
+        <p class="ps-3 mb-3">
+          <a href="tel:+17186370566" class="text-white-50"><strong>(718) 637-0566</strong></a>
+        </p>
+        
+        <h3 class="h5 mb-1">Email</h3>
+        <p class="ps-3">
+          <a href="mailto:VsaPrep@gmail.com" class="text-white-50"><strong>VsaPrep&#64;gmail.com</strong></a>
+        </p>
+
+      </div>
+  
+      <!-- Right: request form -->
+      <div class="col-12 col-lg-7 contact-form-right p-3">
+  
+        <header class="mb-2">
+          <h2 class="h2 text-dark">Request a Consultation</h2>
+          <p class="sr-only">Use this form to request a consultation with Varsity Sports Academy Prep.</p>
+        </header>
+
+        
+        <p class="description text-start text-dark">
+          Tell us about your student-athlete and goals. A VSA Prep coordinator will follow up to schedule your consultation.
+        </p>
+
+        <!-- REGISTRATION FORM -->
+        <h2 class="mb-3">Varsity Sports Academy Registration</h2>
+
+        <div *ngIf="success()" class="alert alert-success">Registration submitted successfully.</div>
+        <div *ngIf="errorMsg()" class="alert alert-danger">{{ errorMsg() }}</div>
+      
+        <form [formGroup]="form" (ngSubmit)="submit()"
+          class="form-shell mt-3" novalidate
+          aria-label="Camp Registration From">
+          <!-- Activity -->
+          <div class="card mb-3">
+            <div class="card-header fw-semibold">Camp Details</div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+
+                    <select class="form-select"
+                            id="campId" formControlName="campId">
+
+                      <option *ngFor="let c of camps$ | async; trackBy: trackById" [value]="c.id">
+                        {{ c.editionLabel }} — {{ c.venue }}{{ c.country ? ', ' + c.country : '' }}
+                        ({{ c.dates.start | date:'MMM d' }}–{{ c.dates.end | date:'MMM d, y' }})
+                      </option>
+
+                    </select>
+                    <label for="campId">Camp</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <select class="form-select"
+                            id="sport" formControlName="sport">
+                      <option *ngFor="let s of sports" [value]="s">{{ s }}</option>
+                    </select>
+                    <label for="sport">Sport</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Player -->
+          <div class="card mb-3">
+            <div class="card-header fw-semibold">Player Details</div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                           id="firstName" placeholder="First Name" formControlName="firstName"
+                           formGroupName="player">
+                    <label for="firstName">First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                           id="lastName" placeholder="Last Name" formControlName="lastName" 
+                           formGroupName="'player'">
+                    <label for="lastName">Last Name</label>
+                  </div>
+                </div>
+      
+                <!-- Player: Date of Birth (masked YYYY-MM-DD) -->
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                      [class.is-invalid]="p['dob'].touched && p['dob'].invalid"
+                      id="dob" placeholder="YYYY-MM-DD" formControlName="dob"
+                      mask="0000-00-00" inputmode="numeric" />
+                    <label for="dob">Date of Birth (YYYY-MM-DD)</label>
+                    <div class="invalid-feedback"> 
+                      {{ p['dob'].errors?.['isoDate'] }}
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input type="email" class="form-control"
+                           id="email" placeholder="Email" formControlName="email">
+                    <label for="email">Email (optional)</label>
+                  </div>
+                </div>
+
+     
+                <!-- Player: Phone (optional, NA pattern) -->
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone"
+                      formControlName="phone"
+                      mask="(000) 000-0000"
+                      inputmode="tel" />
+                    <label for="phone">Phone (optional)</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input id="school"  type="text" 
+                    class="form-control" 
+                    placeholder="School" 
+                    formControlName="school">
+                    <label for="school">School (optional)</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input id="gradeOrForm" type="text" 
+                      class="form-control"
+                      placeholder="Grade / Form" 
+                      formControlName="gradeOrForm">
+                    <label for="gradeOrForm">Grade / Form</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                           id="position" placeholder="Position" formControlName="position">
+                    <label for="position">Position</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <select class="form-select"
+                            id="skillLevel" formControlName="skillLevel">
+                      <option *ngFor="let s of skills" [value]="s">{{ s }}</option>
+                    </select>
+                    <label for="skillLevel">Skill Level</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'player'">
+                  <div class="form-floating">
+                    <select class="form-select"
+                            id="tshirtSize" formControlName="tshirtSize">
+                      <option *ngFor="let t of sizes" [value]="t">{{ t }}</option>
+                    </select>
+                    <label for="tshirtSize">T-Shirt Size</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+     
+          <!-- Guardian -->
+          <div class="card mb-3">
+            <div class="card-header fw-semibold">Parent/Guardian Details</div>
+            <div class="card-body" >
+              <div class="row g-3">
+                <div class="col-md-6" [formGroupName]="'guardian'">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                           id="gname" placeholder="Name" formControlName="name">
+                    <label for="gname">Name</label>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'guardian'">
+                  <div class="form-floating">
+                    <input type="email" class="form-control"
+                           id="gemail" placeholder="Email" formControlName="email">
+                    <label for="gemail">Email</label>
+                  </div>
+                </div>
+      
+                <!-- Guardian: Phone (required) -->
+                <div class="col-md-6" [formGroupName]="'guardian'">
+                  <div class="form-floating" [formGroupName]="'guardian'">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="gphone"
+                      placeholder="Phone"
+                      formControlName="phone"
+                      mask="+1 (000) 000-0000"    
+                      inputmode="tel"
+                      />
+                    <label for="gphone">Phone</label>
+                    <div class="invalid-feedback">Required.</div>
+                  </div>
+                </div>
+      
+                <div class="col-md-6" [formGroupName]="'guardian'">
+                  <div class="form-floating">
+                    <input type="text" class="form-control"
+                           id="grelation" placeholder="Relation" formControlName="relation">
+                    <label for="grelation">Relation</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Notes -->
+          <div class="mb-3">
+            <label for="notes" class="form-label">Notes (optional)</label>
+            <textarea class="form-control" id="notes" rows="3" formControlName="notes" maxlength="500"></textarea>
+            <div class="form-text text-end">
+              <small class="hint">{{ form.value?.notes?.length || 0 }}/500</small>
+            </div>
+          </div>
+
+              
+          <button class="btn btn-primary" type="submit" [disabled]="submitting() || form.invalid">
+            {{ submitting() ? 'Submitting…' : 'Submit Registration' }}
+          </button> {{form.invalid}} 
+          <button class="btn btn-primary" type="submit" >
+            {{ submitting() ? 'Submitting…' : 'Submit Registration' }}
+          </button>
+        </form>
+  
+      </div>
+    </div>
+
+
+  </div>
+</section>
+

@@ -1,0 +1,64 @@
+:host { display:block; }
+
+/* Customize these tokens in a global theme if desired */
+$gold: #ffd212;
+$navy: #0a2144;
+
+.hero {
+  position: relative;
+  --hero-max: 920px;
+  color: #fff;
+  background-color: $navy; /* fallback if no image */
+  background-position: center;
+  background-size: cover;
+  padding: clamp(56px, 8vw, 96px) 16px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+  &::after { /* overlay */
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; opacity: .55; display: none;
+  }
+  &.overlay-dark::after { display:block; background: radial-gradient(100% 100% at 50% 0, rgba(0,0,0,.35) 0, rgba(0,0,0,.72) 70%); }
+  &.overlay-gold::after { display:block; background: linear-gradient(180deg, rgba(255,210,18,.25), rgba(0,0,0,.65)); }
+
+  .hero__inner {
+    position: relative; z-index: 999;
+    margin: 0 auto; max-width: var(--hero-max);
+  }
+}
+/* Reduce top gap below the navbar */
+.hero {
+  padding-top: clamp(48px, 6vw, 72px); /* smaller top padding */
+}
+
+.hero__crumbs {
+  font-size: .9rem; margin-bottom: .75rem; opacity: .9;
+  ol { list-style: none; padding: 0; margin: 0; display:flex; gap: .5rem; flex-wrap: wrap; }
+  li { display:flex; gap:.5rem; align-items:center; }
+  li::after { content:"/"; opacity:.6; }
+  li[aria-current="page"]::after { content:""; }
+  a { color:#fff; text-decoration: underline; text-underline-offset: 2px; }
+}
+.hero__crumbs {
+  margin-top: -5.25rem; /* previously had a larger default margin */
+}
+
+.hero__header {
+  h1 { margin: 0 0 .375rem; font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1; }
+  .hero__description { margin: 0; font-size: clamp(1rem, 2.2vw, 1.25rem); opacity: .95; max-width: 60ch; }
+}
+.hero__description { margin: 0; font-size: clamp(1rem, 2.2vw, 1.25rem); opacity: .95; color: #ffffff; }
+
+.hero-description { margin: 0; font-size: clamp(1rem, 2.2vw, 1.25rem); opacity: .95; color: #ffffff; }
+
+.hero__ctas {
+   gap: .75rem; margin-top: 1rem; flex-wrap: wrap;
+
+  .btn {
+    display:inline-block; padding: .65rem 1rem; border-radius: 999px; border:1px solid transparent;
+    background: $gold; color: #111; font-weight: 700; text-decoration: none; transition: transform .08s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+  .btn-ghost { background: transparent; color: #fff; border-color: transparent; text-decoration: underline; }
+}

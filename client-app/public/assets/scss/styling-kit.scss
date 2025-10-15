@@ -1,0 +1,112 @@
+/*!
+
+ =========================================================
+ * 
+ =========================================================
+
+ * 
+ * 
+
+ * 
+
+ =========================================================
+
+ * 
+
+ */
+
+@import 'styling-kit/variables';
+@import 'styling-kit/mixins';
+
+// Plugins CSS
+@import "styling-kit/plugins/plugin-bootstrap-switch";
+@import "styling-kit/plugins/plugin-bootstrap-select";
+@import "styling-kit/plugins/plugin-tagsinput";
+@import "styling-kit/plugins/plugin-fileupload";
+@import "styling-kit/plugins/plugin-datetimepicker";
+
+// Core CSS
+@import "styling-kit/nucleo-outline";
+@import "styling-kit/alerts";
+@import "styling-kit/checkbox-radio";
+@import "styling-kit/badges";
+@import "styling-kit/pagination";
+@import "styling-kit/typography";
+@import "styling-kit/misc";
+@import "styling-kit/misc-extended";
+@import "styling-kit/buttons";
+@import "styling-kit/social-buttons";
+@import "styling-kit/inputs";
+@import "styling-kit/progress-bars";
+@import "styling-kit/tooltips-and-popovers";
+
+// components
+@import "styling-kit/tabs-navs";
+@import "styling-kit/navbars";
+@import "styling-kit/navbar-extend";
+@import "styling-kit/dropdown-extend";
+@import "styling-kit/images";
+@import "styling-kit/tags";
+@import "styling-kit/animated-buttons";
+@import "styling-kit/preloaders";
+@import "styling-kit/tables";
+@import "styling-kit/info-areas";
+@import "styling-kit/media";
+@import "styling-kit/modal";
+@import "styling-kit/carousel";
+@import "styling-kit/footers";
+@import "styling-kit/headers";
+@import "styling-kit/collapse";
+
+// cards
+@import "styling-kit/cards";
+@import "styling-kit/cards/card-background";
+@import "styling-kit/cards/card-blog";
+@import "styling-kit/cards/card-contact";
+@import "styling-kit/cards/card-extend";
+@import "styling-kit/cards/card-fashion";
+@import "styling-kit/cards/card-form-horizontal";
+@import "styling-kit/cards/card-image";
+@import "styling-kit/cards/card-no-shadow";
+@import "styling-kit/cards/card-plain";
+@import "styling-kit/cards/card-pricing";
+@import "styling-kit/cards/card-product";
+@import "styling-kit/cards/card-profile";
+@import "styling-kit/cards/card-raised";
+@import "styling-kit/cards/card-register";
+@import "styling-kit/cards/card-signup";
+@import "styling-kit/cards/card-testimonials";
+
+// For gallery, using PhotoSwipe
+@import "styling-kit/plugins/photo-swipe/main.scss";
+@import "styling-kit/plugins/photo-swipe/default-skin.scss";
+@import "styling-kit/plugins/photo-swipe/gallery.scss";
+@import "styling-kit/plugins/photo-swipe/main.scss";
+
+// Isometric cards plugin
+@import "styling-kit/plugins/plugin-isometricGrids";
+
+// example pages and sections
+//@import "styling-kit/examples";
+@import "styling-kit/sections";
+@import "styling-kit/sections-extend";
+
+@import "styling-kit/responsive";
+
+// Nucleo Icons
+@import "styling-kit/nucleo-icons";
+
+// Angular Differences
+@import "styling-kit/angular-differences/angular2-multiselect-dropdown";
+@import "styling-kit/angular-differences/dropdowns";
+@import "styling-kit/angular-differences/modal";
+@import "styling-kit/angular-differences/ngb-accordion";
+@import "styling-kit/angular-differences/ngb-datepicker";
+@import "styling-kit/angular-differences/ngx-gallery";
+@import "styling-kit/angular-differences/popovers";
+@import "styling-kit/angular-differences/presentation";
+@import "styling-kit/angular-differences/responsive";
+@import "styling-kit/angular-differences/sliders";
+@import "styling-kit/angular-differences/tabs-navs";
+@import "styling-kit/angular-differences/tags";
+@import "styling-kit/angular-differences/tooltips-and-popovers";

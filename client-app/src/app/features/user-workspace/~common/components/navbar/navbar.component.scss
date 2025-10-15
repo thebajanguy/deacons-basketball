@@ -1,0 +1,25 @@
+@import "../../../../../../../public/scss/user-experience/user-experience-styling-kit/variables";
+
+
+.form-group.no-border .form-control + .input-group-prepend .input-group-text, .form-group.no-border .form-control + .input-group-append .input-group-text, .input-group.no-border .form-control + .input-group-prepend .input-group-text, .input-group.no-border .form-control + .input-group-append .input-group-text {
+  padding: 11px 19px 11px 20px;
+}
+
+.input-group-append .input-group-text,
+.input-group-prepend .input-group-text {
+  background-color: transparent;
+  border: 1px solid $light-gray;
+  border-radius: $btn-round-radius;
+  color: $default-color;
+  border-radius: 0px 25px 25px 0px;
+
+  margin-left: 1px;
+
+  & i {
+    opacity: 0.5;
+  }
+}
+
+a:hover { 
+  color: red;
+}

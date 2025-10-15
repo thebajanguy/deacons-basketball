@@ -1,0 +1,69 @@
+<nav id="navbar" class="navbar navbar-default fixed-top navbar-expand-lg navbar-dark flex-wrap" color-on-scroll="500">
+  <div class="container-fluid">
+      <a class="navbar-brand navbar-logo" [routerLink]="['index']" title='Varsity Sports Academy'>
+        <img src="img/logos/internal/logo-small-dark.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" >
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link" [routerLink]="['index']" >
+                <i class="nc-icon nc-bank icon-success"></i> Home
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link" [routerLink]="['sports-technology-agency']">
+                <i class="nc-icon nc-bulb-63 icon-info"></i> Who We Are
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link" [routerLink]="['sports-technology-services']">
+                <i class="nc-icon nc-air-baloon icon-success"></i> Why Varsity Sports Academy
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link" [routerLink]="['athletes']">
+                <i class="nc-icon nc-trophy icon-warning"></i> For Athletes
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link" [routerLink]="['coaches']">
+                <i class="nc-icon nc-chart-bar-32 icon-primary"></i> For Coaches
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!loginDisplay">
+              <a class="nav-link" [routerLink]="['membership']">
+                <i class="nc-icon nc-single-02 icon-warning"></i> Membership
+              </a>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="loginDisplay">
+              <a class="nav-link" href="#">
+                <img src="img/icons/icon-logout.png" class="icon-link" (click)="signOut()" />
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!loginDisplay">
+              <button class="nav-link" >
+                <img src="img/icons/icon-login.png" class="icon-link" (click)="signIn()" />
+              </button>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]='["link-active"]' style="padding: 0px; margin: 0px;">
+              <a class="nav-link " [routerLink]="['contact']">
+                  <img src="img/icons/icon-link-contact.png" class="icon-link" />
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]' style="padding: 0px; margin: 0px;">
+                <a class="nav-link " [routerLink]="['consultation']">
+                    <img src="img/icons/icon-link-event.png" class="icon-link" />
+                </a>
+            </li>
+   
+        </ul>
+      </div>
+    </div>
+</nav>
+<!---->

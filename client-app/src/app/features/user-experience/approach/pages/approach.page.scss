@@ -1,0 +1,264 @@
+:target { scroll-margin-top: 80px; }
+html { scroll-behavior: smooth; }
+
+
+.section { position: relative; }
+
+.section-white { background: #fff; }
+
+.div-section-separator { background: linear-gradient(180deg, #03214d 0%, #03214d 100%); }
+
+.section-image-overlay {
+  position: relative;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.45); /* overlay */
+  }
+
+  > .container-fluid, > .container {
+    position: relative; /* lift content above overlay */
+    z-index: 1;
+  }
+}
+
+.nowrap { white-space: nowrap; }
+
+.info .icon img {
+  display: block;
+  width: 100px; height: 100px;
+}
+
+
+.p-5 { padding: 2rem; }
+.p-lg-6 { @media (min-width: 992px){ padding: 3rem; } }
+
+.text-white { color: #fff; }
+
+.card img { max-width: 100%; height: auto; }
+
+.description { max-width: 100%; margin-inline: auto; }
+
+
+/* ===== Vars ===== */
+$nav-dark:        #0a2144;
+$brand-yellow:    #ffd212;
+$border-subtle:   rgba(0,0,0,.08);
+$text-muted:      #444;
+
+/* ===== Mixins ===== */
+@mixin grid-auto($min:220px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: .75rem;
+}
+
+@mixin pill-icon($size:1.15rem) {
+  width: $size; height: $size;
+  border-radius: 50%;
+  border: 2px solid $brand-yellow;
+}
+
+/* ===== Global helpers ===== */
+.section-white { background:#fff; }
+.page-header   { margin: 1.25rem 0; }
+.lead          { font-size:1.1rem; color:$text-muted; max-width:62ch; }
+
+/* Keep target headings clear of sticky nav */
+:target { scroll-margin-top: 80px; } /* same as scrollOffset */
+
+/* ===== TOC ===== */
+.toc {
+  display:flex; flex-wrap:wrap; gap:.5rem 1rem; margin-bottom:1rem;
+  a {
+    text-decoration:none; font-weight:600;
+    padding-right:20px; padding-left:0;
+    border-right:2px solid #03214d;
+    &:hover { text-decoration:underline; color:gray; }
+  }
+}
+
+/* ===== Lists (icon/check/steps share structure) ===== */
+.icon-list,
+.checklist,
+.steps,
+.warning-list {
+  margin:1rem 0 0; padding:0; list-style:none;
+}
+
+.icon-list li,
+.checklist li,
+.steps li,
+.warning-list li {
+  display:flex; align-items:flex-start; gap:.5rem; padding:.25rem 0;
+}
+
+/* Unified icon token */
+.icon-list .check,
+.checklist .check {
+  @include pill-icon(1.15rem);
+  margin-top:.25rem;
+  /* Inline SVG mask (currentColor = theme-able) */
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z"/></svg>') center/contain;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z"/></svg>') center/contain;
+  background-color: $brand-yellow;
+  color: var(--icon-color, #{$brand-yellow});
+}
+
+.icon-list .icon,
+.checklist .icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: .5rem;
+  border-radius: 50%;
+  border: 2px solid #ffd212;
+}
+
+/* Optional: stronger icon color on light gray cards */
+.card[data-color="lightgray"] .icon-list .icon { color: $nav-dark; }
+
+/* Steps counter */
+.steps { counter-reset: step; }
+.steps li::before {
+  counter-increment: step;
+  content: counter(step) ".";
+  font-weight:700;
+  margin-right:.5rem;
+}
+
+/* Warnings */
+.warning-list li::before { content:"⚠️"; margin-right:.5rem; }
+
+/* ===== Bulleted utility (kept for content areas) ===== */
+.bullets { margin:.5rem 0 0; padding-left:1.2rem;
+  li { margin:.25rem 0; }
+}
+
+/* ===== Blocks & CTA rows ===== */
+.block { margin-top:2rem; }
+
+.cta { margin-top:2rem; }
+
+.cta-card {
+  border-radius:.75rem; padding:1rem 1.25rem; color:#fff;
+  background: linear-gradient(180deg, #0a2144 0%, #0a2144 60%, #0e2a57 100%);
+  .btn { margin-top:.5rem; }
+}
+
+/* Full-width, equal-size buttons inside .cta-row */
+.cta-row {
+  padding-top:30px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two equal columns */
+  gap:.75rem;                          /* no gap = full coverage */
+  width: 100%;
+
+  flex-wrap:wrap; 
+  justify-content:center;
+}
+
+.cta-row > a {
+  display: flex;                   /* center text nicely */
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 70%;                    /* stretch to cell height */
+  padding: 14px 16px;              /* adjust as needed */
+  text-align: center;
+  /* Optional: stronger hit area */
+  min-height: 28px;                /* good touch target */
+}
+
+/* Stack on small screens but still full width */
+@media (max-width: 640px) {
+  .cta-row { grid-template-columns: 1fr; }
+}
+
+
+/* ===== Hero ===== */
+.hero {
+  position:relative; min-height:56vh;
+  &-bg {
+    position:absolute; inset:0;
+    //background-image:url('../../../../../public/assets/img/pages/what-we-do/vsaprep-what-we-do-hero-sports-development.png'); /* fallback */
+    background-size:cover; background-position:center;
+    filter:saturate(.9) contrast(1.05);
+  }
+  &-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(10,33,68,.55) 0%, rgba(10,33,68,.35) 40%, rgba(10,33,68,.15) 100%);
+  }
+}
+
+/* ===== Callouts / Cards ===== */
+.callouts { @include grid-auto(220px); margin-top:1rem; padding-top: 20px; }
+.callout  { width: 90%; border:1px solid $border-subtle; border-radius:.75rem; padding:.75rem; background:#fafafa; }
+
+/* ===== Feature grid ===== */
+.grid-features {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  article {
+    background:#fff; border:1px solid #e8e8e8; border-radius:12px; padding:16px 18px;
+    h3 { margin:0 0 6px; }
+  }
+  @media (max-width: 992px) { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
+}
+
+/* ===== Minor utilities ===== */
+.lift-top-section { padding-top:10px; margin-top:-50px; }
+
+/* ===== Reduced motion nicety ===== */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto; }
+}
+
+////////////////////
+.info {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;  /* centers the image horizontally */
+  align-items: center;      /* centers it vertically within its container */
+  margin-bottom: 1rem;      /* space between icon and title */
+}
+
+.icon img {
+  max-width: 100px;
+  height: auto;
+}
+
+.info-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.description p {
+  margin: 0;
+  color: #444;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-6,
+.col-sm-6 {
+  display: flex;
+}
+
+.info {
+  flex: 1; /* each card fills column height equally */
+  
+}

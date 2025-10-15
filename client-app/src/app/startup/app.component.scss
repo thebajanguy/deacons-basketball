@@ -1,0 +1,5 @@
+/* Keep anchors from hiding under sticky header */
+:target { scroll-margin-top: 80px; }
+
+/* Optional: smooth scrolling */
+html { scroll-behavior: smooth; }

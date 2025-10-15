@@ -1,0 +1,261 @@
+/* ===== VSA brand tokens ===== */
+$vsa-navy:   #0a2144;
+$vsa-gold:   #ffd212;
+$vsa-error:  #b00020;
+$vsa-border: #d7d7d7;
+$vsa-bg:     #fff;
+$vsa-gray:   #777;
+$vsa-light-gray:   #d7d7d7;
+
+/* Center the entire form shell inside its parent */
+.form-shell {
+  margin-inline: auto;
+  //max-width: 720px;   /* keeps it from going too wide */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers grid + actions */
+}
+
+/* Grid layout for form fields */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 18px);
+  width: 100%;              /* make it full width of form-shell */
+  justify-content: center;  /* center grid tracks */
+  align-items: start;
+}
+
+/* On smaller screens, collapse into single column */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  label {
+    font-weight: 600;
+    margin-bottom: .35rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    border: 1px solid $vsa-light-gray;
+    border-radius: 8px;
+    padding: .65rem .8rem;
+    font: inherit;
+    background: $vsa-bg;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: $vsa-navy;
+    box-shadow: 0 0 0 3px rgba(10,33,68,.12);
+  }
+
+  .hint {
+    color: $vsa-gray;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+
+  .error {
+    color: $vsa-error;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+/* Topic chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .5rem;
+  background: #f1f5fb;
+  border: 1px solid #d3def5;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .9rem;
+
+  .chip-remove {
+    border: 0;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
+
+/* Actions / button */
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn[disabled] {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: $vsa-navy;
+  color: $vsa-bg;
+}
+
+/* Simple spinner */
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin .6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Honeypot */
+.hp {
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0 !important;
+}
+
+/* Floating label group */
+.fl {
+  position: relative;
+  display: block;
+
+  /* Base field (input/textarea) */
+  input, textarea, select {
+    width: 100%;
+    border: 1px solid $vsa-light-gray;
+    border-radius: 10px;
+    padding: 1.125rem .85rem .625rem; /* extra top so label can sit inside */
+    font: inherit;
+    background: $vsa-bg;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+
+    &:focus {
+      border-color: $vsa-navy;
+      box-shadow: 0 0 0 3px rgba(10,33,68,.12);
+    }
+
+    /* Autofill fix */
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px $vsa-bg inset;
+      -webkit-text-fill-color: inherit;
+      caret-color: inherit;
+    }
+  }
+
+  /* Label sits over input when empty; floats when filled/focused */
+  label {
+    position: absolute;
+    left: .75rem;
+    top: .85rem;
+    line-height: 1;
+    font-size: 0.95rem;
+    color: $vsa-gray;
+    pointer-events: none;
+    background: transparent;
+    transform-origin: left top;
+    transition: transform .15s ease, color .15s ease, top .15s ease, background-color .15s ease;
+    padding: 0 .2rem;
+  }
+
+  /* Float on focus OR when there is content OR when parent has .filled */
+  input:focus + label,
+  textarea:focus + label,
+  select:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:not(:placeholder-shown) + label,
+  select:has(option:checked) + label,
+  &.filled label {
+    top: .4rem;
+    transform: scale(.82) translateY(-.25rem);
+    color: $vsa-navy;
+    background: $vsa-bg; /* so it “cuts” through borders if needed */
+  }
+
+  /* Error state */
+  &.has-error {
+    input, textarea, select {
+      border-color: $vsa-error;
+      box-shadow: 0 0 0 3px rgba(176,0,32,.12);
+    }
+    label {
+      color: $vsa-error;
+    }
+  }
+
+  /* Helpers */
+  .hint {
+    display: block;
+    color: $vsa-gray;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+  .error {
+    display: block;
+    color: $vsa-error;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+}
+
+/* Textarea can use a bit more top padding to balance label */
+.fl.textarea textarea {
+  padding-top: 1.35rem;
+}
+
+/* Grid helpers from your earlier styles */
+.full { grid-column: 1 / -1; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .fl label,
+  .fl input,
+  .fl textarea,
+  .fl select {
+    transition: none !important;
+  }
+}
+
+/* side-by-side with no gap; stack on smaller screens */
+#consultation .columns { display: grid; grid-template-columns: 1fr 1.35fr; gap: 0; }
+@media (max-width: 992px){ #consultation .columns { grid-template-columns: 1fr; } }
+
+/* optional: make the right column form max width for readability */
+#consultation .contact-form-right .form-shell { max-width: 760px; width: 100%; margin-inline: 0; }
+

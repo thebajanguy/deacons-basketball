@@ -1,0 +1,28 @@
+<header id="ipaas" name="ipaas" class="page-header header-section-image div-dark separator-bottom-card"
+style="background-image: url('img/sections/heading-home-1.png')">
+<div class="filter filter-black"></div>
+
+<div class="container">
+  <div class="row separator-bottom-header-neutral">
+    <div class="ml-auto mr-auto" style="padding-top: 150px;">
+      <h1 class="text-uppercase text-left page-header-1 text-color-white" style="font-weight: 400;">
+        USER SUMMARY WORKS WORKS WORKS WORKS WORKS WORKS.
+      </h1>
+      <div class="description text-uppercase text-left text-color-white">
+          <div *ngIf="activeUser">
+            <h3 class="text-color-white">Active User</h3>
+            <!--<pre>{{ activeUser | json }}</pre>-->
+            <p class="text-color-white"><strong>homeAccountId: </strong> {{activeUser.homeAccountId}}</p>
+            <p><strong>environment: </strong> {{activeUser.environment}}</p>
+            <p><strong>tenantId: </strong> {{activeUser.tenantId}}</p>
+            <p><strong>username: </strong> {{activeUser.username}}</p>
+            <p><strong>localAccountId: </strong> {{activeUser.localAccountId}}</p>
+            <p><strong>name: </strong> {{activeUser.name}}</p>
+            <p><strong>authorityType: </strong> {{activeUser.authorityType}}</p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</header>

@@ -1,0 +1,272 @@
+<!-- navbar.component.html -->
+<nav class="navbar fixed-top navbar-expand-md navbar-dark"
+     role="navigation"
+     aria-label="Primary"
+     itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+  <div class="container">
+    <div class="navbar-translate d-flex align-items-center">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-logo d-flex align-items-center"
+           [routerLink]="['student-athletes']"
+           title="Varsity Sports Academy Prep — Empowering Student-Athletes through Academics and Sports"
+           itemprop="url" rel="home">
+          <!-- Give images dimensions to avoid CLS; adjust to your actual asset sizes -->
+          <img src="assets/img/logos/internal/icon.png"
+               alt="Varsity Sports Academy Prep logo icon"
+               class="logo-icon"
+               width="32" height="32"
+               decoding="async" fetchpriority="high" />
+          <img src="assets/img/logos/internal/logo-light.png"
+               alt="Varsity Sports Academy Prep"
+               class="logo-text"
+               width="160" height="28"
+               decoding="async" />
+          <meta itemprop="name" content="Varsity Sports Academy Prep" />
+        </a>
+      </div>
+
+      <!-- Toggler -->
+      <button #navbarToggler
+        class="navbar-toggler navbar-burger ms-2"
+        type="button"
+        (click)="toggleNavbar()"
+        [class.open]="!isCollapsed"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="mainNavbar"
+        aria-label="Toggle primary navigation">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collapse: bind to isCollapsed -->
+    <div id="mainNavbar" class="navbar-collapse collapse" [ngbCollapse]="isCollapsed">
+      <!-- LEFT nav -->
+      <ul class="navbar-nav ms-auto align-items-md-center">
+
+        <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link px-3" itemprop="url"
+             [routerLink]="['student-athletes']">
+             <i class="nc-icon nc-bank icon-success"></i>&nbsp;<span itemprop="name">Home</span>
+          </a>
+        </li>
+
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link px-3" itemprop="url" [routerLink]="['sports-academics-prep']">
+            <i class="nc-icon nc-bulb-63 icon-info"></i>&nbsp;<span itemprop="name">Who We Are</span>
+          </a>
+        </li>
+
+        <!-- Comin soom
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link px-3" itemprop="url" [routerLink]="['approach']">
+              <i class="nc-icon nc-chart-bar-32 icon-primary"></i>&nbsp;<span itemprop="name">Our Approach</span>
+            </a>
+          </li>        
+        -->
+
+
+        <!-- What We Do (standard dropdown) -->
+        <li class="nav-item dropdown dropdown-hover" ngbDropdown [routerLinkActive]="['link-active']">
+          <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+             id="ddWhatWeDo"
+             ngbDropdownToggle role="button"
+             aria-expanded="false" aria-haspopup="true">
+             <i class="nc-icon nc-trophy icon-warning"></i>&nbsp;<span itemprop="name">Services</span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end dropdown-info" ngbDropdownMenu aria-labelledby="ddWhatWeDo">
+            <div class="dropdown-title">Academics</div>
+
+            <a class="dropdown-item" itemprop="url"
+               [routerLink]="['academic-tutoring']">
+              <span class="item-media">
+                <img src="/assets/img/nav/vsaprep-nav-academics.png"
+                     alt="Academic Tutoring"
+                     width="48" height="36" loading="lazy" decoding="async" />
+              </span>
+              <span class="item-text">
+                <span class="item-title" itemprop="name">Academic Tutoring</span>
+                <span class="item-desc">CSEC/CAPE, SAT/ACT, study hall</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" itemprop="url"
+               [routerLink]="['ncaa-compliance']">
+              <span class="item-media">
+                <img src="/assets/img/nav/vsaprep-nav-ncaa.png"
+                     alt="NCAA Compliance"
+                     width="48" height="36" loading="lazy" decoding="async" />
+              </span>
+              <span class="item-text">
+                <span class="item-title" itemprop="name">NCAA Compliance</span>
+                <span class="item-desc">16-core mapping &amp; guidance</span>
+              </span>
+            </a>
+
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-title">Athletics</div>
+
+            <a class="dropdown-item" itemprop="url"
+               [routerLink]="['sports-development']">
+              <span class="item-media">
+                <img src="/assets/img/nav/agile-training_580x360.png"
+                     alt="Sports Development"
+                     width="48" height="36" loading="lazy" decoding="async" />
+              </span>
+              <span class="item-text">
+                <span class="item-title" itemprop="name">Sports Development</span>
+                <span class="item-desc">Basketball, soccer, volleyball</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" itemprop="url"
+               [routerLink]="['recruitment-exposure']">
+              <span class="item-media">
+                <img src="/assets/img/nav/agile-training_580x360.png"
+                     alt="Recruitment &amp; Exposure"
+                     width="48" height="36" loading="lazy" decoding="async" />
+              </span>
+              <span class="item-text">
+                <span class="item-title" itemprop="name">Recruitment &amp; Exposure</span>
+                <span class="item-desc">Profiles, highlight reels, tours</span>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <!-- Programs (MEGA) -->
+        <!--  Coming Soon  -->
+        <li class="nav-item dropdown dropdown-mega dropdown-hover" ngbDropdown [routerLinkActive]="['link-active']">
+          <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+             id="ddPrograms"
+             ngbDropdownToggle role="button" aria-expanded="false" aria-haspopup="true">
+             <i class="nc-icon nc-trophy icon-warning"></i>&nbsp; <span itemprop="name">Programs</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-info mega" ngbDropdownMenu aria-labelledby="ddPrograms">
+            <div class="mega-grid">
+              <a class="mega-card" itemprop="url" [routerLink]="['after-school']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">After School Program</span><span class="mega-desc">Join the Brains & Ballers After School Program at Varsity Sports Academy Prep for academic support and athletic training.</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['basketball-gold-camps']">
+                <span><img src="/assets/img/nav/vsa-prep-brains-and-ballers-gold-camps-logo.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Basketball Gold Camps</span><span class="mega-desc">Elite basketball skill, IQ, and leadership camp for student-athletes.</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['soccer-gold-camps']">
+                <span><img src="/assets/img/nav/vsa-prep-brains-and-ballers-gold-camps-logo.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Soccer Gold Camps</span><span class="mega-desc">Advanced soccer training, fitness, and showcase experience for student-athletes.</span></span>
+              </a>
+
+              <!-- Coming soon
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'youth-skills-academy']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Sports Skills Academy</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'youth-training-programs']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Youth Training Programs</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'one-on-one-workouts']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">One-on-One Workouts</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'covid19-protocol']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name"><span class="text-uppercase">Covid-19</span> Protocols</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'group-training']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Group Training</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'strength-training']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Strength Training</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'speed-training']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Speed Training</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'programs', 'performance-training']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="42" height="42" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Performance Training</span><span class="mega-desc">Building a strong foundation</span></span>
+              </a>
+            -->
+            </div>
+          </div>
+        </li>
+       
+
+        <!-- Sports (MEGA) -->
+        <!--  Comomg Soon
+        <li class="nav-item dropdown dropdown-mega dropdown-hover" ngbDropdown [routerLinkActive]="['link-active']">
+          <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+             id="ddSports"
+             ngbDropdownToggle role="button" aria-expanded="false" aria-haspopup="true">
+            <span itemprop="name">Sports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-info mega" ngbDropdownMenu aria-labelledby="ddSports">
+            <div class="mega-grid">
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'baseball']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Baseball</span><span class="mega-desc">Hitting, pitching, fielding</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'basketball']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Basketball</span><span class="mega-desc">Skill work, IQ, showcases</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'cricket']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Cricket</span><span class="mega-desc">Batting, bowling, fielding</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'field-hockey']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Field Hockey</span><span class="mega-desc">Dribbling, passing, shooting</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'football']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Football</span><span class="mega-desc">Blocking, tackling, ball handling</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'lacrosse']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Lacrosse</span><span class="mega-desc">Catching, throwing, checking</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'soccer']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Soccer</span><span class="mega-desc">Footwork, agility, finishing</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'tennis']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Tennis</span><span class="mega-desc">Serving, volleying, footwork</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'track-and-field']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Track &amp; Field</span><span class="mega-desc">Sprints, jumps, throws</span></span>
+              </a>
+              <a class="mega-card" itemprop="url" [routerLink]="['/', lang, 'sport', 'volleyball']">
+                <span><img src="/assets/img/logos/internal/icon.png" alt="" width="32" height="32" loading="lazy" decoding="async" /></span>
+                <span><span class="mega-title" itemprop="name">Volleyball</span><span class="mega-desc">Serving, passing, spiking</span></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        -->
+
+        <li class="nav-item" [routerLinkActive]='["link-active"]' style="padding: 0px; margin: 0px;">
+          <a class="nav-link  px-3" [routerLink]="['contact']" title="Contact Varsity Sports Academy Prep">
+              <img src="/assets/img/icons/icon-link-contact.png" class="icon-link" />
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' style="padding: 0px; margin: 0px;">
+            <a class="nav-link px-3" [routerLink]="['consultation']" title="Consult Varsity Sports Academy Prep">
+                <img src="/assets/img/icons/icon-link-event.png" class="icon-link" />
+            </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

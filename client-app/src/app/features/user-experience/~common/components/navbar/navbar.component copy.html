@@ -1,0 +1,285 @@
+<!-- navbar.component.html -->
+<nav class="navbar fixed-top navbar-expand-md navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-translate d-flex align-items-center">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-logo d-flex align-items-center"
+                [routerLink]="['/', lang, 'academic-tutoring-and-sports-training']"
+                title="Varsity Sports Academy | Empowering Student Athletes through Academics and Sports">
+                <img src="assets/img/logos/internal/icon.png" alt="Icon" class="logo-icon" />
+                <img src="assets/img/logos/internal/logo-light.png" alt="Logo Text" class="logo-text" />
+            </a>
+        </div>
+
+        <button #navbarToggler
+          class="navbar-toggler navbar-burger ms-2"
+          type="button"
+          (click)="toggleNavbar()"
+          [class.open]="!isCollapsed"
+          [attr.aria-expanded]="!isCollapsed"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+
+    </div>
+
+    <!-- Collapse: bind to isCollapsed -->
+    <div id="navbarToggler" class="navbar-collapse collapse" [ngbCollapse]="isCollapsed">
+
+      <!-- Left nav - navbar-nav me-auto mb-2 mb-lg-0 -->
+      <ul class="navbar-nav ms-auto align-items-md-center">
+
+          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link px-3" [routerLink]="['/', lang, 'academic-tutoring-and-sports-training']">Home</a>
+          </li>
+  
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link px-3" [routerLink]="['/', lang, 'who-we-are']">Who We Are</a>
+          </li>
+
+          <!-- Programs Normal -->
+          <li class="nav-item dropdown dropdown-hover" ngbDropdown [routerLinkActive]="['link-active']">
+            <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+               id="dropdownSports"
+               ngbDropdownToggle
+               role="button"
+               aria-expanded="false">
+              Programs - What We Do
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-info"
+                 ngbDropdownMenu
+                 aria-labelledby="dropdownSports">
+              <div class="dropdown-title">Academics</div>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'academic-tutoring']">
+                <span class="item-media">
+                  <img src="/assets/img/nav/vsaprep-nav-academics.png" alt="" />
+                </span>
+                <span class="item-text">
+                  <span class="item-title">Academic Tutoring</span>
+                  <span class="item-desc">CSEC/CAPE, SAT/ACT, study hall</span>
+                </span>
+              </a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'ncaa-compliance']">
+                <span class="item-media">
+                  <img src="/assets/img/nav/vsaprep-nav-ncaa.png" alt="" />
+                </span>
+                <span class="item-text">
+                  <span class="item-title">NCAA Compliance</span>
+                  <span class="item-desc">16-core mapping & guidance</span>
+                </span>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-title">Athletics</div>
+
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'sports-development']">
+                <span class="item-media">
+                  <img src="/assets/img/nav/agile-training_580x360.png" alt="" />
+                </span>
+                <span class="item-text">
+                  <span class="item-title">Sports Development</span>
+                  <span class="item-desc">Basketball, soccer, volleyball</span>
+                </span>
+              </a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'recruitment-exposure']">
+                <span class="item-media">
+                  <img src="/assets/img/nav/agile-training_580x360.png" alt="" />
+                </span>
+                <span class="item-text">
+                  <span class="item-title">Recruitment & Exposure</span>
+                  <span class="item-desc">Profiles, highlight reels, tours</span>
+                </span>
+              </a>
+            </div>
+          </li>
+
+          <!-- What We Do MEGA-->
+          <li class="nav-item dropdown dropdown-mega dropdown-hover" ngbDropdown [routerLinkActive]="['link-active']">
+            <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+               id="dropdownWhatWeDo"
+               ngbDropdownToggle
+               role="button"
+               aria-expanded="false">
+              What We Do
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-info mega" ngbDropdownMenu aria-labelledby="dropdownWhatWeDo">
+              <div class="mega-grid">
+                <!-- Card -->
+                <a class="mega-card" [routerLink]="['/', lang, 'sport', 'basketball']">
+                  <span class=""><img src="/assets/img/nav/agile-training_580x360.png" alt="" /></span>
+                  <span>
+                    <span class="mega-title">Recruitment & Exposure</span>
+                    <span class="mega-desc">Profiles, highlight reels, tours</span>
+                  </span>
+                </a>   
+                <!-- Card -->
+                <a class="mega-card" [routerLink]="['/', lang, 'sport', 'basketball']">
+                  <span class=""><img src="/assets/img/nav/agile-training_580x360.png" alt="" /></span>
+                  <span>
+                    <span class="mega-title">Basketball</span>
+                    <span class="mega-desc">Skill work, IQ, showcases</span>
+                  </span>
+                </a>
+
+                <a class="mega-card" [routerLink]="['/', lang, 'sport', 'soccer']">
+                  <span class=""><img src="/assets/img/nav/agile-training_580x360.png" alt="" /></span>
+                  <span>
+                    <span class="mega-title">Soccer</span>
+                    <span class="mega-desc">Footwork, agility, finishing</span>
+                  </span>
+                </a>
+
+                <a class="mega-card" [routerLink]="['/', lang, 'recruitment-exposure']">
+                  <span class=""><img src="/assets/img/nav/agile-training_580x360.png" alt="" /></span>
+                  <span>
+                    <span class="mega-title">Recruitment & Exposure</span>
+                    <span class="mega-desc">Profiles, highlight reels, tours</span>
+                  </span>
+                </a>        
+              </div>   
+            </div>
+          </li>
+
+
+          <!-- What We Do Normal-->
+          <li class="nav-item dropdown" ngbDropdown [routerLinkActive]="['link-active']">
+            <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+               id="dropdownWhatWeDo"
+               ngbDropdownToggle
+               role="button"
+               aria-expanded="false">
+              What We Do
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-info mega"  ngbDropdownMenu aria-labelledby="dropdownWhatWeDo">
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'our-approach']">Our Approach</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'youth-sports-development']">Youth Sports Development</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'youth-sports-performance']">Youth Sports Performance</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'youth-skills-academy']">Sports Skills Academy</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'youth-training-programs']">Youth Training Programs</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'what-we-do', 'one-on-one-workouts']">One-on-One Workouts</a>
+              <a class="dropdown-item"
+                 [routerLink]="['/', lang, 'what-we-do', 'covid19-protocol']"><span class="text-uppercase">Covid-19</span> Protocols</a>
+            </div>
+          </li>
+  
+          <!-- Training Programs Normal -->
+          <li class="nav-item dropdown" ngbDropdown [routerLinkActive]="['link-active']">
+            <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+               id="dropdownTraining"
+               ngbDropdownToggle
+               role="button"
+               aria-expanded="false">
+              Training Programs
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-info"
+                 ngbDropdownMenu
+                 aria-labelledby="dropdownTraining">
+              <a class="dropdown-item" [routerLink]="['/', lang, 'training', 'group-training']">Group Training</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'training', 'strength-training']">Strength Training</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'training', 'speed-training']">Speed Training</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'training', 'performance-training']">Performance Training</a>
+            </div>
+          </li>
+  
+          <!-- Sports Programs Normal -->
+          <li class="nav-item dropdown" ngbDropdown [routerLinkActive]="['link-active']">
+            <a class="nav-link dropdown-toggle px-3 d-flex align-items-center"
+               id="dropdownSports"
+               ngbDropdownToggle
+               role="button"
+               aria-expanded="false">
+              Sports Programs
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-info"
+                 ngbDropdownMenu
+                 aria-labelledby="dropdownSports">
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'baseball']">Baseball</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'basketball']">Basketball</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'cricket']">Cricket</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'field-hockey']">Field Hockey</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'football']">Football</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'lacrosse']">Lacrosse</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'soccer']">Soccer</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'tennis']">Tennis</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'track-and-field']">Track &amp; Field</a>
+              <a class="dropdown-item" [routerLink]="['/', lang, 'sport', 'volleyball']">Volleyball</a>
+            </div>
+          </li>
+  
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link px-3" [routerLink]="['/', lang, 'club-team-tryouts']">Club Team Tryouts</a>
+          </li>
+  
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link px-3" [routerLink]="['/', lang, 'contact']">Get In Touch</a>
+          </li>
+      </ul>
+
+      <!-- Right: actions / auth-aware profile area -->
+      <ul class="navbar-nav ms-md-3 align-items-center">
+
+        <!-- If user is logged in: show profile dropdown -->
+        <li class="nav-item dropdown dropdown-hover" ngbDropdown *ngIf="user; else guestCtas">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+            id="navProfile"
+            ngbDropdownToggle role="button" aria-expanded="false">
+            <span class="avatar">
+              <img [src]="user.avatarUrl || 'assets/img/avatars/default.webp'" alt="" />
+            </span>
+            <span class="d-none d-lg-inline">{{ user.firstName }}</span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end dropdown-info" ngbDropdownMenu aria-labelledby="navProfile">
+            <div class="dropdown-title">Account</div>
+            <a class="dropdown-item" [routerLink]="['/', lang, 'account']">
+              <span class="item-media"><img src="assets/img/icons/icon-profile.png" alt="" /></span>
+              <span class="item-text">
+                <span class="item-title">Dashboard</span>
+                <span class="item-desc">View profile & progress</span>
+              </span>
+            </a>
+            <a class="dropdown-item" [routerLink]="['/', lang, 'account/settings']">
+              <span class="item-media"><img src="assets/img/icons/icon-sign-in.png" alt="" /></span>
+              <span class="item-text">
+                <span class="item-title">Settings</span>
+                <span class="item-desc">Security & preferences</span>
+              </span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="signOut()">
+              <span class="item-media"><img src="assets/img/icons/icon-logout.png" alt="" /></span>
+              <span class="item-text">
+                <span class="item-title">Sign out</span>
+                <span class="item-desc">See you soon</span>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <!-- Else: show Sign in / Sign up -->
+        <ng-template #guestCtas>
+          <li class="nav-item d-none d-lg-block">
+            <button class="btn btn-outline-light btn-sm me-2" (click)="signIn()" aria-label="Sign in">
+              Sign in
+            </button>
+            <button class="btn btn-main btn-sm" (click)="signUp()" aria-label="Sign up">
+              Sign up
+            </button>
+          </li>
+
+          <!-- Mobile auth buttons -->
+          <li class="nav-item d-lg-none mt-2 w-100">
+            <div class="d-flex">
+              <button class="btn btn-outline-light flex-fill me-2" (click)="signIn()" aria-label="Sign in">Sign in</button>
+              <button class="btn btn-main flex-fill" (click)="signUp()" aria-label="Sign up">Sign up</button>
+            </div>
+          </li>
+        </ng-template>
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
