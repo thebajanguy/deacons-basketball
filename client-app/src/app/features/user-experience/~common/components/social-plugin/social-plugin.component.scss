@@ -1,0 +1,28 @@
+/* Social icons */
+$text-color:  #18ce0f !default;
+$main-color:  #ffd212 !default;
+
+/* Remove underline on icons/links inside the social plugin */
+.social-plugin a,
+.social-plugin .btn,
+.social-plugin .btn-link {
+  text-decoration: none !important;
+}
+
+.social-plugin a:hover,
+.social-plugin a:focus,
+.social-plugin a:active {
+  text-decoration: none !important;
+}
+
+/* Icon styling (also fix the font-size typo: `1rem`, not `1 rem`) */
+.social-plugin .btn i {
+  color: $text-color !important;
+  font-size: 1rem;
+  transition: color .3s ease;
+}
+
+.social-plugin .btn:hover i,
+.social-plugin .btn:focus i {
+  color: $main-color !important;
+}

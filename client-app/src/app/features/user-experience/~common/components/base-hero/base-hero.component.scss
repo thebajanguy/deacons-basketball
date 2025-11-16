@@ -1,0 +1,295 @@
+/* Design tokens (scoped-friendly; :root also works if you prefer global) */
+:host {
+  --hero-title: clamp(3rem, 5vw + 1rem, 8rem);
+  --hero-cta: clamp(1rem, 1.6vw + .4rem, 3rem);
+  --title-weight: 600;
+  --cta-weight: 500;
+  --title-track: 0.02em;
+  --cta-track: 0.02em;
+  --title-color:  #ffffff;//rgba(255,255,255,0.92);
+  --subtitle-color: #ffd212;
+  --cta-color: #ffffff;
+  --gold: #ffd212;
+  --dark: #000000;
+  --white: #fff;
+  --muted: rgba(255,255,255,.7);
+  --hero-max: 920px; /* overridden by [style.--hero-max] if provided */
+  display: block;
+}
+
+/* Page defaults (optional – remove if set globally) */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--dark);
+  color: var(--white);
+}
+
+/* Parallax hero */
+.parallax__hero {
+  position: relative;
+  color: var(--white);
+  background-color: var(--dark);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* consider removing on iOS if janky */
+  padding: clamp(48px, 6vw, 72px) 16px clamp(56px, 8vw, 96px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  min-height: 60vh;
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+
+  padding-bottom:2rem;
+
+
+  /* overlay toggled by .overlay-dark / .overlay-gold */
+  &::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: .55;
+    display: none;
+  }
+  &.overlay-dark::after {
+    display: block;
+    background: radial-gradient(100% 100% at 50% 0, rgba(0,0,0,.35) 0, rgba(0,0,0,.72) 70%);
+
+    background: linear-gradient(180deg, rgba(10,33,68,.65), rgba(10,33,68,.35));
+
+  }
+  &.overlay-gold::after {
+    display: block;
+    background: linear-gradient(180deg, rgba(255,210,18,.25), rgba(0,0,0,.65));
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: var(--hero-max);
+  }
+
+  .hero__content__container {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    padding: min(6vw, 4rem);
+    width: min(1600px, 100%);
+
+    .hero__header__container {
+      margin: 0 0 min(4vw, 2rem) 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+      font-weight: 900;
+      text-align: center;
+
+
+
+      
+      .hero__title {
+        margin: 0 0 .375rem;
+        font-size: clamp(2rem, 3.8vw + 1rem, 3rem);
+        font-weight: 900; line-height: 1.05; letter-spacing:.02em;
+        color: var(--title-color);  
+  
+        text-shadow: 0 8px 28px rgba(0,0,0,.35);
+        margin: 0 0 .75rem;
+      }
+
+      .subtitle {
+         color: var(--subtitle-color); 
+      }
+
+    }
+
+    .hero__description {
+      margin: 0;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      opacity: .95;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero-meta { color: var(--muted); margin-bottom:1rem; }
+    .pill { display:inline-block; background:var(--gold); color:var(--dark); padding:.25rem .5rem; border-radius:.35rem; font-weight:800; }
+    .pill.small { font-size:.75rem; }
+
+    .hero__ctas {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    
+      .btn {
+        font-size: clamp(0.5rem, 1vw + 0.1rem, 1rem);
+        font-weight: 500;
+        padding: 0.55rem 1.25rem;
+        border-radius: 999px;
+        line-height: 1.1;
+        //letter-spacing: 0.05em;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+        position: relative;
+
+        display:inline-flex; align-items:center; gap:.35rem; padding:.65rem 1rem; border-radius:999px;
+        font-weight:800; text-decoration:none; outline:0; border:2px solid transparent;
+    
+        &::after {
+          content: "→";
+          margin-left: 0.35rem;
+          display: inline-block;     /* ensures translate works */
+          transform: translateX(0);
+          transition: transform .2s ease;
+        }
+    
+        &:hover::after,
+        &:focus-visible::after { transform: translateX(4px); }
+    
+        /* Variants */
+        &.btn-outline {
+          background: transparent;
+          color: var(--white);
+          border: 1px solid rgba(255,255,255,0.7);
+    
+          &:hover,
+          &:focus-visible {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.95);
+            color: var(--white);
+          }
+        }
+    
+        &.btn-ghost {
+          background: transparent;
+          color: var(--white);
+          text-decoration: underline;
+          border: none;
+    
+          &:hover,
+          &:focus-visible {
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            color: var(--white);
+            background: rgba(255,255,255,0.08);
+          }
+        }
+    
+        /* Primary (gold) */
+        &:not(.btn-outline):not(.btn-ghost) {
+          background: var(--gold);
+          color: #111;
+          border: none;
+    
+          &:hover,
+          &:focus-visible {
+            /* Use your token if available; fallback provided */
+            background: var(--gold-600, #d6a200);
+            color: #111;
+          }
+        }
+    
+        /* Accessibility/focus */
+        &:focus-visible {
+          outline: 2px solid rgba(255,255,255,0.9);
+          outline-offset: 2px;
+        }
+    
+        /* Disabled guards (works for links/buttons) */
+        &[aria-disabled="true"],
+        &.disabled {
+          pointer-events: none;
+          opacity: .6;
+          cursor: not-allowed;
+          text-decoration: none;
+        }
+
+        //.btn-main { background:var(--gold); color:var(--dark); }
+        //.btn-main:hover { filter:brightness(.92); }
+        //.btn-outline { background:transparent; color: var(--white); border-color:rgba(255,255,255,.65); }
+        //.btn-outline:hover {  color:var(--dark);  background: var(--white); }
+      }
+
+      
+    }
+    
+
+
+    
+    /* Smaller screens: closer to the navbar */
+    @media (max-width: 768px) {
+      .hero__crumbs {
+        top: clamp(60px, 12vw, 85px);
+        padding-left: 1rem;
+        font-size: 0.75rem;
+      }
+    }
+    
+    
+  }
+}
+
+/* Breadcrumbs – pinned just under navbar */
+.hero__crumbs {
+  position: absolute;
+  //top: clamp(1px, 1vw, 0px);   /* distance from very top of the page */
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+
+  font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+  opacity: 0.95;
+
+  //margin-top: -100px;
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  li::after {
+    content: "/";
+    opacity: 0.6;
+  }
+
+  li[aria-current="page"]::after {
+    content: "";
+  }
+
+  a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+/* Optional large header layout if you use .page-header-lg elsewhere */
+.page-header-lg {
+  position: relative;
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.page-header-xl {
+  position: relative;
+  //min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}

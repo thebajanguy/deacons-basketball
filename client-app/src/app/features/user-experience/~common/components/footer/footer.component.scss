@@ -1,0 +1,279 @@
+$white-color:               #ffffff !default;
+$main-color:                #ffd212 !default;
+$nav-color:                 #050505 !default;
+$dark-color:                 #050505 !default;
+$light-gray:                #ecf0f1 !default;
+$warning-color:             #FFB236 !default;
+$medium-gray:              #f4f4f4 !default;
+$dark-gray:                #333333 !default;
+
+
+$link-disabled-color:       #666666 !default;
+$link-hover-color:          $main-color !default;
+$link-active-color:         $main-color !default;
+$link-focus-color:          $main-color !default;
+$link-default-color:        $white-color !default;
+
+$font-size-medium: 16px !default;
+
+/* Footer Transformation Styles */ 
+.footer.footer-dark { background-color: $dark-color; }
+/* Bottom footer look */
+.footer.footer-bottom {
+  background-color: $dark-color;
+  padding-top: 0;        // was 0cap (safe but unnecessary)
+  padding-bottom: 1rem;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+/* Three-zone flex bar */
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;             // prevents cramped center area
+  min-height: 72px;      // optional: keeps bar consistent
+}
+
+/* General footer column behavior */
+.footer .row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings + link spacing */
+.footer .footer-heading { 
+  color: $main-color !important; 
+  font-weight: 500; 
+  letter-spacing: .02em;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer .links li { margin-bottom: .25rem; }
+.footer .links a { color: #fff !important; text-decoration: none; }
+.footer .links a:hover,
+.footer .links a:focus { color: #FFD700 !important; text-decoration: underline; }
+
+/* Description block */
+.footer-description {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+/* CTA/BLM cards */
+.black-lives-matter,
+.btn-cta {
+  padding: 16px;
+  background-color: $medium-gray;
+  border-radius: 10px;
+  width: 100%;
+  color: $dark-gray;
+  font-size: $font-size-medium;
+}
+
+/* Brand and copy size/spacing */
+/* --- Brand block (left) --- */
+.footer-brand {
+  display: inline-flex;
+  align-items: center;          /* aligns the image with the title */
+  text-decoration: none;
+
+  img.logo-icon {
+    height: 42px; width: 42px;
+    display: block;
+  }
+
+
+}
+
+/* remove default h4 spacing to keep baseline tight */
+h4, .brand-title {
+  margin: 0;                  /* <<< key: fixes vertical misalignment */
+  line-height: 1.1;
+  letter-spacing: .02em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $main-color;
+}
+.copyright-pull-up { 
+  /* no floats/negative margins in the new layout */
+  float: none; 
+  margin-top: 0; 
+}
+
+
+
+
+/* Center the social cluster without stretching */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;        // lets center breathe
+}
+/* Base link style */
+.footer.footer-bottom a {
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  transition: color .2s ease;
+}
+
+/* Copyright alignment */
+.footer-copy {
+  white-space: nowrap;   // keeps it tidy on one line
+  opacity: .9;
+  font-size: 0.875rem;
+}
+/* --- Right label (DEACONS) --- */
+.footer-copy h4 {
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: .04em;
+}
+
+/* Stack neatly on small screens */
+@media (max-width: 767.98px) {
+  .footer-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: .5rem;
+  }
+  .footer-copy { white-space: normal; }
+}
+
+/* Utility: vertical rhythm for stacked link groups on small screens */
+@media (max-width: 767.98px) {
+  .footer .row.align-items-start > [class*="col-"] { margin-bottom: 1rem; }
+}
+
+/* Footer link behavior */
+.footer .stacked-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem; // space between links
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer .stacked-links li {
+  display: block;
+}
+
+.footer .stacked-links a {
+  display: block;
+  color: #fff !important;
+  text-decoration: none;
+  line-height: 0.1;
+  font-size: 0.925rem;
+  transition: color 0.2s ease-in-out;
+}
+
+
+.footer .stacked-links a:hover,
+.footer .stacked-links a:focus {
+  color: $main-color !important; // your gold highlight
+  text-decoration: underline;
+}
+
+//.footer .col-md-2 {
+//  margin-bottom: 1.25rem;
+//}
+
+.disabled-link {
+  pointer-events: none;     /* Prevents clicking */
+  color: #999 !important;   /* Greyed out */
+  cursor: default;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.disabled-link:hover,
+.disabled-link:focus {
+  color: #999 !important;
+  text-decoration: none;
+}
+
+/* Default unclickable state */
+.disabled-link {
+  pointer-events: none;
+  color: #777 !important;
+  opacity: 0.6;
+  cursor: default;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Active, clickable profiles */
+.active-link {
+  color: #ffffff !important;
+  pointer-events: auto;
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover animation — golden underline slide-in */
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: $main-color;
+  transition: width 0.3s ease;
+}
+
+.active-link:hover::after,
+.active-link:focus::after {
+  width: 100%;
+}
+
+.active-link:hover {
+  color: $main-color !important;
+}
+
+/* Base link style */
+.footer.footer-bottom .footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  transition: color .2s ease;
+}
+
+/* Hover underline animation */
+.footer.footer-bottom .footer-social a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 2px;
+  background: $main-color;
+  transition: width .25s ease;
+}
+
+/* Hover/focus */
+.footer.footer-bottom .footer-social a:hover,
+.footer.footer-bottom .footer-social a:focus {
+  color: $main-color;
+}
+.footer.footer-bottom .footer-social a:hover::after,
+.footer.footer-bottom .footer-social a:focus::after {
+  width: 100%;
+}
+
+/* Optional: style for the pipes */
+.footer-social .sep { opacity: .4; }
+
+/* --- Mobile stack --- */
+@media (max-width: 767.98px) {
+  .footer-bar { flex-direction: column; text-align: center; gap: .5rem; }
+}
+
+
+

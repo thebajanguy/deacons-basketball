@@ -1,0 +1,88 @@
+<!--
+  <pre class="text-mono small">{{ (camps$ | async) | json }}</pre>
+-->
+
+<div class="row mt-20" *ngIf="(activities$ | async) as activities; else loading">
+  <ng-container *ngIf="activities.length; else empty">
+    <!-- cards -->
+    <div class="col-md-4 ml-auto" *ngFor="let activity of activities; trackBy: trackById">
+      <div class="card no-transition separator-bottom-card" data-background="color" data-color="lightgray">
+        <div class="card-header">
+          <h3 class="card-title section-title-md text-primary align-center">{{ activity.editionLabel }}</h3>
+        </div>
+        <div class="card-body text-left">
+          <img [src]="activity.imageUrl"
+               [alt]="activity.imageAlt"
+               loading="lazy" width="580" height="360" />
+          <h3 class="card-category section-title-sm text-primary" style="padding-bottom:20px;">
+            <ng-container *ngIf="activity.price?.monthly">
+              {{ activity.price?.monthly }}/month
+            </ng-container>
+            <ng-container *ngIf="activity.price?.weekly">
+              | {{ activity.price?.weekly }}/week
+            </ng-container>
+            <ng-container *ngIf="activity.price?.dropin">
+              | {{ activity.price?.dropin }}/session
+            </ng-container>
+          </h3>
+  
+          <p class="description-section"><ng-container *ngIf="activity.cityAndCountry"><strong>City/Country:</strong> {{ activity.cityAndCountry }}</ng-container></p>
+          <p class="description-section"><strong>Venue:</strong> {{ activity.venue }}</p>
+          <p class="description-section"><strong>Ages:</strong> {{ activity.ages }}</p>
+  
+          <h4 class="sr-only" [id]="'camp-caption-' + activity.id">Camp schedule and price for {{ activity.editionLabel }}</h4>
+          <table class="table table-striped" [attr.aria-describedby]="'camp-caption-' + activity.id">
+            <thead><tr><th scope="col">Days/Times</th><th scope="col">Price</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ng-container *ngFor="let line of activity.schedule; let i = index">
+                    <span>{{ line }}</span><br *ngIf="i < activity.schedule.length - 1">
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container *ngIf="activity.price?.monthly">
+                    {{ activity.price?.monthly }}/month
+                  </ng-container>
+                  <ng-container *ngIf="activity.price?.weekly">
+                    <br>{{ activity.price?.weekly }}/week
+                  </ng-container>
+                  <ng-container *ngIf="activity.price?.dropin">
+                    <br>{{ activity.price?.dropin }}/session
+                  </ng-container>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <p *ngIf="activity.paymentMethods?.length"><strong>Payment:</strong> {{ activity.paymentMethods?.join(' | ') ?? '' }}.</p>
+  
+          <div class="card-footer cta-row">
+
+            <a
+            [routerLink]="activity.status === 'open' ? ['/'+ urlPath+ '/register'] : null"
+            [queryParams]="activity.status === 'open' ? { id: activity.id, interest: activity.interest, country: activity.country, activityType: activityType} : null"
+            fragment="register"
+            class="btn btn-main"
+            [class.disabled]="activity.status !== 'open'"
+            [attr.aria-disabled]="activity.status !== 'open'"
+            [attr.title]="activity.status === 'open'
+                ? 'Register for ' + activity.editionLabel
+                : 'Registration coming soon for ' + activity.editionLabel"
+            [attr.aria-label]="activity.status === 'open'
+                ? 'Register for ' + activity.editionLabel
+                : 'Registration coming soon for ' + activity.editionLabel">
+            &nbsp;{{ activity.status === 'open' ? 'Register Now' + ' | ' + activity.status : 'Registration Coming Soon' }}&nbsp;
+          </a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </ng-container>
+</div>
+<ng-template #loading><p class="text-muted">Loading …</p></ng-template>
+<ng-template #empty><p class="text-muted">Nothing available at this time.</p></ng-template>

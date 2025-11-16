@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <app-user-workspace-sidebar></app-user-workspace-sidebar>
+    <div class="main-panel">
+        <app-user-workspace-navbar
+        [loginDisplay]="loginDisplay"
+        [urlPath]="urlPath"
+        [loginPath]="loginPath"
+        [workspacePath]="workspacePath"
+
+  
+        (signOutToParent)="signOutFromChild()"
+        (editProfileToParent)="editProfileFromChild()"
+        ></app-user-workspace-navbar>
+        <router-outlet></router-outlet>
+        <app-user-workspace-footer></app-user-workspace-footer>
+    </div>
+    <app-fixed-workspace-plugin
+        [workspacePath]="workspacePath"
+        [dashboardPage]="dashboardPage"  
+    ></app-fixed-workspace-plugin>
+</div>
+<app-fixed-settings-plugin></app-fixed-settings-plugin>

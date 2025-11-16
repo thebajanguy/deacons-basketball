@@ -1,0 +1,68 @@
+<header
+  class="page-header div-color-dark parallax__hero"
+  [style.background-image]="backgroundUrl ? 'url('+backgroundUrl+')' : null"
+  [ngClass]="headerClasses"
+  [class.overlay-dark]="overlay==='dark'"
+  [class.overlay-gold]="overlay==='gold'"
+  [style.--hero-max]="maxWidth"
+  role="banner"
+  fetchpriority="high"
+  aria-labelledby="page-hero-title">
+
+  <div class="filter filter-black" aria-hidden="true"></div>
+
+  <div class="content-center">
+    <div class="container hero__content__container">
+
+      <!-- Breadcrumbs -->
+      <nav *ngIf="isNavigationPage" class="hero__crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a [routerLink]="['/'+urlPath+'/barbados']">Home</a></li>
+          <li aria-current="page">{{ breadcrumbSEO }}</li>
+        </ol>
+      </nav>
+
+
+
+      <div class="hero__header__container">
+        <h1 id="page-hero-title" class="hero__title"  data-rellax-speed="-2" *ngIf="safeTitle" [innerHTML]="safeTitle"></h1>
+        <h1 id="page-hero-subtitle" class="hero__title subtitle"  data-rellax-speed="-2" *ngIf="subtitle" [innerHTML]="subtitle"></h1>
+      </div>
+
+      <p *ngIf="description"
+         class="hero__description text-white mt-3"
+         [innerHTML]="safeDescription"></p>
+     
+         <p class="hero-meta" *ngIf="!isNavigationPage">
+          <br />
+          <span class="pill">Academy</span> • Updated 2h ago
+        </p>
+
+      <div *ngIf="ctas?.length" class="hero__ctas" role="group" aria-label="Primary calls to action">
+
+        <ng-container *ngFor="let btn of ctas">
+          <a *ngIf="btn.href"
+             class="btn"
+             [class.btn-outline]="btn.variant==='outline'"
+             [class.btn-ghost]="btn.variant==='ghost'"
+             [attr.href]="btn.href"
+             [attr.target]="btn.target || '_self'"
+             [attr.rel]="btn.rel"
+             [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}</a>
+
+          <a *ngIf="btn.routerLink && !btn.href"
+             class="btn"
+             [class.btn-outline]="btn.variant==='outline'"
+             [class.btn-ghost]="btn.variant==='ghost'"
+             [routerLink]="btn.routerLink"
+             [fragment]="btn.fragment"
+             [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}</a>
+        </ng-container>
+      </div>
+
+      <br />
+    </div>
+  </div>
+</header>
+
+<app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>

@@ -1,0 +1,186 @@
+<!-- hero-page.component.html Build Skills. Grow Character. Win Together.-->
+<app-base-hero-cmp
+[title]="'Book Your'"
+[subtitle]="'Free Practice Session'"
+[description]="''"
+[backgroundUrl]="'assets/img/pages/correspondence/deacons-basketball-correspondence-hero-bg.png'"
+[headerSize]="'lg'"
+[isNavigationPage]="false"
+[breadcrumbSEO]="'Home'"
+[breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+    { label: 'Free Practice' }
+]"
+[ctas]="[
+  { label: 'Attend Free Practice', routerLink: ['.'] , fragment:'consultation', variant:'primary', ariaLabel:'Join Deacons Basketball Club' },
+  { label: 'View Academy Schedule', routerLink: ['/'+urlPath+'/academy'] , variant:'light', ariaLabel:'View Deacons Basketball Club Practice Schedule' },
+  { label: 'Support the Program', routerLink: ['/'+urlPath+'/contact'], variant:'outline', ariaLabel:'Make a donation to Deacons Basketball Club' }
+]">
+</app-base-hero-cmp>
+
+<section id="consultation" class="section section-white text-center py-5" aria-labelledby="consultation-heading">
+  <div class="container">
+    
+    <!-- ✅ side-by-side columns: left info, right form -->
+    <div class="row g-4">
+
+      <!-- Left info card -->
+      <div class="col-12 col-lg-5 form-left align-left p-3">
+ 
+        <header class="mb-3">
+          <h2 id="consultation-title" class="h2">What You’ll Get</h2>
+          <p class="sr-only">Consultation overview for Deacons Basketball Club</p>
+        </header>
+
+        <ul class="mb-3">
+          <li>15–30 minute discovery call (phone or WhatsApp).</li>
+          <li>Academic review: tutoring needs, NCAA core courses, timelines.</li>
+          <li>Athletic goals: sport, position, training plan, showcases/camps.</li>
+          <li>Scholarship guidance: exposure, highlight strategy, next steps.</li>
+          <li>Follow-up summary with recommended actions.</li>
+        </ul>
+
+        <br />
+        <h3 class="h5 mb-1">Call / WhatsApp:</h3>
+        <p class="ps-3 mb-3">
+          <a href="tel:+17186370566" class="text-white-50"><strong>(718) 637-0566</strong></a>
+        </p>
+        
+        <h3 class="h5 mb-1">Email</h3>
+        <p class="ps-3">
+          <a href="mailto:VsaPrep@gmail.com" class="text-white-50"><strong>VsaPrep&#64;gmail.com</strong></a>
+        </p>
+
+      </div>
+  
+      <!-- Right: request form -->
+      <div class="col-12 col-lg-7 form-right p-3">
+  
+        <header class="mb-2">
+          <h2 class="h2 text-dark">Schedule a Free Practice Session</h2>
+          <p class="sr-only">Use this form to request a consultation with Deacons Basketball Club.</p>
+        </header>
+
+        
+        <p class="description text-start text-dark">
+          Tell us about your student-athlete and goals. A Deacons Basketball Club coordinator will follow up to schedule your consultation.
+        </p>
+
+        <form [formGroup]="form" (ngSubmit)="submit()"
+              class="app-consultation-form form-shell mt-3" novalidate
+              aria-label="Contact request form">
+          <input type="text" formControlName="honeypot" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+          <div class="grid">
+            <!-- First Name -->
+            <div class="fl" [class.filled]="!!f.GivenName.value"
+                 [class.has-error]="f.GivenName.invalid && f.GivenName.touched">
+              <input id="givenName" type="text" formControlName="GivenName" required placeholder=" ">
+              <label for="givenName">First Name</label>
+              <small class="error" *ngIf="f.GivenName.hasError('required') && f.GivenName.touched">Please enter your first name.</small>
+              <small class="error" *ngIf="f.GivenName.hasError('name') && f.GivenName.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+
+            <!-- Last Name -->
+            <div class="fl" [class.filled]="!!f.Surname.value"
+                 [class.has-error]="f.Surname.invalid && f.Surname.touched">
+              <input id="surname" type="text" formControlName="Surname" required placeholder=" ">
+              <label for="surname">Last Name</label>
+              <small class="error" *ngIf="f.Surname.hasError('required') && f.Surname.touched">Please enter your last name.</small>
+              <small class="error" *ngIf="f.Surname.hasError('name') && f.Surname.touched">Only letters, spaces, . ' - (min 2)</small>
+            </div>
+
+            <!-- Email -->
+            <div class="fl" [class.filled]="!!f.Email.value"
+                 [class.has-error]="f.Email.invalid && f.Email.touched">
+              <input id="email" type="email" formControlName="Email" required placeholder=" "
+                     autocomplete="email" inputmode="email">
+              <label for="email">Email Address</label>
+              <small class="error" *ngIf="f.Email.hasError('required') && f.Email.touched">Please enter a valid email address.</small>
+              <small class="error" *ngIf="f.Email.hasError('email') && f.Email.touched">Enter a valid email</small>
+            </div>
+
+            <!-- Phone -->
+            <div class="fl" [class.filled]="!!f.Phone.value"
+                 [class.has-error]="f.Phone.invalid && f.Phone.touched">
+              <input id="phone" type="tel" formControlName="Phone" required placeholder=" "
+                     autocomplete="tel" inputmode="tel">
+              <label for="phone">Phone Number</label>
+              <small class="error" *ngIf="f.Phone.hasError('required') && f.Phone.touched">Please enter a valid phone number.</small>
+              <small class="error" *ngIf="f.Phone.hasError('pattern') && f.Phone.touched">Enter a valid phone number</small>
+            </div>
+
+            <!-- Interest -->
+            <div class="fl full"
+                 [class.filled]="!!form.controls.Interest.value || !!interestSearch.value"
+                 [class.has-error]="f.Interest.invalid && (f.Interest.touched || f.Interest.dirty)">
+              <input id="interestSearch" type="text" [formControl]="interestSearch"
+                     list="interestOptions"
+                     (input)="onInterestInputChange(getInputValue($event) || '')"
+                     (change)="onInterestInputChange(getInputValue($event) || '')"
+                     placeholder=" " autocomplete="off">
+              <label for="interestSearch">Interested In?</label>
+              <datalist id="interestOptions">
+                <option *ngFor="let t of (filteredInterest$ | async)" [value]="t"></option>
+              </datalist>
+              <div class="chip" *ngIf="form.controls.Interest.value">
+                {{ form.controls.Interest.value }}
+                <button type="button" class="chip-remove" (click)="clearInterest()"
+                        aria-label="Clear interest topic">×</button>
+              </div>
+              <small class="error" *ngIf="f.Interest.hasError('required') && (f.Interest.touched || f.Interest.dirty)">
+                Please choose a valid interest topic
+              </small>
+            </div>
+
+            <!-- Message -->
+            <div class="fl full textarea"
+                 [class.filled]="!!f.Message.value"
+                 [class.has-error]="f.Message.invalid && f.Message.touched">
+              <textarea id="message" formControlName="Message" rows="6" maxlength="4000" required placeholder=" "></textarea>
+              <label for="message">Your Message</label>
+              <small class="hint">{{ (f.Message.value.length || 0) }} / 4000</small>
+              <small class="error" *ngIf="f.Message.hasError('required') && f.Message.touched">Please enter your message.</small>
+              <small class="error" *ngIf="f.Message.hasError('minlength') && f.Message.touched">Min 10 characters</small>
+            </div>
+          </div>
+
+          <div class="actions justify-content-center">
+            <button class="btn btn-success" type="submit" [disabled]="submitting() || form.invalid">
+              <span class="spinner" *ngIf="submitting()" aria-hidden="true"></span>
+              <span>{{ submitting() ? 'Sending…' : 'Attend a Practice' }}</span>
+            </button>
+          </div>
+
+          <div *ngIf="serverMessage()" class="mt-2 text-center"
+               [class.text-success]="serverMessage()?.type==='success'"
+               [class.text-danger]="serverMessage()?.type==='error'"
+               role="status" aria-live="polite">
+            {{ serverMessage()?.text }}
+          </div>
+        </form>
+  
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- JSON-LD for ConsultationPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ConsultationPage",
+  "name": "Consultation Deacons Basketball Club",
+  "url": "https://www.deaconsbasketball.com/en/consultation",
+  "about": {
+    "@type": "EducationalOrganization",
+    "name": "Deacons Basketball Club",
+    "telephone": "+1-718-637-0566",
+    "email": "VsaPrep@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "BB" },
+    "sameAs": ["https://www.instagram.com/vsaprep"]
+  }
+}
+</script>

@@ -1,0 +1,819 @@
+// ============================================================================
+// Vars (tidied, consistent casing, minimal surprises)
+// ============================================================================
+
+
+
+// ============================================================================
+// Custom Styles Variables (kept, lightly hardened)
+// ============================================================================
+
+// font styles
+$font-family-sans-serif:    "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif-family:         "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+// basics
+$none:                      0 !default;
+$border-thin:               1px !default;
+$border-thick:              2px !default;
+
+// general & bootstrapish colors
+$font-color:                #2e2e2d !default;
+$fill-font-color:           rgba(255, 255, 255, 0.8);
+
+$default-color:             #66615b !default; // normalized casing
+$default-bg:                #66615b !default;
+$default-states-color:      #403d39 !default;
+
+$white-color:               #ffffff !default;
+$white-bg:                  #ffffff !default;
+$white-states-color:        rgba($white-color, 0.8);
+
+$main-color:                #ffd212 !default;
+$main-states-color:         darken($main-color, 8%) !default;
+
+$link-disabled-color:       #666666 !default;
+$link-hover-color:          $main-color !default;
+$link-active-color:         $main-color !default;
+$link-focus-color:          $main-color !default;
+$link-default-color:        $white-color !default;
+
+$smoke-bg:                  #f5f5f5 !default;
+$pale-bg:                   #b9b9b8 !default;
+$medium-pale-bg:            #f1eae0 !default;
+
+$table-line-color:          #cccccc !default;
+$muted-color:               #a49e93 !default;
+
+$gray-color:                #66615b !default; // legacy alias to default
+
+$purple-color:              #c178c1 !default;
+$purple-states-color:       darken($purple-color, 8%) !default;
+
+$brown-color:               #dcb285 !default;
+$brown-states-color:        darken($brown-color, 8%) !default;
+
+$neutral-color:             #ecf0f1 !default;
+$neutral-states-color:      darken($neutral-color, 8%) !default;
+
+$black-color:               #050505 !default;
+$black-hr:                  #050505 !default;
+$black-bg:                  rgba(7, 7, 7, 0.97) !default;
+$black-states-color:        darken($black-color, 8%) !default;
+
+$light-gray:                #ecf0f1 !default;
+$medium-gray:               #dddddd !default;
+$dark-gray:                 #363432 !default;
+$placeholder-gray:          rgba(210, 210, 210, 1) !default;
+
+$gray-input-bg:             #fffcf5 !default;
+$danger-input-bg:           #ffc0a4 !default;
+$success-input-bg:          #abf3cb !default;
+$other-medium-gray:         #a49e93 !default;
+$transparent-bg:            transparent !default;
+
+// ── Bootstrapish Colors ──────────────────────────────────────────────────────
+$primary-color:             #154389 !default;
+$secondary-color:           #0b66ca !default;
+$success-color:             #18ce0f !default;
+$danger-color:              #e53935 !default;
+$warning-color:             #ffd212 !default;
+$info-color:                #00a4f9 !default;
+$dark-color:                #050505 !default;
+
+
+$primary-states-color:      darken($primary-color, 10%) !default;
+$secondary-states-color:    darken($secondary-color, 10%) !default;
+$success-states-color:      darken($success-color, 10%) !default;
+$danger-states-color:       darken($danger-color, 8%) !default;
+$warning-states-color:      darken($warning-color, 10%) !default;
+$info-states-color:         darken($info-color, 10%) !default;
+$dark-states-color:         darken($dark-color, 10%) !default;
+
+
+$light-blue:                rgba($primary-color, .2);
+$light-azure:               rgba($info-color, .2);
+$light-green:               rgba($success-color, .2);
+$light-orange:              rgba($warning-color, .2);
+$light-red:                 rgba($danger-color, .2);
+
+$seperator-color:           $primary-color !default;
+
+// ── Type Scale / Rhythm ──────────────────────────────────────────────────────
+$font-size-base:            14px !default;
+$font-size-small:           12px !default;
+$font-size-medium:          16px !default;
+$font-size-large:           20px !default;
+$font-size-large-navbar:    22px !default;
+
+$font-size-h1:              4.5em !default;
+$font-size-h2:              3em !default;
+$font-size-h3:              2em !default;
+$font-size-h4:              1.6em !default;
+$font-size-h5:              1.35em !default;
+$font-size-h6:              0.9em !default;
+$font-paragraph:            15px !default;
+$font-size-navbar:          1.35em !default;
+$font-size-info-horizontal: 2.5em !default;
+
+$font-weight-light:         300 !default;
+$font-weight-normal:        400 !default;
+$font-weight-semi:          500 !default;
+$font-weight-bold:          600 !default;
+
+$line-height-small:         20px !default;
+$line-height-general:       1.5em !default;
+$line-height:               36px !default;
+$line-height-lg:            54px !default;
+
+$margin-large-vertical: 30px !default;
+$margin-base-vertical: 15px !default;
+$margin-base-horizontal: 15px !default;
+$margin-bottom: 10px !default;
+
+$card-black-color:           $font-color !default;
+// ============================================================================
+// Main Page Styles (kept, lightly hardened)
+// ============================================================================
+body{
+    min-height:100vh;
+    background-color: $white-bg;
+    font-family:var($font-family-sans-serif);
+    margin: 0;
+    text-align: left;
+}
+  
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+.toc {
+  display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: 1rem;
+}
+.toc a { text-decoration: none; font-weight: 600; padding-right: 20px; padding-left:0px; border-right: 2px solid #03214d;}
+.toc a:hover { text-decoration: underline; color : gray; }
+.block { margin-top: 2rem; }
+.toc-lift-top-section { padding-top: 10px;margin-top: -50px;}
+/* ===== Minor utilities ===== */
+.lift-figure-section { padding-top:35px; margin-top:0px; }
+
+
+// ============================================================================
+// Utilities & Components (kept, lightly hardened)
+// ============================================================================
+
+// Forms: show error only after touch; keep success clear and accessible
+.ng-touched.ng-invalid:not(form) {
+  border-left: 5px solid $danger-color;
+  border: 1px solid $danger-color;
+  padding-right: 2.5em !important;
+}
+.ng-touched.ng-valid[required],
+.ng-touched.ng-valid.required {
+  border-left: 5px solid $secondary-color;
+  border: 1px solid $secondary-color;
+  padding-right: 2.5em !important;
+}
+
+// Alignment
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.align-center { text-align: center; }
+
+// Text utilities
+/*           Font Smoothing      */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, .buttons, input, select, textarea {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-light;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    margin: $margin-large-vertical 0 0;
+}
+
+h1, .h1 {
+    font-size: $font-size-h1;
+    font-weight: 800;
+    color: $main-color;
+    margin: 0px;
+    letter-spacing: -1px;
+    font-style: normal;
+    //
+}
+
+h2, .h2 {
+    font-size: $font-size-h2;
+    color: $dark-color;
+    font-weight: 700;
+    //
+    line-height: 1em;
+}
+
+h3, .h3 {
+    font-size: $font-size-h3;
+    color: $secondary-color;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 20px 0 0px;
+}
+
+h4, .h4 {
+    font-size: $font-size-h4;
+    line-height: 1.2em;
+    font-weight: 400;
+    color: $primary-color;
+}
+
+h5, .h5 {
+    font-size: $font-size-h5;
+    line-height: 1.4em;
+    font-weight: 300;
+    color: $dark-color;
+}
+
+h6, .h6 {
+    font-size: $font-size-h6;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    font-weight: 300;
+    color: $dark-color;
+}
+
+p {
+    font-size: $font-paragraph;
+    line-height: $line-height-general;
+    margin-bottom: 5px;
+    color: $font-color;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, 
+.h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, 
+h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, 
+.h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+  color: $dark-gray;
+  line-height: $line-height-general;
+}
+
+h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
+    font-size: 60%;
+}
+
+.title,
+.card-title,
+.info-title,
+.footer-brand,
+.footer-big h5,
+.footer-big h4,
+.media .media-heading {
+    font-family: $font-family-sans-serif;
+
+    &,
+    a {
+        color: $card-black-color;
+        text-decoration: none;
+    }
+}
+
+
+.title-uppercase {
+    text-transform: uppercase;
+}
+
+.description, 
+.text-description {
+    color: $font-color;
+}
+
+blockquote small {
+    font-style: normal;
+}
+
+.text-muted {
+    color: $medium-gray;
+}
+
+.text-primary, .text-primary:hover {
+    color: $primary-color !important;
+}
+
+.text-info, .text-info:hover {
+    color: $info-color !important;
+}
+
+.text-success, .text-success:hover {
+    color: $success-color !important;
+}
+
+.text-warning, .text-warning:hover {
+    color: $warning-color !important;
+}
+
+.text-danger, .text-danger:hover {
+    color: $danger-color !important;
+}
+
+.glyphicon {
+    line-height: 1;
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+}
+
+.title.text-center {
+    margin-bottom: 50px;
+}
+.card-description-dark{
+  padding: 15px 0px;
+  color: $font-color;
+}
+.card-description-light{
+  padding: 15px 0px;
+  color: $white-color;
+}
+
+
+// Text color utilities
+.text-color-main      { color: $main-color; }
+.text-color-secondary { color: $secondary-color; }
+.text-color-info      { color: $info-color; }
+.text-color-primary   { color: $primary-color; }
+.text-color-danger    { color: $danger-color; }
+.text-color-dark      { color: $dark-color; }
+.text-color-darker    { color: $dark-states-color; }
+.text-color-neutral   { color: $neutral-color; }
+.text-color-white     { color: $white-color; }
+.text-color-black     { color: $black-color; }
+.text-color-gray      { color: $gray-color; }
+
+// Headings
+.card-info-title { font-weight: 500; font-size: 1.5em; margin-top: -5px; }
+.section-title   { font-weight: 700; line-height: 1; font-size: 3em; }
+.section-title-md{ font-weight: 600; line-height: 1; font-size: 2em; }
+.section-title-sm{ font-weight: 500; line-height: 1; font-size: 1.5em; }
+.info-title-md   { font-weight: 600; color: $main-color; line-height: 1; font-size: 2em; }
+.info-title-sm   { font-weight: 500; line-height: 1; font-size: 1.5em; color: $secondary-color; }
+
+// Branding bits
+.ipaas-header-logo { max-width: 140px; top: -2px; left: 3px; position: relative; }
+.ipaas-brand-logo  {
+  max-width: 90px; margin: -50px auto 45px;
+  img { width: 100%; }
+}
+
+.title-brand {
+  max-width: 730px; margin: 0 auto; position: relative; text-align: center; color: $white-color; display: block;
+  .type {
+    position: absolute; font-size: 20px; background: $dark-color; padding: 6px 10px; border-radius: 4px;
+    top: 0; font-weight: 600; margin-top: 10px; right: -15px;
+  }
+}
+
+
+
+.h2-heading-pull-up {margin-top: -30px; }
+.category-absolute {
+  position: absolute; text-align: center; top: 100vh; margin-top: -60px; padding: 0 15px; width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  .ipaas-header-logo { max-width: 50px; top: -2px; left: 3px; position: relative; }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .hero-description { 
+      font-size: 1rem;
+      text-align: center;
+      margin: 0 auto;
+      color: $white-color; 
+    }
+
+    .buttons {
+        text-align: center !important;
+    }
+    .buttons .btn {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 0.5rem auto;
+    }
+    .social-plugin
+    .social-links {
+        text-align: center;
+    }
+}
+
+// Descriptions
+.description-header  { font-size: 1.3rem; font-weight: 500; line-height: 1.5; margin: 0; padding: 0; }
+.description-section { margin: 0; padding: 0; font-size: 1.1rem; }
+.description         { margin: 0; padding: 0; font-size: 1.1rem; }
+.description-info    { margin: 0; padding: 0; font-size: 1rem; }
+
+// Background helpers
+.div-section-seperator { background-color: $seperator-color; }
+.div-color-primary     { background-color: $primary-color; }
+.div-color-info        { background-color: $info-color; }
+.div-color-neutral     { background-color: $neutral-color; }
+.div-color-white       { background-color: $white-color; }
+.div-color-dark        { background-color: $dark-color; }
+.div-color-main        { background-color: $main-color; }
+.div-color-main-darker { background-color: $main-states-color; }
+.div-color-danger      { background-color: $danger-color; }
+.div-color-darker      { background-color: $dark-states-color; }
+
+.author-testimonials-top { margin-left: 10px; margin-top: -15px; font-weight: 200; font-size: 1em; line-height: 2em; }
+.author-testimonials     { margin-left: 40px; margin-top: -10px; font-weight: 200; font-size: 1em; line-height: 2em; }
+
+
+/* Border Radius Utilities */
+/* Only bottom-left */
+.only-bl { border-bottom-left-radius: 12px; }
+/* Only top-left */
+.only-tl { border-top-left-radius: 12px; }
+
+/* Only top-left and top-right (top edge rounded) */
+.top-only { border-radius: 12px 12px 0 0; }
+/* Only bottom-left and bottom-right (top edge rounded) */
+.bottom-only { border-radius: 0 0 12px 12px; }
+
+/* Only top-left and bottom-right (diagonal) */
+.diagonal { border-radius: 12px 0 12px 0; }
+
+/* Only right side (top-right & bottom-right) */
+.right-only { border-radius: 0 12px 12px 0; }
+/* Only left side (top-left & bottom-left) */
+.left-only { border-radius: 12px 0 0 12px; }
+
+/* All corners rounded */
+.all-corners { border-radius: 12px 12px 12px 12px; }
+
+// Contact panels
+.form-left {
+  background-color: $dark-color; color: $white-color;
+  h2 { color: $main-states-color; padding: 0 0 15px; }
+  h5, h3, h4 { color:$white-color; }
+}
+.form-right {
+  h1 { color: $dark-color; padding: 0 0 15px; }
+  h2 { color: $main-states-color; padding: 0 0 15px; }
+  h5, h3, h4 { color: $dark-color; }
+  background-color: $pale-bg; color: $dark-color;
+}
+
+// Separators
+.separator-top-header {
+  border-top: 2px solid $dark-states-color; padding-top: 8px; margin-top: 15px;
+  &.no-border-footer { border-bottom: 0; }
+}
+.separator-top-header-neutral {
+  border-top: 2px solid $neutral-color; padding-top: 8px; margin-top: 15px;
+  &.no-border-footer { border-bottom: 0; }
+}
+.separator-top-header-main {
+  border-top: 2px solid $main-color; padding-top: 8px; margin-top: 15px;
+  &.no-border-footer { border-bottom: 0; }
+}
+.separator-top-card    { border: 7px solid $main-color; border-bottom: 0; border-left: 0; border-right: 0; }
+.separator-bottom-card { border: 7px solid $main-color; border-top: 0; border-left: 0; border-right: 0; }
+
+.separator-right-main  { border: 1px dashed $main-color; border-top: 0; border-left: 0; border-bottom: 0; }
+.separator-bottom-main { border: 1px dashed $main-color; border-top: 0; border-left: 0; border-right: 0; }
+.separator-top-main    { border: 1px dashed $main-color; border-bottom: 0; border-left: 0; border-right: 0; }
+
+.client-row-seperator {
+  border: 1px solid $info-color; border-top: 0; border-left: 0; border-right: 0;
+  padding-top: 20px; padding-bottom: 20px; padding-left: 0;
+}
+
+.separator-left-neutral  { border-left: 1px solid $neutral-color; &.no-border-footer { border-top: 0; } }
+.separator-right-neutral { border-right: 1px solid $neutral-color; &.no-border-footer { border-top: 0; } }
+.separator-top-neutral   { border-top: 1px solid $neutral-color; &.no-border-footer { border-bottom: 0; } }
+.separator-bottom-neutral{ border-bottom: 1px solid $neutral-color; &.no-border-footer { border-top: 0; } }
+
+.row-separator-right   { border-right: 3px solid $primary-color; }
+.row-separator-bottom  { border-bottom: 3px solid $primary-color; }
+.link-title-separator  { border-bottom: 1px solid $primary-color; }
+.hr-line               { border: 3px solid $primary-color; }
+
+// Text transformations
+.uppercase { text-transform: uppercase; }
+  .lowercase { text-transform: lowercase; }
+  .capitalize{ text-transform: capitalize; }
+
+// Button transformations
+.btn{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.btn-main {
+    background-color: $main-color;
+    color: $dark-color !important; text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+    border-left: 0 none;
+    border-bottom: 1px solid $medium-gray;
+    border-top: 1px solid $medium-gray;
+    font-weight: 300;
+    margin: 15px 0 10px;
+    text-align: center;
+}
+blockquote {
+  position: relative; 
+  text-align: left; 
+  padding: 1.2em 0 2em 38px; 
+  border: none;
+  margin: 20px auto; 
+  max-width: 800px; 
+  width: 100%; 
+  display: block;
+  &:after {
+    content: ""; 
+    display: block; 
+    width: 2px; 
+    height: 100%; 
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    background: linear-gradient(to bottom, $success-color 0%, $success-color 60%, rgba(255,255,255,0) 100%);
+  }
+  &:before {
+    font-family: 'Segoe UI','Frutiger','Frutiger Linotype','Dejavu Sans','Helvetica Neue','Arial',Sans-Serif;
+    font-size: 20px; 
+    display: block; 
+    margin-bottom: .8em; 
+    font-weight: 400; 
+    color: $success-color;
+  }
+  > cite,
+  > p > cite {
+    display: block; 
+    font-size: 16px; 
+    line-height: 1.3; 
+    font-weight: 700; 
+    font-style: italic; 
+    margin-top: 1.1em; 
+    letter-spacing: 0;
+  }
+}
+
+// Carousel customizations
+:root {
+    --carousel-btn: 40px;                 /* circle diameter */
+    --arrow-scale: 40%;                   /* chevron size */
+    --ring: 4px;                          /* focus ring */
+    --circle: transparent !important;     //#ff3b3b;                    /* circle fill */
+    --ring-color: $main-color;    /* outer ring */
+    --ring-inset: transparent !important; //rgba(255,255,255,.95);  /* inner edge */
+}
+  
+/* Reset the control container to avoid the red “pill” */
+ngb-carousel .carousel-control-prev,
+ngb-carousel .carousel-control-next {
+  width: auto;                /* don’t span 15% */
+  padding: .25rem;            /* snug click area */
+  display: flex;
+  align-items: center;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+ngb-carousel:hover .carousel-control-prev,
+ngb-carousel:hover .carousel-control-next,
+ngb-carousel:focus-within .carousel-control-prev,
+ngb-carousel:focus-within .carousel-control-next {  opacity: 1; }
+
+/* Make the icon a perfect circle with a centered chevron */
+ngb-carousel .carousel-control-prev-icon,
+ngb-carousel .carousel-control-next-icon {
+  width: var(--carousel-btn);
+  height: var(--carousel-btn);
+  border-radius: 50%;
+  background-color: var(--circle);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: var(--arrow-scale) var(--arrow-scale);
+  transform: none; /* prevent SVG shifting */
+  box-shadow: 0 0 0 2px var(--ring-inset) inset; /* inner edge */
+}
+
+/* Tiny optical nudge for prev chevron if needed */
+ngb-carousel .carousel-control-prev .carousel-control-prev-icon { background-position: 51% 50%; /* try 50%, adjust 51–52% if eye says “left” */  }
+
+/* Keyboard focus ring that hugs the circle */
+ngb-carousel .carousel-control-prev:focus-visible .carousel-control-prev-icon,
+ngb-carousel .carousel-control-next:focus-visible .carousel-control-next-icon {box-shadow: 0 0 0 2px var(--ring-inset) inset, 0 0 0 var(--ring) var(--ring-color); }
+
+/* If you use .carousel-dark, disable Bootstrap’s filter so yellow stays yellow */
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon { filter: none !important; }
+
+
+  /* Visually-hidden (but focusable when tabbed) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto; height: auto;
+  margin: 0; overflow: visible; clip: auto; white-space: normal;
+}
+
+
+/* Adjust paths/colors to your design system */
+$nav-color: $dark-color;
+$accent: $main-color;
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  color: #fff;
+icon
+  .cta-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(.95) contrast(1.05);
+    background-image: url('../img/heroes/deacons-basketball-u16-champions-hero.jpg');    
+  }
+  .cta-bg.recruitment-option-a {
+    background-image: url('../img/heroes/deacons-basketball-u16-champions-hero.jpg');
+  }
+  .cta-bg.recruitment-option-b {
+    background-image: url('../img/heroes/deacons-basketball-u16-champions-hero.jpg');
+  }
+
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(28, 29, 30, 0.85) 0%, rgba(28, 29, 30,.55) 55%, rgba(28, 29, 30, .25) 100%);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    //max-width: 1200px;
+    //max-width: 98%;
+
+  }
+  .cta-content {
+    display: block;
+    justify-content: space-evenly; /* or: space-between / center / space-around */
+    align-items: center;           /* vertically centers the row items */
+  }
+
+  .cta-head { margin: 0 0 .5rem; letter-spacing: .2px; color: $main-color; }
+  .cta-subhead { font-size: 1.1rem; margin-bottom: 1rem; max-width: 60ch; color: $white-color; max-width: 100%;}
+
+  .proof-points {
+    list-style: none; padding: 0; margin: 0 0 1.25rem;
+    display: grid; gap: .5rem;
+    //justify-content: center;
+    //align-items: center;
+  }
+
+  .proof-points li {
+    align-items: center;
+    gap: .5rem;
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 1.05rem; height: 1.05rem;
+    border-radius: 50%;
+    border: 2px solid $accent;
+    box-shadow: 0 0 0 2px rgba(255,210,18,.25);
+    display: inline-block;
+  }
+
+  .btn.btn-primary {
+    background: $accent; color: $nav-color; border: none; font-weight: 700;
+    &:hover { filter: brightness(.95); }
+  }
+}
+
+/* Optional: tighter layout on very small screens */
+@media (max-width: 480px) {
+  .hero-banner .cta-head { font-size: 1.2rem; }
+  .hero-banner .cta-subhead { font-size: 1rem; }
+  .hero-banner .proof-points { gap: .4rem; }
+}
+
+
+
+/* Full-width, equal-size buttons inside .cta-row */
+/* Layout */
+.cta-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.cta-row > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;              /* let grid handle width */
+  min-height: 44px;         /* accessible touch target */
+  padding: 14px 16px;
+  text-align: center;
+}
+
+/* Base button */
+.btn {
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+
+  &::after {
+    content: "→";
+    margin-left: 0.35rem;
+    display: inline-block;          /* required so translate works nicely */
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* Variants */
+  &.btn-outline {
+    background: transparent;
+    color: $white-color;
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+
+  &.btn-ghost {
+    background: transparent;
+    color: $white-color;
+    text-decoration: underline;
+    border: none;
+  }
+
+  /* Default (gold primary) */
+  &:not(.btn-outline):not(.btn-ghost) {
+    background: $main-color;
+    color: #111;
+    border: none;
+  }
+}
+
+/* Disabled states (works for links and buttons) */
+.btn[aria-disabled="true"],
+button.btn:disabled,
+a.btn.disabled,
+a.btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Hover states for enabled buttons/links */
+.btn:not([aria-disabled="true"]):hover,
+button.btn:not(:disabled):hover,
+a.btn[href]:hover {
+  background: $info-color;
+}
+
+/* Stack on small screens */
+@media (max-width: 640px) {
+  .cta-row { grid-template-columns: 1fr; }
+}
+
+
+.sr-only {
+  position:absolute!important;
+  height:1px;width:1px;overflow:hidden;
+  clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+
+
+.mt-20 { margin-top: 20px; }
+
+

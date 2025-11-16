@@ -1,0 +1,94 @@
+<nav id="navbar"
+  class="navbar navbar-expand-lg navbar-absolute bg-dark" style="height: 50px;"
+>
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle">
+        <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+      <a class="navbar-brand" href="{{workspacePath}}/dashboard">{{ getTitle() }} ...</a>
+    </div>
+    <button class="navbar-toggler" type="button" (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="!isCollapsed">
+      <form>
+        <div class="input-group no-border">
+          <input
+            type="text"
+            value=""
+            class="form-control"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i class="now-ui-icons ui-1_zoom-bold"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{workspacePath}}/dashboard">
+            <i class="now-ui-icons media-2_sound-wave"></i>
+            <!--<p><span class="d-lg-none d-md-block">Stats</span></p> -->
+          </a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            <i class="now-ui-icons location_world"></i>
+            <p><span class="d-lg-none d-md-block">Link Actions</span></p>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            ngbDropdownMenu
+            aria-labelledby="dropdownBasic1"
+          >
+            <a class="dropdown-item" href="{{workspacePath}}/dashboard#">Action</a>
+            <a class="dropdown-item" href="{{workspacePath}}/dashboard#">Another action</a>
+            <a class="dropdown-item" href="{{workspacePath}}/dashboard#">Something else here</a>
+            <a class="dropdown-item" href="{{workspacePath}}/dashboard#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+          <img class="user-avatar" src="img/icons/icon-avatar.png"   />
+          <p><span class="d-lg-none d-md-block">Some Actions</span></p>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            ngbDropdownMenu
+            aria-labelledby="dropdownBasic1"
+          >
+          <button type="submit"
+            class="btn btn-link btn-warning dropdown-item"
+            (click)="signOut()" >
+                <i class="nc-icon nc-lock-circle-open"></i> &nbsp; Log Out &nbsp;
+            </button>
+
+            <button type="submit"
+            class="btn btn-link btn-warning dropdown-item"
+            (click)="profileEdit()" >
+                <i class="nc-icon nc-single-02"></i> &nbsp; Edit Profile &nbsp;
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

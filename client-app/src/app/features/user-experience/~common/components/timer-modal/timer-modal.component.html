@@ -1,0 +1,39 @@
+<!-- welcome-modal.component.html -->
+<div class="wm-overlay" *ngIf="open()" (click)="close('overlay')"></div>
+
+<section *ngIf="open()" class="wm-dialog wm-prominent" role="dialog"
+         [attr.aria-labelledby]="headingId" aria-modal="true"
+         (click)="$event.stopPropagation()">
+
+  <header class="wm-hero">
+    <span class="wm-badge" aria-hidden="true">New for Fall</span>
+    <h2 [id]="headingId" class="wm-title">
+      Brains & Ballers — Start Your Journey
+    </h2>
+    <p class="wm-subtitle">
+      Unlock academics + athletics. Book a free consultation or register in minutes.
+    </p>
+  </header>
+
+  <div class="wm-body">
+    <ng-content></ng-content>
+    <!-- Default body if none is projected -->
+    <ul class="wm-highlights" role="list">
+      <li>After-School programs with academic support</li>
+      <li>Basketball & Soccer Gold Camps</li>
+      <li>NCAA guidance and recruiting prep</li>
+    </ul>
+  </div>
+
+  <footer class="wm-actions">
+    <button class="wm-btn wm-btn-primary wm-pulse" type="button" (click)="primaryAction()">
+      Get Started
+    </button>
+    <a class="wm-btn wm-btn-outline" [attr.href]="primaryHref || '/en/youth-basketball-club/register#register'">
+      View Programs
+    </a>
+    <button class="wm-link" type="button" (click)="dontShowAgain()">Don’t show again</button>
+  </footer>
+
+  <button class="wm-close" type="button" aria-label="Close" (click)="close('x')">×</button>
+</section>

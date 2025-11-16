@@ -1,0 +1,32 @@
+<!-- MAIN CONTENT LAYOUT -->
+
+<!-- Global Navigation -->
+<app-navbar-cmp 
+    [shouldDisplayLogin]="shouldDisplayLogin"
+    [urlPath]="urlPath"
+    [membershipPath]="membershipPath"
+
+    (signInToParent)="signInFromChild($event)"
+    (signUpToParent)="signUpFromChild($event)"
+    (signOutToParent)="signOutFromChild()"
+    (editProfileToParent)="editProfileFromChild()"    
+></app-navbar-cmp>
+
+<!-- Dynamic Content based on component/page -->
+<router-outlet></router-outlet>
+
+<!-- FIXED PLUGINS -->
+<app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>
+<app-fixed-join-now-plugin-cmp 
+    [urlPath]="urlPath"
+    [membershipPath]="membershipPath"
+    [workspacePath]="workspacePath"
+
+    [shouldDisplayMembershipPage]="shouldDisplayMembershipPage"
+    [shouldDisplayLogin]="shouldDisplayLogin"
+    [shouldDisplayJoinNow]="shouldDisplayJoinNow"
+></app-fixed-join-now-plugin-cmp>
+
+<!-- Global Footer -->
+<app-footer-cmp></app-footer-cmp>
+

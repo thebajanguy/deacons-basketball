@@ -1,0 +1,425 @@
+
+/* ===== VSAP brand tokens ===== */
+$vsa-navy:   #0a2144;
+$vsa-gold:   #ffd212;
+$vsa-error:  #b00020;
+$vsa-border: #d7d7d7;
+$vsa-bg:     #fff;
+$vsa-gray:   #777;
+$vsa-light-gray:   #d7d7d7;
+
+/* Center the entire form shell inside its parent */
+.form-shell {
+  margin-inline: auto;
+  //max-width: 720px;   /* keeps it from going too wide */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers grid + actions */
+}
+
+/* Grid layout for form fields */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 18px);
+  width: 100%;              /* make it full width of form-shell */
+  justify-content: center;  /* center grid tracks */
+  align-items: start;
+}
+
+/* On smaller screens, collapse into single column */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  label {
+    font-weight: 600;
+    margin-bottom: .35rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    border: 1px solid $vsa-light-gray;
+    border-radius: 8px;
+    padding: .65rem .8rem;
+    font: inherit;
+    background: $vsa-bg;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: $vsa-navy;
+    box-shadow: 0 0 0 3px rgba(10,33,68,.12);
+  }
+
+  .hint {
+    color: $vsa-gray;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+
+  .error {
+    display: block;
+    color: $vsa-error;
+    font-size: .85rem;
+    margin-top: .25rem;
+    align-items: left;
+    justify-content: left;
+    text-align: left;  
+  }
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+/* Topic chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .5rem;
+  background: #f1f5fb;
+  border: 1px solid #d3def5;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .9rem;
+
+  .chip-remove {
+    border: 0;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
+
+/* Actions / button */
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn[disabled] {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: $vsa-navy;
+  color: $vsa-bg;
+}
+
+/* Simple spinner */
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin .6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Honeypot */
+.hp {
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0 !important;
+}
+
+/* Floating label group */
+.fl {
+  position: relative;
+  display: block;
+
+  /* Base field (input/textarea) */
+  input, textarea, select {
+    width: 100%;
+    border: 1px solid $vsa-light-gray;
+    border-radius: 10px;
+    padding: 1.125rem .85rem .625rem; /* extra top so label can sit inside */
+    font: inherit;
+    background: $vsa-bg;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+
+    &:focus {
+      border-color: $vsa-navy;
+      box-shadow: 0 0 0 3px rgba(10,33,68,.12);
+    }
+
+    /* Autofill fix */
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px $vsa-bg inset;
+      -webkit-text-fill-color: inherit;
+      caret-color: inherit;
+    }
+  }
+
+  /* Label sits over input when empty; floats when filled/focused */
+  label {
+    position: absolute;
+    left: .75rem;
+    top: .85rem;
+    line-height: 1;
+    font-size: 0.95rem;
+    color: $vsa-gray;
+    pointer-events: none;
+    background: transparent;
+    transform-origin: left top;
+    transition: transform .15s ease, color .15s ease, top .15s ease, background-color .15s ease;
+    padding: 0 .2rem;
+  }
+
+  /* Float on focus OR when there is content OR when parent has .filled */
+  input:focus + label,
+  textarea:focus + label,
+  select:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:not(:placeholder-shown) + label,
+  select:has(option:checked) + label,
+  &.filled label {
+    top: .4rem;
+    transform: scale(.82) translateY(-.25rem);
+    color: $vsa-navy;
+    background: $vsa-bg; /* so it “cuts” through borders if needed */
+  }
+
+  /* Error state */
+  &.has-error {
+    input, textarea, select {
+      border-color: $vsa-error;
+      box-shadow: 0 0 0 3px rgba(176,0,32,.12);
+    }
+    label {
+      color: $vsa-error;
+    }
+  }
+
+  /* Helpers */
+  .hint {
+    display: block;
+    color: $vsa-gray;
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+  .error {
+    display: block;
+    color: $vsa-error;
+    font-size: .85rem;
+    margin-top: .25rem;
+    align-items: left;
+    justify-content: left;
+    text-align: left;  
+  }
+}
+
+/* Textarea can use a bit more top padding to balance label */
+.fl.textarea textarea {
+  padding-top: 1.35rem;
+}
+
+/* Grid helpers from your earlier styles */
+.full { grid-column: 1 / -1; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .fl label,
+  .fl input,
+  .fl textarea,
+  .fl select {
+    transition: none !important;
+  }
+}
+
+/* side-by-side with no gap; stack on smaller screens */
+#consultation .columns { display: grid; grid-template-columns: 1fr 1.35fr; gap: 0; }
+@media (max-width: 992px){ #consultation .columns { grid-template-columns: 1fr; } }
+
+/* optional: make the right column form max width for readability */
+#consultation .form-right .form-shell { max-width: 760px; width: 100%; margin-inline: 0; }
+
+/* ---------- Tokens (fallbacks if CSS vars not present) ---------- */
+$vsap-gold: var(--vsap-gold, #fbc02d);
+
+/* ---------- Utilities ---------- */
+:root {
+  --radius-lg: 1rem;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Hero (grow with content, keep baseline height) ---------- */
+.page-header.parallax-hero.hero--main {
+  background-image: url('/assets/img/pages/correspondence/deacons-basketball-correspondence-hero-bg.png');
+  background-size: cover;
+  background-position: center;
+
+  /* allow content to expand; keep visual presence */
+  height: auto !important; /* override theme’s fixed vh */
+  min-height: clamp(420px, 55vh, 680px);
+  display: block;
+  overflow: visible;
+
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+
+/* cancel absolute centering from theme kits */
+.page-header.parallax-hero.hero--main .content-center {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  height: auto !important;
+  overflow: visible;
+}
+
+/* extra safety */
+.page-header.parallax-hero {
+  height: auto !important;
+  min-height: inherit;
+  overflow: visible;
+}
+.page-header.parallax-hero .container {
+  height: auto;
+  overflow: visible;
+}
+
+/* overlays shouldn’t block clicks */
+.page-header .filter,
+.page-header .hero-overlay,
+.page-header .overlay-dark,
+.page-header .overlay-gold {
+  pointer-events: none;
+}
+
+/* ---------- Hero content ---------- */
+.hero-title { line-height: 1.1; }
+
+/* Breadcrumbs (visible) */
+.hero__crumbs {
+  margin-bottom: 1rem;
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  a { text-decoration: none; }
+  li::after {
+    content: '/';
+    margin: 0 .5rem;
+  }
+  li:last-child::after { content: ''; }
+}
+
+/* ---------- CTA Grid (cards) ---------- */
+.hero__cta-row {
+  /* mobile-first single column; expands at breakpoints */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  text-align: center;
+  padding-inline: .5rem;
+}
+
+.hero__card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid $vsap-gold;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.hero__box-title {
+  margin: .5rem 0 1rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.hero__card img.avatar {
+  width: clamp(80px, 22vw, 120px);
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hero__cta {
+  width: 100%;
+  border-radius: .75rem;
+  margin-top: .5rem;
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
+  line-height: 1.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+/* ---------- Breakpoints ---------- */
+@media (min-width: 576px) {
+  .page-header.parallax-hero.hero--main {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    min-height: clamp(360px, 45vh, 560px);
+  }
+}
+
+@media (min-width: 769px) {
+  .hero__cta-row {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-inline: 0;
+  }
+
+  .hero__card {
+    padding: 1.5rem 1rem;
+  }
+}

@@ -1,0 +1,31 @@
+<div id="fixedButton" class="fixed-bottom d-flex" style="justify-content: center;padding-bottom: 20px;">
+    <div class="text-center">
+
+      <a class="btn btn-lg btn-round btn-danger btn-magnify text-uppercase" *ngIf="!dashboardPage"
+      href="{{workspacePath}}/dashboard" style="font-size: 1.0em;line-height: 2.2;" >
+         <i class="nc-icon nc-badge"></i> &nbsp; My Dashboard &nbsp;
+      </a>
+      &nbsp;&nbsp;
+      <a class="btn btn-lg btn-round btn-danger btn-magnify text-uppercase"
+      href="{{workspacePath}}/summary" style="font-size: 1.0em;line-height: 2.2;" >
+         <i class="nc-icon nc-badge"></i> &nbsp; My Account &nbsp;
+      </a>
+      &nbsp;&nbsp;
+      <a class="btn btn-lg btn-round btn-danger btn-magnify text-uppercase"
+      href="{{workspacePath}}/settings" style="font-size: 1.0em;line-height: 2.2;">
+         <i class="nc-icon nc-badge"></i> &nbsp; My Settings &nbsp;
+      </a>
+
+    </div>
+</div>
+
+<script>
+   $('body').height();
+   $(document).ready(function(){
+      $(window).scroll(function() {
+         if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
+               $('fixedBottom').hide();
+         }
+      });
+   });
+</script>

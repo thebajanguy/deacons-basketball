@@ -1,0 +1,38 @@
+<!-- MAIN CONTENT LAYOUT -->
+<app-identity-management-navbar 
+    [loginDisplay]="loginDisplay"
+    [urlPath]="urlPath"
+    [loginPath]="loginPath"
+
+    (signInToParent)="signInFromChild($event)"
+    (signUpToParent)="signUpFromChild($event)"
+    (signOutToParent)="signOutFromChild()"
+    (editProfileToParent)="editProfileFromChild()"
+    
+></app-identity-management-navbar>
+
+<main role="main" class="container-fluid" style="padding:0px;">
+    <router-outlet></router-outlet>
+</main>
+
+<app-identity-management-footer></app-identity-management-footer>
+
+<!-- FIXED PLUGINS -->
+<!-- FIXED PLUGINS -->
+<app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>
+<app-fixed-join-now-plugin-cmp 
+    [urlPath]="urlPath"
+    [membershipPath]="workspacePath"
+    [workspacePath]="workspacePath"
+
+    [shouldDisplayMembershipPage]="shouldDisplayMembershipPage"
+    [shouldDisplayLogin]="shouldDisplayLogin"
+    [shouldDisplayJoinNow]="shouldDisplayJoinNow"
+></app-fixed-join-now-plugin-cmp>
+
+@Input() : string = ''; 
+@Input() : string = ''; 
+@Input() workspacePath: string = ''; 
+@Input() : boolean = false;
+@Input() : boolean = false;
+@Input() : boolean = true;
