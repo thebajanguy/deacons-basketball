@@ -3,16 +3,16 @@ export const environment = {
     useApiMock: true,                         // <- toggle this
     correspondenceApiBaseUrl: 'http://localhost:7205/api',  // Functions default port
     registrationApiBaseUrl: 'http://localhost:7205/api',             // Functions default port
-    stripePk: 'pk_test_XXXXXXXXXXXXXXXXXXXXXXXX',   // <-- add this    
+
     appSettings: {
-          applicationName: 'Varsity Sports Academy',
+        applicationName: 'Deacons Basketball Club',
         siteUrl: `${window.location.origin}/`, //'http://localhost:5900/', // The redirect URI of the application, this should be same as the value in the application registration portal.Defaults to window.location.href.
-        pageTitle: 'Academic & Sports Preparation',
-        emailSentTo: 'VarsitySportsAcademy@Outlook.com',
+        pageTitle: 'Youth Basketball Program',
+        emailSentTo: 'DeaconsBC@Outlook.com',
         localUserStorageKey: 'local.authenticated.user',
         userTokenKey: 'msal.idtoken',
-        urlRoutePath: 'academics-and-sports',
-        loginRoutePath: 'academics-and-sports',
+        urlRoutePath: 'youth-basketball-club',
+        loginRoutePath: 'youth-basketball-club',
         workspaceRoutePath: 'user-workspace',
         membershipRoutePath: 'membership',
         defaultLanguage: 'en'
@@ -21,8 +21,8 @@ export const environment = {
         auth: {
             clientId: 'ff1655e5-419b-4c2a-acb4-565e7176f9cc',
             redirectUri: '/en/user-workspace/dashboard',
-            postLogoutRedirectUri: '/en/membership',
-            loginFailedRoute: '/login-failed',
+            postLogoutRedirectUri: '/en/youth-basketball-club/membership',
+            loginFailedRoute: '/youth-basketball-club/login-failed',
         }
     },
     apiConfig: {

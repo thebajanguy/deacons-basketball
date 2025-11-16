@@ -3,16 +3,16 @@ export const environment = {
     useApiMock: false,                        // <- real API
     correspondenceApiBaseUrl: '/api',
     registrationApiBaseUrl: '/api',             // Functions default port
-    stripePk: 'pk_live_XXXXXXXXXXXXXXXXXXXXXXXX',   // <-- add this   
+
     appSettings: {
-        applicationName: 'Varsity Sports Academy',
-        siteUrl: `${window.location.origin}/`, //'http://localhost:5900/', // The redirect URI of the application, this should be same as the value in the application registration portal.Defaults to window.location.href.
-        pageTitle: 'Academic & Sports Preparation',
-        emailSentTo: 'VarsitySportsAcademy@Outlook.com',
+        applicationName: 'Deacons Basketball Club',
+        siteUrl: `${window.location.origin}/`,  // The redirect URI of the application, this should be same as the value in the application registration portal.Defaults to window.location.origin.
+        pageTitle: 'Youth Basketball Program',
+        emailSentTo: 'DeaconsBC@Outlook.com',
         localUserStorageKey: 'local.authenticated.user',
         userTokenKey: 'msal.idtoken',
-        urlRoutePath: 'academics-and-sports',
-        loginRoutePath: 'academics-and-sports',
+        urlRoutePath: 'youth-basketball-club',
+        loginRoutePath: 'youth-basketball-club',
         workspaceRoutePath: 'user-workspace',
         membershipRoutePath: 'membership',
         defaultLanguage: 'en'

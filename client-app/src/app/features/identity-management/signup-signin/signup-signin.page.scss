@@ -1,62 +1,412 @@
-@import "../../../../../public/scss/user-experience/user-experience-custom-styles.scss";
+/* ---------------------------------------------
+   Deacons Basketball Club — Membership (SCSS)
+   Mobile-first, production-ready
+---------------------------------------------- */
 
+@import "../../../../../public/assets/scss/custom.scss";
 
-.avatar {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 50%;
-    margin-bottom: 15px;
+/* ---------- Tokens (fallbacks if CSS vars not present) ---------- */
+$vsap-gold: var(--vsap-gold, #fbc02d);
+
+/* ---------- Utilities ---------- */
+:root {
+  --radius-lg: 1rem;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-div.box-outter {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 2px $main-color solid;
-    margin: 20px;
-    padding: 0px 25px 25px 25px;
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Hero (grow with content, keep baseline height) ---------- */
+.page-header.parallax-hero.hero--main {
+  background-image: url('/assets/img/pages/membership/showcase-camps.png');
+  background-size: cover;
+  background-position: center;
+
+  /* allow content to expand; keep visual presence */
+  height: auto !important; /* override theme’s fixed vh */
+  min-height: clamp(420px, 55vh, 680px);
+  display: block;
+  overflow: visible;
+
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+
+/* cancel absolute centering from theme kits */
+.page-header.parallax-hero.hero--main .content-center {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  height: auto !important;
+  overflow: visible;
+}
+
+/* extra safety */
+.page-header.parallax-hero {
+  height: auto !important;
+  min-height: inherit;
+  overflow: visible;
+}
+.page-header.parallax-hero .container {
+  height: auto;
+  overflow: visible;
+}
+
+/* overlays shouldn’t block clicks */
+.page-header .filter,
+.page-header .hero-overlay,
+.page-header .overlay-dark,
+.page-header .overlay-gold {
+  pointer-events: none;
+}
+
+/* ---------- Hero content ---------- */
+.hero-title { line-height: 1.1; }
+
+/* Breadcrumbs (visible) */
+.hero__crumbs {
+  margin-bottom: 1rem;
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  a { text-decoration: none; }
+  li::after {
+    content: '/';
+    margin: 0 .5rem;
+  }
+  li:last-child::after { content: ''; }
+}
+
+/* ---------- CTA Grid (cards) ---------- */
+.hero__cta-row {
+  /* mobile-first single column; expands at breakpoints */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  text-align: center;
+  padding-inline: .5rem;
+}
+
+.hero__card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid $vsap-gold;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.hero__box-title {
+  margin: .5rem 0 1rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.hero__card img.avatar {
+  width: clamp(80px, 22vw, 120px);
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hero__cta {
+  width: 100%;
+  border-radius: .75rem;
+  margin-top: .5rem;
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
+  line-height: 1.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+/* ---------- Breakpoints ---------- */
+@media (min-width: 576px) {
+  .page-header.parallax-hero.hero--main {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    min-height: clamp(360px, 45vh, 560px);
+  }
+}
+
+@media (min-width: 769px) {
+  .hero__cta-row {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-inline: 0;
   }
 
-  div.box-inner {
+  .hero__card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ---------- Generic content sections ---------- */
+.section--about { padding-bottom: 0; }
+
+.cards-3up .card .card-img-top .img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.bullets {
+  margin: .75rem 0 0;
+  padding-left: 1.2rem;
+
+  li { margin: .4rem 0; }
+}
+
+.section--translate { padding-top: 0; }
+
+/* FAQ block */
+.faq details {
+  border: 1px solid #e3e3e3;
+  border-radius: .5rem;
+  padding: .75rem 1rem;
+  margin-bottom: .75rem;
+}
+.faq summary { cursor: pointer; font-weight: 600; }
+
+/* ---------- Legacy styles kept (scoped & cleaned) ---------- */
+/* If these “box-*” are still used elsewhere, keep them; otherwise remove. */
+.avatar {
+  /* keep for legacy image avatars outside hero cards */
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.box-outter {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px $main-color solid;
+  margin: 20px;
+  padding: 0 25px 25px;
+}
+
+.box-inner {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px $main-color solid;
+  background: #ebebeb; /* fixed invalid rgba(#hex,100) */
+  padding-top: 100px;
+  color: #fff;
+  text-align: center;
+  align-content: space-around;
+}
+
+.box-inner-top {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f6f6f6; /* fixed invalid rgba(#hex,100) */
+  color: #000;
+  text-align: center;
+  min-height: 100px;
+  max-height: 200px;
+  margin-top: 25px;
+}
+
+.box-footer {
+  background-color: transparent;
+  box-sizing: border-box;
+  font-weight: 100;
+  font-size: smaller;
+  text-align: left;
+  color: $font-color;
+  padding: 10px 0 0;
+}
+
+
+/* ===== Features (Membership) ===== */
+
+$vsap-gold: var(--vsap-gold, #fbc02d);
+$vsap-navy: var(--vsap-navy, #0b2a55);
+$vsap-check: url('/assets/img/icons/bullet-check.svg'); // swap to your SVG path
+
+.features {
+  /* top section spacing already handled by global section classes */
+}
+
+.section-subtitle {
+  color: $vsap-navy;
+  margin-top: .25rem;
+  margin-bottom: .75rem;
+}
+
+.lead {
+  max-width: 98%;
+  margin-inline: auto;
+  color: var(--text-muted, #5b6876);
+}
+
+.features-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid rgba(11, 42, 85, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+}
+
+.feature-media {
+  position: relative;
+  aspect-ratio: 16 / 9; /* modern browsers */
+  background: #f5f7fb;
+
+  /* fallback for older browsers:
+  &::before { content: ""; display: block; padding-top: 56.25%; }
+  > img { position: absolute; inset: 0; }
+  */
+
+  > img {
     width: 100%;
-    box-sizing: border-box;
-    //background-color: navy;
-    border: 0px $danger-color solid;
-    color: $white-color;
-    border: 2px $main-color solid;
-
-
-    background: rgba(#ebebeb, 100);
-    padding-top: 100px;
-    color: #fff;
-    text-align: center;
-    align-content: space-around;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  div.box-inner-top {
-    width: 100%;
-    box-sizing: border-box;
-    border: 0px $danger-color solid;
+}
 
-    background: rgba(#f6f6f6, 100);
-    color: #000;
-    text-align: center;
+.feature-body {
+  padding: 1rem 1rem 1.25rem;
 
-    min-height: 100px;
-    max-height: 200px;
-    background-color: #f6f6f6;
-    margin-top: 25px;
-
+  @media (min-width: 992px) {
+    padding: 1.25rem 1.25rem 1.5rem;
   }
+}
 
-  div.box-footer {
-    background-color: transparent;
-    padding: 0px 0px 0px 0px;
-    box-sizing: border-box;
-    border: 0px $main-color solid;
-    font-weight: 100;
-    font-size: smaller;
-    text-align: left;
-    color: $font-color;
-    padding-top: 10px;
+.feature-title {
+  color: $vsap-navy;
+  font-weight: 800;
+  letter-spacing: .02em;
+  font-size: clamp(1rem, 1.2vw + .9rem, 1.25rem);
+  margin: .25rem 0 0.75rem;
+}
 
+/* Branded bullet list */
+.feature-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #243447;
+
+  li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin: .55rem 0;
+
+    /* bullet icon */
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .25rem;
+      width: 1rem;
+      height: 1rem;
+      background-image: $vsap-check;
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
+      background-position: center;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.1));
+    }
+
+    strong {
+      color: $vsap-navy;
+      font-weight: 700;
+    }
   }
+}
+
+.section-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #243447;
+
+  li {
+    position: relative;
+    padding-left: 0rem;
+    margin: .55rem 0;
+
+    /* bullet icon */
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .25rem;
+      width: 1rem;
+      height: 1rem;
+      background-image: $vsap-check;
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
+      background-position: center;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.1));
+    }
+
+    strong {
+      color: $vsap-navy;
+      font-weight: 700;
+    }
+  }
+}
+
+/* Optional accent border to echo brand */
+.feature-card {
+  border-top: 3px solid $vsap-gold;
+}

@@ -1,0 +1,339 @@
+/* Design tokens */
+/* ---------- Global polish ---------- */
+
+:root {
+  --bg: #0b0f1a;
+  --card: #111727;
+  --ink: #e7ecf6;
+  --muted: #9fb0d0;
+  --brand: #ffd212; /* gold */
+  --accent: #3aa9ff;
+  --ring: rgba(250, 188, 60, 0.5);
+  --success: #18ce0f;
+  --black: #000000;
+  --gold: #ffd212;
+  --green: #18ce0f;
+
+  --gap-1: 0.75rem;
+  --gap-2: 1rem;
+  --gap-3: 1.25rem;
+  --gap-4: 1.5rem;
+
+  --radius: 1rem;
+  --ring: rgba(250, 188, 60, 0.5);
+}
+
+
+/* Better heading scaling */
+h2, .section h2 {
+  font-size: clamp(1.6rem, 1.1rem + 2.2vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.center { text-align:center; margin-top: 1rem; }
+
+/* Hero/other sections shouldn’t cover the lifted block */
+.hero, .section { position: relative; z-index: 1;}
+/* If your page uses a sticky/fixed header, give the page a top padding once */
+main, .page { padding-top: var(--header-h);}
+
+/* Lifted section (replaces inline negative margins) */
+.section-lifted { position:relative; isolation:isolate; z-index:1; transform: translateY(-125px); }
+@media (max-width: 768px) { .section-lifted { transform: translateY(-100px); } }
+
+.div-shadows {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 1.25rem;
+  padding: clamp(1rem, 2vw + 0.5rem, 2rem);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+
+/* ---------- Quick Info (mobile-first) ---------- */
+/* Ensure the filter stays behind the content */
+#quick-info {
+  .filter {position: absolute; inset: 0; z-index: 0; }
+    
+  /* Put the actual content above the filter */
+  .cards {  display: grid;  grid-template-columns: repeat(3, 1fr);  gap: 1rem;}
+  .container{ position: relative; z-index: 1; border-radius:1rem; padding:1rem;}
+
+  /* Cards / grids */
+  .card { position: relative; z-index: 1; background: var(--card); border:1px solid rgba(255,255,255,.06); border-radius:1rem; padding:1rem; }
+  .card.highlight { outline: 2px solid rgba(245,179,1,.25); box-shadow: 0 4px 24px rgba(245,179,1,.1) inset; }
+  .card h3 { margin:.2rem 0 1rem; font-size:1.2rem; }
+  .link { color: var(--accent); text-decoration:none; font-weight:600; }
+  .link:hover { text-decoration: underline; }
+  .list { list-style:none; margin:0; padding:0; display:grid; gap:.5rem; }
+  .list li { display:grid; grid-template-columns: 1fr auto 1fr; gap:.5rem; background: rgba(255,255,255,.03); border-radius:.6rem; padding:.5rem .6rem; }
+  .list .when { color: var(--muted); }
+  .list .time { color: var(--muted); font-weight:700; }
+  .list .where { text-align:right; color: var(--muted); }
+
+  .card-footer .link{ color: var(--green); text-decoration:none; font-weight:600; }
+  .card-footer .link:hover { color: var(--brand); text-decoration: underline; }
+  .card-footer .text{ color: var(--green); text-decoration:none; font-weight:600; }
+
+  /* Badges */
+  .badges { display:flex; gap:3.75rem; flex-wrap:wrap; }
+  .badge { display:grid; place-items:center; width:120px; height:120px; border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, #ffe8a6, #f5b301 60%, #c08b00);
+    color:#1b1200; font-weight:800; text-transform:uppercase; line-height:.5; border:4px solid #fff4cc;
+  }
+  .badge .year { font-size:.9rem; }
+  .badge .level { font-size:1.1rem; }
+  .badge .league { font-size:.7rem;opacity:.9; }
+
+   /* Make the section form its own stacking context and sit above hero overlays */
+  &.lifted-over-hero {
+    position: relative;          /* required for z-index to apply */
+    isolation: isolate;          /* prevent parent transforms/backdrop filters from hijacking stacking */
+    z-index: 1;               /* above hero overlays but below modals if any */
+    margin-top: 0;               /* stop fighting collapsing margins */
+    transform: translateY(-125px);  /* replaces negative margin-top */
+    will-change: transform;      /* smoother paint on scroll */
+    padding-top:0px;
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 768px)  { #quick-info.lifted-over-hero { transform: translateY(-70px); } }
+@media (min-width: 768px)  { #quick-info .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { #quick-info .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 992px)  { #quick-info .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }}
+
+/* ---------- Teams (mobile-first) ---------- */
+/* ---------- Teams (mobile-first) ---------- */
+
+/* ---------- Teams (mobile-first) ---------- */
+#our-teams {
+  .container header .headings-sub, .container header .section-sub {
+    color:#6b7280; margin:0 auto; padding:0 1rem; max-width:85ch;
+    font-size:clamp(.95rem, .95rem + .2vw, 1.05rem); line-height:1.6; text-align:center;
+  }
+
+  /* Grid: 1-up by default */
+  .team-cards {
+    display:grid; grid-template-columns: 1fr; gap:1rem; margin-top:1rem; align-items:stretch;
+  }
+
+  /* If Bootstrap cols remain (from other pages), neutralize them */
+  .team-cards > [class*="col-"] { width:auto!important; max-width:none!important; flex:initial!important; padding:0; min-width:0; }
+
+  /* Card */
+  .team-card { display:flex; flex-direction:column; align-items:center; min-width:0; }
+  .team-figure { width:100%; border-radius:.75rem; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,.25); background:#0b0b0b; }
+  .team-img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+
+  .team-level {
+    margin:.6rem 0 0; padding:.25rem .5rem; background:var(--card);
+    border:1px solid rgba(255,255,255,.2); color:var(--gold); font-weight:600;
+    font-size:1.05rem; text-align:center; border-radius:.75rem;
+  }
+}
+
+/* ≥768px: show 2 cards per row */
+@media (min-width: 768px) {
+  #our-teams .team-cards { grid-template-columns: repeat(2, minmax(0,1fr)); gap:1.25rem; }
+}
+
+/* ≥1024px: a touch more space */
+@media (min-width: 1024px) {
+  #our-teams .team-cards { gap:1.5rem; }
+  #our-teams .container header .headings-sub,
+  #our-teams .container header .section-sub { padding:0; }
+}
+
+
+/* Champions */
+#our-champions{
+
+  .section-sub {
+    color: #6b7280; /* muted */
+    margin: 0 auto;
+    max-width: 85ch;
+    font-size: clamp(.95rem, .95rem + .2vw, 1.05rem);
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .champions-steps {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.25rem;
+    padding: clamp(1rem, 2vw + 0.5rem, 2rem);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+  img {border-radius:.75rem;}
+  .text{ color: var(--green); text-decoration:none; font-weight:600; }
+  .team-grid { 
+    background: var(--card); border:1px solid rgba(255,255,255,.06); border-radius:1rem; overflow:hidden; 
+    grid-template-columns: repeat(2, minmax(0,1fr)); gap:1.25rem; 
+  }
+  .team-thumb { position:relative; aspect-ratio: 16/9; background-size:cover; background-position:center; }
+  .team-grid .text{ color: var(--green); text-decoration:none; font-weight:600; }
+  .team-level-top {
+    margin:.6rem 0 0; padding:.25rem .5rem; background:var(--card);
+    border:1px solid rgba(255,255,255,.2); color:var(--gold); font-weight:600;
+    font-size:1.05rem; text-align:center;
+    transform: translateY(15px);
+    align-items: center;
+    color: var(--gold);
+  }
+  .team-level-bottom {
+    margin:.6rem 0 0; padding:.25rem .5rem; //background:var(--card);
+    border:1px solid rgba(255,255,255,.2); color:var(--gold); font-weight:600;
+    font-size:1.05rem; text-align:center;
+    transform: translateY(-37px);
+    align-items: center;
+    color: var(--green);
+  }
+}
+@media (max-width: 992px) { 
+  #our-champions .cards { grid-template-columns: 1fr; } 
+}
+.champions-lifted { position:relative; isolation:isolate; z-index:1; transform: translateY(-125px); }
+@media (max-width: 768px) { .champions-lifted { transform: translateY(-75px); } }
+
+
+/* Academies */
+#our-academies{
+
+  .section-sub {
+    color: #6b7280; /* muted */
+    margin: 0 auto;
+    max-width: 85ch;
+    font-size: clamp(.95rem, .95rem + .2vw, 1.05rem);
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+
+  .text{ color: var(--green); text-decoration:none; font-weight:600; }
+  .team { background: var(--card); border:1px solid rgba(255,255,255,.06); border-radius:1rem; overflow:hidden; }
+  .team-thumb { position:relative; aspect-ratio: 16/9; background-size:cover; background-position:center; }
+  .team-grid .text{ color: var(--green); text-decoration:none; font-weight:600; }
+}
+@media (max-width: 992px) { 
+  #our-academies .cards { grid-template-columns: 1fr; } 
+}
+.academies-lifted { position:relative; isolation:isolate; z-index:1; transform: translateY(-125px); }
+@media (max-width: 768px) { .academies-lifted { transform: translateY(-75px); } }
+
+
+
+/* Contact */
+/* Cards / grids */
+/* CONTACT GRID — override Bootstrap row flex and columns */
+#contact {
+
+  .section-sub {
+    color: #6b7280; /* muted */
+    margin: 0 auto;
+    max-width: 85ch;
+    font-size: clamp(.95rem, .95rem + .2vw, 1.05rem);
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .contact-cards {
+    display: grid !important;                /* beat .row { display:flex } */
+    grid-template-columns: 1fr;              /* 1 card per row by default */
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  /* Neutralize Bootstrap column flex sizing so the grid controls layout */
+  .contact-cards > [class*="col-"] {
+    width: auto !important;
+    max-width: none !important;
+    flex: initial !important;
+    padding-left: 0;                          /* optional: remove gutters */
+    padding-right: 0;                         /* optional: remove gutters */
+  }
+
+  /* Card styling + interior alignment */
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    height: 100%;
+  }
+
+  .card-header { padding: 0; border: 0; background: transparent; }
+  .card h3 { margin: .2rem 0 .5rem; font-size: 1.2rem; word-break: keep-all; }
+  .card-footer { padding: 0; border: 0; background: transparent; }
+  .card .btn {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;          /* keep label on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;      /* avoid spilling outside card */
+  }
+}
+.contact-lifted { position:relative; isolation:isolate; z-index:1; transform: translateY(-125px); }
+@media (max-width: 768px) { .contact-lifted { transform: translateY(-75px); } }
+
+
+/* MD (≥768px): 2 columns */
+@media (min-width: 768px) {
+  #contact .contact-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+/* XL (≥1200px): 3 columns */
+@media (min-width: 1200px) {
+  #contact .contact-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Very wide screens: a touch more spacing (optional) */
+@media (min-width: 1600px) {
+  #contact .contact-cards { gap: 1.5rem; }
+}
+
+/* XL and up: 3 columns per row */
+@media (min-width: 1200px) {
+  #contact .contact-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* (optional) add some breathing room on very large screens */
+@media (min-width: 1600px) {
+  #contact .contact-cards { gap: 1.25rem; }
+}
+
+/* Sponsors */
+.sponsors { display:flex; gap:1.5rem; align-items:center; justify-content:center; flex-wrap:wrap; margin: 1rem 0; }
+.sponsors img { height: 44px; filter: grayscale(100%) contrast(105%); opacity:.95; }
+.sponsors img:hover { filter: none; opacity:1; }
+
+/* Sponsors */
+#sponsors { 
+  .sponsors { display:flex; gap:1.5rem; align-items:center; justify-content:center; flex-wrap:wrap; margin: 1rem 0; }
+  img { height: 44px; filter: grayscale(100%) contrast(105%); opacity:.95; }
+  img:hover { filter: none; opacity:1; }
+}
+
+
+
+
+
+

@@ -5,7 +5,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'vsa-timer-modal',
+  selector: 'app-timer-modal-cmp',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './timer-modal.component.html',
@@ -20,9 +20,9 @@ export class TimerModalComponent implements AfterViewInit, OnDestroy {
   /** days to remember dismissal */
   @Input() rememberDays = -1;
   /** modal title */
-  @Input() title = 'Welcome to VSA Prep';
+  @Input() title = 'Welcome to Deacons Basketball Club';
   /** optional deep link for primary action */
-  @Input() primaryHref: string | null = '/en/academics-and-sports/register#register';
+  @Input() primaryHref: string | null = '/en/youth-basketball-club/register#register';
   @Input() hasProjectedContent: boolean = true;
 
 

@@ -1,6 +1,6 @@
 /* Social icons */
-$secondary-color:           #0b66ca !default;
-$main-color:                #ffd212 !default;
+$text-color:  #18ce0f !default;
+$main-color:  #ffd212 !default;
 
 /* Remove underline on icons/links inside the social plugin */
 .social-plugin a,
@@ -17,7 +17,7 @@ $main-color:                #ffd212 !default;
 
 /* Icon styling (also fix the font-size typo: `1rem`, not `1 rem`) */
 .social-plugin .btn i {
-  color: $secondary-color !important;
+  color: $text-color !important;
   font-size: 1rem;
   transition: color .3s ease;
 }

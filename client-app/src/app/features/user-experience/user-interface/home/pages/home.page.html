@@ -1,0 +1,337 @@
+<div class="wrapper">
+  <!-- SEO & Structured Data -->
+  <h1 class="visually-hidden">Deacons Basketball Club — Youth Basketball in Barbados</h1>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SportsOrganization",
+    "name":"Deacons Basketball Club",
+    "sport":"Basketball",
+    "address":{"@type":"PostalAddress","addressCountry":"BB"},
+    "sameAs":["https://instagram.com/DeaconsBasketball"],
+    "award":[
+      "2024 U14 BABA Champions",
+      "2025 U16 BABA Champions"
+    ]
+  }
+  </script>
+
+  <!-- hero-page.component.html Build Skills. Grow Character. Win Together.-->
+  <app-base-hero-cmp
+  [title]="'Building Ballers,'"
+  [subtitle]="'Leaders &amp; Champions'"
+  [description]="description"
+  [backgroundUrl]="'assets/img/heroes/deacons-basketball-u16-champions-hero.jpg'"
+  [headerSize]="'lg'"
+  [isNavigationPage]="false"
+  [breadcrumbSEO]="'Home'"
+  [breadcrumb]="[
+      { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+      { label: 'Barbados' }
+  ]"
+  [ctas]="[
+    { label: 'Join the Club', routerLink: ['/'+urlPath+'/register'] , fragment: 'register', variant:'primary', ariaLabel:'Join Deacons Basketball Club' },
+    { label: 'Practice Schedule', routerLink: ['/'+urlPath+'/academy'] , fragment: 'schedules-and-pricing', variant:'light', ariaLabel:'View Deacons Basketball Club Practice Schedule' },
+    { label: 'Support the Program', routerLink: ['/'+urlPath+'/contact'], variant:'outline', ariaLabel:'Make a donation to Deacons Basketball Club' }
+  ]">
+  </app-base-hero-cmp>
+
+  <!-- Quick Info lifted-over-hero-->
+  <section 
+    id="quick-info" 
+    class="section " 
+    aria-label="Deacons Basketball Quick Info" style="padding: 0px">
+      <div class="filter filter-black"></div>
+      <div class="container">
+
+          <!-- Quick Info Grid -->
+          <div class="row mt-4" aria-label="Deacons Basketball Club Information">
+
+              <!-- Pratice Schedule -->
+              <div class="col-md-4 ml-auto" role="listitem">
+                <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                    itemtype="https://schema.org/Thing">
+                  <div class="card-body text-left">
+                    <h3 class="card-category " itemprop="name">Pratice Schedule</h3>
+                    <ul class="list">
+                      <li *ngFor="let p of nextPractices">
+                        <span class="when" [innerHTML]="getSafeHtml(p.date)"></span>
+                        <span class="time">{{ p.time }}</span>
+                        <span class="where">{{ p.venue }}</span>
+                      </li>
+                    </ul>
+                    <div class="card-footer">
+                      <a [routerLink]="['/'+urlPath+'/attend-a-practice']" class="link" title="See Deacons Basketball Schedule"
+                        aria-label="Learn more about Deacons Basketball Club Schedule"><span class="link">Attend a practice →</span></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Champions -->              
+              <div class="col-md-4" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Thing">
+                      <div class="card-body text-left">
+                          <h3 class="card-category" itemprop="name">Champions</h3>
+                          <div class="badges">
+                            <div class="badge">
+                              <span class="year">2025</span>
+                              <span class="level">U16</span>
+                              <span class="league">Champions</span>
+                              <span class="league">BABA</span>
+                            </div>
+                            <div class="badge">
+                              <span class="year">2024</span>
+                              <span class="level">U14</span>
+                              <span class="league">Champions</span>
+                              <span class="league">BABA</span>
+                            </div>
+
+                          </div>
+                          <div class="card-footer">
+                            <p class="text">Proud of our Deacons family.</p>
+                          </div>
+                      </div>
+                  </article>
+              </div>
+
+              <!-- New to Basketball? -->
+              <div class="col-md-4 mr-auto" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Thing">
+                      <div class="card-body text-left">
+                          <h3 class="card-category" itemprop="name">New to Basketball?
+                          </h3>
+                          <p><span class="text-color-white">We welcome beginners! Safe, positive, and development-focused coaching.</span></p>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <div class="card-footer">
+                            <a [routerLink]="['/'+urlPath+'/register']" class="link"><span class="link">Join the Deacons family →</span></a>
+                          </div>
+                      </div>
+                  </article>
+              </div>
+          </div>
+      </div>
+
+    <!-- Optional: Structured data for the values list -->
+    <!-- Fixed JSON-LD (no trailing comma) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Deacons Basketball Club Core Values",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Next Practices" },
+        { "@type": "ListItem", "position": 2, "name": "Champions" },
+        { "@type": "ListItem", "position": 3, "name": "New to Basketball?" }
+      ]
+    }
+    </script>
+  </section>
+
+  
+  <!-- Academies -->
+  <section id="our-academies" 
+  class="section section-white"
+    aria-labelledby="our-academies-heading">
+      <div class="filter filter-black"></div>
+      <div class="container div-shadows">
+          <!-- Headings -->
+          <header class="align-center mb-4">
+            <h2 id="our-academies-heading" itemprop="name">Our Academies</h2>
+            <p class="section-sub mt-3" itemprop="description">
+              Deacons Basketball youth academy programs provide age-appropriate pathways that blend fundamentals, 
+              fitness, and fun. From first-time players to elite basketballers, each program helps boys and girls develop 
+              confidence, teamwork, and lifelong skills — both on and off the court.
+            </p>
+          </header>
+
+          <!-- Academies cards -->
+          <div class="row mt-20 all-corners">
+            <ng-container *ngIf="programs.length; else empty">
+              <!-- cards -->
+              <div class="col-md-4 ml-auto" *ngFor="let p of programs;">
+                <div class="card no-transition separator-bottom-card all-corners" data-background="color" data-color="lightgray">
+                  <div class="card-header">
+                    &nbsp;
+                  </div>
+                  <div class="card-body text-left card-black-color">
+                    <img [src]="p.img" [alt]="p.title" loading="lazy" width="580" height="240" />                    
+                    <h3 class="card-category section-title-md" [innerHTML]="getSafeHtml(p.title)"></h3>
+                    <p class="card-description-dark">{{ p.blurb }}</p>
+                    <h4 class="sr-only" [id]="'academy-caption-' + p.title">Camp schedule and price for {{ p.title }}</h4>
+               
+                    <div class="card-footer ">
+                      <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                        title="Learn more about Deacons Basketball Club Soccer Camps"
+                        aria-label="Learn more about Deacons Basketball Club Soccer Camps">
+                        &nbsp; Learn More &nbsp;
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          <ng-template #loading><p class="text-muted">Loading …</p></ng-template>
+          <ng-template #empty><p class="text-muted">Nothing available at this time.</p></ng-template>
+
+      </div>
+      <!-- Optional: Structured data to highlight the programs as a list -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Deacons Basketball Club Programs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Rookie Academy" },
+          { "@type": "ListItem", "position": 2, "name": "Junior Academy" },
+          { "@type": "ListItem", "position": 3, "name": "Elite Academy" },
+          { "@type": "ListItem", "position": 4, "name": "Girls Academy" }
+        ]
+      }
+      </script>
+  </section>
+
+  <!-- Champions -->
+  <section id="our-champions" 
+  class="section section-white" 
+    aria-labelledby="our-champions-heading">
+      <div class="filter filter-black"></div>
+      <div class="container div-shadows">
+          <!-- Headings -->
+          <header class="align-center mb-4">
+            <h2 id="our-champions-heading" itemprop="name">BABA Champions</h2>
+            <p class="section-sub mt-3" itemprop="description">
+              Competing proudly across Barbados and beyond, our teams embody the Deacons spirit of discipline, unity, and excellence —
+              representing every level of the game, from grassroots development to elite national competition. Highlighting the growth of
+              young basketballers who train with purpose, play with heart, and represent the Deacons family at every level of competition.
+                </p>
+          </header>
+
+          <!-- cards -->
+          <div class="row mt-20 all-corners">
+              <!-- U16 card -->
+            <div class="col-md-6 ml-auto" >
+              <p class="team-level-top text top-only">Under-16 Boys Team • 2025 BABA Champions</p>
+              <img
+              src="assets/img/sections/deacons-u16-champions.jpg"
+              alt="Deacons Basketball Club U16 Team — 2025 BABA Champions"
+              loading="lazy" decoding="async"
+              itemprop="image" />
+
+              <a [routerLink]="['/'+urlPath+'/register']" class="btn btn-main team-level-bottom only-bl"
+                title="Learn more about Deacons Basketball Club Soccer Camps"
+                aria-label="Learn more about Deacons Basketball Club Soccer Camps">
+                &nbsp; Join the Team &nbsp;
+              </a> 
+            </div>
+
+            <!-- U14 card -->
+            <div class="col-md-6 ml-auto" >
+              <p class="team-level-top text top-only">Under-14 Boys Team • 2024 BABA Champions</p>
+              <img
+              src="assets/img/sections/deacons-u14-champions.jpg"
+              alt="Deacons Basketball Club U14 Team — 2024 BABA Champions"
+              loading="lazy" decoding="async"
+              itemprop="image" />
+
+              <a [routerLink]="['/'+urlPath+'/register']" class="btn btn-main team-level-bottom bottom-only"
+              title="Learn more about Deacons Basketball Club Soccer Camps"
+              aria-label="Learn more about Deacons Basketball Club Soccer Camps">
+              &nbsp; Join the Team &nbsp;
+              </a>
+            </div>
+          </div>
+
+      </div>
+      <!-- Optional: Structured data to highlight the teams as a list -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Deacons Basketball Club Champion Teams",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Under-16 Boys Team 2025 Champions" },
+          { "@type": "ListItem", "position": 2, "name": "Under-14 Boys Team 2024 Champions" },
+        ]
+      }
+      </script>
+  </section>
+
+
+  <!-- Wherever you want the block to appear -->
+  <app-signup-steps
+    registrationUrl="register"
+    directorEmail="DeaconsBC@outlook.com"
+    directorTitle="Director of Youth Development"
+    directorName="Director of Youth Development"
+    [practiceNote]="'Practices held at Deacons Hardcourt; arrive 10 minutes early for check-in.'">
+  </app-signup-steps>
+
+  
+  <!-- Get in Touch -->
+  <!-- Contact Grid --> 
+  <section id="contact" 
+  class="section section-white" 
+  aria-labelledby="contact-deacons-basketball-club-heading">
+    <div class="container">
+      <!-- Headings  -->
+      <div class="row">
+          <div class="ml-auto mr-auto">
+              <h2 id="contact-deacons-basketball-club-heading" class="text-left">
+                Get in Touch
+              </h2>  
+          </div>
+      </div>
+      <!-- Contact Cards -->
+      <div class="contact-cards row mt-20" role="list" aria-label="Contact Deacons Basketball Club via Email, WhatsApp, or Venue Location">
+        <div class="col-md-4 ml-auto" role="listitem">
+          <div class="card no-transition" data-background="color" data-color="lightgray">
+            <div class="card-header">
+              <h3 class="card-category section-title-md" itemprop="telephone">Email</h3>
+            </div>
+            <div class="card-footer cta-row">
+              <button class="btn btn-main"
+                (click)="openOutlookApp('DeaconsBC@outlook.com','Inquiry from Website','Hi Deacons Basketball Club,')">
+                DeaconsBC&#64;outlook.com
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- other cards ... -->
+        <div class="col-md-4 ml-auto" role="listitem">
+          <div class="card no-transition" data-background="color" data-color="lightgray">
+            <div class="card-header">
+              <h3 class="card-category section-title-md" itemprop="telephone">Email</h3>
+            </div>
+            <div class="card-footer cta-row">
+              <button class="btn btn-main"
+                (click)="openOutlookApp('DeaconsBC@outlook.com','Inquiry from Website','Hi Deacons Basketball Club,')">
+                DeaconsBC&#64;outlook.com
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 ml-auto" role="listitem">
+          <div class="card no-transition" data-background="color" data-color="lightgray">
+            <div class="card-header">
+              <h3 class="card-category section-title-md" itemprop="telephone">Email</h3>
+            </div>
+            <div class="card-footer cta-row">
+              <button class="btn btn-main"
+                (click)="openOutlookApp('DeaconsBC@outlook.com','Inquiry from Website','Hi Deacons Basketball Club,')">
+                DeaconsBC&#64;outlook.com
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>

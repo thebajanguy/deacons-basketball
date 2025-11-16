@@ -48,7 +48,7 @@ export class UtilitiesService  {
     debugger;
 
     if(this.BaseUrl.includes('localhost')){
-      return 'http://localhost:7071';
+      return 'http://localhost:7205';
     }
 
     return '';

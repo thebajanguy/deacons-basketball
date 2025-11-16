@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "varsity-sports-academy-app": {
+    "deacons-basketball-app": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -106,10 +106,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "varsity-sports-academy-app:build:production"
+              "buildTarget": "deacons-basketball-app:build:production"
             },
             "development": {
-              "buildTarget": "varsity-sports-academy-app:build:development"
+              "buildTarget": "deacons-basketball-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -117,7 +117,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "varsity-sports-academy-app:build"
+            "buildTarget": "deacons-basketball-app:build"
           }
         }
       }

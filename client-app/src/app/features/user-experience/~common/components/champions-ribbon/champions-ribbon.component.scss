@@ -1,0 +1,28 @@
+/* Design tokens */
+:root {
+  --bg: #0b0f1a;
+  --card: #111727;
+  --ink: #e7ecf6;
+  --muted: #9fb0d0;
+  --brand: #f5b301; /* gold */
+  --accent: #3aa9ff;
+  --ring: rgba(250, 188, 60, 0.5);
+  --success: #17b26a;
+  --black: #000000;
+  --gold: #f5b301;
+  --green: #00a651;
+}
+
+/* Champions ribbon */
+.champions-ribbon {
+  display:flex; gap:.6rem; align-items:center; justify-content:center;
+  padding:.4rem .75rem; 
+  margin-top:0px;
+  background: var(--green); color: var(--ink);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size:.95rem;
+  width: 100%;
+  height: inherit;
+}
+.champions-ribbon .medal { font-size:1.2rem; }
+.champions-ribbon strong { color: var(--brand); }

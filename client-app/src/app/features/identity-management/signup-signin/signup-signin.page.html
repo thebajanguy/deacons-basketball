@@ -1,187 +1,253 @@
+<!-- Begin Hero Section -->
+<header
+  class="page-header parallax-hero hero--main div-color-dark"
+  role="banner"
+  aria-labelledby="page-hero-title"
+>
+  <div class="content-center">
+    <div class="container">
 
-<header id="ipaas" name="ipaas" class="page-header header-section-image div-dark separator-bottom-card"
-style="background-image: url('img/sections/heading-home-1.png')">
-    <div class="filter filter-black"></div>
+      <!-- Accessible breadcrumb (visible + crawlable) 
+      <nav *ngIf="breadcrumb?.length" class="hero__crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li *ngFor="let c of breadcrumb; let last = last" [attr.aria-current]="last ? 'page' : null">
+            <a *ngIf="c.link && !last" [routerLink]="c.link">{{ c.label }}</a>
+            <span *ngIf="!c.link || last">{{ c.label }}</span>
+          </li>
+        </ol>
+      </nav>
+     -->
+      <br>
+      <h1 id="page-hero-title" class="hero-title text-uppercase">
+        <span class="text-color-white">Why Join</span><br />
+        <span class="text-color-main">Deacons Basketball Club<sup>&trade;</sup>?</span>
+      </h1>
 
-  <div class="container">
-    <div class="row separator-bottom-header-neutral">
-      <div class="ml-auto mr-auto" style="padding-top: 150px;">
-        <h1 class="text-uppercase text-left page-header-1 white-text" style="font-weight: 400;">
-           Why Join Varsity Sports Academy Prep&trade;?
-        </h1>
-      </div>
-    </div>
+      <p *ngIf="description" class="hero__description text-white mt-3" [innerHTML]="safeDescription"></p>
 
-    <div class="row">
-      <div class="ml-auto mr-auto" style="padding-top: 0px;">
-        <div class="">
-          <h6 class="card-category text-success text-left" style="font-size:xx-large;">
-            <span class="title text-success">Propel my career.</span>&nbsp;
-            <span class="title text-info">Propel my child.</span>&nbsp;
-            <span class="title text-danger">Propel my team.</span>&nbsp;
-          </h6>
+      <!-- Backup breadcrumb for SR only (optional if above nav is shown) -->
+      <nav class="sr-only" aria-label="Breadcrumb">
+        <ol>
+          <li><a [routerLink]="['/'+urlPath+'/barbados']">Home</a></li>
+          <li aria-current="page">Membership Registration</li>
+        </ol>
+      </nav>
+
+      <!-- Sign-in and Sign-up Information -->
+      <!-- To do: Add and finalize the SUSI section
+      <div class="row hero__cta-row" role="group" aria-label="Membership options">
+        <div class="hero__card">
+          <h2 class="title text-uppercase text-primary hero__box-title">
+            <strong>I am a member.</strong>
+          </h2>
+          <img class="avatar" src="assets/img/icons/icon-sign-in.png" alt="Member sign-in icon" />
+          <button type="button" *ngIf="!loginDisplay"
+            class="btn btn-wd btn-lg btn-primary btn-magnify text-uppercase hero__cta"
+            aria-label="Sign in to Deacons Basketball Club" (click)="signIn()">
+            <i class="nc-icon nc-badge" aria-hidden="true"></i> <span>Sign In</span>
+          </button>
+        </div>
+      
+        <div class="hero__card">
+          <h2 class="title text-uppercase text-danger hero__box-title">
+            <strong>I am not a member.</strong>
+          </h2>
+          <img class="avatar" src="assets/img/icons/icon-register.png" alt="Register icon" />
+          <button type="button" *ngIf="!loginDisplay"
+            class="btn btn-wd btn-lg btn-danger btn-magnify text-uppercase hero__cta"
+            aria-label="Create a Deacons Basketball Club account" (click)="signUp()">
+            <i class="nc-icon nc-badge" aria-hidden="true"></i> <span>Sign Up</span>
+          </button>
         </div>
       </div>
+      -->
+
+      <div class="mt-3">
+        <app-social-plugin-cmp></app-social-plugin-cmp>
+      </div>
     </div>
-    <div class="row">
-      <div class="col col-6-sm box-outter box-inner">
-        <h4 class="title text-uppercase text-primary" style="margin-top: -8%;">
-          <strong>I am a member.</strong>
-        </h4>
-        <img
-          class="avatar"
-          src="img/icons/icon-sign-in.png"
-        />
-        <br>
-        <button type="submit" *ngIf="!loginDisplay" 
-        class="btn btn-wd btn-lg btn-primary btn-magnify text-uppercase" style="font-size: 2.0em;line-height: 2.2;"
-        (click)="signIn()">
-        <i class="nc-icon nc-badge"></i> &nbsp; Sign In &nbsp;
-        </button>
-
-      </div>  
-
-      <div class="col col-6-sm box-outter box-inner">
-        <h4 class="title text-uppercase text-danger" style="margin-top: -8%;">
-          <strong>I am not a member.</strong>
-        </h4>
-        <img
-          class="avatar"
-          src="img/icons/icon-register.png"
-          />
-        <br>
-        <button type="submit" *ngIf="!loginDisplay" 
-          class="btn btn-wd btn-lg btn-danger btn-magnify text-uppercase" style="font-size: 2.0em;line-height: 2.2;"
-         (click)="signUp()">
-        <i class="nc-icon nc-badge"></i> &nbsp; Sign Up &nbsp;
-        </button>
-
-      </div>  
-
-    </div>  
   </div>
 </header>
 
-<!--ABOUT US-->
-<section class="section separator-top-card" style="padding-bottom: 0px;">
+<!-- Membership Benefits -->
+<section class="section separator-top-card section--about features" aria-labelledby="membership-benefits">
   <div class="container">
     <div class="row">
       <div class="col-md-12 ml-auto mr-auto">
-        <h1 class="section-title">
-          What a Varsity Sports Academy&trade; Membership can offer.
-        </h1>
+        <h2 id="membership-benefits" class="section-title align-center">
+          What a Deacons Basketball Club's<sup>&trade;</sup> Membership Offers
+        </h2>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12 ml-auto mr-auto">
-        <h3 class="section-title-md">Varsity Sports Academy&trade; sports recruiting & performance services.</h3>
-        <h5 class="text-left description-section">
-          At Varsity Sports Academy&trade;, we are dedicated to helping athletes reach their full potential 
-          both on and off the field. Whether you are a high school athlete aspiring to compete at 
-          the collegiate level or looking to enhance your performance, 
-          our comprehensive services are designed to meet your unique needs.
-        </h5>
+        <h3 class="section-title-md section-subtitle align-center">
+          Deacons Basketball Club's<sup>&trade;</sup> sports recruiting &amp; performance services
+        </h3>
+        <p class="description-section lead">
+          At Deacons Basketball Club<sup>&trade;</sup>, we help basketballers reach their full potential on and off the field.
+          Whether you’re a high-school athlete aiming for the collegiate level or looking to enhance performance,
+          our services are tailored to your goals.
+        </p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-4 col-6">
-        <div class="card card-profile card-plain">
-          <div class="card-img-top">
-            <a href="javascript:void(0)">
-              <img class="img" src="img\sections\heading-home.png" style="height:300px;"/>                
-            </a>
-          </div>
-          <div class="card-body">
-            <h4 class="section-title-md text-uppercase">Athlete Recruiting</h4>
-            <p class="description-section text-black text-left" style="padding-top: 20px;">
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>
-              &nbsp; <span class="title text-primary">Personalized Recruiting Plans:</span>&nbsp;We tailor recruiting strategies to fit each athlete's or coach's goals, ensuring maximum exposure to athletes, coaches and scouts.<br><br>
-              
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>
-              &nbsp; <span class="title text-primary">Highlight Video Production:&nbsp;</span>Professionally crafted highlight videos that showcase the essential characteristics needed by coaches. <br><br>
-              
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>
-              &nbsp; <span class="title text-primary">College Application Assistance:&nbsp;</span>Guidance through the college application process, including essay writing and interview preparation. <br><br>
-              
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>
-              &nbsp; <span class="title text-primary">Scholarship Search & Application:&nbsp;</span>Assistance in identifying and applying for best-fit athletic scholarships.
-            </p> 
-          </div>
-          <div class="card-footer">
-          </div>
-        </div>
-      </div>
+    <div class="features-grid">
 
-      <div class="col-md-4 col-6">
-        <div class="card card-profile card-plain">
-          <div class="card-img-top">
-            <a href="javascript:void(0)">
-              <img class="img" src="img\sections\sports-Data-Analytics.jpg" style="height:300px;" />
+      <!-- Showcases & Camps Card -->
+      <article class="feature-card">
+        <figure class="feature-media">
+          <img
+            src="assets/img/pages/membership/showcase-camps.png"
+            alt="Athletes at a showcase event"
+            loading="lazy" decoding="async" />
+        </figure>
+        <div class="feature-body">
+          <h4 class="feature-title text-uppercase">Showcases &amp; Camps</h4>
+          <ul class="feature-list list--check">
+            <li><strong>High-School Showcases:</strong> Opportunities for middle-school and international students to perform in front of U.S. high-school coaches and scouts.</li>
+            <li><strong>College Showcases:</strong> Exposure in front of college coaches and scouts.</li>
+            <li><strong>Training Camps:</strong> Intensive skill, fitness, and IQ development.</li>
+            <li><strong>Combines:</strong> Standardized athletic and skill evaluations.</li>
+          </ul>
+          <div class="feature-cta">
+            <a [routerLink]="['/'+urlPath+'/basketball-gold-camps']" class="btn btn-main btn-magnify text-uppercase" aria-label="Explore Basketball Camps">
+              Learn More about Basketball Camps
+            </a>
+            <a [routerLink]="['/'+urlPath+'/soccer-gold-camps']" class="btn btn-main btn-magnify text-uppercase" aria-label="Explore Soccer Camps">
+              Learn More about Soccer Camps
             </a>
           </div>
-          <div class="card-body">
-            <h4 class="section-title-md text-uppercase">Performance Training</h4>
-            <p class="description-section text-black text-left" style="padding-top: 20px;">
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Strength & Conditioning:</span>&nbsp;Customized workout plans designed to improve strength, speed, and agility.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Sports-Specific Skills Training:&nbsp;</span>Focused training to enhance skills essential to your sport.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Nutritional Guidance:&nbsp;</span>Personalized nutrition plans to fuel your body for peak performance.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Mental Conditioning:&nbsp;</span>Techniques and strategies to build mental toughness and enhance focus.
-            </p> 
-          </div>
-          <div class="card-footer">
-          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="col-md-4 col-6">
-        <div class="card card-profile card-plain">
-          <div class="card-img-top">
-            <a href="javascript:void(0)">
-              <img class="img" src="img\sections\heading-6.png" style="height:300px;" />
+      <!-- After-School Program Card -->
+      <article class="feature-card">
+        <figure class="feature-media">
+          <img
+            src="assets/img/pages/membership/academic-tutoring-core.png"
+            alt="Students in the Brains & Ballers after-school program"
+            loading="lazy" decoding="async" />
+        </figure>
+        <div class="feature-body">
+          <h4 class="feature-title text-uppercase">After-School Program</h4>
+          <ul class="feature-list list--check">
+            <li><strong>Academics &amp; Study Hall:</strong> Dedicated sessions for homework support, tutoring, and study-skills development.</li>
+            <li><strong>Sports Lab:</strong> Daily athletic training focusing on fundamentals, game IQ, and teamwork.</li>
+            <li><strong>Leadership &amp; Life Skills:</strong> Mentorship, goal-setting, and confidence-building through structured workshops.</li>
+            <li><strong>NCAA Readiness:</strong> Guidance on core-course requirements, GPA tracking, and eligibility standards.</li>
+          </ul>
+          <div class="feature-cta">
+            <a [routerLink]="['/'+urlPath+'/after-school']" class="btn btn-main btn-magnify text-uppercase" aria-label="Explore After School Programs">
+              Learn More
             </a>
-          </div>
-          <div class="card-body">
-            <h4 class="section-title-md text-uppercase">Showcases and Camps</h4>
-            <p class="description-section text-black text-left" style="padding-top: 20px;">
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">High School Showcases:</span>&nbsp;Varsity Sports Academy&trade; provides the opprotunity for middle school and international strudents to perform in front of US High School coaches and scouts.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">College Showcases:</span>&nbsp;Opportunities to perform in front of college coaches and scouts.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Training Camps:&nbsp;</span>Intensive camps to develop skills, fitness, and game intelligence.<br><br>
-              <i class="fa fa-check icon-success" aria-hidden="true"></i>&nbsp; <span class="title text-primary">Combines:&nbsp;</span>Evaluation events that measure athletic ability and skill level.
-            </p> 
-          </div>
-          <div class="card-footer">
+
           </div>
         </div>
-      </div>
+      </article>
+
+      <!-- Athlete Recruiting Card -->
+      <article class="feature-card">
+        <figure class="feature-media">
+          <img
+            src="assets/img/pages/membership/pathway-to-scholarships.png"
+            alt="Student-athlete building a recruiting profile"
+            loading="lazy" decoding="async" />
+        </figure>
+        <div class="feature-body">
+          <h4 class="feature-title text-uppercase">Athlete Recruiting</h4>
+          <ul class="feature-list list--check">
+            <li><strong>Personalized Recruiting Plans:</strong> Tailored strategies for basketballers and coaches to maximize exposure to coaches and scouts.</li>
+            <li><strong>Highlight Video Production:</strong> Professionally edited reels that showcase the traits coaches evaluate.</li>
+            <li><strong>College Application Assistance:</strong> Guidance on applications, essays, and interview prep.</li>
+            <li><strong>Scholarship Search &amp; Applications:</strong> Support to identify and apply for best-fit athletic scholarships.</li>
+          </ul>
+          <div class="feature-cta">
+            <a [routerLink]="['/'+urlPath+'/recruitment-exposure']" class="btn btn-main btn-magnify text-uppercase" aria-label="Explore Athlete Recruiting Services">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Performance Training Card -->
+      <article class="feature-card">
+        <figure class="feature-media">
+          <img
+            src="assets/img/pages/membership/strength-speed-agility.png"
+            alt="Performance training and data analytics"
+            loading="lazy" decoding="async" />
+        </figure>
+        <div class="feature-body">
+          <h4 class="feature-title text-uppercase">Performance Training</h4>
+          <ul class="feature-list list--check">
+            <li><strong>Strength &amp; Conditioning:</strong> Programs to build strength, speed, and agility.</li>
+            <li><strong>Sport-Specific Skills:</strong> Targeted development for the skills your sport demands.</li>
+            <li><strong>Nutrition Guidance:</strong> Plans to fuel training and recovery.</li>
+            <li><strong>Mental Conditioning:</strong> Tools to improve focus and resilience.</li>
+          </ul>
+          <div class="feature-cta">
+            <a [routerLink]="['/'+urlPath+'/sports-development']" class="btn btn-main btn-magnify text-uppercase" aria-label="View Training Programs">
+              Start Training
+            </a>
+          </div>
+        </div>
+      </article>
+
 
     </div>
   </div>
 </section>
 
 
-<div id="ipaas" name="ipaas" class="section page-header-xs section-white" style="padding-top: 0px;">
-  <div class="filter filter-black"></div>
+<section id="ipaas" class="section page-header-xs section-white section--translate">
   <div class="container">
- 
     <div class="row">
-        <div class="col col-6-sm text-justify">
-          <p class="section-title-md">
-              Varsity Sports Academy&trade; doesn't just<br>collect — it translates.
-          </p>
-        </div>
-        <div class="col col-6-sm text-justify">
-          <p class="description-section">
-            When you get started on Varsity Sports Academy&trade;, you set goals for yourself. 
-            Varsity Sports Academy then learns your baseline patterns to coach 
-            you with custom recommendations on how to tailor your workouts, habits, 
-            training programs, and more to unlock your potential.
-          </p>
-        </div>
-    </div>  
+      <div class="col col-6-sm text-justify">
+        <h2 id="ncaa-pathways" class="section-title align-left">
+          From Classroom to Combine—NCAA-Ready Pathways.
+        </h2>
+      </div>
+      <div class="col col-6-sm text-justify">
+        <p class="description-section">
+          <strong>Deacons Basketball Club™</strong> doesn’t just collect—it translates.
+          When you start with <strong>Deacons Basketball Club™</strong>, you set academic and athletic goals.
+          We learn your baseline and coach you with personalized recommendations to improve
+          study habits, training plans, and recruiting actions—so you perform better, stay
+          NCAA-eligible, and unlock your full potential.        </p>
+        <ul class="section-list list--check mt-2">
+          <li><strong>Academics First:</strong> GPA tracking, study plans, tutoring, and core-course mapping.</li>
+          <li><strong>Performance &amp; Skill:</strong> Progressive strength, speed, and sport-specific development.</li>
+          <li><strong>NCAA Eligibility:</strong> Guidance on 16 core courses, GPA calculations, amateurism, and the NCAA Eligibility Center.</li>
+          <li><strong>Recruiting Roadmap:</strong> Profiles, highlight reels, coach outreach, showcases, and timelines.</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-
+<section class="section section--faq" aria-labelledby="faq-title">
+  <div class="container">
+    <h2 id="faq-title" class="section-title">Membership FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Who should join Deacons Basketball Club?</summary>
+        <p>Student-basketballers seeking college exposure, performance improvement, and full recruiting guidance.</p>
+      </details>
+      <details>
+        <summary>What do I get with membership?</summary>
+        <p>Personalized recruiting plans, highlight video support, training programs, showcases, and scholarship guidance.</p>
+      </details>
+      <details>
+        <summary>Do you help international students?</summary>
+        <p>Yes—NCAA alignment, showcases, and coach outreach tailored to Caribbean and international pathways.</p>
+      </details>
+      <details>
+        <summary>Can I book a consultation first?</summary>
+        <p>Yes. <a [routerLink]="['/'+urlPath+'/consultation']">Book a free consultation</a> to plan your next steps.</p>
+      </details>
+    </div>
+  </div>
+</section>
 

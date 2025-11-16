@@ -19,8 +19,8 @@
 
 <!-- FIXED PLUGINS -->
 <!-- FIXED PLUGINS -->
-<app-fixed-social-plugin></app-fixed-social-plugin>
-<app-fixed-join-now-plugin 
+<app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>
+<app-fixed-join-now-plugin-cmp 
     [urlPath]="urlPath"
     [membershipPath]="workspacePath"
     [workspacePath]="workspacePath"
@@ -28,7 +28,7 @@
     [shouldDisplayMembershipPage]="shouldDisplayMembershipPage"
     [shouldDisplayLogin]="shouldDisplayLogin"
     [shouldDisplayJoinNow]="shouldDisplayJoinNow"
-></app-fixed-join-now-plugin>
+></app-fixed-join-now-plugin-cmp>
 
 @Input() : string = ''; 
 @Input() : string = ''; 

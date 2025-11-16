@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-embedded-video',
+  selector: 'app-embedded-video-cmp',
   standalone: true,
   imports: [CommonModule ],
   templateUrl: './embedded-video.component.html',

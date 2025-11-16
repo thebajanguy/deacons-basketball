@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 
 @Component({
-  selector: 'app-fixed-join-now-plugin',
+  selector: 'app-fixed-join-now-plugin-cmp',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './fixed-join-now-plugin.component.html',

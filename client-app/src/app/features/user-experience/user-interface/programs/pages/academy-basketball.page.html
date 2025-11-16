@@ -1,0 +1,196 @@
+<!-- hero-page.component.html -->
+<!-- hero-page.component.html Build Skills. Grow Character. Win Together.-->
+<app-base-hero-cmp
+[title]="'Building Ballers,'"
+[subtitle]="'Leaders &amp; Champions'"
+[description]="description"
+[backgroundUrl]="'assets/img/heroes/deacons-basketball-u16-champions-hero.jpg'"
+[headerSize]="'lg'"
+[isNavigationPage]="false"
+[breadcrumbSEO]="'Academies'"
+[breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+    { label: 'Academies' }
+]"
+[ctas]="[
+  { label: 'Join the Club', routerLink: ['/'+urlPath+'/register'] , variant:'primary', ariaLabel:'Join Deacons Basketball Club' },
+  { label: 'Practice Schedule', routerLink: ['.'] , fragment:'schedules-and-pricing', variant:'light', ariaLabel:'View Deacons Basketball Club Practice Schedule' },
+  { label: 'Support the Program', routerLink: ['/'+urlPath+'/contact'], variant:'outline', ariaLabel:'Make a donation to Deacons Basketball Club' }
+]">
+</app-base-hero-cmp>
+
+<!-- Start Brains & Ballers Gold Camp Series: Youth Sports Camps by Deacons Basketball Club -->
+<section id="schedules-and-pricing" class="section section-white" aria-labelledby="elite-camp-series-heading">
+  <div class="filter filter-black"></div>
+  <div class="container">
+    <!-- Headings -->
+    <div class="row">
+      <div class="ml-auto mr-auto">
+        <h2 id="elite-camp-series-heading" class="text-center">
+          Deacons Basketball <strong>Academy Programs</strong>
+        </h2>
+        <!-- Summary / Keyword context -->
+        <p class="description mt-3">
+          The <strong>Deacons Basketball Academy Programs</strong> builds fundamentals:
+          ball-handling, <strong>footwork</strong>, shooting form, on-ball defense, and game IQ with
+          small-sided games and competitive scrimmages.
+          Academies are conducted daily and deliver structured,
+          age-appropriate <strong>youth basketball training</strong> led by expert coaches.
+          Each academy focuses on targeted skill progression—take them sequentially for
+          <strong>maximum improvement</strong> across a player's development.
+          <em>Open to boys and girls ages <strong>11U–19U</strong>. Limited spots—call for availability.</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- Academy cards -->
+    <app-cards-cmp 
+    [interest]="'basketball'" 
+    [cityAndCountry]="'Barbados'" 
+    [urlPath]="urlPath"
+    [activeOnly]=false
+    [activityType]="'Basketball-academy'"
+    ></app-cards-cmp>
+
+
+  </div><!-- /container -->
+
+  <!-- Optional: Event structured data for the next (Fall) camp -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SportsEvent",
+    "name":"Brains & Ballers Fall Basketball Camp 2025",
+    "sport":"Basketball",
+    "startDate":"2025-10-22T16:00:00-04:00",
+    "endDate":"2025-10-26T17:00:00-04:00",
+    "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus":"https://schema.org/EventScheduled",
+    "location":{
+      "@type":"Place",
+      "name":"The St. Michael School",
+      "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Bridgetown",
+        "addressRegion":"BB",
+        "addressCountry":"BB"
+      }
+    },
+    "image":"https://www.deaconsbasketball.com/assets/img/pages/home/deacons-basketball-camp-basketball.png",
+    "description":"High-intensity skill work, game IQ, leadership training, and competitive scrimmages for ages 11–18.",
+    "organizer":{
+      "@type":"Organization",
+      "name":"Deacons Basketball Club"
+    },
+    "offers":{
+      "@type":"Offer",
+      "price":"250",
+      "priceCurrency":"USD",
+      "availability":"https://schema.org/InStock",
+      "url":"https://www.deaconsbasketball.com/en/contact"
+    }
+  }
+  </script>
+</section>
+
+<section id="what-you-get" class="section section-white" aria-labelledby="what-you-get-heading">
+  <div class="container">
+    <div class="row align-items-left">
+      <!-- Copy -->
+      <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+        <header>
+          <h2 id="what-you-get-heading" class="align-left">What you get</h2>
+          <h3 class="text-muted" style="padding: 20px 0 0 0;">
+            High-intensity basketball skill training, game IQ development, leadership sessions, and showcase games—built to move you up multiple level.
+          </h3>
+        </header>
+
+        <ul class="icon-list mt-4 description align-left" role="list">
+          <li class="d-flex mb-3" *ngFor="let item of highlights">
+            <span class="icon" aria-hidden="true"></span>
+            <div>{{ item }}</div>
+          </li>
+        </ul>
+
+        <!-- Cross-links -->
+        <div class="cta-row">
+          <a [routerLink]="['/'+urlPath+'/contact']"
+             class="btn btn-main btn-magnify"
+             aria-label="Join the Deacons Basketball Club Academies">
+            Join an Academy
+          </a>
+          <a [routerLink]="['/'+urlPath+'/contact']"
+             class="btn btn-main btn-magnify"
+             aria-label="Request a consultation with Deacons Basketball Club">
+            Request Consultation
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+        <figure class="m-0 mt-3" style="text-align: center; padding-top: 20px;">
+          <img
+            src="assets/img/sections/deacons-basketball-values-innovation.png"
+            alt="Student-basketballers in high-intensity basketball drills and small-sided games"
+            loading="lazy" decoding="async" class="img-fluid rounded shadow"
+            width="1200" height="675">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bring-and-faqs" class="section section-white" aria-labelledby="bring-heading">
+  <div class="container">
+    <div class="row align-items-left">
+
+      <!-- What to bring -->
+      <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+        <header>
+          <h2 id="bring-heading" class="align-center">What to bring</h2>
+          <h3 class="text-muted" style="padding: 20px 0 0 0;">
+            Be ready to train hard and learn fast—come prepared.
+          </h3>
+        </header>
+
+        <ul class="icon-list mt-4 description align-left" role="list">
+          <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Water, towel, notebook &amp; pen</li>
+          <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Training shoes, court shoes, reversible jersey</li>
+          <li class="d-flex mb-3"><span class="icon" aria-hidden="true"></span>Snack/meal plan</li>
+        </ul>
+      </div>
+
+      <!-- FAQs -->
+      <div class="col-md-6 col-sm-6 mr-auto ml-auto">
+        <header>
+          <h2 id="faqs-heading" class="align-center">FAQs</h2>
+          <h3 class="text-muted" style="padding: 20px 0 0 0;">
+            High-intensity skill training, game IQ, leadership—and competitive reps that translate to real games.
+          </h3>
+        </header>
+
+        <br>
+        <details>
+          <summary>Is the camp co-ed?</summary>
+          <p>Yes. Both male and female young-basketballers are welcome. Sessions group by age and skill level for competitive balance.</p>
+        </details>
+        <details>
+          <summary>Do you offer scholarship opportunities?</summary>
+          <p>Yes. Limited merit- and need-based scholarships may be available. You can indicate interest during registration.</p>
+        </details>
+        <details>
+          <summary>Can beginners attend?</summary>
+          <p>Absolutely. Coaches scale intensity and drills to each athlete’s level—everyone trains to improve.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-newsletter-form-cmp></app-newsletter-form-cmp>
+
+
+

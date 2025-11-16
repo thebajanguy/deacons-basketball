@@ -1,0 +1,423 @@
+<div class="wrapper">
+  <!-- hero-page.component.html -->
+  <app-base-hero-cmp
+  [title]="''"
+  [subtitle]="'Youth Development Basketball Club'"
+  [description]="description"
+  [backgroundUrl]="'assets/img/heroes/deacons-basketball-u14-champions-hero.jpg'"
+  [headerSize]="'lg'"
+  [isNavigationPage]="false"
+  [breadcrumbSEO]="'Who We Are'"
+  [breadcrumb]="[
+      { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+      { label: 'Who We Are' }
+  ]"
+  [ctas]="[
+      { label: 'Start Your Journey', routerLink: ['/'+urlPath+'/register'] , fragment: 'register',  variant:'primary', ariaLabel:'Start your journey with Deacons Basketball Club' },
+      { label: 'Explore Basketball Academies', routerLink: ['/'+urlPath+'/academy'], variant:'primary', ariaLabel:'Explore academic programs with Deacons Basketball Club' },
+    { label: 'Support the Program', routerLink: ['/'+urlPath+'/contact'], variant:'outline', ariaLabel:'Make a donation to Deacons Basketball Club' }
+    ]">
+  </app-base-hero-cmp>
+
+  <!-- Start: Inspired by Our Values -->
+  <section id="inspired-by-our-values" class="section section-white" aria-labelledby="values-heading">
+      <div class="filter filter-black"></div>
+      <div class="container">
+
+          <!-- Headings -->
+          <div class="row">
+              <div class="ml-auto mr-auto text-center">
+                  <h2 id="values-heading" class="h2 text-uppercase">Inspired by Our Values</h2>
+                  <h3 class="h3 mt-2">Developing Student-Athletes through Integrity, Innovation, and Coaching
+                      Excellence</h3>
+
+                  <p class="description mt-3">
+                      At <strong>Deacons Basketball Club</strong>, we provide a complete pathway for young players 
+                      to grow academically, athletically, and personally. Guided by Deacons' core values—
+                      <strong>Integrity</strong>, <strong>Innovation</strong>, <strong>The Player</strong>, and 
+                  <strong>Coaching &amp; Mentoring Excellence</strong>—we provide a holistic program that blends
+                      <strong>basketball fundementals, with elite basketball skills training, and personal development</strong> to prepare young 
+                      basketballers for high school and college opportunities. Our approach helps players strengthen fundamentals, improve academic performance, build leadership skills, and gain long-term confidence—on the court and in the classroom.
+                      Attend a <a [routerLink]="['/'+urlPath+'/attend-a-practice']" class="text-color-primary"
+                          title="Attend a free practice session with Deacons Basketball Club">practice session today</a>
+                      to see if you are a fit for out program and start your <em>Labor Durus</em> (“hard work”) journey
+                      with Deacons Basketball Club.
+                  </p>
+              </div>
+          </div>
+
+          <!-- Values Grid -->
+          <div class="row mt-4" role="list" aria-label="Deacons Basketball Club core values">
+
+              <!-- Integrity -->
+              <div class="col-md-3 ml-auto" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Thing">
+                      <figure class="card-body text-left">
+                          <img src="assets/img/pages/who-we-are/deacons-basketball-values-integrity.png"
+                              alt="Youth soccer training session focusing on ball control, footwork, and team play"
+                              loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                              itemprop="image" />
+                          <figcaption class="sr-only">Integrity in training and academics</figcaption>
+                          <h3 class="card-category section-title-md text-primary" itemprop="name">Integrity</h3>
+                          <p class="card-description-dark" itemprop="description">
+                              We do the right thing—<strong>consistently</strong>. Transparent goals, honest feedback, and standards
+                              that shape how we train, and compete and treat others.
+                          </p>
+                          <div class="card-footer">
+                              <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main" title="Learn how Integrity shapes Deacons Basketball Club"
+                                  aria-label="Learn how Integrity shapes Deacons Basketball Club">
+                                  &nbsp; Learn More &nbsp;
+                              </a>
+                          </div>
+                      </figure>
+                  </article>
+              </div>
+
+              <!-- Innovation -->
+              <div class="col-md-3" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Thing">
+                      <figure class="card-body text-left">
+                          <img src="assets/img/pages/who-we-are/deacons-basketball-values-innovation.png"
+                              alt="Youth basketball development: ball-handling, shooting, defense, and game IQ"
+                              loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                              itemprop="image" />
+                          <figcaption class="sr-only">Innovation with data-driven training</figcaption>
+                          <h3 class="card-category section-title-md text-primary" itemprop="name">Innovation</h3>
+                          <p class="card-description-dark" itemprop="description">
+                              Unlock <strong>next-generation basketball development</strong> with advanced training methods, 
+                              and progressive coaching built for today’s young basketballers-athlete.
+                          </p>
+                          <div class="card-footer">
+                              <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                                  title="Explore innovative training programs at Deacons Basketball Club"
+                                  aria-label="Explore innovative training programs at Deacons Basketball Club">
+                                  &nbsp; Explore Academies &nbsp;
+                              </a>
+                          </div>
+                      </figure>
+                  </article>
+              </div>
+
+              <!-- Student-Athletes -->
+              <div class="col-md-3 mr-auto" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Thing">
+                      <figure class="card-body text-left">
+                          <img src="assets/img/pages/who-we-are/deacons-basketball-values-athletes.png"
+                              alt="Youth football fundamentals: footwork, catching, defense, and teamwork"
+                              loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                              itemprop="image" />
+                          <figcaption class="sr-only">The player success plans</figcaption>
+                          <h3 class="card-category section-title-md text-primary" itemprop="name">The Player
+                          </h3>
+                          <p class="card-description-dark" itemprop="description">
+                            Our “Player-First” approach ensures that every training session, 
+                            and mentorship touchpoint adds value/purpose, and moves each player closer to their goals.
+                          </p>
+                          <div class="card-footer">
+                              <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                                  title="See student-athlete success and recruiting support"
+                                  aria-label="See student-athlete success and recruiting support">
+                                  &nbsp; Learn the Deacons' Way &nbsp;
+                              </a>
+                          </div>
+                      </figure>
+                  </article>
+              </div>
+
+              <!-- Coaches & Tutors -->
+              <div class="col-md-3 mr-auto" role="listitem">
+                  <article class="card no-transition" data-background="color" data-color="lightgray" itemscope
+                      itemtype="https://schema.org/Person">
+                      <figure class="card-body text-left">
+                          <img src="assets/img/pages/who-we-are/deacons-basketball-values-staff.png"
+                              alt="Coaches and tutors with collegiate and international experience supporting youth basketballers"
+                              loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
+                              itemprop="image" />
+                          <figcaption class="sr-only">Expert coaches and tutors</figcaption>
+                          <h3 class="card-category section-title-md text-primary" itemprop="name">Coaches & Mentors
+                          </h3>
+                          <p class="card-description-dark" itemprop="description">
+                              Through consistent teaching, honest feedback, and individualized support, our 
+                              coaches empower players to excel in all areas on/off the court.
+                          </p>
+                          <div class="card-footer">
+                              <a [routerLink]="['/'+urlPath+'/contact']" class="btn btn-main"
+                                  title="Meet the Deacons Basketball Club coaching and tutoring team"
+                                  aria-label="Meet the Deacons Basketball Club coaching and tutoring team">
+                                  &nbsp; Meet the Staff &nbsp;
+                              </a>
+                          </div>
+                      </figure>
+                  </article>
+              </div>
+
+          </div>
+      </div>
+
+      <!-- Optional: Structured data for the values list -->
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Deacons Basketball Club Core Values",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Integrity" },
+        { "@type": "ListItem", "position": 2, "name": "Innovation" },
+        { "@type": "ListItem", "position": 3, "name": "The Player" },
+        { "@type": "ListItem", "position": 4, "name": "Coaches & Mentors" }
+      ]
+    }
+    </script>
+  </section>
+  <!-- End: Inspired by Our Values -->
+
+
+    <!-- Start Maximize Potential Banner -->
+    <section class="section hero-banner cta-exposure parallax-hero" aria-labelledby="sports-development-title-a">
+      <!-- decorative background image with accessible label -->
+      <div class="cta-bg sports-option-a" role="img"
+          aria-label="Coach and athlete shaking hands on a track beside a laptop playing a highlight reel.">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="ml-auto mr-auto text-center">
+                  <div class="container cta-content">
+  
+                      <h2 id="sports-development-title-a" class="text-white">
+                        Helping Young-Basketballers Maximize Their True Potential
+                      </h2>
+                      <h3 class="title text-color-main t-2">
+                        Our motto <strong>"Labor Durus"</strong> — the Latin translation of <strong>"Hard
+                          Work"</strong>.
+                      </h3>
+  
+                      <h5 class="cta-subhead align-center mt-3">
+                        At <strong>Deacons Basketball Club</strong>, we provide the perfect balance of
+                        <strong>fundamentals building, elite basketball training, and mentorship</strong> to prepare young
+                        basketballers for scholarships, competition, and lifelong success. Our approach ensures that
+                        players not only improve athletic skills but also build strong minds and academic excellence.
+                      </h5>
+  
+                      <!-- CTA -->
+                      <a [routerLink]="['/'+urlPath+'/attend-a-practice']" class="btn btn-main btn-lg btn-magnify"
+                      title="Learn how Deacons Basketball Club can help your student-athlete succeed">
+                      &nbsp; Attend a free practice session with Deacons Basketball Club &nbsp;
+                      </a>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
+    <!-- End Maximize Potential Banner -->
+
+    <!-- Start: Year-Round Sports Development Program -->
+    <section id="year-round-development" class="section section-white" aria-labelledby="year-round-development-heading">
+      <div class="filter filter-black"></div>
+      <div class="container">
+    
+        <!-- Headings -->
+        <div class="row">
+          <div class="ml-auto mr-auto text-center">
+            <h2 id="year-round-development-heading" class="h2 text-uppercase">
+              Year-Round Basketball Development Program
+            </h2>
+            <h3 class="h3 mt-2">
+              Developing Young Basketballers through Integrity, Innovation, and Coaching Excellence
+            </h3>
+    
+            <!-- Section summary (keyword-rich, natural) -->
+            <p class="description mt-3">
+              At <strong>Deacons Basketball Club</strong>, our mission is to help
+              <strong>young-basketballers</strong> reach their true potential.
+              Our experienced coaches and mentors deliver a holistic plan that blends
+              <strong>baskewtball-specific skill development</strong>, and <strong>sports performance</strong>.
+              Attend a <a [routerLink]="['/'+urlPath+'/attend-a-practice']" class="text-color-primary" title="Schedule a free consultation with Deacons Basketball Club">free practice</a>
+              to build your personalized game plan.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Development Grid -->
+        <div class="row mt-4" role="list" aria-label="Deacons Basketball Club core pillars">
+    
+          <!-- We Coach -->
+          <div class="col-md-3 ml-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/deacons-basketball-development-coach.png"
+                  alt="Coach guiding youth players through soccer fundamentals: ball control, footwork, and team play"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Integrity in training and academics</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Coach</h3>
+    
+                <!-- Accessible icon list -->
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Sport Skills</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Speed & Agility</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Strength</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Coordination</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Flexibility</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Stamina</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                     title="Learn how integrity shapes coaching at Deacons Basketball Club"
+                     aria-label="Learn how integrity shapes coaching at Deacons Basketball Club">
+                     &nbsp; Learn About Our Coaching Methodology &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Teach -->
+          <div class="col-md-3" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/deacons-basketball-development-teach.png"
+                  alt="Basketball player using data-driven drills while a coach reviews analytics for skill improvement"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Innovation with AI and performance analytics</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Teach</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>NCAA Core Classes</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Sports Intelligence (Game IQ)</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>College Recruiting</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Injury Prevention</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Nutrition</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                     title="Explore innovative training programs using AI and performance analytics"
+                     aria-label="Explore innovative training programs using AI and performance analytics">
+                     &nbsp; Explore Basketball Programs &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Offer -->
+          <div class="col-md-3 mr-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/deacons-basketball-development-offer.png"
+                  alt="Youth football development: footwork, catching, defense, and teamwork in a structured clinic"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Student-athlete success plans</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Offer</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Basketball Performance Training</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Age-Specific Athletic Training</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Private Sessions</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Basketball Performance Camps</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Basketball Fundamentals Camps</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Basketball Fundamentals Clinics</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/academy']" class="btn btn-main"
+                     title="Student-athlete success and college recruiting support"
+                     aria-label="Student-athlete success and college recruiting support">
+                     &nbsp; Learn about Deacons Basketball Academies &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+          <!-- We Deliver -->
+          <div class="col-md-3 mr-auto" role="listitem">
+            <article class="card no-transition" data-background="color" data-color="lightgray" itemscope itemtype="https://schema.org/Thing">
+              <figure class="card-body text-left">
+                <img
+                  src="assets/img/pages/who-we-are/deacons-basketball-development-deliver.png"
+                  alt="Experienced coaches and tutors providing one-on-one instruction and study support"
+                  loading="lazy" decoding="async" width="580" height="360"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  itemprop="image" />
+                <figcaption class="sr-only">Expert coaches and tutors</figcaption>
+    
+                <h3 class="card-category section-title-md text-primary" itemprop="name">We Deliver</h3>
+                <ul class="icon-list card-description-dark" role="list" itemprop="description">
+                  <li><span class="icon" aria-hidden="true"></span><span>Customized Improvement Plan</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness Development</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Nutrition Education</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Benchmark Testing</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Academic/Athlectic Performances</span></li>
+                  <li><span class="icon" aria-hidden="true"></span><span>Performance Analysis Visits</span></li>
+                </ul>
+    
+                <div class="card-footer">
+                  <a [routerLink]="['/'+urlPath+'/contact']" class="btn btn-main"
+                     title="Meet the Deacons Basketball Club coaching and tutoring team"
+                     aria-label="Meet the Deacons Basketball Club coaching and tutoring team">
+                     &nbsp; Meet Our Coaching & Mentoring Team &nbsp;
+                  </a>
+                </div>
+              </figure>
+            </article>
+          </div>
+    
+        </div>
+      </div>
+    
+      <!-- Structured data to clarify the item list -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Deacons Basketball Club Values and Offerings",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "We Coach" },
+          { "@type": "ListItem", "position": 2, "name": "We Teach" },
+          { "@type": "ListItem", "position": 3, "name": "We Offer" },
+          { "@type": "ListItem", "position": 4, "name": "We Deliver" }
+        ]
+      }
+      </script>
+    </section>
+    <!-- End: Year-Round Sports Development Program -->
+    
+    <!-- Tiny, fast inline SVG bullet (checkmark) -->
+    <style>
+      .icon-list { margin: .75rem 0 0; padding: 0; list-style: none; }
+      .icon-list li { display: grid; grid-template-columns: 1.25rem auto; gap: .5rem; align-items: start; margin:.35rem 0; }
+      .icon-list .icon {
+        width: 1rem; height: 1rem; display: inline-block; margin-top: .15rem;
+        background: no-repeat center/contain;
+        /* inline SVG (currentColor lets you theme via text color) */
+        -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill=\"%23000\" d=\"M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z\"/></svg>') center / contain;
+                mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill=\"%23000\" d=\"M9.55 17.54 4.8 12.8l1.4-1.4 3.35 3.35 8.2-8.2 1.4 1.4-9.6 9.59z\"/></svg>') center / contain;
+        background-color: currentColor;
+        color: var(--icon-color, #ffd212); /* Deacons Basketball Club main yellow by default */
+      }
+      /* Optional: a slightly larger, bolder look on dark cards */
+      .card[data-color="lightgray"] .icon-list .icon { color: #0a2144; } /* nav dark if preferred */
+    </style>
+    
+    <!-- Newsletter & Social Plugins -->
+    <app-newsletter-form-cmp></app-newsletter-form-cmp>
+    <app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>
+
+</div>

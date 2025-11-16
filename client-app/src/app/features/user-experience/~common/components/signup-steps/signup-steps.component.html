@@ -1,0 +1,109 @@
+
+<!-- sign up steps -->
+<section id="signup-steps" class="section section-white" aria-labelledby="signup-steps-title">
+    <div class="filter filter-black"></div>
+    <div class="container signup-steps">
+        <!-- Headings -->
+        <header class="steps-header">
+          <h2 id="signup-steps-title" class="title">Step-by-Step Sign-up Process</h2>
+          <a
+            class="btn btn-primary"
+            [href]="urlPath + '/' + registrationUrl"
+            rel="noopener"
+            aria-label="Go to the registration page to start your application"
+          >
+            {{ ctaLabel }}
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </header>
+
+        <!-- Sign Up cards -->
+        <div class="row" >
+
+          <div class="col-md-12 ml-auto">
+            <ol class="steps" role="list">
+              <!-- STEP 1 -->
+              <li class="step">
+                <div class="step__badge" aria-hidden="true">1</div>
+                <div class="step__content">
+                  <h3 class="step__title">STEP 1: Complete the Online Application</h3>
+                  <p class="step__text">
+                    Go to the <a [href]="urlPath + '/' + registrationUrl" class="link">registration page</a> and complete the application form.
+                  </p>
+                  <p class="step__note">
+                    Once you've submitted your online application, a Deacons Basketball coach will reach out to you.
+                  </p>
+                  <p class="step__text">
+                    Deacons Basketball Club also welcomes player applications submitted directly to the
+                    {{ directorTitle }}, at
+                    <a class="link" [href]="'mailto:' + directorEmail">{{ directorEmail }}</a>.
+                  </p>
+                </div>
+              </li>
+          
+              <!-- STEP 2 -->
+              <li class="step">
+                <div class="step__badge" aria-hidden="true">2</div>
+                <div class="step__content">
+                  <h3 class="step__title">STEP 2: A Deacons Basketball Coach will reach out to you</h3>
+                  <p class="step__text">
+                    We’ll review your application and contact you with next steps, scheduling, and any questions.
+                  </p>
+                </div>
+              </li>
+          
+              <!-- STEP 3 -->
+              <li class="step">
+                <div class="step__badge" aria-hidden="true">3</div>
+                <div class="step__content">
+                  <h3 class="step__title">STEP 3: Attend a practice session</h3>
+                  <p class="step__text" *ngIf="!practiceNote">
+                    Join us at an upcoming session to meet the coaches, complete evaluations, and get started.
+                  </p>
+                  <p class="step__text" *ngIf="practiceNote">{{ practiceNote }}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <footer class="steps-footer">
+            <a class="btn btn-outline" [href]="urlPath + '/' + registrationUrl" rel="noopener">
+              Go to Registration
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" [href]="'mailto:' + directorEmail">
+              Email {{ directorName }}
+            </a>
+          </footer>
+        </div>
+
+        <!-- Optional: Structured data to highlight the programs as a list -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Complete the Online Application",
+              "description": "Go to the registration page and complete the application form."
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "A Deacons Basketball Coach will reach out to you",
+              "description": "We’ll review your application and contact you with next steps, scheduling, and any questions."
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Attend a practice session",
+              "description": "Join us at an upcoming session to meet the coaches, complete evaluations, and get started."
+            }
+          ]
+        }
+      </script>
+    </div>
+
+</section>

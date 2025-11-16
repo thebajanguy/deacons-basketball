@@ -1,0 +1,75 @@
+<!-- Begin Hero Section -->
+<app-base-hero-cmp
+  [title]="'Deacons Academy'"
+  [subtitle]="'' + interest + ' Registration'"
+  [description]="description"
+  [backgroundUrl]="'assets/img/heroes/deacons-basketball-u14-champions-hero.jpg'"
+  [headerSize]="'lg'"
+  [breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+    { label: 'Programs' },
+    { label: 'Gold Camps' },
+    { label: '' + interest +'', link: ['/'+urlPath+'/barbados'+'/'+interest+'-gold-camps'] }
+  ]"
+  [ctas]="[
+    { label: 'Claim Your Spot Now',           routerLink: ['.'], fragment: 'register', variant:'primary', ariaLabel:'Start your journey with Deacons Basketball Club' },
+    { label: 'Explore Academy Programs',      routerLink: ['/'+urlPath+'/academy'], fragment: 'schedules-and-pricing', variant:'outline', ariaLabel:'Explore academic programs with Deacons Basketball Club' },
+    { label: 'Support the Program', routerLink: ['/'+urlPath+'/contact'], variant:'outline', ariaLabel:'Make a donation to Deacons Basketball Club' }
+    ]">
+</app-base-hero-cmp>
+<!-- End Hero Section -->
+
+<section id="register" class="section section-white text-center py-5" aria-labelledby="consultation-heading">
+  <div class="container">
+    
+    <!-- ✅ side-by-side columns: left info, right form -->
+    <div class="row g-4">
+
+      <!-- Left info card -->
+      <div class="col-12 col-lg-5 form-left align-left p-3">
+ 
+        <header>
+          <h2 id="what-you-get-heading" class="align-left">What you get</h2>
+          <h4 class="text-white">
+            High-intensity basketball skill training, game IQ development, leadership sessions, and exposure tours—built to move you up a level.
+          </h4>
+        </header>
+
+        <ul class="icon-list mt-4 description align-left text-white" role="list">
+          <li class="d-flex mb-3" *ngFor="let item of highlights">
+            <span class="icon" aria-hidden="true"></span>
+            <div>{{ item }}</div>
+        </li>
+        </ul>
+
+        <br />
+        <h3 class="h5 mb-1">Call / WhatsApp:</h3>
+        <p class="ps-3 mb-3">
+          <a href="tel:+17186370566" class="text-white-50"><strong>(718) 637-0566</strong></a>
+        </p>
+        
+        <h3 class="h5 mb-1">Email</h3>
+        <p class="ps-3">
+          <a href="mailto:DeaconsBC@outlook.com" class="text-white-50"><strong>DeaconsBC&#64;outlook.com</strong></a>
+        </p>
+
+      </div>
+  
+      <!-- Right: request form -->
+      <div class="col-12 col-lg-7 form-right p-3">
+  
+        <app-registration-intake-form></app-registration-intake-form>
+  
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- Newsletter & Social Plugins 
+<app-newsletter-form-cmp></app-newsletter-form-cmp>
+-->
+<app-fixed-social-plugin-cmp></app-fixed-social-plugin-cmp>
+
+

@@ -1,5 +1,5 @@
 {
-  "name": "varsity-sports-academy-app",
+  "name": "deacons-basketball-app",
   "version": "1.0.0",
   "overrides": {
     "critters": "npm:beasties@^0.2.0"
@@ -16,9 +16,9 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.0",
-    "@angular/common": "^18.0.0",
+    "@angular/common": "^18.2.14",
     "@angular/compiler": "^18.0.0",
-    "@angular/core": "^18.0.0",
+    "@angular/core": "^18.2.14",
     "@angular/forms": "^18.0.0",
     "@angular/localize": "^18.0.0",
     "@angular/material": "^18.0.0",

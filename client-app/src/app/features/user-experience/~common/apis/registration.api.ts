@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 import { REGISTRATION_API_BASE_URL } from '../../../../core/tokens/api-config-url.tokens';
 
 // A strongly-typed union you can extend as needed
-export const INTEREST_OPTIONS = ['Basketball', 'Soccer'] as const;
+export const INTEREST_OPTIONS = ['Basketball'] as const;
 export type InterestOption = typeof INTEREST_OPTIONS[number];
 
-export const COUNTRY_OPTIONS  = ['Barbados','United States'] as const;
+export const COUNTRY_OPTIONS  = ['Barbados'] as const;
 export type CountryOption  = typeof COUNTRY_OPTIONS[number];
 
 export const SKILL_LEVEL_OPTIONS = ['Beginner', 'Intermediate', 'Advanced'] as const;
 export type SkillLevelOption = typeof SKILL_LEVEL_OPTIONS[number];
 
-export const BASKETBALL_POSITION_OPTIONS = ['Guard', 'Forward', 'Center'] as const;
+export const BASKETBALL_POSITION_OPTIONS = ['Guard', 'Forward', 'Center', 'Not Sure'] as const;
 export type BasketballPositionOption = typeof BASKETBALL_POSITION_OPTIONS[number]; 
 
 export const SOCCER_POSITION_OPTIONS = ['GoalKeeper', 'Defender', 'Midfielder', 'Forward'] as const;
@@ -35,7 +35,7 @@ export interface ActivityRegistrationDto{
   ApplicationName?: string | null;
 
   Country?: string | null;  // Barbados / United States / etc. Used to look up camp or activity.
-  Interest?: string | null; // Sport / After-School / etc. Used to look up camp or activity
+  Interest?: string | null; // Basketball / Soccer / After-School / etc. Used to look up camp or activity
 
   ActivityId?: string | null;// campId or afterSchoolId
 

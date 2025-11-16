@@ -15,11 +15,11 @@ export type HeroCta = {
   fragment?:string;
   rel?: string;
   target?: '_blank' | '_self';
-  variant?: 'primary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'outline' | 'ghost' | 'light';
 };
 
 @Component({
-  selector: 'app-base-hero',
+  selector: 'app-base-hero-cmp',
   standalone: true,
   imports: [CommonModule , NgIf, NgFor, RouterLink, SocialPluginComponent, FixedSocialPluginComponent],
   templateUrl: './base-hero.component.html',
@@ -27,14 +27,16 @@ export type HeroCta = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseHeroComponent extends BasePageComponent implements OnChanges {
-  override pageName = 'vsa-page';
+  override pageName = 'global-page';
   /** Required */
   @Input() title = '';
   /** Optional subheading */
   @Input() subtitle:string = '';
   /** Optional description */
   @Input() description = '';
-  @Input() breadcrumbSEO = 'Varsity Sports Academy Prep After School Programs and Sports Camps';
+  @Input() breadcrumbSEO = 'Deacons Basketball Club';
+  @Input() isNavigationPage = true;
+
 
   /** Optional background image (will render as CSS background for performance) */
   @Input() backgroundUrl?: string;
@@ -49,12 +51,12 @@ export class BaseHeroComponent extends BasePageComponent implements OnChanges {
 
   /** Accessibility: background image alt (if you also include an <img>, which we don't by default) */
   @Input() bgAlt = 'Decorative program background';
+  @Input() headerSize: 'xs' | 'sm' | 'md' | 'lg' | 'none' | '' | null | undefined = 'none';
 
   safeTitle: SafeHtml = '';
   safeSubtitle: SafeHtml = '';
   safeDescription: SafeHtml = '';
 
-  @Input() headerSize: 'xs' | 'sm' | 'md' | 'lg' | 'none' | '' | null | undefined = 'none';
 
   get headerClasses() {
     const size = (this.headerSize ?? '').toString().trim();
@@ -62,13 +64,12 @@ export class BaseHeroComponent extends BasePageComponent implements OnChanges {
       'page-header-xs': size === 'xs',
       'page-header-sm': size === 'sm',
       'page-header-lg': size === 'lg',
-      '': size === 'none', // collapse spacing
+      'page-header-xl': size === 'none' || size === 'xl', // collapse spacing
       // note: 'md' or ''/null => no extra size class; default styles apply
     };
   }
   constructor( 
-    @Inject(DOCUMENT) doc: Document, rf: RendererFactory2,
-    private sanitizer: DomSanitizer) {
+    @Inject(DOCUMENT) doc: Document, rf: RendererFactory2) {
     super(doc, rf);
   } 
 
@@ -78,4 +79,5 @@ export class BaseHeroComponent extends BasePageComponent implements OnChanges {
     this.safeSubtitle = this.sanitizer.bypassSecurityTrustHtml(this.subtitle);
     this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(this.description);
   }
+
 }

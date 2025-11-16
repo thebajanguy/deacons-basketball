@@ -17,20 +17,25 @@ export class UserProfilePage implements OnInit {
   }
 
   ngOnInit(): void {
-
+    /*
     this.msalService.instance.handleRedirectPromise().then((result) => {
       if (result && result.account) {
         this.msalService.instance.setActiveAccount(result.account);
         this.getUserProfile();
       }
     });
+    */
   }
 
   login() {
+    console.info('login');
+
     this.msalService.loginRedirect();
   }
 
   getUserProfile() {
+    console.info('getUserProfile');
+    /*
     this.graphService.getUserProfile().subscribe({
       next: data => {
         this.userProfile = data;
@@ -41,5 +46,6 @@ export class UserProfilePage implements OnInit {
         alert('Error occurred: ' + err);
       }
     });
+    */
   }
 }

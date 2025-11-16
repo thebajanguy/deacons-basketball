@@ -1,7 +1,7 @@
 {
   "trailingSlash": "auto",
   "routes": [
-    { "route": "/student-athletes" },
+    { "route": "/barbados" },
     { "route": "/sports-academics-prep" },
     { "route": "/approach" },
     { "route": "/academic-tutoring" },

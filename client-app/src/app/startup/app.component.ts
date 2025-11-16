@@ -20,9 +20,9 @@ export class AppComponent {
     currentYear = new Date().getFullYear();
 
     constructor(private renderer: Renderer2){
-        this.title.setTitle('Varsity Sports Academy | Academic & Sports Preparation');
-        this.meta.updateTag({name:'description', content:'Varsity Sports Academy Prep empowers student‑athletes with academic tutoring, elite training, and NCAA recruitment guidance to earn scholarships.'});
-        this.meta.updateTag({property:'og:title', content:'Varsity Sports Academy | Academic & Sports Preparation'});
+        this.title.setTitle('Deacons Basketball Club | Academic & Sports Preparation');
+        this.meta.updateTag({name:'description', content:'Deacons Basketball Club empowers student‑basketballers with academic tutoring, elite training, and NCAA recruitment guidance to earn scholarships.'});
+        this.meta.updateTag({property:'og:title', content:'Deacons Basketball Club | Academic & Sports Preparation'});
         this.meta.updateTag({property:'og:type', content:'website'});
     }
 

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-social-plugin',
+  selector: 'app-social-plugin-cmp',
   standalone: true,
   imports:[CommonModule],
   templateUrl: './social-plugin.component.html',

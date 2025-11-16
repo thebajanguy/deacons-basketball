@@ -56,4 +56,5 @@ export class IdentityManagementNavbarComponent implements OnInit, OnDestroy {
     profileEdit() {
       this.editProfileToParent.emit();
     }
+
 }

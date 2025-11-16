@@ -1,0 +1,156 @@
+
+<app-base-hero-cmp
+[title]="'Deacons Basketball Club'"
+[subtitle]="'Programs'"
+[description]="description"
+[backgroundUrl]="'assets/img/pages/what-we-do/deacons-basketball-what-we-do-showcase-camps.png'"
+[headerSize]="'lg'"
+[isNavigationPage]="false"
+[breadcrumbSEO]="'Programs'"
+[breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+    { label: 'Programs' }
+]"
+[ctas]="[
+  { label: 'Start Your Journey', routerLink: ['/'+urlPath+'/consultation'] , variant:'primary', ariaLabel:'Start your journey with Deacons Basketball Club' },
+  { label: 'Explore Academic Programs', routerLink: ['/'+urlPath+'/academic-tutoring'], variant:'primary', ariaLabel:'Explore academic programs with Deacons Basketball Club' },
+  { label: 'Programs', routerLink: ['/'+urlPath+'/programs'], fragment: 'programs', variant:'outline', ariaLabel:'Explore Gold Basketball Camp Schedule and Dates.' }
+]">
+</app-base-hero-cmp>
+
+<!-- Start Brains & Ballers Programs -->
+<section id="programs" class="section section-white" aria-labelledby="elete-camp-series-heading">
+    <div class="filter filter-black"></div>
+    <div class="container">
+        <!-- Headings -->
+        <div class="row">
+            <div class="ml-auto mr-auto">
+                <h2 id="elete-camp-series-heading" class="text-center">
+                  Brains and Ballers After-School Programs: Academics & Sports
+                </h2>
+                <h3 class="text-muted" style="padding: 20px;padding-left:0px;">
+                  Join the Brains & Ballers After School Program at Deacons Basketball Club for academic support and athletic training.                   
+                </h3>
+
+                <!-- Summary / Keyword context -->
+                <p class="description  mt-3">
+                 Daily homework support, CSEC/CAPE/SAT prep, and sport-specific training—built for young-basketballers to improve grades and performance.
+                </p>
+            </div>
+        </div>
+
+        <!-- Camp cards -->
+        <div class="row" style="margin-top: 20px;">
+
+            <!-- Soccer -->
+            <div class="col-md-4 ml-auto">
+                <div class="card no-transition separator-bottom-card" data-background="color"
+                    data-color="lightgray">
+                    <div class="card-body text-left">
+                        <img src="assets/img/pages/home/deacons-basketball-academics-first.png"
+                            alt="Deacons Basketball Club Soccer Camps for ages 5–14: ball control, footwork, shooting, defense, team play"
+                            loading="lazy" width="580" height="360" />
+                        <h3 class="card-category section-title-md text-primary">Brains & Ballers<br />After School Program</h3>
+                        <p class="card-description-dark">
+                          <strong>Brains & Ballers After-School Program</strong> helps young-basketballers strengthen academic skills, build athletic fundamentals, and grow confidence on and off the field. Our balanced approach combines academic tutoring, sports training, and personal development to help young basketballers reach their full potential.
+                          Open to boys and girls ages 11–18 — limited spots available, register early!
+                        </p>
+                        <div class="card-footer">
+                            <a [routerLink]="['/'+urlPath+'/after-school']" class="btn btn-main"
+                                title="Learn more about Deacons Basketball Club Soccer Camps"
+                                aria-label="Learn more about Deacons Basketball Club Soccer Camps">
+                                &nbsp; Learn More &nbsp;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Basketball -->
+            <div class="col-md-4">
+                <div class="card no-transition separator-bottom-card" data-background="color"
+                    data-color="lightgray">
+                    <div class="card-body text-left">
+                        <img src="assets/img/pages/home/deacons-basketball-camp-basketball.png"
+                            alt="Deacons Basketball Club Basketball Camps for ages 5–14: ball-handling, shooting, defense, game IQ"
+                            loading="lazy" width="580" height="360" />
+                        <h3 class="card-category section-title-md text-primary">Brains & Ballers<br />Basketball Camps</h3>
+                        <p class="card-description-dark">
+                          <strong>Brains & Ballers Basketball Gold Camps</strong> help young basketballers master basketball fundamentals, boost confidence, and develop discipline on and off the court. Our elite training program blends basketball skill development with academic growth, empowering young-basketballers to reach their full potential.
+                          Open to boys and girls ages 11–18 — limited spots available, so register early!
+                        </p>
+                        <div class="card-footer">
+                            <a [routerLink]="['/'+urlPath+'/basketball-gold-camps']" class="btn btn-main"
+                                title="Learn more about Deacons Basketball Club Basketball Camps"
+                                aria-label="Learn more about Deacons Basketball Club Basketball Camps">
+                                &nbsp; Learn More &nbsp;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soccer -->
+            <div class="col-md-4 mr-auto">
+                <div class="card no-transition separator-bottom-card" data-background="color"
+                    data-color="lightgray">
+                    <div class="card-body text-left">
+                      <img src="assets/img/pages/home/deacons-basketball-camp-soccer.png"
+                          alt="Deacons Basketball Club Football Camps for ages 5–14: footwork, catching, defense, teamwork"
+                            loading="lazy" width="580" height="360" />
+                        <h3 class="card-category section-title-md text-primary">Brains & Ballers<br />Soccer Camps</h3>
+                        <p class="card-description-dark">
+                          <strong>Brains & Ballers Soccer Gold Camps</strong> help young basketballers build solid soccer fundamentals, improve confidence, and develop discipline both on and off the field. Our program combines professional soccer training with academic support—empowering young-basketballers to excel in sports and the classroom.
+                          Open to boys and girls ages 11–18. Spots fill up fast—register early to secure your place!
+                        </p>
+                        <div class="card-footer">
+                            <a [routerLink]="['/'+urlPath+'/soccer-gold-camps']" class="btn btn-main"
+                                title="Learn more about Deacons Basketball Club Football Camps"
+                                aria-label="Learn more about Deacons Basketball Club Football Camps">
+                                &nbsp; Learn More &nbsp;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional: Structured data to highlight the 3-camp series as a list -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "ELETE Camp Series by Deacons Basketball Club",
+        "itemListOrder": "http://schema.org/ItemListOrderAscending",
+        "numberOfItems": 3,
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://www.deaconsbasketball.com/en/youth-basketball-club/sports-development",
+            "name": "Deacons Basketball Club Soccer Camps (Ages 5–14)",
+            "description": "Ball control, footwork, shooting, defense, and team play."
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://www.deaconsbasketball.com/en/youth-basketball-club/sports-development",
+            "name": "Deacons Basketball Club Basketball Camps (Ages 5–14)",
+            "description": "Ball-handling, shooting, defense, footwork, and game IQ."
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://www.deaconsbasketball.com/en/youth-basketball-club/sports-development",
+            "name": "Deacons Basketball Club Football Camps (Ages 5–14)",
+            "description": "Footwork, catching, defensive fundamentals, and teamwork."
+            }
+        ]
+    }
+    </script>
+</section>
+
+<app-newsletter-form-cmp></app-newsletter-form-cmp>
+

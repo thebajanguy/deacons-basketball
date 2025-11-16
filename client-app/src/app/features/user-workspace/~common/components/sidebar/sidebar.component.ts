@@ -38,7 +38,7 @@ export const ROUTES: RouteInfo[] = [
 },
 {
   path: "/en/user-workspace",
-  title: "Varsity Sports Academy",
+  title: "Deacons Basketball Club",
   type: "sub",
   icontype: "nc-app",
   collapse: "user-workspace",

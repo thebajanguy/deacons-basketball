@@ -1,8 +1,10 @@
 /* =========================
    TYPOGRAPHY / FONTS
    ========================= */
-$font-family-sans-serif: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$sans-serif-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+$font-family-sans-serif:    "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif-family:         "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   
+
 
 /* Font sizes */
 $font-size-mini: 0.7142em !default;
@@ -92,11 +94,11 @@ $brown-states-color: darken($brown-color, 8%) !default;
 $neutral-color: #ecf0f1 !default;
 $neutral-states-color: darken($neutral-color, 8%) !default;
 
-$black-color: #2c2c2c !default;
+$black-color: #060606 !default;
 $black-hr: #444444 !default;
-$black-bg: rgba(30,30,30,.97) !default;
+$black-bg: rgba(7, 7, 7, 0.97) !default;
 $black-states-color: darken($black-color, 8%) !default;
-$light-black:                #444    !default;
+$light-black:                #1d1d1d    !default;
 
 $light-gray: #E3E3E3 !default;
 $medium-gray: #DDDDDD !default;
@@ -162,14 +164,14 @@ $info-states-color: lighten($info-color, 6%) !default;
 $info-color-opacity: rgba(44, 168, 255, .3) !default;
 $info-color-alert: rgba(44, 168, 255, .8) !default;
 
-$dark-color: #03214d !default;
+$dark-color: #050505 !default;
 $dark-states-color: darken($dark-color, 10%) !default;
 
 $orange-bg: #e95e38 !default;
 
 $dark-background: #555555 !default;
 
-$nav-color: #0a2144 !default;
+$nav-color: #050505 !default;
 
 $seperator-color: $primary-color !default;
 

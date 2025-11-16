@@ -3,7 +3,7 @@ export const environment = {
   useApiMock: true,                         // <- toggle this
   correspondenceApiBaseUrl: '',             // Functions default port
   registrationApiBaseUrl: '',             // Functions default port
-  stripePk: '',                           // <-- add this  
+
   appSettings: {
     applicationName: '',
     siteUrl: '', //'http://localhost:5900/', // The redirect URI of the application, this should be same as the value in the application registration portal.Defaults to window.location.href.
@@ -11,8 +11,8 @@ export const environment = {
     emailSentTo: '',
     localUserStorageKey: '',
     userTokenKey: '',
-    urlRoutePath: 'academics-and-sports',
-    loginRoutePath: 'academics-and-sports',
+    urlRoutePath: '',
+    loginRoutePath: '',
     workspaceRoutePath: '',
     membershipRoutePath: '',
     defaultLanguage: ''  

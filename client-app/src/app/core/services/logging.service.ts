@@ -12,7 +12,7 @@ export class LoggingService {
   /** Log a Service message with the MessageService */
   public info(title: string, message: string) {
     if (!environment.production) {
-      let log = `@Varsity Sports Academy@1.0.0 : Verbose | Info : [${this.currentDate}] : ${title} - ${message}`;
+      let log = `@Deacons Basketball Club@1.0.0 : Verbose | Info : [${this.currentDate}] : ${title} - ${message}`;
       console.info(`${log}`);
     }
     else {
@@ -22,7 +22,7 @@ export class LoggingService {
 
   public error(title: string, message: string) {
     if (!environment.production) {
-      let log = `@Varsity Sports Academy@1.0.0 : Verbose | Error : [${this.currentDate}] : ${title} - ${message}`;
+      let log = `@Deacons Basketball Club@1.0.0 : Verbose | Error : [${this.currentDate}] : ${title} - ${message}`;
       console.error(`${log}`);
     }
     else {
@@ -32,7 +32,7 @@ export class LoggingService {
 
   public success(title: string, message: string) {
     if (!environment.production) {
-      let log = `@Varsity Sports Academy@1.0.0 : Verbose | Success : [${this.currentDate}] : ${title} - ${message}`;
+      let log = `@Deacons Basketball Club@1.0.0 : Verbose | Success : [${this.currentDate}] : ${title} - ${message}`;
       console.log(`${log}`);
     }
     else {
@@ -42,7 +42,7 @@ export class LoggingService {
 
   public warn(title: string, message: string) {
     if (!environment.production) {
-      let log = `@Varsity Sports Academy@1.0.0 : Verbose | Warn : [${this.currentDate}] : ${title} - ${message}`;
+      let log = `@Deacons Basketball Club@1.0.0 : Verbose | Warn : [${this.currentDate}] : ${title} - ${message}`;
       console.warn(`${log}`);
     }
     else {
