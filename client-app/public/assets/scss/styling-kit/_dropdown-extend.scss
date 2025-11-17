@@ -41,7 +41,7 @@
 }
 
 .dropdown-menu {
-    background-color: $white-color;
+    background-color: $light-color;
     border: 0 none;
     border-radius: $border-radius-extreme;
     margin-top: 10px;
@@ -127,7 +127,7 @@
 
     .dropdown-item:hover,
     .dropdown-item:focus {
-        color: $white-color !important;
+        color: $light-color !important;
         opacity: 1;
         text-decoration: none;
     }
@@ -213,7 +213,7 @@
 .card.card-just-text .dropdown .dropdown-menu:after,
 .card-just-text .dropdown .dropdown-menu:after,
 .dropdown-btn .dropdown-menu:after{
-    border-bottom: 11px solid $white-color;
+    border-bottom: 11px solid $light-color;
     border-left: 11px solid rgba(0, 0, 0, 0);
     border-right: 11px solid rgba(0, 0, 0, 0);
     content: "";
@@ -324,7 +324,7 @@
     .dropup-item:focus{
         .social-line,
         .action-line{
-            background-color: $white-color;
+            background-color: $light-color;
             color: $font-color;
             opacity: 1;
             text-decoration: none;

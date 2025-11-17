@@ -15,7 +15,7 @@
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     padding: 0;
-    background: $white-color;
+    background: $light-color;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 
     .navbar-brand {
@@ -67,14 +67,14 @@
         .nav-item {
             .btn {
                 i {
-                    color: $white-color;
+                    color: $light-color;
                 }
             }
         }
 
         .active .nav-link .active .nav-link:hover, .active .nav-link:focus, .nav-item .nav-link:hover, .nav-item .nav-link:focus {
             background-color: transparent;
-            color: $main-color;
+            color: $brand-main-color;
         }
     }
 

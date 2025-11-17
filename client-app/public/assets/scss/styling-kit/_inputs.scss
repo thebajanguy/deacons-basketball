@@ -4,7 +4,7 @@
     background-color: $transparent-bg;
     border: 1px solid $light-gray;
     border-radius: $btn-round-radius;
-    color: $black-color;
+    color: $dark-color;
     height: unset;
     line-height: normal;
     font-size: $font-size-small;
@@ -19,7 +19,7 @@
         border: 1px solid $primary-color;
         @include box-shadow(none);
         outline: 0 !important;
-        color: $black-color;
+        color: $dark-color;
 
         & + .input-group-text,
         & ~ .input-group-text{
@@ -55,7 +55,7 @@
         background-color: rgba(222,222,222, .1);
 
         &:focus{
-            background-color: $white-color;
+            background-color: $light-color;
         }
     }
 
@@ -75,7 +75,7 @@
     }
 
     // & + .input-group-text{
-    //     background-color: $white-bg;
+    //     background-color: $light-bg;
     // }
 }
 
@@ -152,7 +152,7 @@
 }
 
 .input-group-text {
-    background-color: $white-bg;
+    background-color: $light-bg;
     border: 1px solid $light-gray;
     border-radius: $btn-round-radius;
     color: $dark-background;
@@ -162,7 +162,7 @@
 
     .has-success &,
     .has-danger &{
-        background-color: $white-color;
+        background-color: $light-color;
     }
     .has-danger .form-control:focus + &{
         color: $danger-color;
@@ -184,7 +184,7 @@
 
 .input-group-focus{
     .input-group-text{
-        background-color: $white-bg;
+        background-color: $light-bg;
         border-color: $primary-color;
     }
 

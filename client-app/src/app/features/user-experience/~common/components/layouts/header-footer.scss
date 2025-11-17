@@ -1,0 +1,37 @@
+/* Design tokens */
+
+$brand-main-color:          #ffe701 !default;
+$brand-secondary-color:     #2da130 !default;
+$brand-accent-color:        #e32e08 !default; // #3aa9ff
+
+$light-color:               #e7ecf6 !default;
+$dark-color:                #050505  !default;
+$muted-color:               #a4a4a5 !default;
+$default-color:             #e7ecf6 !default;
+$light-gray:                #d7dada !default;
+$medium-gray:               #f4f4f4 !default;
+$dark-gray:                 rgb(62, 60, 60)3 !default;
+
+$nav-background-color:      $dark-color !default;
+$link-disabled-color:       $muted-color !default;
+$link-hover-color:          $brand-main-color !default;
+$link-active-color:         $brand-secondary-color !default;
+$link-focus-color:          $brand-main-color !default;
+$link-default-color:        $light-color !default;
+$link-highlight-color:      $brand-accent-color !default;
+$text-default-color:        $light-color !default;
+
+$btn-cta-bg-color:          $medium-gray !default;
+$btn-cta-text-color:        $dark-gray !default;
+
+$burger-color-closed:       $light-color !default;
+$burger-color-open:         $brand-main-color !default;
+
+$box-shadow-color:          rgba(0,0,0,.08) !default;
+
+
+
+//$font-size-navbar:          1em !default;
+//$font-size-large-navbar:    22px !default;
+//-Footer
+$font-size-medium:          16px !default;

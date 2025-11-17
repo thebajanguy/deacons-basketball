@@ -14,7 +14,7 @@
     .show > &.dropdown-toggle:focus,
     .show > &.dropdown-toggle:hover {
         background-color: $btn-states-color;
-        color: $white-color;
+        color: $light-color;
         box-shadow: none;
     }
 
@@ -38,7 +38,7 @@
     }
 
     // btn-neutral style
-    @if $btn-color == $white-color{
+    @if $btn-color == $light-color{
         color: $primary-color;
 
         &.btn-danger{
@@ -100,7 +100,7 @@
         .show > &.dropdown-toggle,
         .show > &.dropdown-toggle:focus,
         .show > &.dropdown-toggle:hover {
-            background-color: $white-color;
+            background-color: $light-color;
             color: $primary-states-color;
             box-shadow: none;
         }
@@ -116,7 +116,7 @@
         }
 
     } @else {
-        color: $white-color;
+        color: $light-color;
     }
 
     &.btn-simple{
@@ -188,7 +188,7 @@
 
     &.btn-neutral{
         color: $color;
-        background-color: $white-color;
+        background-color: $light-color;
 
 
         &:hover,

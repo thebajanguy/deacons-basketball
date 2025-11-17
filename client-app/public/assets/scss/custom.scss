@@ -1,17 +1,11 @@
 // ============================================================================
 // Vars (tidied, consistent casing, minimal surprises)
-// ============================================================================
-
-
-
-// ============================================================================
 // Custom Styles Variables (kept, lightly hardened)
 // ============================================================================
 
 // font styles
 $font-family-sans-serif:    "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $sans-serif-family:         "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 
 // basics
 $none:                      0 !default;
@@ -22,29 +16,31 @@ $border-thick:              2px !default;
 $font-color:                #2e2e2d !default;
 $fill-font-color:           rgba(255, 255, 255, 0.8);
 
+$muted-color:               #a49e93 !default;
 $default-color:             #66615b !default; // normalized casing
 $default-bg:                #66615b !default;
 $default-states-color:      #403d39 !default;
 
-$white-color:               #ffffff !default;
-$white-bg:                  #ffffff !default;
-$white-states-color:        rgba($white-color, 0.8);
+$light-color:               #e7ecf6 !default;
+$light-bg:                  #e7ecf6 !default;
+$light-states-color:        rgba($light-color, 0.8);
 
-$main-color:                #ffd212 !default;
-$main-states-color:         darken($main-color, 8%) !default;
+$brand-main-color:          #ffe701 !default;
+$brand-main-states-color:   darken($brand-main-color, 8%) !default;
+$brand-secondary-color:     #2da130 !default;
+$brand-secondary-states-color:darken($brand-secondary-color, 8%) !default;
 
-$link-disabled-color:       #666666 !default;
-$link-hover-color:          $main-color !default;
-$link-active-color:         $main-color !default;
-$link-focus-color:          $main-color !default;
-$link-default-color:        $white-color !default;
+$link-disabled-color:       #a4a4a5 !default;
+$link-hover-color:          $brand-main-color !default;
+$link-active-color:         $brand-main-color !default;
+$link-focus-color:          $brand-main-color !default;
+$link-default-color:        $light-color !default;
 
 $smoke-bg:                  #f5f5f5 !default;
 $pale-bg:                   #b9b9b8 !default;
 $medium-pale-bg:            #f1eae0 !default;
 
 $table-line-color:          #cccccc !default;
-$muted-color:               #a49e93 !default;
 
 $gray-color:                #66615b !default; // legacy alias to default
 
@@ -57,10 +53,10 @@ $brown-states-color:        darken($brown-color, 8%) !default;
 $neutral-color:             #ecf0f1 !default;
 $neutral-states-color:      darken($neutral-color, 8%) !default;
 
-$black-color:               #050505 !default;
+$dark-color:                #050505 !default;
 $black-hr:                  #050505 !default;
 $black-bg:                  rgba(7, 7, 7, 0.97) !default;
-$black-states-color:        darken($black-color, 8%) !default;
+$dark-states-color:        darken($dark-color, 8%) !default;
 
 $light-gray:                #ecf0f1 !default;
 $medium-gray:               #dddddd !default;
@@ -80,7 +76,6 @@ $success-color:             #18ce0f !default;
 $danger-color:              #e53935 !default;
 $warning-color:             #ffd212 !default;
 $info-color:                #00a4f9 !default;
-$dark-color:                #050505 !default;
 
 
 $primary-states-color:      darken($primary-color, 10%) !default;
@@ -138,7 +133,7 @@ $card-black-color:           $font-color !default;
 // ============================================================================
 body{
     min-height:100vh;
-    background-color: $white-bg;
+    background-color: $light-bg;
     font-family:var($font-family-sans-serif);
     margin: 0;
     text-align: left;
@@ -158,6 +153,7 @@ html {
 .toc-lift-top-section { padding-top: 10px;margin-top: -50px;}
 /* ===== Minor utilities ===== */
 .lift-figure-section { padding-top:35px; margin-top:0px; }
+.sr-only { position:absolute!important; height:1px;width:1px;overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px;}
 
 
 // ============================================================================
@@ -165,82 +161,60 @@ html {
 // ============================================================================
 
 // Forms: show error only after touch; keep success clear and accessible
-.ng-touched.ng-invalid:not(form) {
-  border-left: 5px solid $danger-color;
-  border: 1px solid $danger-color;
-  padding-right: 2.5em !important;
-}
+.ng-touched.ng-invalid:not(form) { border-left: 5px solid $danger-color; border: 1px solid $danger-color; padding-right: 2.5em !important; }
 .ng-touched.ng-valid[required],
-.ng-touched.ng-valid.required {
-  border-left: 5px solid $secondary-color;
-  border: 1px solid $secondary-color;
-  padding-right: 2.5em !important;
-}
+.ng-touched.ng-valid.required { border-left: 5px solid $secondary-color; border: 1px solid $secondary-color; padding-right: 2.5em !important; }
 
 // Alignment
-.align-left   { text-align: left; }
-.align-right  { text-align: right; }
-.align-center { text-align: center; }
+.align-left    { text-align: left; }
+.align-right   { text-align: right; }
+.align-center  { text-align: center; }
+.align-justify { text-align: justify; }
 
 // Text utilities
 /*           Font Smoothing      */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, .buttons, input, select, textarea {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-family: $font-family-sans-serif;
-    font-weight: $font-weight-light;
+    -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
+    font-family: $font-family-sans-serif; font-weight: $font-weight-light;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-    margin: $margin-large-vertical 0 0;
-}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 { margin: $margin-large-vertical 0 0;}
 
 h1, .h1 {
-    font-size: $font-size-h1;
-    font-weight: 800;
-    color: $main-color;
-    margin: 0px;
-    letter-spacing: -1px;
-    font-style: normal;
-    //
+    font-size: $font-size-h1; font-weight: 800; font-style: normal;
+    color: $brand-main-color;
+    letter-spacing: -1px; margin: 0px; 
 }
 
 h2, .h2 {
-    font-size: $font-size-h2;
+    font-size: $font-size-h2; font-weight: 700;
     color: $dark-color;
-    font-weight: 700;
-    //
     line-height: 1em;
 }
 
 h3, .h3 {
-    font-size: $font-size-h3;
-    color: $secondary-color;
-    font-weight: 400;
+    font-size: $font-size-h3; font-weight: 400;
+    color: $brand-secondary-color !important;//$secondary-color;    
     line-height: 1.4;
     margin: 20px 0 0px;
 }
 
 h4, .h4 {
-    font-size: $font-size-h4;
-    line-height: 1.2em;
-    font-weight: 400;
+    font-size: $font-size-h4; font-weight: 400;
+    line-height: 1.2em;    
     color: $primary-color;
 }
 
 h5, .h5 {
-    font-size: $font-size-h5;
-    line-height: 1.4em;
-    font-weight: 300;
+    font-size: $font-size-h5; font-weight: 300;
+    line-height: 1.4em;    
     color: $dark-color;
 }
 
 h6, .h6 {
-    font-size: $font-size-h6;
-    font-weight: $font-weight-bold;
+    font-size: $font-size-h6; font-weight: 300;
     text-transform: uppercase;
-    line-height: 1.5em;
-    font-weight: 300;
+    line-height: 1.5em;    
     color: $dark-color;
 }
 
@@ -259,9 +233,7 @@ h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small,
   line-height: $line-height-general;
 }
 
-h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
-    font-size: 60%;
-}
+h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small { font-size: 60%;}
 
 .title,
 .card-title,
@@ -271,77 +243,31 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .footer-big h4,
 .media .media-heading {
     font-family: $font-family-sans-serif;
-
     &,
-    a {
-        color: $card-black-color;
-        text-decoration: none;
-    }
+    a {color: $card-black-color; text-decoration: none;  }
 }
 
+.title-uppercase                { text-transform: uppercase; }
+.description, .text-description { color: $font-color; }
+blockquote small                {font-style: normal;}
+.text-muted                     { color: $medium-gray; }
 
-.title-uppercase {
-    text-transform: uppercase;
-}
+.text-primary, .text-primary:hover  { color: $primary-color !important; }
+.text-info, .text-info:hover        { color: $info-color !important; }
+.text-success, .text-success:hover  { color: $success-color !important; }
+.text-warning, .text-warning:hover  { color: $warning-color !important; }
+.text-danger, .text-danger:hover    { color: $danger-color !important; }
+.glyphicon                          { line-height: 1; }
 
-.description, 
-.text-description {
-    color: $font-color;
-}
+.title { margin-top: 30px; margin-bottom: 25px; min-height: 32px;}
 
-blockquote small {
-    font-style: normal;
-}
-
-.text-muted {
-    color: $medium-gray;
-}
-
-.text-primary, .text-primary:hover {
-    color: $primary-color !important;
-}
-
-.text-info, .text-info:hover {
-    color: $info-color !important;
-}
-
-.text-success, .text-success:hover {
-    color: $success-color !important;
-}
-
-.text-warning, .text-warning:hover {
-    color: $warning-color !important;
-}
-
-.text-danger, .text-danger:hover {
-    color: $danger-color !important;
-}
-
-.glyphicon {
-    line-height: 1;
-}
-
-.title {
-    margin-top: 30px;
-    margin-bottom: 25px;
-    min-height: 32px;
-}
-
-.title.text-center {
-    margin-bottom: 50px;
-}
-.card-description-dark{
-  padding: 15px 0px;
-  color: $font-color;
-}
-.card-description-light{
-  padding: 15px 0px;
-  color: $white-color;
-}
+.title.text-center      {margin-bottom: 50px;}
+.card-description-dark  {padding: 15px 0px; color: $font-color;}
+.card-description-light {padding: 15px 0px;color: $light-color;}
 
 
 // Text color utilities
-.text-color-main      { color: $main-color; }
+.text-color-main      { color: $brand-main-color; }
 .text-color-secondary { color: $secondary-color; }
 .text-color-info      { color: $info-color; }
 .text-color-primary   { color: $primary-color; }
@@ -349,34 +275,29 @@ blockquote small {
 .text-color-dark      { color: $dark-color; }
 .text-color-darker    { color: $dark-states-color; }
 .text-color-neutral   { color: $neutral-color; }
-.text-color-white     { color: $white-color; }
-.text-color-black     { color: $black-color; }
+.text-color-white     { color: $light-color; }
+.text-color-black     { color: $dark-color; }
 .text-color-gray      { color: $gray-color; }
 
 // Headings
-.card-info-title { font-weight: 500; font-size: 1.5em; margin-top: -5px; }
+.card-info-title { font-weight: 500; line-height: 1; font-size: 1.5em; margin-top: -5px; }
 .section-title   { font-weight: 700; line-height: 1; font-size: 3em; }
 .section-title-md{ font-weight: 600; line-height: 1; font-size: 2em; }
 .section-title-sm{ font-weight: 500; line-height: 1; font-size: 1.5em; }
-.info-title-md   { font-weight: 600; color: $main-color; line-height: 1; font-size: 2em; }
-.info-title-sm   { font-weight: 500; line-height: 1; font-size: 1.5em; color: $secondary-color; }
+.info-title-md   { font-weight: 600; line-height: 1; font-size: 2em;   color: $info-color; }
+.info-title-sm   { font-weight: 500; line-height: 1; font-size: 1.5em; color: $info-color; }
 
 // Branding bits
 .ipaas-header-logo { max-width: 140px; top: -2px; left: 3px; position: relative; }
-.ipaas-brand-logo  {
-  max-width: 90px; margin: -50px auto 45px;
-  img { width: 100%; }
-}
+.ipaas-brand-logo  { max-width: 90px; margin: -50px auto 45px; img { width: 100%; } }
 
 .title-brand {
-  max-width: 730px; margin: 0 auto; position: relative; text-align: center; color: $white-color; display: block;
+  max-width: 730px; margin: 0 auto; position: relative; text-align: center; color: $light-color; display: block;
   .type {
     position: absolute; font-size: 20px; background: $dark-color; padding: 6px 10px; border-radius: 4px;
     top: 0; font-weight: 600; margin-top: 10px; right: -15px;
   }
 }
-
-
 
 .h2-heading-pull-up {margin-top: -30px; }
 .category-absolute {
@@ -400,7 +321,7 @@ blockquote small {
       font-size: 1rem;
       text-align: center;
       margin: 0 auto;
-      color: $white-color; 
+      color: $light-color; 
     }
 
     .buttons {
@@ -429,10 +350,10 @@ blockquote small {
 .div-color-primary     { background-color: $primary-color; }
 .div-color-info        { background-color: $info-color; }
 .div-color-neutral     { background-color: $neutral-color; }
-.div-color-white       { background-color: $white-color; }
+.div-color-white       { background-color: $light-color; }
 .div-color-dark        { background-color: $dark-color; }
-.div-color-main        { background-color: $main-color; }
-.div-color-main-darker { background-color: $main-states-color; }
+.div-color-main        { background-color: $brand-main-color; }
+.div-color-main-darker { background-color: $brand-main-states-color; }
 .div-color-danger      { background-color: $danger-color; }
 .div-color-darker      { background-color: $dark-states-color; }
 
@@ -464,15 +385,16 @@ blockquote small {
 
 // Contact panels
 .form-left {
-  background-color: $dark-color; color: $white-color;
-  h2 { color: $main-states-color; padding: 0 0 15px; }
-  h5, h3, h4 { color:$white-color; }
+  background-color: $dark-color; color: $light-color;
+  h1 { color: $dark-color; padding: 0 0 15px; }
+  h2 { color: $brand-main-states-color; padding: 0 0 15px; }
+  h5, h3, h4 { color:$light-color; }
 }
 .form-right {
-  h1 { color: $dark-color; padding: 0 0 15px; }
-  h2 { color: $main-states-color; padding: 0 0 15px; }
-  h5, h3, h4 { color: $dark-color; }
   background-color: $pale-bg; color: $dark-color;
+  h1 { color: $dark-color; padding: 0 0 15px; }
+  h2 { color: $brand-main-states-color; padding: 0 0 15px; }
+  h5, h3, h4 { color: $dark-color; }
 }
 
 // Separators
@@ -485,15 +407,15 @@ blockquote small {
   &.no-border-footer { border-bottom: 0; }
 }
 .separator-top-header-main {
-  border-top: 2px solid $main-color; padding-top: 8px; margin-top: 15px;
+  border-top: 2px solid $brand-main-color; padding-top: 8px; margin-top: 15px;
   &.no-border-footer { border-bottom: 0; }
 }
-.separator-top-card    { border: 7px solid $main-color; border-bottom: 0; border-left: 0; border-right: 0; }
-.separator-bottom-card { border: 7px solid $main-color; border-top: 0; border-left: 0; border-right: 0; }
+.separator-top-card    { border: 7px solid $brand-main-color; border-bottom: 0; border-left: 0; border-right: 0; }
+.separator-bottom-card { border: 7px solid $brand-main-color; border-top: 0; border-left: 0; border-right: 0; }
 
-.separator-right-main  { border: 1px dashed $main-color; border-top: 0; border-left: 0; border-bottom: 0; }
-.separator-bottom-main { border: 1px dashed $main-color; border-top: 0; border-left: 0; border-right: 0; }
-.separator-top-main    { border: 1px dashed $main-color; border-bottom: 0; border-left: 0; border-right: 0; }
+.separator-right-main  { border: 1px dashed $brand-main-color; border-top: 0; border-left: 0; border-bottom: 0; }
+.separator-bottom-main { border: 1px dashed $brand-main-color; border-top: 0; border-left: 0; border-right: 0; }
+.separator-top-main    { border: 1px dashed $brand-main-color; border-bottom: 0; border-left: 0; border-right: 0; }
 
 .client-row-seperator {
   border: 1px solid $info-color; border-top: 0; border-left: 0; border-right: 0;
@@ -521,7 +443,7 @@ blockquote small {
     font-weight: 500;
 }
 .btn-main {
-    background-color: $main-color;
+    background-color: $brand-main-color;
     color: $dark-color !important; text-transform: uppercase;
 }
 
@@ -579,7 +501,7 @@ blockquote {
     --arrow-scale: 40%;                   /* chevron size */
     --ring: 4px;                          /* focus ring */
     --circle: transparent !important;     //#ff3b3b;                    /* circle fill */
-    --ring-color: $main-color;    /* outer ring */
+    --ring-color: $brand-main-color;    /* outer ring */
     --ring-inset: transparent !important; //rgba(255,255,255,.95);  /* inner edge */
 }
   
@@ -644,20 +566,20 @@ ngb-carousel .carousel-control-next:focus-visible .carousel-control-next-icon {b
 
 
 /* Adjust paths/colors to your design system */
-$nav-color: $dark-color;
-$accent: $main-color;
+$nav-background-color: $dark-color;
+$accent: $brand-main-color;
 
 .hero-banner {
   position: relative;
   overflow: hidden;
   border-radius: 0;
   color: #fff;
-icon
+
   .cta-bg {
     position: absolute; inset: 0;
     background-size: cover;
     background-position: center;
-    filter: saturate(.95) contrast(1.05);
+    filter: saturate(.25) contrast(5.05);
     background-image: url('../img/heroes/deacons-basketball-u16-champions-hero.jpg');    
   }
   .cta-bg.recruitment-option-a {
@@ -685,8 +607,8 @@ icon
     align-items: center;           /* vertically centers the row items */
   }
 
-  .cta-head { margin: 0 0 .5rem; letter-spacing: .2px; color: $main-color; }
-  .cta-subhead { font-size: 1.1rem; margin-bottom: 1rem; max-width: 60ch; color: $white-color; max-width: 100%;}
+  .cta-head { margin: 0 0 .5rem; letter-spacing: .2px; color: $brand-main-color; }
+  .cta-subhead { font-size: 1.1rem; margin-bottom: 1rem; max-width: 60ch; color: $light-color; max-width: 100%;}
 
   .proof-points {
     list-style: none; padding: 0; margin: 0 0 1.25rem;
@@ -710,7 +632,7 @@ icon
   }
 
   .btn.btn-primary {
-    background: $accent; color: $nav-color; border: none; font-weight: 700;
+    background: $accent; color: $nav-background-color; border: none; font-weight: 700;
     &:hover { filter: brightness(.95); }
   }
 }
@@ -764,20 +686,20 @@ icon
   /* Variants */
   &.btn-outline {
     background: transparent;
-    color: $white-color;
+    color: $light-color;
     border: 1px solid rgba(255,255,255,0.7);
   }
 
   &.btn-ghost {
     background: transparent;
-    color: $white-color;
+    color: $light-color;
     text-decoration: underline;
     border: none;
   }
 
   /* Default (gold primary) */
   &:not(.btn-outline):not(.btn-ghost) {
-    background: $main-color;
+    background: $brand-main-color;
     color: #111;
     border: none;
   }
@@ -806,12 +728,6 @@ a.btn[href]:hover {
   .cta-row { grid-template-columns: 1fr; }
 }
 
-
-.sr-only {
-  position:absolute!important;
-  height:1px;width:1px;overflow:hidden;
-  clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px;
-}
 
 
 .mt-20 { margin-top: 20px; }

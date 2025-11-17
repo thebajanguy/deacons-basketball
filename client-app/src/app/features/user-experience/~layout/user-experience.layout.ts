@@ -30,10 +30,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UtilitiesService } from '../../../core/services/utilities.service';
 import { BaseIdentityService } from '../../identity-management/~common/base-identity.service';
 
-import { NavbarComponent } from '../~common/components/navbar/navbar.component';
+import { NavbarComponent } from '../~common/components/layouts/navbar/navbar.component';
 import { FixedJoinNowPluginComponent } from '../~common/components/fixed-join-now-plugin/fixed-join-now-plugin.component';
 import { FixedSocialPluginComponent } from '../~common/components/fixed-social-plugin/fixed-social-plugin.component';
-import { FooterComponent } from '../~common/components/footer/footer.component';
+import { FooterComponent } from '../~common/components/layouts/footer/footer.component';
 
 @Component({
   selector: 'app-user-experience-layout',

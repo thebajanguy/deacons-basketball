@@ -22,7 +22,7 @@ body > .navbar-collapse {
     right: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: $white-color;
+    background-color: $light-color;
     overflow-y: visible;
     border-top: none;
     text-align: left;
@@ -93,7 +93,7 @@ body > .navbar-collapse {
 
     &.navbar-white-collapse{
         &::after{
-            background-color: $white-color;
+            background-color: $light-color;
         }
     }
     &.has-image::after{

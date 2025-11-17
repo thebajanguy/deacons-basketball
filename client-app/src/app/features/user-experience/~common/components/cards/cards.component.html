@@ -8,13 +8,13 @@
     <div class="col-md-4 ml-auto" *ngFor="let activity of activities; trackBy: trackById">
       <div class="card no-transition separator-bottom-card" data-background="color" data-color="lightgray">
         <div class="card-header">
-          <h3 class="card-title section-title-md text-primary align-center">{{ activity.editionLabel }}</h3>
+          <h3 class="card-title align-center">{{ activity.editionLabel }}</h3>
         </div>
         <div class="card-body text-left">
           <img [src]="activity.imageUrl"
                [alt]="activity.imageAlt"
                loading="lazy" width="580" height="360" />
-          <h3 class="card-category section-title-sm text-primary" style="padding-bottom:20px;">
+            <h3 class="card-category section-title-sm" style="padding-bottom:20px;">
             <ng-container *ngIf="activity.price?.monthly">
               {{ activity.price?.monthly }}/month
             </ng-container>

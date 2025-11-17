@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { RedirectRequest, PopupRequest, PromptValue } from '@azure/msal-browser';
 import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { environment } from '../../../../../../environments/environment';
+import { environment } from '../../../../../../../environments/environment';
 
 @Component({
   selector: 'app-navbar-cmp',

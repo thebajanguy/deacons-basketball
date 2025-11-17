@@ -23,6 +23,9 @@ export type SoccerPositionOption = typeof SOCCER_POSITION_OPTIONS[number];
 export const TSHIRT_SIZE_OPTIONS = ['YS', 'YM', 'YL', 'YXL', 'S', 'M', 'L', 'XL', 'XXL'] as const;
 export type TShirtSizeOption = typeof TSHIRT_SIZE_OPTIONS[number]; 
 
+export const GUARDIAN_RELATION_OPTIONS = ['Mother', 'Father', 'Aunt', 'Uncle', 'Grand Mother', 'Grand Father', 'Guardian', 'Other'] as const;
+export type GuardianRelationOption = typeof GUARDIAN_RELATION_OPTIONS[number]; 
+
 export const PAYMENT_METHOD_OPTIONS = ['Stripe', 'Cash', 'FirstPay', 'BankTransfer'] as const;
 export type PaymentMethodOption = typeof PAYMENT_METHOD_OPTIONS[number]; 
 

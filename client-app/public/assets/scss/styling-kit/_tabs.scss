@@ -32,7 +32,7 @@
             &.active{
                 background-color: $light-black;
                 border-radius: 30px;
-                color: $white-color;
+                color: $light-color;
             }
 
             i.now-ui-icons{
@@ -54,11 +54,11 @@
   .nav-tabs{
     .nav-item{
        > .nav-link{
-           color: $white-color;
+           color: $light-color;
 
            &.active{
                background-color: $opacity-2;
-               color: $white-color;
+               color: $light-color;
            }
        }
    }
@@ -129,7 +129,7 @@
     background-color: $primary-color;
 
     .nav-item .nav-link{
-        color: $white-color;
+        color: $light-color;
         &.active{
           box-shadow: none;
           background-color: $opacity-2;

@@ -62,7 +62,7 @@
     top: -5px;
     left: 10px;
     right: auto;
-    color: $white-color;
+    color: $light-color;
     border-bottom: .4em solid;
     border-right: .4em solid transparent;
     border-left: .4em solid transparent;
@@ -83,7 +83,7 @@
     bottom: -6px;
     right: auto;
     left: 10px;
-    color: $white-color;
+    color: $light-color;
     border-top: .4em solid;
     border-right: .4em solid transparent;
     border-left: .4em solid transparent;
@@ -294,7 +294,7 @@
 }
 .bootstrap-datetimepicker-widget table td.active > div, .bootstrap-datetimepicker-widget table td.active:hover > div {
   background-color: $primary-color;
-  color: $white-color;
+  color: $light-color;
   box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
 }
 .bootstrap-datetimepicker-widget table td.active.today:before > div {
@@ -369,7 +369,7 @@ input.datetimepicker[data-color] + .bootstrap-datetimepicker-widget{
     .separator,
     table td.minute > div,
     table td.hour > div{
-        color: $white-color;
+        color: $light-color;
     }
 
 
@@ -384,12 +384,12 @@ input.datetimepicker[data-color] + .bootstrap-datetimepicker-widget{
     }
 
     button[data-action]{
-        background-color: $white-color;
+        background-color: $light-color;
     }
 
     table td.active > div,
     table td.active:hover > div{
-        background-color: $white-color;
+        background-color: $light-color;
     }
 
     table td:not(.active).day:hover > div,
@@ -417,17 +417,17 @@ input.datetimepicker[data-color="orange"] + ngb-datepicker{
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light:hover{
-        color: $white-color;
+        color: $light-color;
     }
     &:before{
       color: $primary-color;
     }
     .ngb-dp-months ngb-datepicker-month div[ng-reflect-selected="true"]{
-        background-color: $white-color !important;
+        background-color: $light-color !important;
         color: $primary-color !important;
     }
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .text-muted{
-        color: $white-color!important;
+        color: $light-color!important;
     }
 }
 input.datetimepicker[data-color="blue"] + ngb-datepicker{
@@ -439,17 +439,17 @@ input.datetimepicker[data-color="blue"] + ngb-datepicker{
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light:hover{
-        color: $white-color;
+        color: $light-color;
     }
     &:before{
       color: $info-color;
     }
     .ngb-dp-months ngb-datepicker-month div[ng-reflect-selected="true"]{
-        background-color: $white-color !important;
+        background-color: $light-color !important;
         color: $info-color !important;
     }
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .text-muted{
-        color: $white-color!important;
+        color: $light-color!important;
     }
 }
 input.datetimepicker[data-color="green"] + ngb-datepicker{
@@ -461,17 +461,17 @@ input.datetimepicker[data-color="green"] + ngb-datepicker{
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light:hover{
-        color: $white-color;
+        color: $light-color;
     }
     &:before{
       color: $success-color;
     }
     .ngb-dp-months ngb-datepicker-month div[ng-reflect-selected="true"]{
-        background-color: $white-color !important;
+        background-color: $light-color !important;
         color: $success-color !important;
     }
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .text-muted{
-        color: $white-color!important;
+        color: $light-color!important;
     }
 }
 input.datetimepicker[data-color="red"] + ngb-datepicker{
@@ -483,17 +483,17 @@ input.datetimepicker[data-color="red"] + ngb-datepicker{
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light:hover{
-        color: $white-color;
+        color: $light-color;
     }
     &:before{
       color: $danger-color;
     }
     .ngb-dp-months ngb-datepicker-month div[ng-reflect-selected="true"]{
-        background-color: $white-color !important;
+        background-color: $light-color !important;
         color: $danger-color !important;
     }
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .text-muted{
-        color: $white-color!important;
+        color: $light-color!important;
     }
 }
 input.datetimepicker[data-color="yellow"] + ngb-datepicker{
@@ -505,17 +505,17 @@ input.datetimepicker[data-color="yellow"] + ngb-datepicker{
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-weekday,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light,
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .btn-light:hover{
-        color: $white-color;
+        color: $light-color;
     }
     &:before{
       color: $warning-color;
     }
     .ngb-dp-months ngb-datepicker-month div[ng-reflect-selected="true"]{
-        background-color: $white-color !important;
+        background-color: $light-color !important;
         color: $warning-color !important;
     }
     .ngb-dp-months ngb-datepicker-month .ngb-dp-week .ngb-dp-day .text-muted{
-        color: $white-color!important;
+        color: $light-color!important;
     }
 }
 
@@ -607,17 +607,17 @@ ngb-datepicker{
                     font-weight: 300;
                     .btn-light{
                         border-radius: 50% !important;
-                        color: $black-color;
+                        color: $dark-color;
                         &:hover,
                         &:active{
                             @include transition(150ms, linear);
-                            color: $black-color;
+                            color: $dark-color;
                             background-color: $opacity-gray-3;
                         }
                     }
                     div[ng-reflect-selected="true"]{
                         background-color: $primary-color ;
-                        color: $white-color ;
+                        color: $light-color ;
                         box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
 
                     }

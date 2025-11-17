@@ -58,13 +58,13 @@
                 margin-top: 0.3125rem;
 
                 &:not(.btn){
-                    color: $white-color !important;
+                    color: $light-color !important;
                 }
             }
         }
 
         .dropdown-menu .dropdown-item{
-            color: $white-color;
+            color: $light-color;
         }
 
         .menu-on-left &{
@@ -131,7 +131,7 @@
 
         .dropdown-menu .dropdown-item:focus,
         .dropdown-menu .dropdown-item:hover{
-            color: $white-color;
+            color: $light-color;
             border-radius: $border-radius-small;
         }
 
@@ -152,7 +152,7 @@
             width: 22px;
             height: 1px;
             border-radius: 1px;
-            background: $white-bg;
+            background: $light-bg;
 
             & + .navbar-toggler-bar{
                 margin-top: 7px;

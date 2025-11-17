@@ -372,12 +372,12 @@
     }
 
     .stats{
-        color: $white-color;
+        color: $light-color;
     }
 
     .card-footer{
         .stats-link > a{
-            color: $white-color;
+            color: $light-color;
             line-height: 1.9;
         }
     }
@@ -389,7 +389,7 @@
     }
 
     .card-title{
-        color: $white-color;
+        color: $light-color;
         margin-top: 130px;
     }
 
@@ -431,7 +431,7 @@
             margin: 0 auto;
             border-radius: 50%;
             box-shadow: 0px 9px 35px -6px rgba(0, 0, 0, 0.3);
-            background-color: $white-color;
+            background-color: $light-color;
             position: relative;
         }
 
@@ -480,7 +480,7 @@
                 border: 0;
             }
             b{
-                color: $black-color;
+                color: $dark-color;
             }
             i{
                 top: 3px;
@@ -494,16 +494,16 @@
     &.card-background{
         ul{
             li{
-                color: $white-color;
-                border-color: rgba($white-color,.3);
+                color: $light-color;
+                border-color: rgba($light-color,.3);
 
                 b{
-                    color: $white-color;
+                    color: $light-color;
                 }
             }
         }
         [class*="text-"]{
-            color: $white-color !important;
+            color: $light-color !important;
         }
         .card-body{
             padding-top: 1.25rem;
@@ -643,11 +643,11 @@
         }
 
         a{
-            color: $white-color !important;
+            color: $light-color !important;
 
             &:hover,
             &:focus{
-                border-color: $white-color !important;
+                border-color: $light-color !important;
             }
         }
     }

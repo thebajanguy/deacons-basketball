@@ -45,7 +45,7 @@
         }
 
         .title{
-            color: $white-color;
+            color: $light-color;
         }
         &:after{
             position: absolute;
@@ -68,11 +68,11 @@
 
 .social-line-white,
 .subscribe-line-white{
-    background-color: $white-color;
+    background-color: $light-color;
 }
 .social-line-black,
 .subscribe-line-black{
-    background-color: $black-color;
+    background-color: $dark-color;
 
     [class*="col-"]{
         border-color: rgba(255, 255, 255, 0.1);

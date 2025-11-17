@@ -4,7 +4,7 @@
 }
 
 .tooltip-inner {
-    background-color: $white-color;
+    background-color: $light-color;
     border-radius: $border-radius-base;
     box-shadow: 0 1px 13px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(115, 71, 38, 0.23);
     color: $default-color;
@@ -130,7 +130,7 @@
 .popover{
     border: 0;
     border-radius: 4px;
-    background-color: $white-color;
+    background-color: $light-color;
     color: #737373;
     font-weight: 400;
     padding: 0;
@@ -153,7 +153,7 @@
     margin-bottom: -10px;
 }
 .popover-header{
-    background-color: $white-color !important;
+    background-color: $light-color !important;
     text-align: center;
 }
 .popover-body{

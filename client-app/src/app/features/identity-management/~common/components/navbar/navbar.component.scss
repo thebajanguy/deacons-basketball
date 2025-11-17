@@ -105,7 +105,7 @@ $padding-small-horizontal: 15px !default;
     vertical-align: middle;
 
     &:not(.btn):not(.dropdown-item) {
-      color: $white-color;
+      color: $light-color;
     }
 
     &.dropdown-item {
@@ -138,7 +138,7 @@ $padding-small-horizontal: 15px !default;
     .form-group-addon,
     .input-group-prepend .input-group-text,
     .input-group-append .input-group-text {
-      color: $white-color;
+      color: $light-color;
       margin-left: -5px;
 
       i {
@@ -148,10 +148,10 @@ $padding-small-horizontal: 15px !default;
 
     &.no-border {
       .form-control {
-        color: $white-color;
+        color: $light-color;
 
         @include placeholder() {
-          color: $white-color;
+          color: $light-color;
         }
       }
     }
@@ -259,7 +259,7 @@ $padding-small-horizontal: 15px !default;
 
       &.disabled {
         opacity: 0.5;
-        color: $white-color;
+        color: $light-color;
       }
     }
 
@@ -269,7 +269,7 @@ $padding-small-horizontal: 15px !default;
     .nav-item .nav-link:not(.btn):active {
       background-color: $opacity-2;
       border-radius: $border-radius-small;
-      color: $white-color;
+      color: $light-color;
     }
   }
 
@@ -314,7 +314,7 @@ $padding-small-horizontal: 15px !default;
   &.navbar-transparent {
     background-color: $transparent-bg !important;
     box-shadow: none;
-    color: $white-color;
+    color: $light-color;
   }
 
   &.bg-white:not(.navbar-transparent) {
@@ -370,5 +370,5 @@ $padding-small-horizontal: 15px !default;
 }
 
 .bg-white {
-  background-color: $white-color !important;
+  background-color: $light-color !important;
 }

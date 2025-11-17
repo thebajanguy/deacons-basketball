@@ -21,11 +21,12 @@ import {
 } from '../../../~common/apis/correspondence.api';
 import { SocialPluginComponent } from '../../../~common/components/social-plugin/social-plugin.component';
 import { BasePageComponent } from '../../../../../core/directives/base-page.directive';
+import { BaseHeroComponent } from "../../../~common/components/base-hero/base-hero.component";
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, SocialPluginComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, SocialPluginComponent, BaseHeroComponent],
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,7 +6,7 @@
   [description]="description"
   [backgroundUrl]="'assets/img/heroes/deacons-basketball-u14-champions-hero.jpg'"
   [headerSize]="'lg'"
-  [isNavigationPage]="false"
+  [isNavigationPage]="true"
   [breadcrumbSEO]="'Who We Are'"
   [breadcrumb]="[
       { label: 'Home', link: ['/'+urlPath+'/barbados'] },
@@ -27,6 +27,7 @@
           <!-- Headings -->
           <div class="row">
               <div class="ml-auto mr-auto text-center">
+                <header>
                   <h2 id="values-heading" class="h2 text-uppercase">Inspired by Our Values</h2>
                   <h3 class="h3 mt-2">Developing Student-Athletes through Integrity, Innovation, and Coaching
                       Excellence</h3>
@@ -43,6 +44,7 @@
                       to see if you are a fit for out program and start your <em>Labor Durus</em> (“hard work”) journey
                       with Deacons Basketball Club.
                   </p>
+                </header>
               </div>
           </div>
 
@@ -59,7 +61,7 @@
                               loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
                               itemprop="image" />
                           <figcaption class="sr-only">Integrity in training and academics</figcaption>
-                          <h3 class="card-category section-title-md text-primary" itemprop="name">Integrity</h3>
+                          <h3 class="card-category section-title-md" itemprop="name">Integrity</h3>
                           <p class="card-description-dark" itemprop="description">
                               We do the right thing—<strong>consistently</strong>. Transparent goals, honest feedback, and standards
                               that shape how we train, and compete and treat others.
@@ -84,7 +86,7 @@
                               loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
                               itemprop="image" />
                           <figcaption class="sr-only">Innovation with data-driven training</figcaption>
-                          <h3 class="card-category section-title-md text-primary" itemprop="name">Innovation</h3>
+                          <h3 class="card-category section-title-md" itemprop="name">Innovation</h3>
                           <p class="card-description-dark" itemprop="description">
                               Unlock <strong>next-generation basketball development</strong> with advanced training methods, 
                               and progressive coaching built for today’s young basketballers-athlete.
@@ -110,7 +112,7 @@
                               loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
                               itemprop="image" />
                           <figcaption class="sr-only">The player success plans</figcaption>
-                          <h3 class="card-category section-title-md text-primary" itemprop="name">The Player
+                          <h3 class="card-category section-title-md" itemprop="name">The Player
                           </h3>
                           <p class="card-description-dark" itemprop="description">
                             Our “Player-First” approach ensures that every training session, 
@@ -137,7 +139,7 @@
                               loading="lazy" width="580" height="360" sizes="(max-width: 768px) 100vw, 25vw"
                               itemprop="image" />
                           <figcaption class="sr-only">Expert coaches and tutors</figcaption>
-                          <h3 class="card-category section-title-md text-primary" itemprop="name">Coaches & Mentors
+                          <h3 class="card-category section-title-md" itemprop="name">Coaches & Mentors
                           </h3>
                           <p class="card-description-dark" itemprop="description">
                               Through consistent teaching, honest feedback, and individualized support, our 
@@ -178,7 +180,8 @@
     <!-- Start Maximize Potential Banner -->
     <section class="section hero-banner cta-exposure parallax-hero" aria-labelledby="sports-development-title-a">
       <!-- decorative background image with accessible label -->
-      <div class="cta-bg sports-option-a" role="img"
+      <div class="cta-bg sports-option-a" 
+          role="img"
           aria-label="Coach and athlete shaking hands on a track beside a laptop playing a highlight reel.">
       </div>
       <div class="hero-overlay"></div>
@@ -187,12 +190,12 @@
               <div class="ml-auto mr-auto text-center">
                   <div class="container cta-content">
   
-                      <h2 id="sports-development-title-a" class="text-white">
+                      <h2 id="sports-development-title-a" class="text-color-main ">
                         Helping Young-Basketballers Maximize Their True Potential
                       </h2>
                       <h3 class="title text-color-main t-2">
                         Our motto <strong>"Labor Durus"</strong> — the Latin translation of <strong>"Hard
-                          Work"</strong>.
+                          Work"</strong>. 
                       </h3>
   
                       <h5 class="cta-subhead align-center mt-3">
@@ -257,7 +260,7 @@
                   itemprop="image" />
                 <figcaption class="sr-only">Integrity in training and academics</figcaption>
     
-                <h3 class="card-category section-title-md text-primary" itemprop="name">We Coach</h3>
+                <h3 class="card-category section-title-md" itemprop="name">We Coach</h3>
     
                 <!-- Accessible icon list -->
                 <ul class="icon-list card-description-dark" role="list" itemprop="description">
@@ -292,7 +295,7 @@
                   itemprop="image" />
                 <figcaption class="sr-only">Innovation with AI and performance analytics</figcaption>
     
-                <h3 class="card-category section-title-md text-primary" itemprop="name">We Teach</h3>
+                <h3 class="card-category section-title-md" itemprop="name">We Teach</h3>
                 <ul class="icon-list card-description-dark" role="list" itemprop="description">
                   <li><span class="icon" aria-hidden="true"></span><span>NCAA Core Classes</span></li>
                   <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness</span></li>
@@ -325,7 +328,7 @@
                   itemprop="image" />
                 <figcaption class="sr-only">Student-athlete success plans</figcaption>
     
-                <h3 class="card-category section-title-md text-primary" itemprop="name">We Offer</h3>
+                <h3 class="card-category section-title-md" itemprop="name">We Offer</h3>
                 <ul class="icon-list card-description-dark" role="list" itemprop="description">
                   <li><span class="icon" aria-hidden="true"></span><span>Basketball Performance Training</span></li>
                   <li><span class="icon" aria-hidden="true"></span><span>Age-Specific Athletic Training</span></li>
@@ -358,7 +361,7 @@
                   itemprop="image" />
                 <figcaption class="sr-only">Expert coaches and tutors</figcaption>
     
-                <h3 class="card-category section-title-md text-primary" itemprop="name">We Deliver</h3>
+                <h3 class="card-category section-title-md" itemprop="name">We Deliver</h3>
                 <ul class="icon-list card-description-dark" role="list" itemprop="description">
                   <li><span class="icon" aria-hidden="true"></span><span>Customized Improvement Plan</span></li>
                   <li><span class="icon" aria-hidden="true"></span><span>Mental Toughness Development</span></li>

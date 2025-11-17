@@ -10,7 +10,7 @@
         text-align: center;
         height: 30px;
         line-height: 30px;
-        color: $black-color;
+        color: $dark-color;
         cursor: pointer;
         font-size: $font-size-base;
         text-transform: uppercase;
@@ -18,7 +18,7 @@
 
         &:hover,
         &:focus{
-            color: $black-color;
+            color: $dark-color;
             background-color: $opacity-gray-3;
             border: none;
         }
@@ -33,7 +33,7 @@
         &:hover{
             background-color: $default-color;
             border-color: $default-color;
-            color: $white-color;
+            color: $light-color;
         }
     }
 
@@ -118,12 +118,12 @@ ngb-pagination{
 
   &.pagination-neutral{
       .page-item > .page-link{
-          color: $white-color;
+          color: $light-color;
 
           &:focus,
           &:hover{
               background-color: $opacity-2;
-              color: $white-color;
+              color: $light-color;
           }
       }
 
@@ -131,8 +131,8 @@ ngb-pagination{
           &,
           &:focus,
           &:hover{
-              background-color: $white-bg;
-              border-color: $white-bg;
+              background-color: $light-bg;
+              border-color: $light-bg;
               color: $brand-primary;
           }
       }

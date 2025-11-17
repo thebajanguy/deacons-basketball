@@ -1,36 +1,4 @@
-/* Design tokens */
-:root {
-  --bg: #00a651;
-  --card: #111727;
-  --ink: #e7ecf6;
-  --muted: #9fb0d0;
-  --brand: #f5b301; /* gold */
-  --accent: #3aa9ff;
-  --ring: rgba(250, 188, 60, 0.5);
-  --success: #17b26a;
-  --black: #000000;
-  --gold: #f5b301;
-  --green: #00a651;
-}
-
-$white-color:               #ffffff !default;
-$main-color:                #ffd212 !default;
-$nav-color:                 #060606 !default;
-$dark-color:                #060606 !default;
-$green:                     #18ce0f;
-
-
-$link-disabled-color:       #666666 !default;
-$link-hover-color:          $main-color !default;
-$link-active-color:         $green !default;
-$link-focus-color:          $main-color !default;
-$link-default-color:        $white-color !default;
-
-$burger-color-closed:       $white-color !default;
-$burger-color-open:         $main-color !default;
-
-$font-size-navbar:          1em !default;
-$font-size-large-navbar:    22px !default;
+@import '../header-footer.scss';
 
 
 /* Fix fixed-top overlap with page content (optional) */
@@ -46,14 +14,11 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
   top: 0;
   z-index: 9999;
   padding: 0.35rem 0.75rem;
-  background-color: $nav-color !important;
+  background-color: $nav-background-color !important;
   background-image: none !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  box-shadow: 0 2px 8px $box-shadow-color;
   //border-bottom: 3px solid red !important; 
 }
-
-
-
 
 .icon-link { margin:0px; margin-top: -10px; margin-right: 10px; height: 35px; padding: 0px;}
 
@@ -74,7 +39,7 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
   margin-left: .35rem;
   text-transform: uppercase;
 
-  line-height: 1.1; letter-spacing: .02em; font-weight: 600; color: $main-color;
+  line-height: 1.1; letter-spacing: .02em; font-weight: 600; color: $brand-main-color;
 }
 /* Nav links – mobile: stacked; desktop: inline */
 .navbar-nav .nav-link {
@@ -109,7 +74,7 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
 .navbar,
 .navbar.navbar-transparent,
 .navbar.navbar-color-on-scroll {
-  background-color: $nav-color !important;
+  background-color: $nav-background-color !important;
   background-image: none !important;
   backdrop-filter: none !important;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
@@ -130,11 +95,11 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
 }
 
 /* Dark navbar variant */
-.navbar.navbar-dark .nav-link { color: $white-color; }
+.navbar.navbar-dark .nav-link { color: $light-color; }
 .navbar.navbar-dark .nav-link:hover,
 .navbar.navbar-dark .nav-link:focus-visible,
 .navbar.navbar-dark .nav-link.active {
-  color: $main-color !important; /* ← your brand accent */
+  color: $link-hover-color !important; /* ← your brand accent */
 }
 
 /* Light navbar variant */
@@ -216,12 +181,12 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
 }
 
 /* Ensure collapsed panel has a solid bg on mobile */
-.navbar .navbar-collapse { background-color: $nav-color !important; }
+.navbar .navbar-collapse { background-color: $nav-background-color !important; }
 
 /* Dropdown menu visual polish (optional) */
 .dropdown-menu.dropdown-info {
   padding: 0;
-  background-color: $white-color;  
+  background-color: $light-color;  
 }
 
 
@@ -236,14 +201,14 @@ body { padding-top: 3rem; } /* adjust to your navbar height */
    NAVBAR DROPDOWNS (Images + Text)
    =============================== */
 
-$dropdown-bg:            #0f2448 !default; // darker than $nav-color for contrast
+$dropdown-bg:            #0f2448 !default; // darker than $nav-background-color for contrast
 $dropdown-bg-light:      #ffffff !default;
 $dropdown-border:        rgba(255,255,255,.08) !default;
 $dropdown-shadow:        0 14px 40px rgba(0,0,0,.28) !default;
 $dropdown-radius:        14px !default;
-$dropdown-link:          $white-color !default;
+$dropdown-link:          $light-color !default;
 $dropdown-link-muted:    rgba(255,255,255,.7) !default;
-$dropdown-link-hover:    $main-color !default;
+$dropdown-link-hover:    $brand-main-color !default;
 $dropdown-sep:           rgba(255,255,255,.06) !default;
 
 $thumb-size:             44px !default;
@@ -266,7 +231,7 @@ $thumb-radius:           10px !default;
   min-width: 280px;
   border: 1px solid $dropdown-border;
   border-radius: $dropdown-radius;
-  background-color: $nav-color;
+  background-color: $nav-background-color;
   padding: .5rem;
   margin-top: .75rem; /* space from toggle */
   box-shadow: $dropdown-shadow;
@@ -288,7 +253,7 @@ $thumb-radius:           10px !default;
 }
 
 /* Dark vs light navbar variants */
-.navbar.navbar-dark .dropdown-menu {   background: $nav-color;}
+.navbar.navbar-dark .dropdown-menu {   background: $nav-background-color;}
 .navbar.navbar-light .dropdown-menu {
   background: $dropdown-bg-light;
   border-color: rgba(12, 28, 64, .08);
@@ -495,7 +460,7 @@ $thumb-radius:           10px !default;
   &::placeholder { color: rgba(255,255,255,.65); }
   &:focus {
     background: rgba(255,255,255,.12);
-    border-color: $main-color;
+    border-color: $brand-main-color;
     box-shadow: 0 0 0 3px rgba(255,210,18,.22);
     outline: none;
   }
@@ -504,8 +469,8 @@ $thumb-radius:           10px !default;
   position: absolute;
   right: .5rem; top: 50%;
   transform: translateY(-50%);
-  background: $main-color;
-  color: $nav-color;
+  background: $brand-main-color;
+  color: $nav-background-color;
   border: 0;
   border-radius: 50%;
   padding: .45rem;
@@ -543,8 +508,8 @@ $thumb-radius:           10px !default;
 }
 
 .navbar .btn-main {
-  background: $main-color;
-  color: $nav-color;
+  background: $brand-main-color;
+  color: $nav-background-color;
   border: 0;
 }
 .navbar .btn-main:hover,
@@ -586,7 +551,7 @@ $thumb-radius:           10px !default;
    ====================== */
 .navbar .dropdown-item:focus-visible,
 .navbar .mega .mega-card:focus-visible {
-  outline: 2px solid $main-color;
+  outline: 2px solid $brand-main-color;
   outline-offset: 2px;
 }
 
@@ -618,7 +583,7 @@ $thumb-radius:           10px !default;
 /* When the dropdown is open (or aria-expanded=true), tint the text */
 .navbar .nav-item.dropdown.show > .nav-link,
 .navbar .nav-item.dropdown .nav-link[aria-expanded="true"] {
-  color: $main-color !important;           /* highlight the title text */
+  color: $brand-main-color !important;           /* highlight the title text */
   font-weight: 700;                         /* optional: make it bolder */
 }
 
@@ -630,7 +595,7 @@ $thumb-radius:           10px !default;
   right: .75rem;              /* adjust to taste */
   bottom: -.35rem;            /* sits just below the baseline */
   height: 3px;
-  //background: $white-color;
+  //background: $light-color;
   border-radius: 3px;
   opacity: 0;
   transform: translateY(6px);
@@ -660,7 +625,7 @@ $thumb-radius:           10px !default;
   left: 50%;
   width: 14px;
   height: 14px;
-  background: $nav-color;               /* same as menu background (dark) */
+  background: $nav-background-color;               /* same as menu background (dark) */
   border-top: 1px solid $dropdown-border;
   border-left: 1px solid $dropdown-border;
   transform: translateX(-50%) rotate(45deg);
@@ -680,7 +645,7 @@ $thumb-radius:           10px !default;
   width: 100%;
   height: inherit;
   text-transform: uppercase;
-  background-color: $green;
+  background-color: $brand-secondary-color;
 }
 
 #ribbon.ribbon-bar {
@@ -705,7 +670,7 @@ $thumb-radius:           10px !default;
     .dot {
       width: clamp(0.35rem, 1vw, 0.5rem); height: clamp(0.35rem, 1vw, 0.5rem);
       border-radius: 50%;
-      border: 2px solid $main-color;
+      border: 2px solid $brand-main-color;
       box-shadow: 0 0 0 2px rgba(255,210,18,.25);
       flex-shrink: 0;                // dot never collapses
 
@@ -713,7 +678,6 @@ $thumb-radius:           10px !default;
       padding: 2px;
       gap: 1em;
       transform: translateY(-2px);
-
     }
 
     .medal { font-size:1.2rem; }
@@ -773,7 +737,7 @@ $thumb-radius:           10px !default;
   top: 0;
   z-index: 1050;
   display: block;
-  background: $nav-color;        // instead of rgba(...)
+  background: $nav-background-color;        // instead of rgba(...)
   background: rgba(11,15,26,0.9);
 
   backdrop-filter: none;
@@ -790,7 +754,7 @@ $thumb-radius:           10px !default;
 
 /* Make active links yellow */
 .navbar .link-active {
-  color: $main-color !important;
+  color: $brand-main-color !important;
   font-weight: 700;
   //border-bottom: 2px solid orangered!important; 
 
@@ -800,24 +764,24 @@ $thumb-radius:           10px !default;
 .navbar .link-active::before {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  border-bottom: 3px solid $main-color !important; 
+  border-bottom: 3px solid $brand-main-color !important; 
 }
 
 
 /* Site Nav Link Active */
 #siteNavBar {
   margin-bottom:0px;
-  border-bottom: 1px solid $main-color !important; 
+  border-bottom: 2px solid $brand-main-color !important; 
 
   .nav-row{
     #mainNavbar{
-      background-color: $nav-color !important;
+      background-color: $nav-background-color !important;
       .navbar-nav {
         .nav-item.single.link-active{
           .nav-link span {
-            color: $green !important;
+            color: $brand-secondary-color !important;
             font-weight: 800;
-            border-bottom: 2px solid $green !important; 
+            border-bottom: 2px solid $link-highlight-color !important; 
           }
         }
       }
@@ -829,18 +793,18 @@ $thumb-radius:           10px !default;
 /* DO NOT MOVE FROM BOTTOM */
 #siteNavBar .navbar-collapse,
 #siteNavBar .nav-row #mainNavbar {
-  background-color: $nav-color !important;
+  background-color: $nav-background-color !important;
   background-image: none !important;
 }
 /* Mobile: make the header + collapsed panel fully solid */
 @media (max-width: 991.98px) {
   .site-header {
-    background: $nav-color !important;   // solid, no alpha
+    background: $nav-background-color !important;   // solid, no alpha
     backdrop-filter: none !important;
   }
 
   #siteNavBar .navbar-collapse {
-    background-color: $nav-color !important;
+    background-color: $nav-background-color !important;
     background-image: none !important;
   }
 }

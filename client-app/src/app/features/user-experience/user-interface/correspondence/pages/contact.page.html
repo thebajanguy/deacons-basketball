@@ -1,52 +1,24 @@
 <!-- Begin Hero Section -->
-<header
-  class="page-header parallax-hero hero--main div-color-dark"
-  role="banner"
-  aria-labelledby="page-hero-title"
+<!-- hero-page.component.html Build Skills. Grow Character. Win Together.-->
+<app-base-hero-cmp
+[title]="'Get in touch with'"
+[subtitle]="'Deacons Basketball Club'"
+[description]="description"
+[backgroundUrl]="'assets/img/pages/correspondence/deacons-basketball-correspondence-hero-bg.png'"
+[headerSize]="'lg'"
+[isNavigationPage]="true"
+[breadcrumbSEO]="'Home'"
+[breadcrumb]="[
+    { label: 'Home', link: ['/'+urlPath+'/barbados'] },
+    { label: 'Contact Us' }
+]"
+[ctas]="[
+  { label: 'Begin Your Journey Today', routerLink: ['.'] , fragment:'contact', variant:'primary', ariaLabel:'Start your journey with Deacons Basketball Club' },
+  { label: 'View Academy Schedule', routerLink: ['/'+urlPath+'/academy'] , variant:'light', ariaLabel:'View Deacons Basketball Club Practice Schedule' },
+  { label: 'Call Us @ (718) 637-0566', phone: '+17186370566', variant:'outline', ariaLabel:'Call Deacons Basketball Club' }
+]"
 >
-  <div class="content-center">
-    <div class="container">
-
-      <br>
-      <h1 id="page-hero-title" class="hero-title text-uppercase">
-        <span class="text-color-white">Get in touch with</span><br />
-        <span class="text-color-main">Deacons Basketball Club</span>
-      </h1>
-
-      <p class="hero__description text-white mt-3">
-        👉 Contact <strong>Deacons Basketball Club</strong> to plan your next step in academics and athletics.
-        Guided by our motto <em>Labor Durus</em> — “Hard Work Always Pays Off” — we help young-basketballers
-        turn goals into results. Tell us how we can help.
-      </p>
-
-      <!-- Backup breadcrumb for SR only (optional if above nav is shown) -->
-      <nav class="sr-only" aria-label="Breadcrumb">
-        <ol>
-          <li><a [routerLink]="['/'+urlPath+'/barbados']">Home</a></li>
-          <li aria-current="page">Consultation</li>
-        </ol>
-      </nav>
-
-      <!-- CTA Buttons -->
-      <nav class="buttons mt-4" aria-label="Primary calls to action">
-        <a class="btn btn-main btn-lg btn-magnify" 
-          routerLink="." 
-          fragment="contact"
-          aria-label="Start your journey with Deacons Basketball Club">
-          &nbsp;  Begin Your Journey Today &nbsp;
-        </a>
-        &nbsp;&nbsp;
-        <a href="tel:+17186370566" class="btn btn-main btn-lg btn-magnify"
-          aria-label="Call Deacons Basketball Club">Call (718) 637-0566
-        </a>
-
-      </nav>
-
-
-    </div>
-  </div>
-</header>
-
+</app-base-hero-cmp>
 <!-- End Hero Section -->
 
 <section id="contact" class="section section-white py-5" aria-labelledby="contact-deacons-basketball-title" role="region">

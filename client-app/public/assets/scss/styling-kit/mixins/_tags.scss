@@ -1,9 +1,9 @@
 @mixin tag-color ($color){
          background-color: $color;
-         color: $white-color;
+         color: $light-color;
          border:none;
          .tagsinput-remove-link{
-             color: $white-color;
+             color: $light-color;
          }
      .tagsinput-add{
          color: $color;
