@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { CommonModule } from '@angular/common';
 import { GraphService } from '../~common/services/graph.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +14,23 @@ import { GraphService } from '../~common/services/graph.service';
 export class UserProfilePage implements OnInit {
   userProfile: any;
 
-  constructor(private msalService: MsalService, private graphService: GraphService) {
+  @Output() signInToParent = new EventEmitter<any>();
+  @Output() signOutToParent = new EventEmitter();
+  @Output() signUpToParent = new EventEmitter<any>();
+  @Output() editProfileToParent = new EventEmitter();
+
+
+    description = `
+    <span class="title text-success">Propel my career.</span>&nbsp;
+    <span class="title text-info">Propel my child.</span>&nbsp;
+    <span class="title text-danger">Propel my team.</span>&nbsp;
+  `.trim();  
+    safeDescription: SafeHtml = '';
+
+  constructor(private msalService: MsalService, private graphService: GraphService, private sanitizer: DomSanitizer,) {
+
+    this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(this.description);
+
   }
 
   ngOnInit(): void {
@@ -29,10 +46,9 @@ export class UserProfilePage implements OnInit {
 
   login() {
     console.info('login');
-
     this.msalService.loginRedirect();
   }
-
+  //
   getUserProfile() {
     console.info('getUserProfile');
     /*

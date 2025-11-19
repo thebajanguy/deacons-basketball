@@ -1,54 +1,32 @@
 
 
-<header id="ipaas" name="ipaas" class="page-header header-section-image div-dark separator-bottom-card"
-style="background-image: url('img/sections/heading-home-1.png')">
-    <div class="filter filter-black"></div>
+<section
+  class="section parallax-hero hero--main"
+  role="banner"
+  aria-labelledby="page-hero-title"
+>
+  <div class="content-center">
+    <div class="container">
 
-  <div class="container">
-    <div class="row separator-bottom-header-neutral">
       <div class="ml-auto mr-auto" style="padding-top: 150px;">
-        <h1 class="text-uppercase text-left page-header-1 white-text" style="font-weight: 400;">
-            My Deacons Basketball Club&trade; MEMBERSHIP
-        </h1>
+         <div class="hero__header__container">
+          <h1 id="page-hero-title" class="hero__title"  data-rellax-speed="-2">My Deacons Basketball Club&trade; MEMBERSHIP</h1>
+          <h1 id="page-hero-subtitle" class="hero__title subtitle"  data-rellax-speed="-2" ></h1>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="ml-auto mr-auto" style="padding-top: 0px;">
+          <div class="">
+            <h6 class="card-category text-success align-left" style="font-size:xx-large;">
+              <span class="title text-success">Propel my career.</span>&nbsp;
+              <span class="title text-info">Propel my child.</span>&nbsp;
+              <span class="title text-danger">Propel my team.</span>&nbsp;
+            </h6>
+          </div>
+       </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="ml-auto mr-auto" style="padding-top: 0px;">
-        <div class="">
-          <h6 class="card-category text-success text-left" style="font-size:xx-large;">
-            <span class="title text-success">Propel my career.</span>&nbsp;
-            <span class="title text-info">Propel my child.</span>&nbsp;
-            <span class="title text-danger">Propel my team.</span>&nbsp;
-          </h6>
-        </div>
-     </div>
-    </div>
-    <div class="row">
-      <div class="col col-6-sm box-outter box-inner">
-
-        <div *ngIf="!userProfile">
-
-          <button 
-          class="btn btn-wd btn-lg btn-danger btn-magnify text-uppercase" 
-          style="font-size: 2.0em;line-height: 2.2;" 
-          (click)="login()" 
-          >
-              <i class="now-ui-icons files_single-copy-04"></i>&nbsp; Login
-          </button>
-
-        </div>
-      </div>  
-
-      <div class="col col-6-sm box-outter box-inner">
-
-        <div *ngIf="userProfile">
-            <h1>User Profile</h1>
-            <pre>{{ userProfile | json }}</pre>
-        </div>
-
-      </div>  
-
-    </div>  
   </div>
-</header>
+</section>

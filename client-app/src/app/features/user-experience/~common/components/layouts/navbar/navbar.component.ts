@@ -117,31 +117,6 @@ export class NavbarComponent implements OnInit, OnDestroy,  AfterViewInit {
   ngOnDestroy(): void {}
 
   // Identity Management
-  logout() {
-    // Call your auth service
-    console.log('Signing out…');
-  }
-
-/*
-  signOut(){
-    this.user = null;
-    this.signOutToParent.emit();
-  }
-  signIn() {
-    this.signInToParent.emit({
-      prompt: 'login'
-    });
-  }
-  signUp() {
-    this.signUpToParent.emit({
-      prompt: 'login'
-    });
-  }
-  profileEdit() {
-    this.editProfileToParent.emit();
-  }
-*/
-  //
   signOut(){
     this.user = null;
     this.signOutToParent.emit();
@@ -153,7 +128,7 @@ export class NavbarComponent implements OnInit, OnDestroy,  AfterViewInit {
       prompt: PromptValue.LOGIN // force user to reauthenticate with their new password
     };
 
-    alert('NavbarComponent-signIn: ' + JSON.stringify(signUpSignInFlowRequest) );
+   // alert('NavbarComponent-signIn: ' + JSON.stringify(signUpSignInFlowRequest) );
     this.signInToParent.emit(signUpSignInFlowRequest);
   }
   signUp() {

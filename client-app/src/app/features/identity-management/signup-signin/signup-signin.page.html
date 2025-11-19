@@ -7,17 +7,6 @@
   <div class="content-center">
     <div class="container">
 
-      <!-- Accessible breadcrumb (visible + crawlable) 
-      <nav *ngIf="breadcrumb?.length" class="hero__crumbs" aria-label="Breadcrumb">
-        <ol>
-          <li *ngFor="let c of breadcrumb; let last = last" [attr.aria-current]="last ? 'page' : null">
-            <a *ngIf="c.link && !last" [routerLink]="c.link">{{ c.label }}</a>
-            <span *ngIf="!c.link || last">{{ c.label }}</span>
-          </li>
-        </ol>
-      </nav>
-     -->
-      <br>
       <h1 id="page-hero-title" class="hero-title text-uppercase">
         <span class="text-color-white">Why Join</span><br />
         <span class="text-color-main">Deacons Basketball Club<sup>&trade;</sup>?</span>
@@ -34,7 +23,7 @@
       </nav>
 
       <!-- Sign-in and Sign-up Information -->
-      <!-- To do: Add and finalize the SUSI section
+      <!-- To do: Add and finalize the SUSI section-->
       <div class="row hero__cta-row" role="group" aria-label="Membership options">
         <div class="hero__card">
           <h2 class="title text-uppercase text-primary hero__box-title">
@@ -42,7 +31,7 @@
           </h2>
           <img class="avatar" src="assets/img/icons/icon-sign-in.png" alt="Member sign-in icon" />
           <button type="button" *ngIf="!loginDisplay"
-            class="btn btn-wd btn-lg btn-primary btn-magnify text-uppercase hero__cta"
+            class="btn btn-primary text-uppercase hero__cta"
             aria-label="Sign in to Deacons Basketball Club" (click)="signIn()">
             <i class="nc-icon nc-badge" aria-hidden="true"></i> <span>Sign In</span>
           </button>
@@ -54,13 +43,12 @@
           </h2>
           <img class="avatar" src="assets/img/icons/icon-register.png" alt="Register icon" />
           <button type="button" *ngIf="!loginDisplay"
-            class="btn btn-wd btn-lg btn-danger btn-magnify text-uppercase hero__cta"
+            class="btn btn-danger text-uppercase hero__cta"
             aria-label="Create a Deacons Basketball Club account" (click)="signUp()">
             <i class="nc-icon nc-badge" aria-hidden="true"></i> <span>Sign Up</span>
           </button>
         </div>
       </div>
-      -->
 
       <div class="mt-3">
         <app-social-plugin-cmp></app-social-plugin-cmp>

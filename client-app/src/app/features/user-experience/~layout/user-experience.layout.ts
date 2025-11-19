@@ -170,6 +170,10 @@ export class UserExperienceLayout
     super.OnDestroy();
   }
 
+  sayHelloFromRouterComponent(){
+    alert('sayHelloFromRouterComponent');
+  }
+
   // Child -> parent actions
   signInFromChild(request: any) {
     this.login(request);

@@ -14,6 +14,8 @@ export type CtaConfig = {
   ariaLabel?: string;
   fragment?:string;
   phone?:string;
+  login?:string;
+  signout?:string;
   rel?: string;
   target?: '_blank' | '_self';
   variant?: 'primary' | 'outline' | 'ghost' | 'light';
