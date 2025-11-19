@@ -203,7 +203,7 @@ $vsap-gold: var(--vsap-gold, #fbc02d);
 .box-outter {
   box-sizing: border-box;
   background-color: transparent;
-  border: 2px $main-color solid;
+  border: 2px $brand-main-color solid;
   margin: 20px;
   padding: 0 25px 25px;
 }
@@ -211,7 +211,7 @@ $vsap-gold: var(--vsap-gold, #fbc02d);
 .box-inner {
   width: 100%;
   box-sizing: border-box;
-  border: 2px $main-color solid;
+  border: 2px $brand-main-color solid;
   background: #ebebeb; /* fixed invalid rgba(#hex,100) */
   padding-top: 100px;
   color: #fff;

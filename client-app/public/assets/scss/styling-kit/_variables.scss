@@ -55,12 +55,12 @@ $border: 1px solid !default;
 /* =========================
    GENERAL COLORS
 ========================= */
-$main-color: #ffd212 !default;
-$main-states-color: darken($main-color, 8%) !default;
+$brand-main-color: #ffd212 !default;
+$brand-main-states-color: darken($brand-main-color, 8%) !default;
 
 $white: #fff !default;
-$white-color: #FFFFFF !default;
-$white-bg: #FFFFFF !default;
+$light-color: #FFFFFF !default;
+$light-bg: #FFFFFF !default;
 
 $font-color: #66615b !default;
 $fill-font-color: rgba(255, 255, 255, 0.8);
@@ -71,9 +71,9 @@ $default-states-color: lighten($default-color, 6%) !default;
 $default-color-opacity: rgba(182, 182, 182, .6) !default;
 
 $link-disabled-color: #666666 !default;
-$link-hover-color: $main-color !default;
-$link-active-color: $main-color !default;
-$link-default-color: $white-color !default;
+$link-hover-color: $brand-main-color !default;
+$link-active-color: $brand-main-color !default;
+$link-default-color: $light-color !default;
 
 
 $smoke-bg: #F5F5F5 !default;
@@ -94,10 +94,10 @@ $brown-states-color: darken($brown-color, 8%) !default;
 $neutral-color: #ecf0f1 !default;
 $neutral-states-color: darken($neutral-color, 8%) !default;
 
-$black-color: #060606 !default;
+$dark-color: #060606 !default;
 $black-hr: #444444 !default;
 $black-bg: rgba(7, 7, 7, 0.97) !default;
-$black-states-color: darken($black-color, 8%) !default;
+$dark-states-color: darken($dark-color, 8%) !default;
 $light-black:                #1d1d1d    !default;
 
 $light-gray: #E3E3E3 !default;
@@ -171,7 +171,7 @@ $orange-bg: #e95e38 !default;
 
 $dark-background: #555555 !default;
 
-$nav-color: #050505 !default;
+$nav-background-color: #050505 !default;
 
 $seperator-color: $primary-color !default;
 
@@ -181,7 +181,7 @@ $brand-info: $info-color !default;
 $brand-success: $success-color !default;
 $brand-warning: $warning-color !default;
 $brand-danger: $danger-color !default;
-$brand-inverse: $black-color !default;
+$brand-inverse: $dark-color !default;
 
 /* Light overlay colors (for tints) */
 $light-blue: rgba($primary-color, .2);
@@ -392,7 +392,7 @@ $social-tumblr-state-color: lighten(#35465c, 6%) !default;
 $social-behance: #1769ff !default;
 $social-behance-state-color: lighten(#1769ff, 6%) !default;
 
-$social-button: $main-color !default;
+$social-button: $brand-main-color !default;
 
 /* =========================
    CARDS

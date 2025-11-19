@@ -63,7 +63,7 @@
     top: -12px;
 }
 .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after{
-    border-bottom: 11px solid $white-color;
+    border-bottom: 11px solid $light-color;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     content: "";
@@ -383,7 +383,7 @@
         bottom: -12px;
     }
     &:after{
-        border-top: 11px solid $white-color;
+        border-top: 11px solid $light-color;
         border-left: 11px solid transparent;
         border-right: 11px solid transparent;
         content: "";

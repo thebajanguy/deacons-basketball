@@ -1,5 +1,5 @@
 body{
-    color: $black-color;
+    color: $dark-color;
     font-size: $font-size-base;
     font-family: $sans-serif-family;
     overflow-x: hidden;
@@ -9,7 +9,7 @@ body{
 
 .main{
     position: relative;
-    background: $white-color;
+    background: $light-color;
 }
 /* Animations */
 .nav-pills .nav-link,
@@ -37,7 +37,7 @@ body{
     width: 22px;
     height: 1px;
     border-radius: 1px;
-    background: $white-bg;
+    background: $light-bg;
 
     & + .button-bar{
         margin-top: 7px;

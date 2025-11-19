@@ -1,33 +1,33 @@
 
 <header class="site-header">
   <!-- Champions ribbon -->
-  <div id="ribbon" class="ribbon-bar" role="region" aria-label="Site announcement">
-    <div class="container announcement">
-      <span class="medal">🏆</span>
-      <strong class="text-color-main">Back-to-Back Champions:</strong>
-      2025 U16 BABA
-      &nbsp;<span class="dot" aria-hidden="true"></span>&nbsp;
-      2024 U14 BABA   
+  <div id="ribbon" class="ribbon-bar align-left" role="region" aria-label="Site announcement">
+    <div class="container ribbon-container">
+  
+      <!-- Announcement -->
+      <div class="announcement">
+        <span class="medal">🏆</span>
+        <strong class="text-color-main">Back-to-Back Champions:</strong>
+        2025 U16 BABA
+        &nbsp;<span class="dot" aria-hidden="true"></span>&nbsp;
+        2024 U14 BABA        
+      </div>
+  
+      <!-- Sign In / Sign Out -->
+      <div class="buttons">
+        <!-- 
+        <a class="btn btn-main btn-sm" (click)="signIn()" *ngIf="!shouldDisplayLogin">Sign In</a>
+        <a class="btn btn-main btn-sm" (click)="signOut()" *ngIf="shouldDisplayLogin">Sign Out</a>
+        -->  
+        <a class="btn btn-main btn-sm" [routerLink]="['register']" fragment="register" title="Contact Deacons Basketball Club">
+          <span itemprop="name">Join Deacons Basketball Academy Today</span>
+        </a>
+
+      </div>
+  
     </div>
-  
-    <!-- Example: search + CTA
-    <form class="navbar-search">
-      <input
-        type="search"
-        class="search-input"
-        placeholder="Search players, programs..."
-        aria-label="Search"
-      />
-      <button type="submit" class="btn-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
-  
-    <a href="#register" class="btn btn-main btn-sm">
-      Register
-    </a>
-    -->
   </div>
+  
   
   
   <!-- navbar.component.html -->
@@ -89,37 +89,15 @@
           <li class="nav-item single" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]="{ exact: true }" style="padding: 0px; margin: 0px;">
             <a class="nav-link  px-3" [routerLink]="['contact']" title="Contact Deacons Basketball Club">
               <i class="nc-icon nc-email-85 icon-info"></i>&nbsp;<span itemprop="name">Contact Us</span>
-
-              <!--<img src="/assets/img/icons/icon-link-contact.png" class="icon-link" />-->
             </a>
           </li>
 
-
-          <li class="nav-item d-none d-lg-block ms-lg-2">
-            <a 
-              [href]="'/' + urlPath + '/register#register'" 
-              class="btn btn-main btn-sm"
-            >
-              Become a Member
-            </a>
-          </li>
-          
           <!-- 
-          <li class="nav-item single" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link px-3" itemprop="url" [routerLink]="['programs']">
-              <i class="nc-icon nc-bulb-63 icon-info"></i>&nbsp;<span itemprop="name">Programs</span>
-            </a>
-          </li>
-
+          <a class="nav-item nav-link" [routerLink]="['membership']" [routerLinkActive]='["link-active"]' *ngIf="!shouldDisplayLogin">
+            <i class="nc-icon nc-single-02 icon-warning"></i> Membership
+          </a>
           -->
-          <!--
 
-          <li class="nav-item single" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]="{ exact: true }" style="padding: 0px; margin: 0px;">
-              <a class="nav-link px-3" [routerLink]="['attend-a-practice']" title="Attend a Practice with Deacons Basketball Club">
-                  <img src="/assets/img/icons/icon-link-event.png" class="icon-link" />
-              </a>
-          </li>
-          -->
           <!-- Coming soon: Search + CTA -->
           <!-- 
           <li class="nav-item d-none d-lg-block">
@@ -135,8 +113,6 @@
               </button>
             </form>
           </li>
-  
-
           -->
   
           <!-- Coming soon: Programs (MEGA) -->

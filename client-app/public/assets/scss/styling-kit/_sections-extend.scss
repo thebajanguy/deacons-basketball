@@ -18,26 +18,26 @@
 
 .section-gold {
     background-color: #caac90;
-    color: $white-color;
+    color: $light-color;
 }
 
 .section-brown {
     background-color: #A59E94;
-    color: $white-color;
+    color: $light-color;
 }
 
 .section-light-blue {
     background-color: $primary-color;
-    color: $white-color;
+    color: $light-color;
 }
 
 .section-dark-blue {
     background-color: #506367;
-    color: $white-color;
+    color: $light-color;
 }
 
 .section-dark {
-    background-color: #151f20;
+    background-color: #050505;
 }
 
 .section-image,
@@ -48,14 +48,14 @@
     .title,
     .info-title,
     .card-plain .card-title {
-        color: $white-color !important;
+        color: $light-color !important;
     }
 
     .category,
     .description,
     .card-plain .card-description,
     .card-plain .card-category {
-        color: rgba($white-color, .7);
+        color: rgba($light-color, .7);
     }
 
     hr {
@@ -67,7 +67,7 @@
 .carousel-caption {
     .title,
     .info-title {
-        color: $white-color;
+        color: $light-color;
     }
 }
 

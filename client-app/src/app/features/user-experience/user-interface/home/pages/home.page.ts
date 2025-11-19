@@ -44,7 +44,8 @@ export class HomePage extends BasePageComponent {
       { title: 'Rookie Academy — Boys & Girls 11 & Under', 
         blurb: `
         Build confidence early with our fun-first basketball program for young basketballers.
-        Through exciting games that develop movement, balance, coordination, and teamwork, players learn to love the game while building a strong foundation for future success.`, img: 'assets/img/sections/deacons-mini-ball-332-226.png' },
+        Through exciting games that develop movement, balance, coordination, and teamwork, players learn to love the game while building a strong foundation for future success.`, 
+        img: 'assets/img/sections/deacons-mini-ball-332-226.png' },
         
 
 

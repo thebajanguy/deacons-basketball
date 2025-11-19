@@ -80,7 +80,7 @@ p{
         text-transform: uppercase;
 
         a{
-            color: $black-color;
+            color: $dark-color;
             text-decoration: none;
         }
     }
@@ -152,7 +152,7 @@ p{
 
     &.blockquote-white{
         border-color: $opacity-8;
-        color: $white-color;
+        color: $light-color;
 
         small{
             color: $opacity-8;

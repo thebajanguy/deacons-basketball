@@ -160,7 +160,7 @@
                   </div>
                   <div class="card-body text-left card-black-color">
                     <img [src]="p.img" [alt]="p.title" loading="lazy" width="580" height="240" />                    
-                    <h3 class="card-category section-title-md" [innerHTML]="getSafeHtml(p.title)"></h3>
+                    <h3 class="card-category" [innerHTML]="getSafeHtml(p.title)"></h3>
                     <p class="card-description-dark">{{ p.blurb }}</p>
                     <h4 class="sr-only" [id]="'academy-caption-' + p.title">Camp schedule and price for {{ p.title }}</h4>
                

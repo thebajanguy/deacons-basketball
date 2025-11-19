@@ -22,7 +22,7 @@ div.box-inner {
     box-sizing: border-box;
     //background-color: navy;
     border: 0px $danger-color solid;
-    color: $white-color;
+    color: $light-color;
 
     background: rgba($medium-gray, 0.52);
     padding: 20px;
@@ -34,7 +34,7 @@ div.box-footer {
     background-color: transparent;
     padding: 25px;
     box-sizing: border-box;
-    border: 0px $main-color solid;
+    border: 0px $brand-main-color solid;
   }
 
 .header-section-image{

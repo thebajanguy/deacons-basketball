@@ -4,7 +4,7 @@
     th,
     .day div,
     table tr td span{
-        color: $white-color;
+        color: $light-color;
     }
 
     &:after{
@@ -43,7 +43,7 @@
     table tr td.active.disabled div,
     table tr td.active.disabled:hover div {
 
-      background-color: $white-color;
+      background-color: $light-color;
       color: $color;
     }
 
@@ -92,7 +92,7 @@
     table tr td span.active:hover[disabled],
     table tr td span.active.disabled[disabled],
     table tr td span.active.disabled:hover[disabled]{
-      background-color: $white-color;
+      background-color: $light-color;
     }
 
     table tr td span.active:hover,

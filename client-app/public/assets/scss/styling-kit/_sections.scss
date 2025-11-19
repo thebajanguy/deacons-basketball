@@ -1,7 +1,7 @@
 .section{
     padding: 70px 0;
     position: relative;
-    background: $white-color;
+    background: $light-color;
 
     .row + .category{
         margin-top: $margin-base-vertical;
@@ -32,22 +32,22 @@
 
     .title,
     .card-plain .card-title{
-        color: $white-color;
+        color: $light-color;
     }
 
     .nav-pills .nav-link{
-        background-color: $white-color;
+        background-color: $light-color;
 
         &:hover,
         &:focus{
-            background-color: $white-color;
+            background-color: $light-color;
         }
     }
 
     .info-title,
     .info.info-horizontal .icon i,
     .card-pricing.card-plain ul li{
-        color: $white-color;
+        color: $light-color;
     }
     .description,
     .info .icon:not(.icon-circle){
@@ -55,7 +55,7 @@
     }
     .card:not(.card-plain){
         .info-title{
-            color: $black-color;
+            color: $dark-color;
         }
         .info p,
         .info .icon,
@@ -65,15 +65,15 @@
     }
 
     .footer{
-        color: $white-color;
+        color: $light-color;
     }
     .card-plain{
         [class*="text-"],
         ul li b{
-            color: $white-color;
+            color: $light-color;
         }
         .category{
-            color: rgba($white-color,.5);
+            color: rgba($light-color,.5);
         }
     }
 
@@ -99,7 +99,7 @@
     min-height: 100vh;
     max-height: 999px;
     padding: 0;
-    color: $white-color;
+    color: $light-color;
     position: relative;
     overflow: hidden;
 
@@ -188,7 +188,7 @@
     }
 
     &[filter-color="orange"]{
-        @include linear-gradient(rgba($black-color,.20), rgba(224, 23, 3, 0.6));
+        @include linear-gradient(rgba($dark-color,.20), rgba(224, 23, 3, 0.6));
     }
 }
 
@@ -400,11 +400,11 @@
     background-color: $orange-bg;
 }
 [data-background-color="black"]{
-    background-color: $black-color;
+    background-color: $dark-color;
 }
 
 [data-background-color]:not([data-background-color="gray"]){
-    color: $white-color;
+    color: $light-color;
 
     .separator-line{
         background-color: $opacity-5;
@@ -444,15 +444,15 @@
     &.card-pricing ul li,
     .info.info-horizontal .icon i,
     .card-pricing.card-plain ul li{
-        color: $white-color;
+        color: $light-color;
     }
 
     &.card a:not(.btn):not(.dropdown-item){
-        color: $white-color;
+        color: $light-color;
 
         &:hover,
         &:focus{
-            border-color: $white-color;
+            border-color: $light-color;
         }
     }
 
@@ -479,7 +479,7 @@
     }
 
     .separator{
-        background-color: $white-color;
+        background-color: $light-color;
     }
 
     .navbar.bg-white p{
@@ -506,22 +506,22 @@
     .checkbox label::after,
     .checkbox label,
     .radio label{
-        color: $white-color;
+        color: $light-color;
     }
 
     .checkbox input[type="checkbox"]:disabled + label,
     .radio input[type="radio"]:disabled + label  {
-        color: $white-color;
+        color: $light-color;
     }
 
     .radio input[type="radio"]:not(:disabled):hover + label::after,
     .radio input[type="radio"]:checked + label::after {
-        background-color: $white-color;
-        border-color: $white-color;
+        background-color: $light-color;
+        border-color: $light-color;
     }
 
     //inputs
-    @include input-coloured-bg($opacity-5, $white-color, $white-color, $transparent-bg, $opacity-1, $opacity-2);
+    @include input-coloured-bg($opacity-5, $light-color, $light-color, $transparent-bg, $opacity-1, $opacity-2);
 
     .input-group-text,
     .form-group.form-group-no-border .input-group-text,
@@ -533,7 +533,7 @@
         .form-control{
             background-color: $transparent-bg;
             border: 1px solid $light-gray;
-            color: $black-color;
+            color: $dark-color;
 
             &:last-child{
                 border-left: 0 none;
@@ -553,14 +553,14 @@
     .btn.btn-simple{
         background-color: $transparent-bg;
         border-color: $opacity-5;
-        color: $white-color;
+        color: $light-color;
 
         &:hover,
         &:hover,
         &:focus,
         &:active{
             background-color: $transparent-bg;
-            border-color: $white-color;
+            border-color: $light-color;
         }
     }
 
@@ -569,14 +569,14 @@
         > .nav-item{
             >.nav-link{
                 i.now-ui-icons{
-                    color: $white-color;
+                    color: $light-color;
                 }
             }
         }
     }
 
     &.section-nucleo-icons .icons-container i:nth-child(6){
-        color: $white-color;
+        color: $light-color;
     }
 }
 

@@ -30,11 +30,11 @@
         }
 
         a{
-            color: $white-color !important;
+            color: $light-color !important;
 
             &:hover,
             &:focus{
-                border-color: $white-color !important;
+                border-color: $light-color !important;
             }
         }
     }

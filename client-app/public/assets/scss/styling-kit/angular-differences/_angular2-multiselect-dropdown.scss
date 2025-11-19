@@ -4,7 +4,7 @@
 .selected-list .c-list .c-token {
     background: none !important;
     .c-label{
-      color: $black-color !important;
+      color: $dark-color !important;
     }
 }
 .selected-list .c-list .c-token .c-remove svg{
@@ -41,7 +41,7 @@
                 }
                 input[type="checkbox"] +
                 label:after{
-                    border-color: $black-color !important;
+                    border-color: $dark-color !important;
                 }
             }
         }

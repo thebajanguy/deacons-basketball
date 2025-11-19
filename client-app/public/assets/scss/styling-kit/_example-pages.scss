@@ -232,7 +232,7 @@
             font-weight: 600;
         }
         .title{
-            color: $white-color;
+            color: $light-color;
         }
     }
 
@@ -409,7 +409,7 @@
     .footer nav > ul a:not(.btn),
     .footer,
     .footer .copyright a{
-        color: $white-color;
+        color: $light-color;
     }
 
 }
@@ -481,7 +481,7 @@
         }
 
         &.card-plain{
-            @include input-coloured-bg($opacity-5, $white-color, $white-color, $transparent-bg, $opacity-1, $opacity-2);
+            @include input-coloured-bg($opacity-5, $light-color, $light-color, $transparent-bg, $opacity-1, $opacity-2);
 
             .input-group-text,
             .form-group.form-group-no-border .input-group-text,
@@ -493,12 +493,12 @@
 
     .link{
         font-size: 10px;
-        color: $white-color !important;
+        color: $light-color !important;
         text-decoration: none;
 
         &:hover,
         &:focus{
-            border-color: $white-color !important;
+            border-color: $light-color !important;
         }
     }
 }
@@ -574,7 +574,7 @@
             text-align: center;
         }
         .title{
-            color: $white-color;
+            color: $light-color;
         }
     }
     .about-description{

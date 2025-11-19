@@ -256,14 +256,14 @@
     
     > div{
 
-            border: 7px solid $white-color;
+            border: 7px solid $light-color;
             border-top: 7px solid rgba(0,0,0,0);
-            border-right: 7px solid $white-color;
-            border-bottom: 7px solid $white-color;
+            border-right: 7px solid $light-color;
+            border-bottom: 7px solid $light-color;
     }
     
     > div:after{
-        border-color: transparent transparent $white-color transparent;
+        border-color: transparent transparent $light-color transparent;
     }
 
 }
@@ -274,9 +274,9 @@
     > div{
                 left: 10px;
                 top: 10px;
-                border: 3px solid $white-color;
+                border: 3px solid $light-color;
                 border-top: 3px solid rgba(0,0,0,0);
-                border-right: 3px solid $white-color;
-                border-bottom: 3px solid $white-color;
+                border-right: 3px solid $light-color;
+                border-bottom: 3px solid $light-color;
         }    
 }

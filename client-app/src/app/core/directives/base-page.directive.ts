@@ -100,5 +100,27 @@ export abstract class BasePageComponent implements OnInit, OnDestroy {
       );
     }
   }
+ 
+  openTelephoneApp(phoneNumber: string): void {
+    if (!phoneNumber) {
+      console.warn("No phone number provided.");
+      return;
+    }
+  
+    // Remove spaces, dashes, parentheses
+    const sanitized = phoneNumber.replace(/[\s()-]/g, '');
+  
+    // Basic validation
+    const isValid = /^[0-9+]+$/.test(sanitized);
+    if (!isValid) {
+      console.error("Invalid phone number format:", phoneNumber);
+      return;
+    }
+  
+    // Attempt to open the dialer
+    const telUrl = `tel:${sanitized}`;
+    window.location.href = telUrl;
+  }
+  
   
 }

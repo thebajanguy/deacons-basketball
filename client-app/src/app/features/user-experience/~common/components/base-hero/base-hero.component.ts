@@ -7,12 +7,15 @@ import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { SocialPluginComponent } from "../social-plugin/social-plugin.component";
 import { FixedSocialPluginComponent } from "../fixed-social-plugin/fixed-social-plugin.component";
 
-export type HeroCta = {
+export type CtaConfig = {
   label: string;
   routerLink?: any[] | string;
   href?: string;
   ariaLabel?: string;
   fragment?:string;
+  phone?:string;
+  login?:string;
+  signout?:string;
   rel?: string;
   target?: '_blank' | '_self';
   variant?: 'primary' | 'outline' | 'ghost' | 'light';
@@ -47,7 +50,7 @@ export class BaseHeroComponent extends BasePageComponent implements OnChanges {
   /** Optional breadcrumb trail */
   @Input() breadcrumb?: { label: string; link?: any[] | string }[];
   /** Call-to-action buttons */
-  @Input() ctas: HeroCta[] = [];
+  @Input() ctas: CtaConfig[] = [];
 
   /** Accessibility: background image alt (if you also include an <img>, which we don't by default) */
   @Input() bgAlt = 'Decorative program background';

@@ -9,7 +9,7 @@
 
     &.footer-black {
         h4 {
-            color: $main-color;
+            color: $brand-main-color;
         }
     }
 
@@ -112,7 +112,7 @@
     }
 
     .footer-link-title {
-        color: $white-color;
+        color: $light-color;
         font-weight: 600;
         font-size: $font-size-medium;
         color: gray;

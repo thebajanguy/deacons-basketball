@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, SimpleChanges, ViewEncapsulation, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, SimpleChanges, ViewEncapsulation, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
@@ -22,15 +22,14 @@ import {
   switchMap, 
   shareReplay, 
   distinctUntilChanged,
-  BehaviorSubject} from 'rxjs';
-import { signal } from '@angular/core';
+  BehaviorSubject,
+  combineLatest} from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { CoreNotificationsService } from '../../../../../../core/notifications/notifications.service';
-import { ActivityRegistrationApi, ActivityRegistrationDto, BASKETBALL_POSITION_OPTIONS, BasketballPositionOption, COUNTRY_OPTIONS, CountryOption, INTEREST_OPTIONS, InterestOption, SKILL_LEVEL_OPTIONS, SkillLevelOption, SOCCER_POSITION_OPTIONS, TSHIRT_SIZE_OPTIONS, TShirtSizeOption } from '../../../../~common/apis/registration.api';
 import { stringValidator, isoDateValidator, phoneNumberValidator, digitsOnlyValidator, isOptionValidator, alphaNumValidator } from '../../../../~common/validators/validators';
 import { sqlInjectionValidator } from '../../../../~common/validators/sqlinjection.validators';
-import { ActivatedRoute } from '@angular/router';
-import { combineLatest } from 'rxjs';
 import { Activity, ActivityApi } from '../../../../~common/apis/activity.api';
+import { ActivityRegistrationApi, ActivityRegistrationDto, BASKETBALL_POSITION_OPTIONS, BasketballPositionOption, COUNTRY_OPTIONS, CountryOption, GUARDIAN_RELATION_OPTIONS, GuardianRelationOption, INTEREST_OPTIONS, InterestOption, SKILL_LEVEL_OPTIONS, SkillLevelOption, SOCCER_POSITION_OPTIONS, TSHIRT_SIZE_OPTIONS, TShirtSizeOption } from '../../../../~common/apis/registration.api';
 
 @Component({
   selector: 'app-registration-intake-form',
@@ -54,12 +53,12 @@ export class RegistrationIntakeComponent  {
   activities$!: Observable<Activity[]>;
   readonly interestOptions = INTEREST_OPTIONS;
   readonly countryOptions = COUNTRY_OPTIONS;
-
   readonly skillOptions = SKILL_LEVEL_OPTIONS;
   readonly sizeOptions = TSHIRT_SIZE_OPTIONS;
   readonly basketballPositionOptions = BASKETBALL_POSITION_OPTIONS;
   readonly soccerPositionOptions = SOCCER_POSITION_OPTIONS;
-
+  readonly guardianRelationOptions = GUARDIAN_RELATION_OPTIONS;
+  
   // Local UI state (signals)
   readonly submitting = signal(false);
   readonly serverMessage = signal<{ type: 'success' | 'error'; text: string } | null>(null);
@@ -68,34 +67,34 @@ export class RegistrationIntakeComponent  {
 
   // FORM DEFINITION
   form = this.fb.group({
-    honeypot:   this.fb.control<string>(''), // spam trap
-
+    /* Main Details */
     Country:    new FormControl<CountryOption | null>(null, { validators: [isOptionValidator(this.countryOptions, true, 'country')] }),
     Interest:   new FormControl<InterestOption | null>(null, { validators: [isOptionValidator(this.interestOptions, true, 'interest')] }),
-
-    ActivityId:  this.fb.nonNullable.control<string>('', { validators: [Validators.required] }),
-
+    ActivityId:  this.fb.nonNullable.control<string | null>(null, { validators: [Validators.required] }),
+    /* Athlete Details */
     Givenname:  this.fb.nonNullable.control<string>('', { validators: [stringValidator({ required: true })] }),
     Surname:    this.fb.nonNullable.control<string>('', { validators: [stringValidator({ required: true })] }),
     DOB:        this.fb.nonNullable.control<string>('', { validators: [isoDateValidator({ required: true })] }),
-
+    /* Athlete Contact Details */
     Email:      this.fb.nonNullable.control<string>('', { validators: [Validators.email] }),
     Phone:      this.fb.nonNullable.control<string>('', { validators: [phoneNumberValidator({ required: false })] }),
-    
+    /* School Details */
     School:     this.fb.nonNullable.control<string>('', { validators: [stringValidator({ required: true })] }),
     GradeOrForm:this.fb.nonNullable.control<string>('', { validators: [alphaNumValidator({ required: true })] }),
-
-    Position:   new FormControl<BasketballPositionOption | null>(null, { validators:[isOptionValidator(this.basketballPositionOptions, true, 'position')] }),
-    SkillLevel: new FormControl<SkillLevelOption | null>(null, { validators:[isOptionValidator(this.skillOptions, true, 'skill')] }),
-    TshirtSize: new FormControl<TShirtSizeOption | null>(null, { validators:[isOptionValidator(this.sizeOptions, true, 'size')]}),
-
+    /* Sports Details */
+    Position:         new FormControl<BasketballPositionOption | null>(null, { validators:[isOptionValidator(this.basketballPositionOptions, true, 'position')] }),
+    SkillLevel:       new FormControl<SkillLevelOption | null>        (null, { validators:[isOptionValidator(this.skillOptions, true, 'skill')] }),
+    TshirtSize:       new FormControl<TShirtSizeOption | null>        (null, { validators:[isOptionValidator(this.sizeOptions, true, 'size')]}),
+    /* Guardian Details */
     GuardianName:     this.fb.nonNullable.control<string>('', { validators: [Validators.required, stringValidator({ required: true })] }),
     GuardianEmail:    this.fb.nonNullable.control<string>('', { validators: [Validators.required, Validators.email] }),
     GuardianPhone:    this.fb.nonNullable.control<string>('', { validators: [Validators.required, phoneNumberValidator({ required: true })] }),
-    GuardianRelation: this.fb.nonNullable.control<string>('', { validators: [Validators.required, stringValidator({ required: true })] }),
-
-    Notes:      this.fb.nonNullable.control<string>('', { validators: [sqlInjectionValidator({ required: false, mode: 'relaxed' }), stringValidator({ required: false }), Validators.maxLength(4000)] })
+    GuardianRelation: new FormControl<GuardianRelationOption | null>    (null, { validators:[isOptionValidator(this.guardianRelationOptions, true, 'relation')]}),
+    /* Additional Notes */
+    Notes:      this.fb.nonNullable.control<string>('', { validators: [sqlInjectionValidator({ required: false, mode: 'relaxed' }), stringValidator({ required: false }), Validators.maxLength(4000)] }),
     
+    /* Spam trap - do not remove */
+    honeypot:   this.fb.control<string>('')
   });
 
   // Search input for InterestTopic
@@ -217,7 +216,8 @@ export class RegistrationIntakeComponent  {
         GuardianName: trimOrNull(v.GuardianName),
         GuardianEmail: v.GuardianEmail?.trim().toLowerCase() ?? null,
         GuardianPhone: trimOrNull(v.GuardianPhone),
-        GuardianRelation: trimOrNull(v.GuardianRelation),
+        GuardianRelation: v.GuardianRelation ?? null,
+
       },
       Notes: trimOrNull(v.Notes),
       CreatedAt: new Date().toISOString(),
@@ -257,8 +257,13 @@ export class RegistrationIntakeComponent  {
       DOB: '',
       Email: '',
       Phone: '',
+      Position: null,
+      SkillLevel: null,
+      TshirtSize: null,
+      GuardianRelation: null,
       Notes: '',
       honeypot: ''
+
     });
     this.interestSearch.setValue('');
 

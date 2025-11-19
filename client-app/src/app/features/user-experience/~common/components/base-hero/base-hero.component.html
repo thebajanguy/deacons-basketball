@@ -15,13 +15,14 @@
     <div class="container hero__content__container">
 
       <!-- Breadcrumbs -->
+      <!--
       <nav *ngIf="isNavigationPage" class="hero__crumbs" aria-label="Breadcrumb">
         <ol>
           <li><a [routerLink]="['/'+urlPath+'/barbados']">Home</a></li>
           <li aria-current="page">{{ breadcrumbSEO }}</li>
         </ol>
       </nav>
-
+      -->
 
 
       <div class="hero__header__container">
@@ -31,33 +32,54 @@
 
       <p *ngIf="description"
          class="hero__description text-white mt-3"
-         [innerHTML]="safeDescription"></p>
+         [innerHTML]="safeDescription">
+      </p>
      
-         <p class="hero-meta" *ngIf="!isNavigationPage">
-          <br />
-          <span class="pill">Academy</span> • Updated 2h ago
-        </p>
+      <p class="hero-meta" *ngIf="!isNavigationPage">
+        <br />
+        <span class="pill">Academy</span> • Updated 2h ago
+      </p>
 
       <div *ngIf="ctas?.length" class="hero__ctas" role="group" aria-label="Primary calls to action">
 
         <ng-container *ngFor="let btn of ctas">
-          <a *ngIf="btn.href"
+
+          <!-- PHONE CTA -->
+          <a *ngIf="btn.phone"
+             class="btn"
+             [class.btn-outline]="btn.variant==='outline'"
+             [class.btn-ghost]="btn.variant==='ghost'"
+             (click)="openTelephoneApp(btn.phone)"
+             [attr.aria-label]="btn.ariaLabel || btn.label">
+             {{ btn.label }}
+          </a>
+        
+          <!-- NORMAL HREF CTA -->
+          <a *ngIf="!btn.phone && btn.href"
              class="btn"
              [class.btn-outline]="btn.variant==='outline'"
              [class.btn-ghost]="btn.variant==='ghost'"
              [attr.href]="btn.href"
              [attr.target]="btn.target || '_self'"
              [attr.rel]="btn.rel"
-             [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}</a>
-
-          <a *ngIf="btn.routerLink && !btn.href"
+             [attr.aria-label]="btn.ariaLabel || btn.label">
+             {{ btn.label }}
+          </a>
+        
+          <!-- ROUTERLINK CTA -->
+          <a *ngIf="!btn.phone && btn.routerLink && !btn.href"
              class="btn"
              [class.btn-outline]="btn.variant==='outline'"
              [class.btn-ghost]="btn.variant==='ghost'"
              [routerLink]="btn.routerLink"
              [fragment]="btn.fragment"
-             [attr.aria-label]="btn.ariaLabel || btn.label">{{ btn.label }}</a>
+             [attr.aria-label]="btn.ariaLabel || btn.label">
+             {{ btn.label }}
+          </a>
+        
         </ng-container>
+        
+
       </div>
 
       <br />

@@ -8,7 +8,7 @@
     background-color: $transparent-bg;
     border: $border;
     margin-bottom: 5px;
-    color: $white-color;
+    color: $light-color;
     border-radius: $border-radius-extreme;
 }
 .badge-icon{
@@ -36,6 +36,6 @@
     @include badge-color($danger-color);
 }
 .badge-neutral{
-    @include badge-color($white-color);
+    @include badge-color($light-color);
     color: inherit;
 }

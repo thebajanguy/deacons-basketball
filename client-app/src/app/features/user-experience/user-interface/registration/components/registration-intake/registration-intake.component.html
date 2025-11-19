@@ -202,7 +202,7 @@
               <small class="error" *ngIf="f.GuardianEmail.hasError('required') && f.GuardianEmail.touched">Required</small>
               <small class="error" *ngIf="f.GuardianEmail.hasError('GuardianEmail') && f.GuardianEmail.touched">Only letters, spaces, . ' - (min 2)</small>
             </div>
-            <!-- GuardianPhone -->
+            <!-- GuardianPhone: Required -->
             <div class="fl-flex" [class.filled]="!!f.GuardianPhone.value"
                 [class.has-error]="f.GuardianPhone.invalid && f.GuardianPhone.touched">
               <input id="GuardianPhone" type="text" formControlName="GuardianPhone" placeholder=" " required>
@@ -210,14 +210,16 @@
               <small class="error" *ngIf="f.GuardianPhone.hasError('required') && f.GuardianPhone.touched">Required</small>
               <small class="error" *ngIf="f.GuardianPhone.hasError('GuardianPhone') && f.GuardianPhone.touched">Only letters, spaces, . ' - (min 2)</small>
             </div>
-            <!-- GuardianRelation -->
+            <!-- GuardianRelation: Required -->
             <div class="fl-flex" [class.filled]="!!f.GuardianRelation.value"
             [class.has-error]="f.GuardianRelation.invalid && f.GuardianRelation.touched">
-              <input id="GuardianRelation" type="text" formControlName="GuardianRelation" placeholder=" " required>
+              <select id="GuardianRelation" class="form-select" formControlName="GuardianRelation" required>
+                <option *ngFor="let i of guardianRelationOptions" [value]="i">{{ i }}</option>
+              </select>
               <label for="GuardianRelation">Relation</label>
               <small class="error" *ngIf="f.GuardianRelation.hasError('required') && f.GuardianRelation.touched">Required</small>
-              <small class="error" *ngIf="f.GuardianRelation.hasError('GuardianRelation') && f.GuardianRelation.touched">Only letters, spaces, . ' - (min 2)</small>
             </div>
+
           </div>
         </div>
       </div>

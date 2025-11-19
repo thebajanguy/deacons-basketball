@@ -9,7 +9,7 @@
         vertical-align: middle;
 
         &:not(.btn):not(.dropdown-item){
-            color: $white-color;
+            color: $light-color;
         }
     }
 
@@ -84,7 +84,7 @@
 
             &.disabled{
                 opacity: .5;
-                color: $white-color;
+                color: $light-color;
             }
         }
 
@@ -154,7 +154,7 @@
     &.navbar-transparent{
         background-color: $transparent-bg !important;
         box-shadow: none;
-        color: $white-color;
+        color: $light-color;
         padding-top: 20px;
     }
 
@@ -211,5 +211,5 @@
 }
 
 .bg-white{
-    background-color: $white-color !important;
+    background-color: $light-color !important;
 }

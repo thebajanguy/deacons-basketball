@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UtilitiesService } from '../../../../../core/services/utilities.service';
+import { UtilitiesService } from '../../../../../../core/services/utilities.service';
 
 @Component({
   selector: 'app-footer-cmp',
